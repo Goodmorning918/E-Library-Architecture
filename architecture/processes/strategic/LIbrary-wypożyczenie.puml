@@ -1,0 +1,33 @@
+@startuml
+title "Borrowing a book"
+
+actor "Reader" as reader
+participant "Cart Webpage" as cartWebpage
+participant "Cart" as cart
+participant "Products" as products
+participant "Finances" as finances
+participant "Shelf " as shelf
+participant "Email Provider" as email
+
+== Confirming the rental  ==
+reader -> cartWebpage : confirm the rental
+cartWebpage -> cart : confirm the rental
+cart -> products : confirm products available
+products -> cart : confirmed
+cart -> finances : prepare payment
+finances -> cart : payment link
+cart -> cartWebpage : payment link
+cartWebpage -> reader : payment form
+
+== Payment  ==
+reader -> cartWebpage : make payment
+cartWebpage -> finances : make payment
+finances -> email : send email with invoice
+email -> finances : sent
+finances -> cart : paid
+cart -> shelf : add rented books to reader virtual shelf
+shelf -> cart : added
+cart -> cartWebpage : successfully rented books
+cartWebpage -> reader : successfully rented books
+
+@enduml

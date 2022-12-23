@@ -1,0 +1,27 @@
+@startuml
+title "Finalize cart"
+
+participant "Cart Webpage" as cartWebpage #99FF99
+participant "Cart Rest Api" as cartApi
+participant "Cart manager" as cartManager
+participant "Cart Repository" as repository
+database "DynamoDB" as dynamoDb #99FF99
+participant "Shelf Connector" as shelfConnector
+participant "Shelf" as shelf #99FF99
+
+cartWebpage -> cartApi : finalize Cart
+cartApi -> cartManager : finalize Cart
+
+cartManager -> repository : remove cart
+repository -> dynamoDb : remove cart
+dynamoDb -> repository : removed
+repository -> cartManager : removed
+
+cartManager -> shelfConnector : add items to shelf
+shelfConnector -> shelf : add items to shelf
+shelf -> shelfConnector : added
+shelfConnector -> cartManager : added
+
+cartManager -> cartApi : finalized
+cartApi -> cartWebpage : finalized
+@enduml
