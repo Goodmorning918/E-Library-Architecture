@@ -1,0 +1,47 @@
+name: release
+on:
+  push:
+    tags:
+      - '*'
+
+env:
+  IMAGE_NAME: ${{ github.event.repository.name }}
+
+jobs:
+
+  publish-example-site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 18
+
+      - name: Download binaries
+        uses: actions/download-artifact@v3
+        with:
+          name: binaries
+          path: build/install
+
+      - name: Set up environment
+        run: |
+          sudo apt-get install -y graphviz
+          chmod +x build/install/structurizr-site-generatr/bin/structurizr-site-generatr
+
+      - name: Generate example site
+        run: >
+          build/install/structurizr-site-generatr/bin/structurizr-site-generatr generate-site
+          --git-url https://github.com/avisi-cloud/structurizr-site-generatr.git
+          --workspace-file docs/example/workspace.dsl
+          --assets-dir docs/example/assets
+          --branches main
+          --default-branch main
+          --version ${{ github.ref_name }}
+
+      - name: Publish example site
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/site
