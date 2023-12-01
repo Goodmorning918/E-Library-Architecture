@@ -1,0 +1,109 @@
+= Finance Documentation
+
+== General
+
+image::/site/finance.png[Accounts,700,align="right"]
+
+== Ownership
+
+* *Team*: Finance Team
+* *Product Owner*: Michelle Smith
+
+== Containers
+
+=== Backend
+
+==== Finance Microservice
+
+Microservice responsible for all finance operations.
+
+* *Repository Link*:
+link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Finance Microservice]
+
+* *Environments*:
+link:https://library.test.finance.com[test],
+link:https://library.finance.com[prod]
+
+* *Parameters*:
+link:https://aws.params.com/test/finance[test],
+link:https://aws.params.com/prod/finance[prod],
+
+* *CI/CD*:
+link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - actions]
+
+* *Logs*:
+link:https://logserver.com/test/finance[test],
+link:https://logserver.com/prod/finance[prod],
+
+* *Monitoring Dashboard*:
+link:https://monitoring.com/test/finance[test],
+link:https://monitoring.com/prod/finance[prod],
+
+=== Frontend
+
+Single Page Application responsible for displaying all finance operations.
+
+==== Finance Spa
+
+* *Repository Link*:
+link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - finance-Spa]
+
+* *Environments*:
+link:https://library.test.finance-Spa.com[test],
+link:https://library.finance-Spa.com[prod]
+
+* *Parameters*:
+link:https://aws.params.com/test/finance-Spa[test],
+link:https://aws.params.com/prod/finance-Spa[prod],
+
+* *CI/CD*:
+link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - actions]
+
+* *Logs*:
+link:https://logserver.com/test/finance-Spa[test],
+link:https://logserver.com/prod/finance-Spa[prod],
+
+* *Monitoring Dashboard*:
+link:https://monitoring.com/test/finance-Spa[test],
+link:https://monitoring.com/prod/finance-Spa[prod],
+
+=== Database
+
+Database responsible for storing all finance data.
+
+==== Finance Database
+
+* *Database Link*:
+link:https://library.test.financeDb.com[test],
+link:https://library.prod.financeDb.com[prod],
+
+* *Database Read Only access*:
+*** Test
+**** User: user1
+**** Password: password1
+
+== Finance Processes
+
+.[.collapse-title]#Oversee finance transactions#
+[%collapsible]
+====
+image::embed:oversee-financial-transactions[Oversee finance transactions]
+====
+
+.[.collapse-title]#Generate payment link#
+[%collapsible]
+====
+image::embed:generate-payment-link[Generate payment link]
+====
+
+.[.collapse-title]#Send invoice#
+[%collapsible]
+====
+image::embed:send-invoice[Send invoice]
+====
+
+.[.collapse-title]#Make payment#
+[%collapsible]
+====
+image::embed:make-payment[Make payment]
+====

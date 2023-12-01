@@ -1,0 +1,109 @@
+= Cart Documentation
+
+== General
+
+image::/site/cart.png[Accounts,700,align="right"]
+
+== Ownership
+
+* *Team*: Cart Team
+* *Product Owner*: Michael Scott
+
+== Containers
+
+=== Backend
+
+==== Cart Microservice
+
+Microservice responsible for all cart operations.
+
+* *Repository Link*:
+link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Cart Microservice]
+
+* *Environments*:
+link:https://library.test.cart.com[test],
+link:https://library.cart.com[prod]
+
+* *Parameters*:
+link:https://aws.params.com/test/cart[test],
+link:https://aws.params.com/prod/cart[prod],
+
+* *CI/CD*:
+link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - actions]
+
+* *Logs*:
+link:https://logserver.com/test/cart[test],
+link:https://logserver.com/prod/cart[prod],
+
+* *Monitoring Dashboard*:
+link:https://monitoring.com/test/cart[test],
+link:https://monitoring.com/prod/cart[prod],
+
+=== Frontend
+
+Single Page Application responsible for displaying all cart operations.
+
+==== Cart Spa
+
+* *Repository Link*:
+link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - cart-Spa]
+
+* *Environments*:
+link:https://library.test.cartSpa.com[test],
+link:https://library.cartSpa.com[prod]
+
+* *Parameters*:
+link:https://aws.params.com/test/cartSpa[test],
+link:https://aws.params.com/prod/cartSpa[prod],
+
+* *CI/CD*:
+link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - actions]
+
+* *Logs*:
+link:https://logserver.com/test/cartSpa[test],
+link:https://logserver.com/prod/cartSpa[prod],
+
+* *Monitoring Dashboard*:
+link:https://monitoring.com/test/cartSpa[test],
+link:https://monitoring.com/prod/cartSpa[prod],
+
+=== Database
+
+Database responsible for storing all cart data.
+
+==== Cart Database
+
+* *Database Link*:
+link:https://library.test.cardDb.com[test],
+link:https://library.prod.cardDb.com[prod],
+
+* *Database Read Only access*:
+*** Test
+**** User: user1
+**** Password: password1
+
+== Cart Processes
+
+.[.collapse-title]#Add item to cart#
+[%collapsible]
+====
+image::embed:add-item-to-cart[Add item to cart]
+====
+
+.[.collapse-title]#Remove item from cart#
+[%collapsible]
+====
+image::embed:remove-item-from-cart[Remove item from cart]
+====
+
+.[.collapse-title]#Finalize cart#
+[%collapsible]
+====
+image::embed:finalize-cart[Finalize cart]
+====
+
+.[.collapse-title]#Cart paid#
+[%collapsible]
+====
+image::embed:cart-paid[Cart paid]
+====

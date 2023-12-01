@@ -1,0 +1,96 @@
+= Recommendations Documentation
+
+== General
+
+image::/site/recommendations.png[Accounts,700,align="right"]
+
+== Ownership
+
+* *Team*: Recommendation Team
+* *Product Owner*: Arthur Dent
+
+== Containers
+=== Backend
+==== Recommendations Microservice
+Microservice responsible for generation reader recommendations
+
+* *Repository Link*:
+link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Recommendation Microservice]
+
+* *Environments*:
+link:https://library.test.recommendations.com[test],
+link:https://library.recommendations.com[prod]
+
+* *Parameters*:
+link:https://aws.params.com/test/recommendations[test],
+link:https://aws.params.com/prod/recommendations[prod],
+
+* *CI/CD*:
+link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - actions]
+
+* *Logs*:
+link:https://logserver.com/test/recommendations[test],
+link:https://logserver.com/prod/recommendations[prod],
+
+* *Monitoring Dashboard*:
+link:https://monitoring.com/test/recommendations[test],
+link:https://monitoring.com/prod/recommendations[prod],
+
+=== Frontend
+Single Page Application responsible for displaying all recommendations operations.
+
+==== Recommendations Spa
+* *Repository Link*:
+link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - recommendations-Spa]
+
+* *Environments*:
+link:https://library.test.recommendationsSpa.com[test],
+link:https://library.recommendationsSpa.com[prod]
+
+* *Parameters*:
+link:https://aws.params.com/test/recommendationsSpa[test],
+link:https://aws.params.com/prod/recommendationsSpa[prod],
+
+* *CI/CD*:
+link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - actions]
+
+* *Logs*:
+link:https://logserver.com/test/recommendationsSpa[test],
+link:https://logserver.com/prod/recommendationsSpa[prod],
+
+* *Monitoring Dashboard*:
+link:https://monitoring.com/test/recommendationsSpa[test],
+link:https://monitoring.com/prod/recommendationsSpa[prod],
+
+=== Database
+Database responsible for storing all recommendations data.
+
+==== Recommendations Database
+* *Database Link*:
+link:https://library.test.recommendationsDb.com[test],
+link:https://library.prod.recommendationsDb.com[prod],
+
+* *Database Read Only access*:
+*** Test
+**** User: user1
+**** Password: password1
+
+== Recommendations Processes
+
+.[.collapse-title]#Present recommended products#
+[%collapsible]
+====
+image::embed:present-recommended-products[Present recommended products]
+====
+
+.[.collapse-title]#Present Update user recommendations#
+[%collapsible]
+====
+image::embed:update-user-recommendations[Update user recommendations]
+====
+
+.[.collapse-title]#Present Store user recomendation after reader registration#
+[%collapsible]
+====
+image::embed:store-user-recommendations-after-reader-registration[Store user recomendation after reader registration]
+====

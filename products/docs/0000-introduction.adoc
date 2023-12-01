@@ -1,0 +1,103 @@
+= Products Documentation
+
+== General
+
+image::/site/products.png[Products,700,align="right"]
+
+== Ownership
+
+* *Team*: Products Team
+* *Product Owner*: William Anderson
+
+== Containers
+
+=== Backend
+
+==== Products Microservice
+
+Microservice responsible for processing all products operations.
+
+* *Repository Link*:
+link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Accounts Microservice]
+
+* *Environments*:
+link:https://library.test.products.com[test],
+link:https://library.products.com[prod]
+
+* *Parameters*:
+link:https://aws.params.com/test/products[test],
+link:https://aws.params.com/prod/products[prod],
+
+* *CI/CD*:
+link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - actions]
+
+* *Logs*:
+link:https://logserver.com/test/products[test],
+link:https://logserver.com/prod/products[prod],
+
+* *Monitoring Dashboard*:
+link:https://monitoring.com/test/products[test],
+link:https://monitoring.com/prod/products[prod],
+
+=== Frontend
+
+Single Page Application responsible for displaying all products operations.
+
+==== Products Spa
+
+* *Repository Link*:
+link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - shelf-Products]
+
+* *Environments*:
+link:https://library.test.productsSpa.com[test],
+link:https://library.productsSpa.com[prod]
+
+* *Parameters*:
+link:https://aws.params.com/test/productsSpa[test],
+link:https://aws.params.com/prod/productsSpa[prod],
+
+* *CI/CD*:
+link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - actions]
+
+* *Logs*:
+link:https://logserver.com/test/productsSpa[test],
+link:https://logserver.com/prod/productsSpa[prod],
+
+* *Monitoring Dashboard*:
+link:https://monitoring.com/test/productsSpa[test],
+link:https://monitoring.com/prod/productsSpa[prod],
+
+=== Database
+
+Database responsible for storing all products data.
+
+==== Products Database
+
+* *Database Link*:
+link:https://library.test.shelfDb.com[test],
+link:https://library.prod.productsSpa.com[prod],
+
+* *Database Read Only access*:
+*** Test
+**** User: user1
+**** Password: password1
+
+== Product Processes
+
+.[.collapse-title]#Add book to library#
+[%collapsible]
+====
+image::embed:add-book-to-library[Add book to library]
+====
+
+.[.collapse-title]#Remove book from library#
+[%collapsible]
+====
+image::embed:remove-book-from-library[Remove book from library]
+====
+
+.[.collapse-title]#Present available books#
+[%collapsible]
+====
+image::embed:present-available-books[Present available books]
+====
