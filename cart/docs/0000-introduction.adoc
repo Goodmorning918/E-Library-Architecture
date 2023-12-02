@@ -7,7 +7,7 @@ image::/site/cart.png[Accounts,700,align="right"]
 == Ownership
 
 * *Team*: Cart Team
-* *Product Owner*: Michael Scott
+* *Product Owner*: Michael Adams
 
 == Containers
 
