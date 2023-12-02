@@ -1,0 +1,27 @@
+name: Publish C4 Model
+on:
+  push:
+    branches:
+      - '**'                  # matches every branch
+      - '!gh-pages'    # excludes the GitHub Pages deployment branch
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.3.0
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Build Site
+        run: docker run --user root -t --rm -v ${{ github.workspace }}:/var/model ghcr.io/avisi-cloud/structurizr-site-generatr generate-site -g https://github.com/papayaglobal/papaya-docs.git -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }} -w workspace.dsl -b main,feature/MARV-321-add-integration-with -d main -a assets
+        shell: bash
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: build/site
