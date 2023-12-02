@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0
 
       - name: Build Site
-        run: docker run --user root -t --rm -v ${{ github.workspace }}:/var/model ghcr.io/avisi-cloud/structurizr-site-generatr generate-site -g https://github.com/papayaglobal/papaya-docs.git -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }} -w workspace.dsl -b main,feature/MARV-321-add-integration-with -d main -a assets
+        run: docker run --user root -t --rm -v ${{ github.workspace }}:/var/model ghcr.io/avisi-cloud/structurizr-site-generatr generate-site -g https://github.com/Goodmorning918/E-Library-Architecture.git -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }} -w workspace.dsl -b master -d master -a assets
         shell: bash
 
       - name: Deploy
