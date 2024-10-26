@@ -1,0 +1,97 @@
+= Shelf Documentation
+
+== General
+
+image::/site/accounts.png[Shelf,700,align="right"]
+
+== Ownership
+
+* *Team*: Shelf Team
+* *Product Owner*: John Doe
+
+== Containers
+
+=== Backend
+
+==== Shelf Microservice
+
+Microservice responsible for processing all shelf operations.
+
+* *Repository Link*:
+link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Accounts Microservice]
+
+* *Environments*:
+link:https://library.test.shelf.com[test],
+link:https://library.shelf.com[prod]
+
+* *Parameters*:
+link:https://aws.params.com/test/shelf[test],
+link:https://aws.params.com/prod/shelf[prod],
+
+* *CI/CD*:
+link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - actions]
+
+* *Logs*:
+link:https://logserver.com/test/shelf[test],
+link:https://logserver.com/prod/shelf[prod],
+
+* *Monitoring Dashboard*:
+link:https://monitoring.com/test/shelf[test],
+link:https://monitoring.com/prod/shelf[prod],
+
+=== Frontend
+
+Single Page Application responsible for displaying all shelf operations.
+
+==== Shelf Spa
+
+* *Repository Link*:
+link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - shelf-Spa]
+
+* *Environments*:
+link:https://library.test.shelfSpa.com[test],
+link:https://library.shelfSpa.com[prod]
+
+* *Parameters*:
+link:https://aws.params.com/test/shelfSpa[test],
+link:https://aws.params.com/prod/shelfSpa[prod],
+
+* *CI/CD*:
+link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - actions]
+
+* *Logs*:
+link:https://logserver.com/test/shelfSpa[test],
+link:https://logserver.com/prod/shelfSpa[prod],
+
+* *Monitoring Dashboard*:
+link:https://monitoring.com/test/shelfSpa[test],
+link:https://monitoring.com/prod/shelfSpa[prod],
+
+=== Database
+
+Database responsible for storing all shelf data.
+
+==== Accounts Database
+
+* *Database Link*:
+link:https://library.test.shelfDb.com[test],
+link:https://library.prod.shelfDb.com[prod],
+
+* *Database Read Only access*:
+*** Test
+**** User: user1
+**** Password: password1
+
+== Shelf Processes
+
+.[.collapse-title]#Add books to shelf#
+[%collapsible]
+====
+image::embed:add-books-to-shelf[Add books to shelf]
+====
+
+.[.collapse-title]#Present books from reader shelf#
+[%collapsible]
+====
+image::embed:present-books-from-reader-shelf[Present books from reader shelf]
+====
