@@ -1,0 +1,21 @@
+= Mail-Provider Documentation
+
+== General
+
+image::/site/mail-provider.png[Accounts,700,align="right"]
+
+External 3rd party service responsible for all cart operations.
+
+== Contact
+
+* *Support*: Oliver Smith
+
+== API
+
+Api documentation: https://mail-provider.com/api-docs
+
+== Urls
+* *Staging*: https://staging.mail-provider.com```
+* *Production*: https://mail-provider.com
+
+
