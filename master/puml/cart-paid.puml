@@ -1,0 +1,49 @@
+@startuml
+set separator none
+title Cart - Dynamic
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam sequenceParticipant<<Cart.CartDatabase>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam sequenceParticipant<<Cart.CartMicroservice>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam sequenceParticipant<<Finance.FinanceMicroservice>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam sequenceParticipant<<Shelf.ShelfMicroservice>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+
+participant "Cart Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Cart.CartMicroservice <<Cart.CartMicroservice>> #26a69a
+participant "Finance Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Finance.FinanceMicroservice <<Finance.FinanceMicroservice>> #26a69a
+database "Cart Database\n<size:10>[Container: MongoDB]</size>" as Cart.CartDatabase <<Cart.CartDatabase>> #26a69a
+participant "Shelf Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Shelf.ShelfMicroservice <<Shelf.ShelfMicroservice>> #26a69a
+Cart.CartMicroservice <-[#004d40]- Finance.FinanceMicroservice : Notifies of completed payment
+Cart.CartMicroservice -[#004d40]> Finance.FinanceMicroservice : Acknowledges payment
+Cart.CartMicroservice -[#004d40]> Cart.CartDatabase : Marks cart as paid
+Cart.CartMicroservice <-[#004d40]- Cart.CartDatabase : Confirms payment status
+Cart.CartMicroservice -[#004d40]> Shelf.ShelfMicroservice : Updates borrowed items
+Cart.CartMicroservice <-[#004d40]- Shelf.ShelfMicroservice : Acknowledges update
+@enduml

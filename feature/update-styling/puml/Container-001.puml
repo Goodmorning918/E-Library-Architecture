@@ -1,0 +1,74 @@
+@startuml
+set separator none
+title Accounts - Containers
+
+left to right direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam database<<Accounts.AccountsDatabase>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam rectangle<<Accounts.AccountsMicroservice>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam rectangle<<Accounts.AccountsSinglePageApplication>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam person<<Administrator>> {
+  BackgroundColor #00796b
+  FontColor #ffffff
+  BorderColor #00544a
+  shadowing false
+}
+skinparam person<<Reader>> {
+  BackgroundColor #00796b
+  FontColor #ffffff
+  BorderColor #00544a
+  shadowing false
+}
+skinparam rectangle<<Recommendations>> {
+  BackgroundColor #009688
+  FontColor #ffffff
+  BorderColor #00695f
+  shadowing false
+}
+skinparam rectangle<<Accounts>> {
+  BorderColor #00695f
+  FontColor #00695f
+  shadowing false
+}
+
+person "==Reader\n<size:10>[Person]</size>\n\nA user of the E-Library System who interacts with available resources" <<Reader>> as Reader
+person "==Administrator\n<size:10>[Person]</size>\n\nAn admin responsible for adding items to the library, managing user accounts, and handling financial transactions" <<Administrator>> as Administrator
+rectangle "==Recommendations\n<size:10>[Software System]</size>\n\nProvides recommended items for users" <<Recommendations>> as Recommendations
+
+rectangle "Accounts\n<size:10>[Software System]</size>" <<Accounts>> {
+  rectangle "==Accounts Single Page Application\n<size:10>[Container: React Component]</size>\n\nProvides account management functionality through the user interface" <<Accounts.AccountsSinglePageApplication>> as Accounts.AccountsSinglePageApplication
+  rectangle "==Accounts Microservice\n<size:10>[Container: Java and Spring Boot]</size>\n\nAPI for account management functionality" <<Accounts.AccountsMicroservice>> as Accounts.AccountsMicroservice
+  database "==Accounts Database\n<size:10>[Container: MongoDB]</size>\n\nHolds user account data" <<Accounts.AccountsDatabase>> as Accounts.AccountsDatabase
+}
+
+Reader .[#004d40,thickness=2].> Recommendations : "<color:#004d40>Views recommended items"
+Reader .[#004d40,thickness=2].> Accounts.AccountsSinglePageApplication : "<color:#004d40>Accesses account functionality"
+Administrator .[#004d40,thickness=2].> Accounts.AccountsSinglePageApplication : "<color:#004d40>Manages accounts"
+Accounts.AccountsSinglePageApplication .[#004d40,thickness=2].> Accounts.AccountsMicroservice : "<color:#004d40>Requests account operations\n<color:#004d40><size:8>[HTTPS]</size>"
+Accounts.AccountsMicroservice .[#004d40,thickness=2].> Accounts.AccountsDatabase : "<color:#004d40>Stores and retrieves accounts\n<color:#004d40><size:8>[JDBC]</size>"
+Accounts.AccountsMicroservice .[#004d40,thickness=2].> Recommendations : "<color:#004d40>Updates recommendations\n<color:#004d40><size:8>[Kafka]</size>"
+@enduml

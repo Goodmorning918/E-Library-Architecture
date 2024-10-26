@@ -1,0 +1,49 @@
+@startuml
+set separator none
+title Products - Dynamic
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam sequenceParticipant<<Administrator>> {
+  BackgroundColor #00796b
+  FontColor #ffffff
+  BorderColor #00544a
+  shadowing false
+}
+skinparam sequenceParticipant<<Products.ProductsDatabase>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam sequenceParticipant<<Products.ProductsMicroservice>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam sequenceParticipant<<Products.ProductsSinglePageApplication>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+
+actor "Administrator\n<size:10>[Person]</size>" as Administrator <<Administrator>> #00796b
+participant "Products Single Page Application\n<size:10>[Container: React Component]</size>" as Products.ProductsSinglePageApplication <<Products.ProductsSinglePageApplication>> #26a69a
+participant "Products Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Products.ProductsMicroservice <<Products.ProductsMicroservice>> #26a69a
+database "Products Database\n<size:10>[Container: MongoDB]</size>" as Products.ProductsDatabase <<Products.ProductsDatabase>> #26a69a
+Administrator -[#004d40]> Products.ProductsSinglePageApplication : Initiates book removal
+Products.ProductsSinglePageApplication -[#004d40]> Products.ProductsMicroservice : Processes book removal
+Products.ProductsMicroservice -[#004d40]> Products.ProductsDatabase : Removes book data
+Products.ProductsMicroservice <-[#004d40]- Products.ProductsDatabase : Confirms book removal
+Products.ProductsSinglePageApplication <-[#004d40]- Products.ProductsMicroservice : Returns removal status
+Administrator <-[#004d40]- Products.ProductsSinglePageApplication : Displays removal details
+@enduml

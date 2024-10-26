@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Decisions | E-Library System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css" rel="stylesheet">
+    <link href="../../style.css" rel="stylesheet">
+    <link href="./../style-branding.css" rel="stylesheet">
+    <script type="text/javascript" src="../../modal.js"></script>
+    <script type="text/javascript" src="../../svg-modal.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js"></script>
+    <link href="../../treeview.css" rel="stylesheet">
+    <link href="../../admonition.css" rel="stylesheet">
+
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+        
+            <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+        
+            <script>
+            window.WebFontConfig = {
+                custom: {
+                families: ['KaTeX_AMS', 'KaTeX_Caligraphic:n4,n7', 'KaTeX_Fraktur:n4,n7',
+                    'KaTeX_Main:n4,n7,i4,i7', 'KaTeX_Math:i4,i7', 'KaTeX_Script',
+                    'KaTeX_SansSerif:n4,n7,i4', 'KaTeX_Size1', 'KaTeX_Size2', 'KaTeX_Size3',
+                    'KaTeX_Size4', 'KaTeX_Typewriter'],
+                },
+            };
+            </script>
+            <script defer src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" crossorigin="anonymous"></script>
+            <link href="../site/favicon.ico" rel="icon" type="image/ico">
+    <link href="../site/custom.css" rel="stylesheet">
+  </head>
+  <body>
+    <script type="text/javascript" src="../../header.js"></script>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand has-site-branding"><a href="../" class="navbar-item"><img alt="E-Library System" src="../site/logo.png"></a><a href="../" class="navbar-item"><span class="has-text-weight-semibold has-site-branding">E-Library System</span></a></div>
+      <div class="navbar-menu has-site-branding">
+        <div class="navbar-end">
+          <div class="navbar-item"><input class="input is-small is-rounded" id="search" type="search" size="30" maxlength="50" placeholder="Search..." onkeyup="redirect(event, value, '../search/')"></div>
+          <div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link has-site-branding">master</a>
+            <div class="navbar-dropdown is-right"><a href="../../master/" class="navbar-item">master</a><a href="../../feature%2Fupdate-styling/" class="navbar-item">feature/update-styling</a>
+              <hr class="navbar-divider">
+              <div class="navbar-item has-text-grey-light"><span>v</span><span>0.0.0</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="site-layout" id="site">
+      <aside class="menu p-3">
+        <p class="menu-label">General</p>
+        <ul class="menu-list has-site-branding">
+          <li><a href="../" class="">Home</a><a href="../software-systems/" class="">Software Systems</a></li>
+        </ul>
+        <p class="menu-label">Software systems</p>
+        <ul class="listree menu-list has-site-branding">
+          <ul class="listree-submenu-items">
+            <ul class="listree-submenu-items">
+              <li><a href="../accounts/" class="">Accounts</a></li>
+              <li><a href="../cart/" class="">Cart</a></li>
+              <li><a href="../finance/" class="">Finance</a></li>
+              <li><a href="../mail-provider/" class="">Mail Provider</a></li>
+              <li><a href="../products/" class="">Products</a></li>
+              <li><a href="../recommendations/" class="">Recommendations</a></li>
+              <li><a href="../shelf/" class="">Shelf</a></li>
+            </ul>
+          </ul>
+        </ul>
+      </aside>
+      <div class="container is-fluid">
+        <div class="content p-3">
+          <h2>Decisions</h2>
+          <table class="table is-fullwidth">
+            <thead>
+              <tr>
+                <th class="is-one-tenth"><span class="">ID</span></th>
+                <th><span class="">Date</span></th>
+                <th><span class="">Status</span></th>
+                <th class="is-two-fourth"><span class="">Title</span></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="../../admonition.js"></script>
+    <script type="text/javascript" src="../../reformat-mermaid.js"></script>
+    <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.3.0/dist/mermaid.esm.min.mjs';</script>
+    <script type="text/javascript" src="../../treeview.js"></script>
+    <script type="text/javascript">listree();</script>
+    <script type="text/javascript" src="../../katex-render.js"></script>
+  </body>
+</html>

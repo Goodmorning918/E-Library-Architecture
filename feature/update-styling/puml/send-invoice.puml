@@ -1,0 +1,40 @@
+@startuml
+set separator none
+title Finance - Dynamic
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam sequenceParticipant<<Finance.FinanceMicroservice>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam sequenceParticipant<<MailProvider>> {
+  BackgroundColor #4db6ac
+  FontColor #ffffff
+  BorderColor #357f78
+  shadowing false
+}
+skinparam sequenceParticipant<<Reader>> {
+  BackgroundColor #00796b
+  FontColor #ffffff
+  BorderColor #00544a
+  shadowing false
+}
+
+participant "Finance Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Finance.FinanceMicroservice <<Finance.FinanceMicroservice>> #26a69a
+participant "Mail Provider\n<size:10>[Software System]</size>" as MailProvider <<MailProvider>> #4db6ac
+actor "Reader\n<size:10>[Person]</size>" as Reader <<Reader>> #00796b
+Finance.FinanceMicroservice -[#004d40]> MailProvider : Sends invoice to reader
+MailProvider -[#004d40]> Reader : Receives invoice
+MailProvider <-[#004d40]- Reader : Confirms invoice receipt
+Finance.FinanceMicroservice <-[#004d40]- MailProvider : Confirms email sent
+@enduml

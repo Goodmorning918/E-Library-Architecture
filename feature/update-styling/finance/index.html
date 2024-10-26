@@ -1,0 +1,930 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Finance | E-Library System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css" rel="stylesheet">
+    <link href="../../style.css" rel="stylesheet">
+    <link href="./../style-branding.css" rel="stylesheet">
+    <script type="text/javascript" src="../../modal.js"></script>
+    <script type="text/javascript" src="../../svg-modal.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js"></script>
+    <link href="../../treeview.css" rel="stylesheet">
+    <link href="../../admonition.css" rel="stylesheet">
+
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+        
+            <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+        
+            <script>
+            window.WebFontConfig = {
+                custom: {
+                families: ['KaTeX_AMS', 'KaTeX_Caligraphic:n4,n7', 'KaTeX_Fraktur:n4,n7',
+                    'KaTeX_Main:n4,n7,i4,i7', 'KaTeX_Math:i4,i7', 'KaTeX_Script',
+                    'KaTeX_SansSerif:n4,n7,i4', 'KaTeX_Size1', 'KaTeX_Size2', 'KaTeX_Size3',
+                    'KaTeX_Size4', 'KaTeX_Typewriter'],
+                },
+            };
+            </script>
+            <script defer src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" crossorigin="anonymous"></script>
+            <link href="../site/favicon.ico" rel="icon" type="image/ico">
+    <link href="../site/custom.css" rel="stylesheet">
+  </head>
+  <body>
+    <script type="text/javascript" src="../../header.js"></script>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand has-site-branding"><a href="../" class="navbar-item"><img alt="E-Library System" src="../site/logo.png"></a><a href="../" class="navbar-item"><span class="has-text-weight-semibold has-site-branding">E-Library System</span></a></div>
+      <div class="navbar-menu has-site-branding">
+        <div class="navbar-end">
+          <div class="navbar-item"><input class="input is-small is-rounded" id="search" type="search" size="30" maxlength="50" placeholder="Search..." onkeyup="redirect(event, value, '../search/')"></div>
+          <div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link has-site-branding">feature/update-styling</a>
+            <div class="navbar-dropdown is-right"><a href="../../master/" class="navbar-item">master</a><a href="../../feature%2Fupdate-styling/" class="navbar-item">feature/update-styling</a>
+              <hr class="navbar-divider">
+              <div class="navbar-item has-text-grey-light"><span>v</span><span>0.0.0</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="site-layout" id="site">
+      <aside class="menu p-3">
+        <p class="menu-label">General</p>
+        <ul class="menu-list has-site-branding">
+          <li><a href="../" class="">Home</a><a href="../software-systems/" class="">Software Systems</a></li>
+        </ul>
+        <p class="menu-label">Software systems</p>
+        <ul class="listree menu-list has-site-branding">
+          <ul class="listree-submenu-items">
+            <ul class="listree-submenu-items">
+              <li><a href="../accounts/" class="">Accounts</a></li>
+              <li><a href="../cart/" class="">Cart</a></li>
+              <li><a href="./" class="is-active">Finance</a></li>
+              <li><a href="../mail-provider/" class="">Mail Provider</a></li>
+              <li><a href="../products/" class="">Products</a></li>
+              <li><a href="../recommendations/" class="">Recommendations</a></li>
+              <li><a href="../shelf/" class="">Shelf</a></li>
+            </ul>
+          </ul>
+        </ul>
+      </aside>
+      <div class="container is-fluid">
+        <h1 class="title mt-3">Finance</h1>
+        <h2 class="subtitle">Manages financial transactions and payment processing</h2>
+        <div class="tabs mt-3">
+          <ul class="is-flex-wrap-wrap is-flex-shrink-1 is-flex-grow-0">
+            <li class="is-active"><a href="./" class="is-active">Info</a></li>
+            <li><a href="context/" class="">Context views</a></li>
+            <li><a href="container/" class="">Container views</a></li>
+            <li><a href="dynamic/" class="">Dynamic views</a></li>
+            <li><a href="dependencies/" class="">Dependencies</a></li>
+          </ul>
+        </div>
+        <div class="content p-3">
+          <div><div class="sect1 content">
+ <h2 id="_general">General</h2>
+ <div class="sectionbody">
+  <div class="imageblock text-right content">
+   <div class="content">
+    <img src="../site/finance.png" alt="Accounts" width="700">
+   </div>
+  </div>
+ </div>
+</div>
+<div class="sect1 content">
+ <h2 id="_ownership">Ownership</h2>
+ <div class="sectionbody">
+  <div class="ulist content">
+   <ul>
+    <li>
+     <p><strong>Team</strong>: Finance Team</p></li>
+    <li>
+     <p><strong>Product Owner</strong>: Michelle Smith</p></li>
+   </ul>
+  </div>
+ </div>
+</div>
+<div class="sect1 content">
+ <h2 id="_containers">Containers</h2>
+ <div class="sectionbody">
+  <div class="sect2 content">
+   <h3 id="_backend">Backend</h3>
+   <div class="sect3 content">
+    <h4 id="_finance_microservice">Finance Microservice</h4>
+    <div class="paragraph content">
+     <p>Microservice responsible for all finance operations.</p>
+    </div>
+    <div class="ulist content">
+     <ul>
+      <li>
+       <p><strong>Repository Link</strong>: <a href="https://github.com/Goodmorning918/E-Library-Architecture">GitHub - Finance Microservice</a></p></li>
+      <li>
+       <p><strong>Environments</strong>: <a href="https://library.test.finance.com">test</a>, <a href="https://library.finance.com">prod</a></p></li>
+      <li>
+       <p><strong>Parameters</strong>: <a href="https://aws.params.com/test/finance">test</a>, <a href="https://aws.params.com/prod/finance">prod</a>,</p></li>
+      <li>
+       <p><strong>CI/CD</strong>: <a href="https://github.com/Goodmorning918/E-Library-Architecture/actions">GitHub - actions</a></p></li>
+      <li>
+       <p><strong>Logs</strong>: <a href="https://logserver.com/test/finance">test</a>, <a href="https://logserver.com/prod/finance">prod</a>,</p></li>
+      <li>
+       <p><strong>Monitoring Dashboard</strong>: <a href="https://monitoring.com/test/finance">test</a>, <a href="https://monitoring.com/prod/finance">prod</a>,</p></li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <div class="sect2 content">
+   <h3 id="_frontend">Frontend</h3>
+   <div class="paragraph content">
+    <p>Single Page Application responsible for displaying all finance operations.</p>
+   </div>
+   <div class="sect3 content">
+    <h4 id="_finance_spa">Finance Spa</h4>
+    <div class="ulist content">
+     <ul>
+      <li>
+       <p><strong>Repository Link</strong>: <a href="https://github.com/Goodmorning918/E-Library-Architecture">GitHub - finance-Spa</a></p></li>
+      <li>
+       <p><strong>Environments</strong>: <a href="https://library.test.finance-Spa.com">test</a>, <a href="https://library.finance-Spa.com">prod</a></p></li>
+      <li>
+       <p><strong>Parameters</strong>: <a href="https://aws.params.com/test/finance-Spa">test</a>, <a href="https://aws.params.com/prod/finance-Spa">prod</a>,</p></li>
+      <li>
+       <p><strong>CI/CD</strong>: <a href="https://github.com/Goodmorning918/E-Library-Architecture/actions">GitHub - actions</a></p></li>
+      <li>
+       <p><strong>Logs</strong>: <a href="https://logserver.com/test/finance-Spa">test</a>, <a href="https://logserver.com/prod/finance-Spa">prod</a>,</p></li>
+      <li>
+       <p><strong>Monitoring Dashboard</strong>: <a href="https://monitoring.com/test/finance-Spa">test</a>, <a href="https://monitoring.com/prod/finance-Spa">prod</a>,</p></li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <div class="sect2 content">
+   <h3 id="_database">Database</h3>
+   <div class="paragraph content">
+    <p>Database responsible for storing all finance data.</p>
+   </div>
+   <div class="sect3 content">
+    <h4 id="_finance_database">Finance Database</h4>
+    <div class="ulist content">
+     <ul>
+      <li>
+       <p><strong>Database Link</strong>: <a href="https://library.test.financeDb.com">test</a>, <a href="https://library.prod.financeDb.com">prod</a>,</p></li>
+      <li>
+       <p><strong>Database Read Only access</strong>:</p>
+       <div class="ulist content">
+        <ul>
+         <li>
+          <p>Test</p>
+          <div class="ulist content">
+           <ul>
+            <li>
+             <p>User: user1</p></li>
+            <li>
+             <p>Password: password1</p></li>
+           </ul>
+          </div></li>
+        </ul>
+       </div></li>
+     </ul>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<div class="sect1 content">
+ <h2 id="_finance_processes">Finance Processes</h2>
+ <div class="sectionbody">
+  <details>
+   <summary class="title"><span class="collapse-title">Oversee finance transactions</span></summary>
+   <div class="content">
+    <div class="imageblock content">
+     <div class="content">
+      <div>
+       <figure style="width: min(100%, 689px);">
+        <div>
+         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" preserveAspectRatio="meet" version="1.1" viewBox="0 0 689 478" zoomAndPan="magnify">
+          <title>
+           Finance - Dynamic
+          </title><defs /><g>
+           <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="144.9424" x="273.6304" y="27.9951">Finance - Dynamic</text>
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="55" x2="55" y1="130.2344" y2="385.5625" />
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="234.6826" x2="234.6826" y1="130.2344" y2="385.5625" />
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="454.3955" x2="454.3955" y1="130.2344" y2="385.5625" />
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="621.374" x2="621.374" y1="130.2344" y2="385.5625" />
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95.6826" x="5" y="115.292">Administrator</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="31.96" y="127.876">[Person]</text>
+           <ellipse cx="55.8413" cy="50.7969" fill="#00796B" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+           <path d="M55.8413,58.7969 L55.8413,85.7969 M42.8413,66.7969 L68.8413,66.7969 M55.8413,85.7969 L42.8413,100.7969 M55.8413,85.7969 L68.8413,100.7969 " fill="none" style="stroke:#181818;stroke-width:0.5;" />
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95.6826" x="5" y="397.5576">Administrator</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="31.96" y="410.1416">[Person]</text>
+           <ellipse cx="55.8413" cy="421" fill="#00796B" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+           <path d="M55.8413,429 L55.8413,456 M42.8413,437 L68.8413,437 M55.8413,456 L42.8413,471 M55.8413,456 L68.8413,471 " fill="none" style="stroke:#181818;stroke-width:0.5;" />
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="237.7129" x="116.6826" y="87.2969" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="223.7129" x="123.6826" y="107.292">Finance Single Page Application</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="153.1006" x="158.9888" y="119.876">[Container: React Component]</text>
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="237.7129" x="116.6826" y="384.5625" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="223.7129" x="123.6826" y="404.5576">Finance Single Page Application</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="153.1006" x="158.9888" y="417.1416">[Container: React Component]</text>
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="364.3955" y="87.2969" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147.1641" x="381.8027" y="107.292">Finance Microservice</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="371.3955" y="119.876">[Container: Java and Spring Boot]</text>
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="364.3955" y="384.5625" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147.1641" x="381.8027" y="404.5576">Finance Microservice</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="371.3955" y="417.1416">[Container: Java and Spring Boot]</text>
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125.8291" x="556.374" y="115.292">Finance Database</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="120.8984" x="558.8394" y="127.876">[Container: PostgreSQL]</text>
+           <path d="M604.2886,66.2969 C604.2886,56.2969 622.2886,56.2969 622.2886,56.2969 C622.2886,56.2969 640.2886,56.2969 640.2886,66.2969 L640.2886,92.2969 C640.2886,102.2969 622.2886,102.2969 622.2886,102.2969 C622.2886,102.2969 604.2886,102.2969 604.2886,92.2969 L604.2886,66.2969 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+           <path d="M604.2886,66.2969 C604.2886,76.2969 622.2886,76.2969 622.2886,76.2969 C622.2886,76.2969 640.2886,76.2969 640.2886,66.2969 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125.8291" x="556.374" y="397.5576">Finance Database</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="120.8984" x="558.8394" y="410.1416">[Container: PostgreSQL]</text>
+           <path d="M604.2886,422.5 C604.2886,412.5 622.2886,412.5 622.2886,412.5 C622.2886,412.5 640.2886,412.5 640.2886,422.5 L640.2886,448.5 C640.2886,458.5 622.2886,458.5 622.2886,458.5 C622.2886,458.5 604.2886,458.5 604.2886,448.5 L604.2886,422.5 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+           <path d="M604.2886,422.5 C604.2886,432.5 622.2886,432.5 622.2886,432.5 C622.2886,432.5 640.2886,432.5 640.2886,422.5 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+           <polygon fill="#004D40" points="223.5391,165.5156,233.5391,169.5156,223.5391,173.5156,227.5391,169.5156" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;" x1="55.8413" x2="229.5391" y1="169.5156" y2="169.5156" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.3379" x="102.2893" y="153.5166">Reviews</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="143.6272" y="153.5166">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="42.2852" x="146.8059" y="153.5166">financial</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="61.6992" x="114.8406" y="165.1572">transactions</text>
+           <polygon fill="#004D40" points="443.3848,202.7969,453.3848,206.7969,443.3848,210.7969,447.3848,206.7969" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;" x1="235.5391" x2="449.3848" y1="206.7969" y2="206.7969" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="46.2793" x="322.3223" y="190.7979">Requests</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="56.4893" x="304.3657" y="202.4385">transaction</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="360.855" y="202.4385">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="22.5244" x="364.0337" y="202.4385">data</text>
+           <polygon fill="#004D40" points="610.2886,240.0781,620.2886,244.0781,610.2886,248.0781,614.2886,244.0781" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;" x1="455.3848" x2="616.2886" y1="244.0781" y2="244.0781" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="47.3438" x="515.1648" y="228.0791">Retrieves</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="61.6992" x="507.9871" y="239.7197">transactions</text>
+           <polygon fill="#004D40" points="466.3848,277.3594,456.3848,281.3594,466.3848,285.3594,462.3848,281.3594" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="460.3848" x2="621.2886" y1="281.3594" y2="281.3594" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="39.0186" x="489.4934" y="265.3604">Returns</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="528.512" y="265.3604">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="56.4893" x="531.6907" y="265.3604">transaction</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="22.5244" x="527.5745" y="277.001">data</text>
+           <polygon fill="#004D40" points="246.5391,314.6406,236.5391,318.6406,246.5391,322.6406,242.5391,318.6406" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="240.5391" x2="454.3848" y1="318.6406" y2="318.6406" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="42.666" x="324.1289" y="302.6416">Provides</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="56.4893" x="304.3657" y="314.2822">transaction</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="360.855" y="314.2822">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="22.5244" x="364.0337" y="314.2822">data</text>
+           <polygon fill="#004D40" points="66.8413,363.5625,56.8413,367.5625,66.8413,371.5625,62.8413,367.5625" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="60.8413" x2="234.5391" y1="367.5625" y2="367.5625" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="42.0703" x="124.655" y="339.9229">Displays</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="56.4893" x="117.4456" y="351.5635">transaction</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="45.3271" x="123.0266" y="363.2041">overview</text>
+          </g>
+         </svg>
+        </div>
+        <figcaption>
+         <a onclick="openSvgModal('oversee-financial-transactions-modal', 'oversee-financial-transactions-svg')">Oversee finance transactions</a>
+        </figcaption>
+       </figure>
+       <div class="modal" id="oversee-financial-transactions-modal">
+        <div class="modal-background" onclick="closeModal('oversee-financial-transactions-modal')"></div>
+        <div class="modal-content">
+         <div class="box">
+          <div id="oversee-financial-transactions-svg" class="modal-box-content">
+           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" preserveAspectRatio="meet" version="1.1" viewBox="0 0 689 478" zoomAndPan="magnify">
+            <title>
+             Finance - Dynamic
+            </title><defs /><g>
+             <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="144.9424" x="273.6304" y="27.9951">Finance - Dynamic</text>
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="55" x2="55" y1="130.2344" y2="385.5625" />
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="234.6826" x2="234.6826" y1="130.2344" y2="385.5625" />
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="454.3955" x2="454.3955" y1="130.2344" y2="385.5625" />
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="621.374" x2="621.374" y1="130.2344" y2="385.5625" />
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95.6826" x="5" y="115.292">Administrator</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="31.96" y="127.876">[Person]</text>
+             <ellipse cx="55.8413" cy="50.7969" fill="#00796B" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+             <path d="M55.8413,58.7969 L55.8413,85.7969 M42.8413,66.7969 L68.8413,66.7969 M55.8413,85.7969 L42.8413,100.7969 M55.8413,85.7969 L68.8413,100.7969 " fill="none" style="stroke:#181818;stroke-width:0.5;" />
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95.6826" x="5" y="397.5576">Administrator</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="31.96" y="410.1416">[Person]</text>
+             <ellipse cx="55.8413" cy="421" fill="#00796B" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+             <path d="M55.8413,429 L55.8413,456 M42.8413,437 L68.8413,437 M55.8413,456 L42.8413,471 M55.8413,456 L68.8413,471 " fill="none" style="stroke:#181818;stroke-width:0.5;" />
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="237.7129" x="116.6826" y="87.2969" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="223.7129" x="123.6826" y="107.292">Finance Single Page Application</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="153.1006" x="158.9888" y="119.876">[Container: React Component]</text>
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="237.7129" x="116.6826" y="384.5625" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="223.7129" x="123.6826" y="404.5576">Finance Single Page Application</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="153.1006" x="158.9888" y="417.1416">[Container: React Component]</text>
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="364.3955" y="87.2969" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147.1641" x="381.8027" y="107.292">Finance Microservice</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="371.3955" y="119.876">[Container: Java and Spring Boot]</text>
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="364.3955" y="384.5625" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147.1641" x="381.8027" y="404.5576">Finance Microservice</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="371.3955" y="417.1416">[Container: Java and Spring Boot]</text>
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125.8291" x="556.374" y="115.292">Finance Database</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="120.8984" x="558.8394" y="127.876">[Container: PostgreSQL]</text>
+             <path d="M604.2886,66.2969 C604.2886,56.2969 622.2886,56.2969 622.2886,56.2969 C622.2886,56.2969 640.2886,56.2969 640.2886,66.2969 L640.2886,92.2969 C640.2886,102.2969 622.2886,102.2969 622.2886,102.2969 C622.2886,102.2969 604.2886,102.2969 604.2886,92.2969 L604.2886,66.2969 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+             <path d="M604.2886,66.2969 C604.2886,76.2969 622.2886,76.2969 622.2886,76.2969 C622.2886,76.2969 640.2886,76.2969 640.2886,66.2969 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125.8291" x="556.374" y="397.5576">Finance Database</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="120.8984" x="558.8394" y="410.1416">[Container: PostgreSQL]</text>
+             <path d="M604.2886,422.5 C604.2886,412.5 622.2886,412.5 622.2886,412.5 C622.2886,412.5 640.2886,412.5 640.2886,422.5 L640.2886,448.5 C640.2886,458.5 622.2886,458.5 622.2886,458.5 C622.2886,458.5 604.2886,458.5 604.2886,448.5 L604.2886,422.5 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+             <path d="M604.2886,422.5 C604.2886,432.5 622.2886,432.5 622.2886,432.5 C622.2886,432.5 640.2886,432.5 640.2886,422.5 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+             <polygon fill="#004D40" points="223.5391,165.5156,233.5391,169.5156,223.5391,173.5156,227.5391,169.5156" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;" x1="55.8413" x2="229.5391" y1="169.5156" y2="169.5156" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.3379" x="102.2893" y="153.5166">Reviews</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="143.6272" y="153.5166">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="42.2852" x="146.8059" y="153.5166">financial</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="61.6992" x="114.8406" y="165.1572">transactions</text>
+             <polygon fill="#004D40" points="443.3848,202.7969,453.3848,206.7969,443.3848,210.7969,447.3848,206.7969" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;" x1="235.5391" x2="449.3848" y1="206.7969" y2="206.7969" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="46.2793" x="322.3223" y="190.7979">Requests</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="56.4893" x="304.3657" y="202.4385">transaction</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="360.855" y="202.4385">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="22.5244" x="364.0337" y="202.4385">data</text>
+             <polygon fill="#004D40" points="610.2886,240.0781,620.2886,244.0781,610.2886,248.0781,614.2886,244.0781" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;" x1="455.3848" x2="616.2886" y1="244.0781" y2="244.0781" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="47.3438" x="515.1648" y="228.0791">Retrieves</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="61.6992" x="507.9871" y="239.7197">transactions</text>
+             <polygon fill="#004D40" points="466.3848,277.3594,456.3848,281.3594,466.3848,285.3594,462.3848,281.3594" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="460.3848" x2="621.2886" y1="281.3594" y2="281.3594" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="39.0186" x="489.4934" y="265.3604">Returns</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="528.512" y="265.3604">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="56.4893" x="531.6907" y="265.3604">transaction</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="22.5244" x="527.5745" y="277.001">data</text>
+             <polygon fill="#004D40" points="246.5391,314.6406,236.5391,318.6406,246.5391,322.6406,242.5391,318.6406" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="240.5391" x2="454.3848" y1="318.6406" y2="318.6406" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="42.666" x="324.1289" y="302.6416">Provides</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="56.4893" x="304.3657" y="314.2822">transaction</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="360.855" y="314.2822">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="22.5244" x="364.0337" y="314.2822">data</text>
+             <polygon fill="#004D40" points="66.8413,363.5625,56.8413,367.5625,66.8413,371.5625,62.8413,367.5625" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="60.8413" x2="234.5391" y1="367.5625" y2="367.5625" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="42.0703" x="124.655" y="339.9229">Displays</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="56.4893" x="117.4456" y="351.5635">transaction</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="45.3271" x="123.0266" y="363.2041">overview</text>
+            </g>
+           </svg>
+          </div>
+          <div class="has-text-centered">
+           Oversee finance transactions [<a href="../svg/oversee-financial-transactions.svg" target="_blank">svg</a>|<a href="../png/oversee-financial-transactions.png" target="_blank">png</a>|<a href="../puml/oversee-financial-transactions.puml" target="_blank">puml</a>]
+          </div>
+         </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close" onclick="closeModal('oversee-financial-transactions-modal')"></button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </details>
+  <details>
+   <summary class="title"><span class="collapse-title">Generate payment link</span></summary>
+   <div class="content">
+    <div class="imageblock content">
+     <div class="content">
+      <div>
+       <figure style="width: min(100%, 521px);">
+        <div>
+         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" preserveAspectRatio="meet" version="1.1" viewBox="0 0 521 375" zoomAndPan="magnify">
+          <title>
+           Finance - Dynamic
+          </title><defs /><g>
+           <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="144.9424" x="189.9219" y="27.9951">Finance - Dynamic</text>
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="95" x2="95" y1="116.2344" y2="285.3594" />
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="286.9785" x2="286.9785" y1="116.2344" y2="285.3594" />
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="453.957" x2="453.957" y1="116.2344" y2="285.3594" />
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="5" y="73.2969" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122.1855" x="34.8965" y="93.292">Cart Microservice</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="12" y="105.876">[Container: Java and Spring Boot]</text>
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="5" y="284.3594" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122.1855" x="34.8965" y="304.3545">Cart Microservice</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="12" y="316.9385">[Container: Java and Spring Boot]</text>
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="196.9785" y="73.2969" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147.1641" x="214.3857" y="93.292">Finance Microservice</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="203.9785" y="105.876">[Container: Java and Spring Boot]</text>
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="196.9785" y="284.3594" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147.1641" x="214.3857" y="304.3545">Finance Microservice</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="203.9785" y="316.9385">[Container: Java and Spring Boot]</text>
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125.8291" x="388.957" y="101.292">Finance Database</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="120.8984" x="391.4224" y="113.876">[Container: PostgreSQL]</text>
+           <path d="M436.8716,52.2969 C436.8716,42.2969 454.8716,42.2969 454.8716,42.2969 C454.8716,42.2969 472.8716,42.2969 472.8716,52.2969 L472.8716,78.2969 C472.8716,88.2969 454.8716,88.2969 454.8716,88.2969 C454.8716,88.2969 436.8716,88.2969 436.8716,78.2969 L436.8716,52.2969 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+           <path d="M436.8716,52.2969 C436.8716,62.2969 454.8716,62.2969 454.8716,62.2969 C454.8716,62.2969 472.8716,62.2969 472.8716,52.2969 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125.8291" x="388.957" y="297.3545">Finance Database</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="120.8984" x="391.4224" y="309.9385">[Container: PostgreSQL]</text>
+           <path d="M436.8716,322.2969 C436.8716,312.2969 454.8716,312.2969 454.8716,312.2969 C454.8716,312.2969 472.8716,312.2969 472.8716,322.2969 L472.8716,348.2969 C472.8716,358.2969 454.8716,358.2969 454.8716,358.2969 C454.8716,358.2969 436.8716,358.2969 436.8716,348.2969 L436.8716,322.2969 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+           <path d="M436.8716,322.2969 C436.8716,332.2969 454.8716,332.2969 454.8716,332.2969 C454.8716,332.2969 472.8716,332.2969 472.8716,322.2969 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+           <polygon fill="#004D40" points="275.9678,151.5156,285.9678,155.5156,275.9678,159.5156,279.9678,155.5156" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;" x1="95.9893" x2="281.9678" y1="155.5156" y2="155.5156" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="46.2793" x="144.9766" y="139.5166">Requests</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="191.2559" y="139.5166">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.5459" x="194.4346" y="139.5166">payment</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="17.6855" x="183.1357" y="151.1572">link</text>
+           <polygon fill="#004D40" points="442.8716,188.7969,452.8716,192.7969,442.8716,196.7969,446.8716,192.7969" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;" x1="287.9678" x2="448.8716" y1="192.7969" y2="192.7969" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="38.6572" x="328.2288" y="176.7979">Creates</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="366.886" y="176.7979">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.5459" x="370.0647" y="176.7979">payment</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="26.4404" x="358.1995" y="188.4385">entry</text>
+           <polygon fill="#004D40" points="298.9678,226.0781,288.9678,230.0781,298.9678,234.0781,294.9678,230.0781" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="292.9678" x2="453.8716" y1="230.0781" y2="230.0781" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.7998" x="325.1575" y="214.0791">Confirms</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="369.9573" y="214.0791">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.5459" x="373.136" y="214.0791">payment</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="17.6855" x="362.5769" y="225.7197">link</text>
+           <polygon fill="#004D40" points="106.9893,263.3594,96.9893,267.3594,106.9893,271.3594,102.9893,267.3594" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="100.9893" x2="286.9678" y1="267.3594" y2="267.3594" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="39.0186" x="148.6069" y="251.3604">Returns</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="187.6255" y="251.3604">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.5459" x="190.8042" y="251.3604">payment</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="17.6855" x="183.1357" y="263.001">link</text>
+          </g>
+         </svg>
+        </div>
+        <figcaption>
+         <a onclick="openSvgModal('generate-payment-link-modal', 'generate-payment-link-svg')">Generate payment link</a>
+        </figcaption>
+       </figure>
+       <div class="modal" id="generate-payment-link-modal">
+        <div class="modal-background" onclick="closeModal('generate-payment-link-modal')"></div>
+        <div class="modal-content">
+         <div class="box">
+          <div id="generate-payment-link-svg" class="modal-box-content">
+           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" preserveAspectRatio="meet" version="1.1" viewBox="0 0 521 375" zoomAndPan="magnify">
+            <title>
+             Finance - Dynamic
+            </title><defs /><g>
+             <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="144.9424" x="189.9219" y="27.9951">Finance - Dynamic</text>
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="95" x2="95" y1="116.2344" y2="285.3594" />
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="286.9785" x2="286.9785" y1="116.2344" y2="285.3594" />
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="453.957" x2="453.957" y1="116.2344" y2="285.3594" />
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="5" y="73.2969" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122.1855" x="34.8965" y="93.292">Cart Microservice</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="12" y="105.876">[Container: Java and Spring Boot]</text>
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="5" y="284.3594" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122.1855" x="34.8965" y="304.3545">Cart Microservice</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="12" y="316.9385">[Container: Java and Spring Boot]</text>
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="196.9785" y="73.2969" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147.1641" x="214.3857" y="93.292">Finance Microservice</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="203.9785" y="105.876">[Container: Java and Spring Boot]</text>
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="196.9785" y="284.3594" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147.1641" x="214.3857" y="304.3545">Finance Microservice</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="203.9785" y="316.9385">[Container: Java and Spring Boot]</text>
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125.8291" x="388.957" y="101.292">Finance Database</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="120.8984" x="391.4224" y="113.876">[Container: PostgreSQL]</text>
+             <path d="M436.8716,52.2969 C436.8716,42.2969 454.8716,42.2969 454.8716,42.2969 C454.8716,42.2969 472.8716,42.2969 472.8716,52.2969 L472.8716,78.2969 C472.8716,88.2969 454.8716,88.2969 454.8716,88.2969 C454.8716,88.2969 436.8716,88.2969 436.8716,78.2969 L436.8716,52.2969 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+             <path d="M436.8716,52.2969 C436.8716,62.2969 454.8716,62.2969 454.8716,62.2969 C454.8716,62.2969 472.8716,62.2969 472.8716,52.2969 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125.8291" x="388.957" y="297.3545">Finance Database</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="120.8984" x="391.4224" y="309.9385">[Container: PostgreSQL]</text>
+             <path d="M436.8716,322.2969 C436.8716,312.2969 454.8716,312.2969 454.8716,312.2969 C454.8716,312.2969 472.8716,312.2969 472.8716,322.2969 L472.8716,348.2969 C472.8716,358.2969 454.8716,358.2969 454.8716,358.2969 C454.8716,358.2969 436.8716,358.2969 436.8716,348.2969 L436.8716,322.2969 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+             <path d="M436.8716,322.2969 C436.8716,332.2969 454.8716,332.2969 454.8716,332.2969 C454.8716,332.2969 472.8716,332.2969 472.8716,322.2969 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+             <polygon fill="#004D40" points="275.9678,151.5156,285.9678,155.5156,275.9678,159.5156,279.9678,155.5156" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;" x1="95.9893" x2="281.9678" y1="155.5156" y2="155.5156" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="46.2793" x="144.9766" y="139.5166">Requests</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="191.2559" y="139.5166">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.5459" x="194.4346" y="139.5166">payment</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="17.6855" x="183.1357" y="151.1572">link</text>
+             <polygon fill="#004D40" points="442.8716,188.7969,452.8716,192.7969,442.8716,196.7969,446.8716,192.7969" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;" x1="287.9678" x2="448.8716" y1="192.7969" y2="192.7969" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="38.6572" x="328.2288" y="176.7979">Creates</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="366.886" y="176.7979">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.5459" x="370.0647" y="176.7979">payment</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="26.4404" x="358.1995" y="188.4385">entry</text>
+             <polygon fill="#004D40" points="298.9678,226.0781,288.9678,230.0781,298.9678,234.0781,294.9678,230.0781" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="292.9678" x2="453.8716" y1="230.0781" y2="230.0781" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.7998" x="325.1575" y="214.0791">Confirms</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="369.9573" y="214.0791">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.5459" x="373.136" y="214.0791">payment</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="17.6855" x="362.5769" y="225.7197">link</text>
+             <polygon fill="#004D40" points="106.9893,263.3594,96.9893,267.3594,106.9893,271.3594,102.9893,267.3594" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="100.9893" x2="286.9678" y1="267.3594" y2="267.3594" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="39.0186" x="148.6069" y="251.3604">Returns</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="187.6255" y="251.3604">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.5459" x="190.8042" y="251.3604">payment</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="17.6855" x="183.1357" y="263.001">link</text>
+            </g>
+           </svg>
+          </div>
+          <div class="has-text-centered">
+           Generate payment link [<a href="../svg/generate-payment-link.svg" target="_blank">svg</a>|<a href="../png/generate-payment-link.png" target="_blank">png</a>|<a href="../puml/generate-payment-link.puml" target="_blank">puml</a>]
+          </div>
+         </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close" onclick="closeModal('generate-payment-link-modal')"></button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </details>
+  <details>
+   <summary class="title"><span class="collapse-title">Send invoice</span></summary>
+   <div class="content">
+    <div class="imageblock content">
+     <div class="content">
+      <div>
+       <figure style="width: min(100%, 387px);">
+        <div>
+         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" preserveAspectRatio="meet" version="1.1" viewBox="0 0 387 380" zoomAndPan="magnify">
+          <title>
+           Finance - Dynamic
+          </title><defs /><g>
+           <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="144.9424" x="122.5339" y="27.9951">Finance - Dynamic</text>
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="95" x2="95" y1="130.2344" y2="287.7188" />
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="249.9785" x2="249.9785" y1="130.2344" y2="287.7188" />
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="357.8345" x2="357.8345" y1="130.2344" y2="287.7188" />
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="5" y="87.2969" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147.1641" x="22.4072" y="107.292">Finance Microservice</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="12" y="119.876">[Container: Java and Spring Boot]</text>
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="5" y="286.7188" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147.1641" x="22.4072" y="306.7139">Finance Microservice</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="12" y="319.2979">[Container: Java and Spring Boot]</text>
+           <rect fill="#4DB6AC" height="41.9375" rx="2.5" ry="2.5" style="stroke:#357F78;stroke-width:0.5;" width="106.749" x="196.9785" y="87.2969" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91.082" x="204.812" y="107.292">Mail Provider</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="92.749" x="203.9785" y="119.876">[Software System]</text>
+           <rect fill="#4DB6AC" height="41.9375" rx="2.5" ry="2.5" style="stroke:#357F78;stroke-width:0.5;" width="106.749" x="196.9785" y="286.7188" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91.082" x="204.812" y="306.7139">Mail Provider</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="92.749" x="203.9785" y="319.2979">[Software System]</text>
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50.1758" x="329.8345" y="115.292">Reader</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="334.041" y="127.876">[Person]</text>
+           <ellipse cx="357.9224" cy="50.7969" fill="#00796B" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+           <path d="M357.9224,58.7969 L357.9224,85.7969 M344.9224,66.7969 L370.9224,66.7969 M357.9224,85.7969 L344.9224,100.7969 M357.9224,85.7969 L370.9224,100.7969 " fill="none" style="stroke:#181818;stroke-width:0.5;" />
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50.1758" x="329.8345" y="299.7139">Reader</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="334.041" y="312.2979">[Person]</text>
+           <ellipse cx="357.9224" cy="323.1563" fill="#00796B" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+           <path d="M357.9224,331.1563 L357.9224,358.1563 M344.9224,339.1563 L370.9224,339.1563 M357.9224,358.1563 L344.9224,373.1563 M357.9224,358.1563 L370.9224,373.1563 " fill="none" style="stroke:#181818;stroke-width:0.5;" />
+           <polygon fill="#004D40" points="238.353,165.5156,248.353,169.5156,238.353,173.5156,242.353,169.5156" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;" x1="95.9893" x2="244.353" y1="169.5156" y2="169.5156" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="30.3955" x="131.9846" y="153.5166">Sends</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="162.3801" y="153.5166">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="35.5811" x="165.5588" y="153.5166">invoice</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="201.1399" y="153.5166">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="10.0391" x="204.3186" y="153.5166">to</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="33.0029" x="156.6697" y="165.1572">reader</text>
+           <polygon fill="#004D40" points="345.9224,191.1563,355.9224,195.1563,345.9224,199.1563,349.9224,195.1563" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;" x1="250.353" x2="351.9224" y1="195.1563" y2="195.1563" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.8096" x="262.353" y="190.7979">Receives</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="307.1626" y="190.7979">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="35.5811" x="310.3413" y="190.7979">invoice</text>
+           <polygon fill="#004D40" points="261.353,228.4375,251.353,232.4375,261.353,236.4375,257.353,232.4375" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="255.353" x2="356.9224" y1="232.4375" y2="232.4375" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.7998" x="262.3579" y="216.4385">Confirms</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="307.1577" y="216.4385">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="35.5811" x="310.3364" y="216.4385">invoice</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="34.9609" x="286.6572" y="228.0791">receipt</text>
+           <polygon fill="#004D40" points="106.9893,265.7188,96.9893,269.7188,106.9893,273.7188,102.9893,269.7188" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="100.9893" x2="249.353" y1="269.7188" y2="269.7188" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.7998" x="135.3928" y="253.7197">Confirms</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="180.1926" y="253.7197">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="27.5781" x="183.3713" y="253.7197">email</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="21.6211" x="162.3606" y="265.3604">sent</text>
+          </g>
+         </svg>
+        </div>
+        <figcaption>
+         <a onclick="openSvgModal('send-invoice-modal', 'send-invoice-svg')">Send invoice</a>
+        </figcaption>
+       </figure>
+       <div class="modal" id="send-invoice-modal">
+        <div class="modal-background" onclick="closeModal('send-invoice-modal')"></div>
+        <div class="modal-content">
+         <div class="box">
+          <div id="send-invoice-svg" class="modal-box-content">
+           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" preserveAspectRatio="meet" version="1.1" viewBox="0 0 387 380" zoomAndPan="magnify">
+            <title>
+             Finance - Dynamic
+            </title><defs /><g>
+             <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="144.9424" x="122.5339" y="27.9951">Finance - Dynamic</text>
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="95" x2="95" y1="130.2344" y2="287.7188" />
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="249.9785" x2="249.9785" y1="130.2344" y2="287.7188" />
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="357.8345" x2="357.8345" y1="130.2344" y2="287.7188" />
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="5" y="87.2969" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147.1641" x="22.4072" y="107.292">Finance Microservice</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="12" y="119.876">[Container: Java and Spring Boot]</text>
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="5" y="286.7188" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147.1641" x="22.4072" y="306.7139">Finance Microservice</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="12" y="319.2979">[Container: Java and Spring Boot]</text>
+             <rect fill="#4DB6AC" height="41.9375" rx="2.5" ry="2.5" style="stroke:#357F78;stroke-width:0.5;" width="106.749" x="196.9785" y="87.2969" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91.082" x="204.812" y="107.292">Mail Provider</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="92.749" x="203.9785" y="119.876">[Software System]</text>
+             <rect fill="#4DB6AC" height="41.9375" rx="2.5" ry="2.5" style="stroke:#357F78;stroke-width:0.5;" width="106.749" x="196.9785" y="286.7188" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91.082" x="204.812" y="306.7139">Mail Provider</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="92.749" x="203.9785" y="319.2979">[Software System]</text>
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50.1758" x="329.8345" y="115.292">Reader</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="334.041" y="127.876">[Person]</text>
+             <ellipse cx="357.9224" cy="50.7969" fill="#00796B" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+             <path d="M357.9224,58.7969 L357.9224,85.7969 M344.9224,66.7969 L370.9224,66.7969 M357.9224,85.7969 L344.9224,100.7969 M357.9224,85.7969 L370.9224,100.7969 " fill="none" style="stroke:#181818;stroke-width:0.5;" />
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50.1758" x="329.8345" y="299.7139">Reader</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="334.041" y="312.2979">[Person]</text>
+             <ellipse cx="357.9224" cy="323.1563" fill="#00796B" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+             <path d="M357.9224,331.1563 L357.9224,358.1563 M344.9224,339.1563 L370.9224,339.1563 M357.9224,358.1563 L344.9224,373.1563 M357.9224,358.1563 L370.9224,373.1563 " fill="none" style="stroke:#181818;stroke-width:0.5;" />
+             <polygon fill="#004D40" points="238.353,165.5156,248.353,169.5156,238.353,173.5156,242.353,169.5156" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;" x1="95.9893" x2="244.353" y1="169.5156" y2="169.5156" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="30.3955" x="131.9846" y="153.5166">Sends</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="162.3801" y="153.5166">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="35.5811" x="165.5588" y="153.5166">invoice</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="201.1399" y="153.5166">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="10.0391" x="204.3186" y="153.5166">to</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="33.0029" x="156.6697" y="165.1572">reader</text>
+             <polygon fill="#004D40" points="345.9224,191.1563,355.9224,195.1563,345.9224,199.1563,349.9224,195.1563" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;" x1="250.353" x2="351.9224" y1="195.1563" y2="195.1563" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.8096" x="262.353" y="190.7979">Receives</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="307.1626" y="190.7979">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="35.5811" x="310.3413" y="190.7979">invoice</text>
+             <polygon fill="#004D40" points="261.353,228.4375,251.353,232.4375,261.353,236.4375,257.353,232.4375" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="255.353" x2="356.9224" y1="232.4375" y2="232.4375" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.7998" x="262.3579" y="216.4385">Confirms</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="307.1577" y="216.4385">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="35.5811" x="310.3364" y="216.4385">invoice</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="34.9609" x="286.6572" y="228.0791">receipt</text>
+             <polygon fill="#004D40" points="106.9893,265.7188,96.9893,269.7188,106.9893,273.7188,102.9893,269.7188" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="100.9893" x2="249.353" y1="269.7188" y2="269.7188" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.7998" x="135.3928" y="253.7197">Confirms</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="180.1926" y="253.7197">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="27.5781" x="183.3713" y="253.7197">email</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="21.6211" x="162.3606" y="265.3604">sent</text>
+            </g>
+           </svg>
+          </div>
+          <div class="has-text-centered">
+           Send invoice [<a href="../svg/send-invoice.svg" target="_blank">svg</a>|<a href="../png/send-invoice.png" target="_blank">png</a>|<a href="../puml/send-invoice.puml" target="_blank">puml</a>]
+          </div>
+         </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close" onclick="closeModal('send-invoice-modal')"></button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </details>
+  <details>
+   <summary class="title"><span class="collapse-title">Make payment</span></summary>
+   <div class="content">
+    <div class="imageblock content">
+     <div class="content">
+      <div>
+       <figure style="width: min(100%, 963px);">
+        <div>
+         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" preserveAspectRatio="meet" version="1.1" viewBox="0 0 963 603" zoomAndPan="magnify">
+          <title>
+           Finance - Dynamic
+          </title><defs /><g>
+           <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="144.9424" x="410.5303" y="27.9951">Finance - Dynamic</text>
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="33" x2="33" y1="130.2344" y2="511.4063" />
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="189.1758" x2="189.1758" y1="130.2344" y2="511.4063" />
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="408.8887" x2="408.8887" y1="130.2344" y2="511.4063" />
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="575.8672" x2="575.8672" y1="130.2344" y2="511.4063" />
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="742.6963" x2="742.6963" y1="130.2344" y2="511.4063" />
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="902.6748" x2="902.6748" y1="130.2344" y2="511.4063" />
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50.1758" x="5" y="115.292">Reader</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="9.2065" y="127.876">[Person]</text>
+           <ellipse cx="33.0879" cy="50.7969" fill="#00796B" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+           <path d="M33.0879,58.7969 L33.0879,85.7969 M20.0879,66.7969 L46.0879,66.7969 M33.0879,85.7969 L20.0879,100.7969 M33.0879,85.7969 L46.0879,100.7969 " fill="none" style="stroke:#181818;stroke-width:0.5;" />
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50.1758" x="5" y="523.4014">Reader</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="9.2065" y="535.9854">[Person]</text>
+           <ellipse cx="33.0879" cy="546.8438" fill="#00796B" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+           <path d="M33.0879,554.8438 L33.0879,581.8438 M20.0879,562.8438 L46.0879,562.8438 M33.0879,581.8438 L20.0879,596.8438 M33.0879,581.8438 L46.0879,596.8438 " fill="none" style="stroke:#181818;stroke-width:0.5;" />
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="237.7129" x="71.1758" y="87.2969" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="223.7129" x="78.1758" y="107.292">Finance Single Page Application</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="153.1006" x="113.4819" y="119.876">[Container: React Component]</text>
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="237.7129" x="71.1758" y="510.4063" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="223.7129" x="78.1758" y="530.4014">Finance Single Page Application</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="153.1006" x="113.4819" y="542.9854">[Container: React Component]</text>
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="318.8887" y="87.2969" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147.1641" x="336.2959" y="107.292">Finance Microservice</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="325.8887" y="119.876">[Container: Java and Spring Boot]</text>
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="318.8887" y="510.4063" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147.1641" x="336.2959" y="530.4014">Finance Microservice</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="325.8887" y="542.9854">[Container: Java and Spring Boot]</text>
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125.8291" x="510.8672" y="115.292">Finance Database</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="120.8984" x="513.3325" y="127.876">[Container: PostgreSQL]</text>
+           <path d="M558.7817,66.2969 C558.7817,56.2969 576.7817,56.2969 576.7817,56.2969 C576.7817,56.2969 594.7817,56.2969 594.7817,66.2969 L594.7817,92.2969 C594.7817,102.2969 576.7817,102.2969 576.7817,102.2969 C576.7817,102.2969 558.7817,102.2969 558.7817,92.2969 L558.7817,66.2969 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+           <path d="M558.7817,66.2969 C558.7817,76.2969 576.7817,76.2969 576.7817,76.2969 C576.7817,76.2969 594.7817,76.2969 594.7817,66.2969 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125.8291" x="510.8672" y="523.4014">Finance Database</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="120.8984" x="513.3325" y="535.9854">[Container: PostgreSQL]</text>
+           <path d="M558.7817,548.3438 C558.7817,538.3438 576.7817,538.3438 576.7817,538.3438 C576.7817,538.3438 594.7817,538.3438 594.7817,548.3438 L594.7817,574.3438 C594.7817,584.3438 576.7817,584.3438 576.7817,584.3438 C576.7817,584.3438 558.7817,584.3438 558.7817,574.3438 L558.7817,548.3438 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+           <path d="M558.7817,548.3438 C558.7817,558.3438 576.7817,558.3438 576.7817,558.3438 C576.7817,558.3438 594.7817,558.3438 594.7817,548.3438 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="652.6963" y="87.2969" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122.1855" x="682.5928" y="107.292">Cart Microservice</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="659.6963" y="119.876">[Container: Java and Spring Boot]</text>
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="652.6963" y="510.4063" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122.1855" x="682.5928" y="530.4014">Cart Microservice</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="659.6963" y="542.9854">[Container: Java and Spring Boot]</text>
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100.8506" x="849.9136" y="115.292">Cart Database</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="111.3281" x="844.6748" y="127.876">[Container: MongoDB]</text>
+           <path d="M885.3389,66.2969 C885.3389,56.2969 903.3389,56.2969 903.3389,56.2969 C903.3389,56.2969 921.3389,56.2969 921.3389,66.2969 L921.3389,92.2969 C921.3389,102.2969 903.3389,102.2969 903.3389,102.2969 C903.3389,102.2969 885.3389,102.2969 885.3389,92.2969 L885.3389,66.2969 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+           <path d="M885.3389,66.2969 C885.3389,76.2969 903.3389,76.2969 903.3389,76.2969 C903.3389,76.2969 921.3389,76.2969 921.3389,66.2969 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100.8506" x="849.9136" y="523.4014">Cart Database</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="111.3281" x="844.6748" y="535.9854">[Container: MongoDB]</text>
+           <path d="M885.3389,548.3438 C885.3389,538.3438 903.3389,538.3438 903.3389,538.3438 C903.3389,538.3438 921.3389,538.3438 921.3389,548.3438 L921.3389,574.3438 C921.3389,584.3438 903.3389,584.3438 903.3389,584.3438 C903.3389,584.3438 885.3389,584.3438 885.3389,574.3438 L885.3389,548.3438 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+           <path d="M885.3389,548.3438 C885.3389,558.3438 903.3389,558.3438 903.3389,558.3438 C903.3389,558.3438 921.3389,558.3438 921.3389,548.3438 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+           <polygon fill="#004D40" points="178.0322,153.875,188.0322,157.875,178.0322,161.875,182.0322,157.875" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;" x1="33.0879" x2="184.0322" y1="157.875" y2="157.875" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="40.1758" x="67.6099" y="153.5166">Initiates</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="107.7856" y="153.5166">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.5459" x="110.9644" y="153.5166">payment</text>
+           <polygon fill="#004D40" points="397.8779,191.1563,407.8779,195.1563,397.8779,199.1563,401.8779,195.1563" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;" x1="190.0322" x2="403.8779" y1="195.1563" y2="195.1563" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="49.6924" x="251.2466" y="179.1572">Processes</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="300.939" y="179.1572">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.5459" x="304.1177" y="179.1572">payment</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="38.2324" x="280.8389" y="190.7979">request</text>
+           <polygon fill="#004D40" points="564.7817,228.4375,574.7817,232.4375,564.7817,236.4375,568.7817,232.4375" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;" x1="409.8779" x2="570.7817" y1="232.4375" y2="232.4375" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="31.8604" x="453.5374" y="216.4385">Stores</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="485.3977" y="216.4385">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.5459" x="488.5764" y="216.4385">payment</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="33.3154" x="476.6721" y="228.0791">details</text>
+           <polygon fill="#004D40" points="420.8779,265.7188,410.8779,269.7188,420.8779,273.7188,416.8779,269.7188" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="414.8779" x2="575.7817" y1="269.7188" y2="269.7188" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.7998" x="447.0676" y="253.7197">Confirms</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="491.8674" y="253.7197">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.5459" x="495.0461" y="253.7197">payment</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="37.9883" x="474.3357" y="265.3604">storage</text>
+           <polygon fill="#004D40" points="731.6855,303,741.6855,307,731.6855,311,735.6855,307" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="409.8779" x2="737.6855" y1="307" y2="307" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="37.959" x="539.1255" y="291.001">Notifies</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="577.0845" y="291.001">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="19.6582" x="580.2632" y="291.001">cart</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="599.9214" y="291.001">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="11.3379" x="603.1001" y="291.001">as</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="21.6016" x="565.981" y="302.6416">paid</text>
+           <polygon fill="#004D40" points="420.8779,351.9219,410.8779,355.9219,420.8779,359.9219,416.8779,355.9219" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;" x1="414.8779" x2="742.6855" y1="355.9219" y2="355.9219" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="71.7529" x="540.9053" y="328.2822">Acknowledges</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.5459" x="554.5088" y="339.9229">payment</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="56.2354" x="548.6641" y="351.5635">notification</text>
+           <polygon fill="#004D40" points="201.0322,389.2031,191.0322,393.2031,201.0322,397.2031,197.0322,393.2031" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="195.0322" x2="408.8779" y1="393.2031" y2="393.2031" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="39.0186" x="256.5835" y="377.2041">Returns</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="295.6021" y="377.2041">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.5459" x="298.7808" y="377.2041">payment</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="30.7275" x="284.5913" y="388.8447">status</text>
+           <polygon fill="#004D40" points="891.3389,426.4844,901.3389,430.4844,891.3389,434.4844,895.3389,430.4844" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;" x1="743.6855" x2="897.3389" y1="430.4844" y2="430.4844" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.4258" x="784.772" y="414.4854">Updates</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="826.1978" y="414.4854">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="19.6582" x="829.3765" y="414.4854">cart</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="849.0347" y="414.4854">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="10.0391" x="852.2134" y="414.4854">to</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="21.6016" x="795.7583" y="426.126">paid</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="817.3599" y="426.126">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="30.7275" x="820.5386" y="426.126">status</text>
+           <polygon fill="#004D40" points="754.6855,452.125,744.6855,456.125,754.6855,460.125,750.6855,456.125" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="748.6855" x2="902.3389" y1="456.125" y2="456.125" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.7998" x="781.9058" y="451.7666">Confirms</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="826.7056" y="451.7666">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="35.2344" x="829.8843" y="451.7666">update</text>
+           <polygon fill="#004D40" points="44.0879,489.4063,34.0879,493.4063,44.0879,497.4063,40.0879,493.4063" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="38.0879" x2="189.0322" y1="493.4063" y2="493.4063" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="42.0703" x="66.6626" y="477.4072">Displays</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="108.7329" y="477.4072">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.5459" x="111.9116" y="477.4072">payment</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="63.3887" x="79.8657" y="489.0479">confirmation</text>
+          </g>
+         </svg>
+        </div>
+        <figcaption>
+         <a onclick="openSvgModal('make-payment-modal', 'make-payment-svg')">Make payment</a>
+        </figcaption>
+       </figure>
+       <div class="modal" id="make-payment-modal">
+        <div class="modal-background" onclick="closeModal('make-payment-modal')"></div>
+        <div class="modal-content">
+         <div class="box">
+          <div id="make-payment-svg" class="modal-box-content">
+           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" preserveAspectRatio="meet" version="1.1" viewBox="0 0 963 603" zoomAndPan="magnify">
+            <title>
+             Finance - Dynamic
+            </title><defs /><g>
+             <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="144.9424" x="410.5303" y="27.9951">Finance - Dynamic</text>
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="33" x2="33" y1="130.2344" y2="511.4063" />
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="189.1758" x2="189.1758" y1="130.2344" y2="511.4063" />
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="408.8887" x2="408.8887" y1="130.2344" y2="511.4063" />
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="575.8672" x2="575.8672" y1="130.2344" y2="511.4063" />
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="742.6963" x2="742.6963" y1="130.2344" y2="511.4063" />
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="902.6748" x2="902.6748" y1="130.2344" y2="511.4063" />
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50.1758" x="5" y="115.292">Reader</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="9.2065" y="127.876">[Person]</text>
+             <ellipse cx="33.0879" cy="50.7969" fill="#00796B" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+             <path d="M33.0879,58.7969 L33.0879,85.7969 M20.0879,66.7969 L46.0879,66.7969 M33.0879,85.7969 L20.0879,100.7969 M33.0879,85.7969 L46.0879,100.7969 " fill="none" style="stroke:#181818;stroke-width:0.5;" />
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50.1758" x="5" y="523.4014">Reader</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="9.2065" y="535.9854">[Person]</text>
+             <ellipse cx="33.0879" cy="546.8438" fill="#00796B" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+             <path d="M33.0879,554.8438 L33.0879,581.8438 M20.0879,562.8438 L46.0879,562.8438 M33.0879,581.8438 L20.0879,596.8438 M33.0879,581.8438 L46.0879,596.8438 " fill="none" style="stroke:#181818;stroke-width:0.5;" />
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="237.7129" x="71.1758" y="87.2969" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="223.7129" x="78.1758" y="107.292">Finance Single Page Application</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="153.1006" x="113.4819" y="119.876">[Container: React Component]</text>
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="237.7129" x="71.1758" y="510.4063" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="223.7129" x="78.1758" y="530.4014">Finance Single Page Application</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="153.1006" x="113.4819" y="542.9854">[Container: React Component]</text>
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="318.8887" y="87.2969" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147.1641" x="336.2959" y="107.292">Finance Microservice</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="325.8887" y="119.876">[Container: Java and Spring Boot]</text>
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="318.8887" y="510.4063" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147.1641" x="336.2959" y="530.4014">Finance Microservice</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="325.8887" y="542.9854">[Container: Java and Spring Boot]</text>
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125.8291" x="510.8672" y="115.292">Finance Database</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="120.8984" x="513.3325" y="127.876">[Container: PostgreSQL]</text>
+             <path d="M558.7817,66.2969 C558.7817,56.2969 576.7817,56.2969 576.7817,56.2969 C576.7817,56.2969 594.7817,56.2969 594.7817,66.2969 L594.7817,92.2969 C594.7817,102.2969 576.7817,102.2969 576.7817,102.2969 C576.7817,102.2969 558.7817,102.2969 558.7817,92.2969 L558.7817,66.2969 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+             <path d="M558.7817,66.2969 C558.7817,76.2969 576.7817,76.2969 576.7817,76.2969 C576.7817,76.2969 594.7817,76.2969 594.7817,66.2969 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125.8291" x="510.8672" y="523.4014">Finance Database</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="120.8984" x="513.3325" y="535.9854">[Container: PostgreSQL]</text>
+             <path d="M558.7817,548.3438 C558.7817,538.3438 576.7817,538.3438 576.7817,538.3438 C576.7817,538.3438 594.7817,538.3438 594.7817,548.3438 L594.7817,574.3438 C594.7817,584.3438 576.7817,584.3438 576.7817,584.3438 C576.7817,584.3438 558.7817,584.3438 558.7817,574.3438 L558.7817,548.3438 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+             <path d="M558.7817,548.3438 C558.7817,558.3438 576.7817,558.3438 576.7817,558.3438 C576.7817,558.3438 594.7817,558.3438 594.7817,548.3438 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="652.6963" y="87.2969" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122.1855" x="682.5928" y="107.292">Cart Microservice</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="659.6963" y="119.876">[Container: Java and Spring Boot]</text>
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="652.6963" y="510.4063" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122.1855" x="682.5928" y="530.4014">Cart Microservice</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="659.6963" y="542.9854">[Container: Java and Spring Boot]</text>
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100.8506" x="849.9136" y="115.292">Cart Database</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="111.3281" x="844.6748" y="127.876">[Container: MongoDB]</text>
+             <path d="M885.3389,66.2969 C885.3389,56.2969 903.3389,56.2969 903.3389,56.2969 C903.3389,56.2969 921.3389,56.2969 921.3389,66.2969 L921.3389,92.2969 C921.3389,102.2969 903.3389,102.2969 903.3389,102.2969 C903.3389,102.2969 885.3389,102.2969 885.3389,92.2969 L885.3389,66.2969 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+             <path d="M885.3389,66.2969 C885.3389,76.2969 903.3389,76.2969 903.3389,76.2969 C903.3389,76.2969 921.3389,76.2969 921.3389,66.2969 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100.8506" x="849.9136" y="523.4014">Cart Database</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="111.3281" x="844.6748" y="535.9854">[Container: MongoDB]</text>
+             <path d="M885.3389,548.3438 C885.3389,538.3438 903.3389,538.3438 903.3389,538.3438 C903.3389,538.3438 921.3389,538.3438 921.3389,548.3438 L921.3389,574.3438 C921.3389,584.3438 903.3389,584.3438 903.3389,584.3438 C903.3389,584.3438 885.3389,584.3438 885.3389,574.3438 L885.3389,548.3438 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+             <path d="M885.3389,548.3438 C885.3389,558.3438 903.3389,558.3438 903.3389,558.3438 C903.3389,558.3438 921.3389,558.3438 921.3389,548.3438 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+             <polygon fill="#004D40" points="178.0322,153.875,188.0322,157.875,178.0322,161.875,182.0322,157.875" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;" x1="33.0879" x2="184.0322" y1="157.875" y2="157.875" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="40.1758" x="67.6099" y="153.5166">Initiates</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="107.7856" y="153.5166">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.5459" x="110.9644" y="153.5166">payment</text>
+             <polygon fill="#004D40" points="397.8779,191.1563,407.8779,195.1563,397.8779,199.1563,401.8779,195.1563" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;" x1="190.0322" x2="403.8779" y1="195.1563" y2="195.1563" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="49.6924" x="251.2466" y="179.1572">Processes</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="300.939" y="179.1572">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.5459" x="304.1177" y="179.1572">payment</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="38.2324" x="280.8389" y="190.7979">request</text>
+             <polygon fill="#004D40" points="564.7817,228.4375,574.7817,232.4375,564.7817,236.4375,568.7817,232.4375" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;" x1="409.8779" x2="570.7817" y1="232.4375" y2="232.4375" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="31.8604" x="453.5374" y="216.4385">Stores</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="485.3977" y="216.4385">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.5459" x="488.5764" y="216.4385">payment</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="33.3154" x="476.6721" y="228.0791">details</text>
+             <polygon fill="#004D40" points="420.8779,265.7188,410.8779,269.7188,420.8779,273.7188,416.8779,269.7188" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="414.8779" x2="575.7817" y1="269.7188" y2="269.7188" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.7998" x="447.0676" y="253.7197">Confirms</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="491.8674" y="253.7197">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.5459" x="495.0461" y="253.7197">payment</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="37.9883" x="474.3357" y="265.3604">storage</text>
+             <polygon fill="#004D40" points="731.6855,303,741.6855,307,731.6855,311,735.6855,307" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="409.8779" x2="737.6855" y1="307" y2="307" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="37.959" x="539.1255" y="291.001">Notifies</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="577.0845" y="291.001">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="19.6582" x="580.2632" y="291.001">cart</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="599.9214" y="291.001">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="11.3379" x="603.1001" y="291.001">as</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="21.6016" x="565.981" y="302.6416">paid</text>
+             <polygon fill="#004D40" points="420.8779,351.9219,410.8779,355.9219,420.8779,359.9219,416.8779,355.9219" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;" x1="414.8779" x2="742.6855" y1="355.9219" y2="355.9219" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="71.7529" x="540.9053" y="328.2822">Acknowledges</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.5459" x="554.5088" y="339.9229">payment</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="56.2354" x="548.6641" y="351.5635">notification</text>
+             <polygon fill="#004D40" points="201.0322,389.2031,191.0322,393.2031,201.0322,397.2031,197.0322,393.2031" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="195.0322" x2="408.8779" y1="393.2031" y2="393.2031" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="39.0186" x="256.5835" y="377.2041">Returns</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="295.6021" y="377.2041">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.5459" x="298.7808" y="377.2041">payment</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="30.7275" x="284.5913" y="388.8447">status</text>
+             <polygon fill="#004D40" points="891.3389,426.4844,901.3389,430.4844,891.3389,434.4844,895.3389,430.4844" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;" x1="743.6855" x2="897.3389" y1="430.4844" y2="430.4844" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.4258" x="784.772" y="414.4854">Updates</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="826.1978" y="414.4854">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="19.6582" x="829.3765" y="414.4854">cart</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="849.0347" y="414.4854">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="10.0391" x="852.2134" y="414.4854">to</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="21.6016" x="795.7583" y="426.126">paid</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="817.3599" y="426.126">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="30.7275" x="820.5386" y="426.126">status</text>
+             <polygon fill="#004D40" points="754.6855,452.125,744.6855,456.125,754.6855,460.125,750.6855,456.125" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="748.6855" x2="902.3389" y1="456.125" y2="456.125" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.7998" x="781.9058" y="451.7666">Confirms</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="826.7056" y="451.7666">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="35.2344" x="829.8843" y="451.7666">update</text>
+             <polygon fill="#004D40" points="44.0879,489.4063,34.0879,493.4063,44.0879,497.4063,40.0879,493.4063" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="38.0879" x2="189.0322" y1="493.4063" y2="493.4063" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="42.0703" x="66.6626" y="477.4072">Displays</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="108.7329" y="477.4072">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.5459" x="111.9116" y="477.4072">payment</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="63.3887" x="79.8657" y="489.0479">confirmation</text>
+            </g>
+           </svg>
+          </div>
+          <div class="has-text-centered">
+           Make payment [<a href="../svg/make-payment.svg" target="_blank">svg</a>|<a href="../png/make-payment.png" target="_blank">png</a>|<a href="../puml/make-payment.puml" target="_blank">puml</a>]
+          </div>
+         </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close" onclick="closeModal('make-payment-modal')"></button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </details>
+ </div>
+</div></div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="../../admonition.js"></script>
+    <script type="text/javascript" src="../../reformat-mermaid.js"></script>
+    <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.3.0/dist/mermaid.esm.min.mjs';</script>
+    <script type="text/javascript" src="../../treeview.js"></script>
+    <script type="text/javascript">listree();</script>
+    <script type="text/javascript" src="../../katex-render.js"></script>
+  </body>
+</html>

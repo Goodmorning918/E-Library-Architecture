@@ -1,0 +1,49 @@
+@startuml
+set separator none
+title Recommendations - Dynamic
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam sequenceParticipant<<Reader>> {
+  BackgroundColor #00796b
+  FontColor #ffffff
+  BorderColor #00544a
+  shadowing false
+}
+skinparam sequenceParticipant<<Recommendations.RecommendationsDatabase>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam sequenceParticipant<<Recommendations.RecommendationsMicroservice>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam sequenceParticipant<<Recommendations.RecommendationsSinglePageApplication>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+
+actor "Reader\n<size:10>[Person]</size>" as Reader <<Reader>> #00796b
+participant "Recommendations Single Page Application\n<size:10>[Container: React Component]</size>" as Recommendations.RecommendationsSinglePageApplication <<Recommendations.RecommendationsSinglePageApplication>> #26a69a
+participant "Recommendations Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Recommendations.RecommendationsMicroservice <<Recommendations.RecommendationsMicroservice>> #26a69a
+database "Recommendations Database\n<size:10>[Container: MongoDB]</size>" as Recommendations.RecommendationsDatabase <<Recommendations.RecommendationsDatabase>> #26a69a
+Reader -[#004d40]> Recommendations.RecommendationsSinglePageApplication : Requests recommendations
+Recommendations.RecommendationsSinglePageApplication -[#004d40]> Recommendations.RecommendationsMicroservice : Fetches recommendations
+Recommendations.RecommendationsMicroservice -[#004d40]> Recommendations.RecommendationsDatabase : Retrieves recommended items
+Recommendations.RecommendationsMicroservice <-[#004d40]- Recommendations.RecommendationsDatabase : Returns recommendations
+Recommendations.RecommendationsSinglePageApplication <-[#004d40]- Recommendations.RecommendationsMicroservice : Returns recommended items
+Reader <-[#004d40]- Recommendations.RecommendationsSinglePageApplication : Displays recommended items
+@enduml

@@ -1,0 +1,49 @@
+@startuml
+set separator none
+title Cart - Dynamic
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam sequenceParticipant<<Cart.CartDatabase>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam sequenceParticipant<<Cart.CartMicroservice>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam sequenceParticipant<<Cart.CartSinglePageApplication>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam sequenceParticipant<<Reader>> {
+  BackgroundColor #00796b
+  FontColor #ffffff
+  BorderColor #00544a
+  shadowing false
+}
+
+actor "Reader\n<size:10>[Person]</size>" as Reader <<Reader>> #00796b
+participant "Cart Single Page Application\n<size:10>[Container: React Component]</size>" as Cart.CartSinglePageApplication <<Cart.CartSinglePageApplication>> #26a69a
+participant "Cart Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Cart.CartMicroservice <<Cart.CartMicroservice>> #26a69a
+database "Cart Database\n<size:10>[Container: MongoDB]</size>" as Cart.CartDatabase <<Cart.CartDatabase>> #26a69a
+Reader -[#004d40]> Cart.CartSinglePageApplication : Removes item from cart
+Cart.CartSinglePageApplication -[#004d40]> Cart.CartMicroservice : Processes cart removal
+Cart.CartMicroservice -[#004d40]> Cart.CartDatabase : Removes cart item
+Cart.CartMicroservice <-[#004d40]- Cart.CartDatabase : Confirms removal
+Cart.CartSinglePageApplication <-[#004d40]- Cart.CartMicroservice : Confirms cart removal
+Reader <-[#004d40]- Cart.CartSinglePageApplication : Updates cart view
+@enduml
