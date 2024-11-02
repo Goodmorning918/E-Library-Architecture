@@ -1,0 +1,40 @@
+@startuml
+set separator none
+title Finance - Dynamic
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam sequenceParticipant<<Cart.CartMicroservice>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam sequenceParticipant<<Finance.FinanceDatabase>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam sequenceParticipant<<Finance.FinanceMicroservice>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+
+participant "Cart Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Cart.CartMicroservice <<Cart.CartMicroservice>> #26a69a
+participant "Finance Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Finance.FinanceMicroservice <<Finance.FinanceMicroservice>> #26a69a
+database "Finance Database\n<size:10>[Container: PostgreSQL]</size>" as Finance.FinanceDatabase <<Finance.FinanceDatabase>> #26a69a
+Cart.CartMicroservice -[#004d40]> Finance.FinanceMicroservice : Requests payment link
+Finance.FinanceMicroservice -[#004d40]> Finance.FinanceDatabase : Creates payment entry
+Finance.FinanceMicroservice <-[#004d40]- Finance.FinanceDatabase : Confirms payment link
+Cart.CartMicroservice <-[#004d40]- Finance.FinanceMicroservice : Returns payment link
+@enduml

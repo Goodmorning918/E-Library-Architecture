@@ -1,0 +1,69 @@
+@startuml
+set separator none
+title Cart - System Context
+
+left to right direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam rectangle<<Cart>> {
+  BackgroundColor #009688
+  FontColor #ffffff
+  BorderColor #00695f
+  shadowing false
+}
+skinparam rectangle<<Finance>> {
+  BackgroundColor #009688
+  FontColor #ffffff
+  BorderColor #00695f
+  shadowing false
+}
+skinparam rectangle<<Products>> {
+  BackgroundColor #009688
+  FontColor #ffffff
+  BorderColor #00695f
+  shadowing false
+}
+skinparam person<<Reader>> {
+  BackgroundColor #00796b
+  FontColor #ffffff
+  BorderColor #00544a
+  shadowing false
+}
+skinparam rectangle<<Recommendations>> {
+  BackgroundColor #009688
+  FontColor #ffffff
+  BorderColor #00695f
+  shadowing false
+}
+skinparam rectangle<<Shelf>> {
+  BackgroundColor #009688
+  FontColor #ffffff
+  BorderColor #00695f
+  shadowing false
+}
+
+person "==Reader\n<size:10>[Person]</size>\n\nA user of the E-Library System who interacts with available resources" <<Reader>> as Reader
+rectangle "==Products\n<size:10>[Software System]</size>\n\nMaintains and displays items available in the library" <<Products>> as Products
+rectangle "==Cart\n<size:10>[Software System]</size>\n\nHandles the item rental process" <<Cart>> as Cart
+rectangle "==Recommendations\n<size:10>[Software System]</size>\n\nProvides recommended items for users" <<Recommendations>> as Recommendations
+rectangle "==Finance\n<size:10>[Software System]</size>\n\nManages financial transactions and payment processing" <<Finance>> as Finance
+rectangle "==Shelf\n<size:10>[Software System]</size>\n\nStores and displays items borrowed by users" <<Shelf>> as Shelf
+
+Reader .[#004d40,thickness=2].> Shelf : "<color:#004d40>Manages borrowed items"
+Reader .[#004d40,thickness=2].> Products : "<color:#004d40>Views available items"
+Reader .[#004d40,thickness=2].> Cart : "<color:#004d40>Handles rental process"
+Reader .[#004d40,thickness=2].> Recommendations : "<color:#004d40>Views recommended items"
+Reader .[#004d40,thickness=2].> Finance : "<color:#004d40>Manages payments"
+Cart .[#004d40,thickness=2].> Finance : "<color:#004d40>Processes payments"
+Cart .[#004d40,thickness=2].> Recommendations : "<color:#004d40>Updates recommendations\n<color:#004d40><size:8>[Kafka]</size>"
+Cart .[#004d40,thickness=2].> Shelf : "<color:#004d40>Notifies borrowed items\n<color:#004d40><size:8>[Kafka]</size>"
+Cart .[#004d40,thickness=2].> Products : "<color:#004d40>Checks item availability\n<color:#004d40><size:8>[HTTPS]</size>"
+@enduml

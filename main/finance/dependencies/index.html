@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Finance | E-Library System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css" rel="stylesheet">
+    <link href="../../../style.css" rel="stylesheet">
+    <link href="./../../style-branding.css" rel="stylesheet">
+    <script type="text/javascript" src="../../../modal.js"></script>
+    <script type="text/javascript" src="../../../svg-modal.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js"></script>
+    <link href="../../../treeview.css" rel="stylesheet">
+    <link href="../../../admonition.css" rel="stylesheet">
+
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+        
+            <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+        
+            <script>
+            window.WebFontConfig = {
+                custom: {
+                families: ['KaTeX_AMS', 'KaTeX_Caligraphic:n4,n7', 'KaTeX_Fraktur:n4,n7',
+                    'KaTeX_Main:n4,n7,i4,i7', 'KaTeX_Math:i4,i7', 'KaTeX_Script',
+                    'KaTeX_SansSerif:n4,n7,i4', 'KaTeX_Size1', 'KaTeX_Size2', 'KaTeX_Size3',
+                    'KaTeX_Size4', 'KaTeX_Typewriter'],
+                },
+            };
+            </script>
+            <script defer src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" crossorigin="anonymous"></script>
+            <link href="../../site/favicon.ico" rel="icon" type="image/ico">
+    <link href="../../site/custom.css" rel="stylesheet">
+  </head>
+  <body>
+    <script type="text/javascript" src="../../../header.js"></script>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand has-site-branding"><a href="../../" class="navbar-item"><img alt="E-Library System" src="../../site/logo.png"></a><a href="../../" class="navbar-item"><span class="has-text-weight-semibold has-site-branding">E-Library System</span></a></div>
+      <div class="navbar-menu has-site-branding">
+        <div class="navbar-end">
+          <div class="navbar-item"><input class="input is-small is-rounded" id="search" type="search" size="30" maxlength="50" placeholder="Search..." onkeyup="redirect(event, value, '../../search/')"></div>
+          <div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link has-site-branding">main</a>
+            <div class="navbar-dropdown is-right"><a href="../../../main/" class="navbar-item">main</a><a href="../../../feature%2Fupdate-styling/" class="navbar-item">feature/update-styling</a><a href="../../../feature%2Fupdate_main_branch_name/" class="navbar-item">feature/update_main_branch_name</a>
+              <hr class="navbar-divider">
+              <div class="navbar-item has-text-grey-light"><span>v</span><span>0.0.0</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="site-layout" id="site">
+      <aside class="menu p-3">
+        <p class="menu-label">General</p>
+        <ul class="menu-list has-site-branding">
+          <li><a href="../../" class="">Home</a><a href="../../software-systems/" class="">Software Systems</a></li>
+        </ul>
+        <p class="menu-label">Software systems</p>
+        <ul class="listree menu-list has-site-branding">
+          <ul class="listree-submenu-items">
+            <ul class="listree-submenu-items">
+              <li><a href="../../accounts/" class="">Accounts</a></li>
+              <li><a href="../../cart/" class="">Cart</a></li>
+              <li><a href="../" class="is-active">Finance</a></li>
+              <li><a href="../../mail-provider/" class="">Mail Provider</a></li>
+              <li><a href="../../products/" class="">Products</a></li>
+              <li><a href="../../recommendations/" class="">Recommendations</a></li>
+              <li><a href="../../shelf/" class="">Shelf</a></li>
+            </ul>
+          </ul>
+        </ul>
+      </aside>
+      <div class="container is-fluid">
+        <h1 class="title mt-3">Finance</h1>
+        <h2 class="subtitle">Manages financial transactions and payment processing</h2>
+        <div class="tabs mt-3">
+          <ul class="is-flex-wrap-wrap is-flex-shrink-1 is-flex-grow-0">
+            <li><a href="../" class="">Info</a></li>
+            <li><a href="../context/" class="">Context views</a></li>
+            <li><a href="../container/" class="">Container views</a></li>
+            <li><a href="../dynamic/" class="">Dynamic views</a></li>
+            <li class="is-active"><a href="./" class="is-active">Dependencies</a></li>
+          </ul>
+        </div>
+        <div class="content p-3">
+          <h2>Inbound</h2>
+          <table class="table is-fullwidth">
+            <thead>
+              <tr>
+                <th class="is-one-fourth"><span class="">System</span></th>
+                <th class="is-two-fourth"><span class="">Description</span></th>
+                <th><span class="">Technology</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="has-text-weight-bold"><a href="../../cart/" class="">Cart</a></td>
+                <td><span class="">Processes payments</span></td>
+                <td><span class=""></span></td>
+              </tr>
+            </tbody>
+          </table>
+          <h2>Outbound</h2>
+          <table class="table is-fullwidth">
+            <thead>
+              <tr>
+                <th class="is-one-fourth"><span class="">System</span></th>
+                <th class="is-two-fourth"><span class="">Description</span></th>
+                <th><span class="">Technology</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="has-text-weight-bold"><a href="../../mail-provider/" class="">Mail Provider</a></td>
+                <td><span class="">Sends invoices to readers</span></td>
+                <td><span class="">SMTP</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="../../../admonition.js"></script>
+    <script type="text/javascript" src="../../../reformat-mermaid.js"></script>
+    <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.3.0/dist/mermaid.esm.min.mjs';</script>
+    <script type="text/javascript" src="../../../treeview.js"></script>
+    <script type="text/javascript">listree();</script>
+    <script type="text/javascript" src="../../../katex-render.js"></script>
+  </body>
+</html>

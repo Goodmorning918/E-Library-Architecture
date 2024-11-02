@@ -1,0 +1,40 @@
+@startuml
+set separator none
+title Recommendations - Dynamic
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam sequenceParticipant<<Accounts.AccountsMicroservice>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam sequenceParticipant<<Recommendations.RecommendationsDatabase>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam sequenceParticipant<<Recommendations.RecommendationsMicroservice>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+
+participant "Accounts Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Accounts.AccountsMicroservice <<Accounts.AccountsMicroservice>> #26a69a
+participant "Recommendations Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Recommendations.RecommendationsMicroservice <<Recommendations.RecommendationsMicroservice>> #26a69a
+database "Recommendations Database\n<size:10>[Container: MongoDB]</size>" as Recommendations.RecommendationsDatabase <<Recommendations.RecommendationsDatabase>> #26a69a
+Accounts.AccountsMicroservice -[#004d40]> Recommendations.RecommendationsMicroservice : Sends user recommendations data
+Accounts.AccountsMicroservice <-[#004d40]- Recommendations.RecommendationsMicroservice : Acknowledges data receipt
+Recommendations.RecommendationsMicroservice -[#004d40]> Recommendations.RecommendationsDatabase : Stores recommendations
+Recommendations.RecommendationsMicroservice <-[#004d40]- Recommendations.RecommendationsDatabase : Confirms storage
+@enduml
