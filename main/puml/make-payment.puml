@@ -35,7 +35,7 @@ skinparam sequenceParticipant<<Finance.FinanceMicroservice>> {
   BorderColor #1a746b
   shadowing false
 }
-skinparam sequenceParticipant<<Finance.FinanceSinglePageApplication>> {
+skinparam sequenceParticipant<<Finance.FinanceSPA>> {
   BackgroundColor #26a69a
   FontColor #ffffff
   BorderColor #1a746b
@@ -49,19 +49,19 @@ skinparam sequenceParticipant<<Reader>> {
 }
 
 actor "Reader\n<size:10>[Person]</size>" as Reader <<Reader>> #00796b
-participant "Finance Single Page Application\n<size:10>[Container: React Component]</size>" as Finance.FinanceSinglePageApplication <<Finance.FinanceSinglePageApplication>> #26a69a
+participant "Finance SPA\n<size:10>[Container: React Component]</size>" as Finance.FinanceSPA <<Finance.FinanceSPA>> #26a69a
 participant "Finance Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Finance.FinanceMicroservice <<Finance.FinanceMicroservice>> #26a69a
 database "Finance Database\n<size:10>[Container: PostgreSQL]</size>" as Finance.FinanceDatabase <<Finance.FinanceDatabase>> #26a69a
 participant "Cart Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Cart.CartMicroservice <<Cart.CartMicroservice>> #26a69a
 database "Cart Database\n<size:10>[Container: MongoDB]</size>" as Cart.CartDatabase <<Cart.CartDatabase>> #26a69a
-Reader -[#004d40]> Finance.FinanceSinglePageApplication : Initiates payment
-Finance.FinanceSinglePageApplication -[#004d40]> Finance.FinanceMicroservice : Processes payment request
+Reader -[#004d40]> Finance.FinanceSPA : Initiates payment
+Finance.FinanceSPA -[#004d40]> Finance.FinanceMicroservice : Processes payment request
 Finance.FinanceMicroservice -[#004d40]> Finance.FinanceDatabase : Stores payment details
 Finance.FinanceMicroservice <-[#004d40]- Finance.FinanceDatabase : Confirms payment storage
 Cart.CartMicroservice <-[#004d40]- Finance.FinanceMicroservice : Notifies cart as paid
 Cart.CartMicroservice -[#004d40]> Finance.FinanceMicroservice : Acknowledges payment notification
-Finance.FinanceSinglePageApplication <-[#004d40]- Finance.FinanceMicroservice : Returns payment status
+Finance.FinanceSPA <-[#004d40]- Finance.FinanceMicroservice : Returns payment status
 Cart.CartMicroservice -[#004d40]> Cart.CartDatabase : Updates cart to paid status
 Cart.CartMicroservice <-[#004d40]- Cart.CartDatabase : Confirms update
-Reader <-[#004d40]- Finance.FinanceSinglePageApplication : Displays payment confirmation
+Reader <-[#004d40]- Finance.FinanceSPA : Displays payment confirmation
 @enduml

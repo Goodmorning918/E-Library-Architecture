@@ -50,20 +50,20 @@ skinparam rectangle<<Shelf>> {
   shadowing false
 }
 
-person "==Reader\n<size:10>[Person]</size>\n\nA user of the E-Library System who interacts with available resources" <<Reader>> as Reader
-rectangle "==Products\n<size:10>[Software System]</size>\n\nMaintains and displays items available in the library" <<Products>> as Products
-rectangle "==Cart\n<size:10>[Software System]</size>\n\nHandles the item rental process" <<Cart>> as Cart
-rectangle "==Recommendations\n<size:10>[Software System]</size>\n\nProvides recommended items for users" <<Recommendations>> as Recommendations
-rectangle "==Finance\n<size:10>[Software System]</size>\n\nManages financial transactions and payment processing" <<Finance>> as Finance
-rectangle "==Shelf\n<size:10>[Software System]</size>\n\nStores and displays items borrowed by users" <<Shelf>> as Shelf
+person "==Reader\n<size:10>[Person]</size>\n\nA user of the E-Library System who interacts with available resources." <<Reader>> as Reader
+rectangle "==Products\n<size:10>[Software System]</size>\n\nMaintains and displays items available in the library." <<Products>> as Products
+rectangle "==Cart\n<size:10>[Software System]</size>\n\nHandles the item rental process." <<Cart>> as Cart
+rectangle "==Recommendations\n<size:10>[Software System]</size>\n\nProvides recommended items for users." <<Recommendations>> as Recommendations
+rectangle "==Finance\n<size:10>[Software System]</size>\n\nManages financial transactions and payment processing." <<Finance>> as Finance
+rectangle "==Shelf\n<size:10>[Software System]</size>\n\nStores and displays items borrowed by users." <<Shelf>> as Shelf
 
-Reader .[#004d40,thickness=2].> Shelf : "<color:#004d40>Manages borrowed items"
-Reader .[#004d40,thickness=2].> Products : "<color:#004d40>Views available items"
-Reader .[#004d40,thickness=2].> Cart : "<color:#004d40>Handles rental process"
-Reader .[#004d40,thickness=2].> Recommendations : "<color:#004d40>Views recommended items"
-Reader .[#004d40,thickness=2].> Finance : "<color:#004d40>Manages payments"
-Cart .[#004d40,thickness=2].> Finance : "<color:#004d40>Processes payments"
-Cart .[#004d40,thickness=2].> Recommendations : "<color:#004d40>Updates recommendations\n<color:#004d40><size:8>[Kafka]</size>"
-Cart .[#004d40,thickness=2].> Shelf : "<color:#004d40>Notifies borrowed items\n<color:#004d40><size:8>[Kafka]</size>"
-Cart .[#004d40,thickness=2].> Products : "<color:#004d40>Checks item availability\n<color:#004d40><size:8>[HTTPS]</size>"
+Reader .[#004d40,thickness=2].> Shelf : "<color:#004d40>Manages borrowed items."
+Reader .[#004d40,thickness=2].> Products : "<color:#004d40>Views available items."
+Reader .[#004d40,thickness=2].> Cart : "<color:#004d40>Handles rental process."
+Reader .[#004d40,thickness=2].> Recommendations : "<color:#004d40>Views recommended items."
+Reader .[#004d40,thickness=2].> Finance : "<color:#004d40>Manages payments."
+Cart .[#004d40,thickness=2].> Finance : "<color:#004d40>Processes payments."
+Cart .[#004d40,thickness=2].> Recommendations : "<color:#004d40>Updates recommendations.\n<color:#004d40><size:8>[Kafka]</size>"
+Cart .[#004d40,thickness=2].> Shelf : "<color:#004d40>Notifies borrowed items.\n<color:#004d40><size:8>[Kafka]</size>"
+Cart .[#004d40,thickness=2].> Products : "<color:#004d40>Checks item availability.\n<color:#004d40><size:8>[HTTPS]</size>"
 @enduml

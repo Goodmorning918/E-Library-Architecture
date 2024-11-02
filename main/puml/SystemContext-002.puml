@@ -32,11 +32,11 @@ skinparam rectangle<<Shelf>> {
   shadowing false
 }
 
-person "==Reader\n<size:10>[Person]</size>\n\nA user of the E-Library System who interacts with available resources" <<Reader>> as Reader
-rectangle "==Cart\n<size:10>[Software System]</size>\n\nHandles the item rental process" <<Cart>> as Cart
-rectangle "==Shelf\n<size:10>[Software System]</size>\n\nStores and displays items borrowed by users" <<Shelf>> as Shelf
+person "==Reader\n<size:10>[Person]</size>\n\nA user of the E-Library System who interacts with available resources." <<Reader>> as Reader
+rectangle "==Cart\n<size:10>[Software System]</size>\n\nHandles the item rental process." <<Cart>> as Cart
+rectangle "==Shelf\n<size:10>[Software System]</size>\n\nStores and displays items borrowed by users." <<Shelf>> as Shelf
 
-Reader .[#004d40,thickness=2].> Shelf : "<color:#004d40>Manages borrowed items"
-Reader .[#004d40,thickness=2].> Cart : "<color:#004d40>Handles rental process"
-Cart .[#004d40,thickness=2].> Shelf : "<color:#004d40>Notifies borrowed items\n<color:#004d40><size:8>[Kafka]</size>"
+Reader .[#004d40,thickness=2].> Shelf : "<color:#004d40>Manages borrowed items."
+Reader .[#004d40,thickness=2].> Cart : "<color:#004d40>Handles rental process."
+Cart .[#004d40,thickness=2].> Shelf : "<color:#004d40>Notifies borrowed items.\n<color:#004d40><size:8>[Kafka]</size>"
 @enduml

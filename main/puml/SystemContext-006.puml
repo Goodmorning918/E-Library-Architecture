@@ -44,16 +44,16 @@ skinparam person<<Reader>> {
   shadowing false
 }
 
-person "==Reader\n<size:10>[Person]</size>\n\nA user of the E-Library System who interacts with available resources" <<Reader>> as Reader
-rectangle "==Cart\n<size:10>[Software System]</size>\n\nHandles the item rental process" <<Cart>> as Cart
-person "==Administrator\n<size:10>[Person]</size>\n\nAn admin responsible for adding items to the library, managing user accounts, and handling financial transactions" <<Administrator>> as Administrator
-rectangle "==Finance\n<size:10>[Software System]</size>\n\nManages financial transactions and payment processing" <<Finance>> as Finance
-rectangle "==Mail Provider\n<size:10>[Software System]</size>\n\nExternal system for sending emails" <<MailProvider>> as MailProvider
+person "==Reader\n<size:10>[Person]</size>\n\nA user of the E-Library System who interacts with available resources." <<Reader>> as Reader
+rectangle "==Cart\n<size:10>[Software System]</size>\n\nHandles the item rental process." <<Cart>> as Cart
+person "==Administrator\n<size:10>[Person]</size>\n\nAn admin responsible for adding items to the library, managing user accounts, and handling financial transactions." <<Administrator>> as Administrator
+rectangle "==Finance\n<size:10>[Software System]</size>\n\nManages financial transactions and payment processing." <<Finance>> as Finance
+rectangle "==Mail Provider\n<size:10>[Software System]</size>\n\nExternal system for sending emails." <<MailProvider>> as MailProvider
 
-Reader .[#004d40,thickness=2].> Cart : "<color:#004d40>Handles rental process"
-Reader .[#004d40,thickness=2].> Finance : "<color:#004d40>Manages payments"
-Cart .[#004d40,thickness=2].> Finance : "<color:#004d40>Processes payments"
-Administrator .[#004d40,thickness=2].> Finance : "<color:#004d40>Oversees financial transactions"
-MailProvider .[#004d40,thickness=2].> Reader : "<color:#004d40>Sends invoices"
-Finance .[#004d40,thickness=2].> MailProvider : "<color:#004d40>Sends invoices to readers\n<color:#004d40><size:8>[SMTP]</size>"
+Reader .[#004d40,thickness=2].> Cart : "<color:#004d40>Handles rental process."
+Reader .[#004d40,thickness=2].> Finance : "<color:#004d40>Manages payments."
+Cart .[#004d40,thickness=2].> Finance : "<color:#004d40>Processes payments."
+Administrator .[#004d40,thickness=2].> Finance : "<color:#004d40>Oversees financial transactions."
+MailProvider .[#004d40,thickness=2].> Reader : "<color:#004d40>Sends invoices."
+Finance .[#004d40,thickness=2].> MailProvider : "<color:#004d40>Sends invoices to readers.\n<color:#004d40><size:8>[SMTP]</size>"
 @enduml

@@ -23,7 +23,7 @@ skinparam sequenceParticipant<<Accounts.AccountsMicroservice>> {
   BorderColor #1a746b
   shadowing false
 }
-skinparam sequenceParticipant<<Accounts.AccountsSinglePageApplication>> {
+skinparam sequenceParticipant<<Accounts.AccountsSPA>> {
   BackgroundColor #26a69a
   FontColor #ffffff
   BorderColor #1a746b
@@ -43,16 +43,16 @@ skinparam sequenceParticipant<<Recommendations.RecommendationsMicroservice>> {
 }
 
 actor "Reader\n<size:10>[Person]</size>" as Reader <<Reader>> #00796b
-participant "Accounts Single Page Application\n<size:10>[Container: React Component]</size>" as Accounts.AccountsSinglePageApplication <<Accounts.AccountsSinglePageApplication>> #26a69a
+participant "Accounts SPA\n<size:10>[Container: React Component]</size>" as Accounts.AccountsSPA <<Accounts.AccountsSPA>> #26a69a
 participant "Accounts Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Accounts.AccountsMicroservice <<Accounts.AccountsMicroservice>> #26a69a
 database "Accounts Database\n<size:10>[Container: MongoDB]</size>" as Accounts.AccountsDatabase <<Accounts.AccountsDatabase>> #26a69a
 participant "Recommendations Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Recommendations.RecommendationsMicroservice <<Recommendations.RecommendationsMicroservice>> #26a69a
-Reader -[#004d40]> Accounts.AccountsSinglePageApplication : Initiates account registration
-Accounts.AccountsSinglePageApplication -[#004d40]> Accounts.AccountsMicroservice : Requests new account creation
+Reader -[#004d40]> Accounts.AccountsSPA : Initiates account registration
+Accounts.AccountsSPA -[#004d40]> Accounts.AccountsMicroservice : Requests new account creation
 Accounts.AccountsMicroservice -[#004d40]> Accounts.AccountsDatabase : Stores new account data
 Accounts.AccountsMicroservice <-[#004d40]- Accounts.AccountsDatabase : Confirms account creation
 Accounts.AccountsMicroservice -[#004d40]> Recommendations.RecommendationsMicroservice : Updates recommendations for new user
 Accounts.AccountsMicroservice <-[#004d40]- Recommendations.RecommendationsMicroservice : Acknowledges recommendation update
-Accounts.AccountsSinglePageApplication <-[#004d40]- Accounts.AccountsMicroservice : Sends account details
-Reader <-[#004d40]- Accounts.AccountsSinglePageApplication : Displays created account details
+Accounts.AccountsSPA <-[#004d40]- Accounts.AccountsMicroservice : Sends account details
+Reader <-[#004d40]- Accounts.AccountsSPA : Displays created account details
 @enduml

@@ -29,7 +29,7 @@ skinparam sequenceParticipant<<Products.ProductsMicroservice>> {
   BorderColor #1a746b
   shadowing false
 }
-skinparam sequenceParticipant<<Products.ProductsSinglePageApplication>> {
+skinparam sequenceParticipant<<Products.ProductsSPA>> {
   BackgroundColor #26a69a
   FontColor #ffffff
   BorderColor #1a746b
@@ -37,13 +37,13 @@ skinparam sequenceParticipant<<Products.ProductsSinglePageApplication>> {
 }
 
 actor "Administrator\n<size:10>[Person]</size>" as Administrator <<Administrator>> #00796b
-participant "Products Single Page Application\n<size:10>[Container: React Component]</size>" as Products.ProductsSinglePageApplication <<Products.ProductsSinglePageApplication>> #26a69a
+participant "Products SPA\n<size:10>[Container: React Component]</size>" as Products.ProductsSPA <<Products.ProductsSPA>> #26a69a
 participant "Products Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Products.ProductsMicroservice <<Products.ProductsMicroservice>> #26a69a
 database "Products Database\n<size:10>[Container: MongoDB]</size>" as Products.ProductsDatabase <<Products.ProductsDatabase>> #26a69a
-Administrator -[#004d40]> Products.ProductsSinglePageApplication : Initiates new book addition
-Products.ProductsSinglePageApplication -[#004d40]> Products.ProductsMicroservice : Processes new book addition
+Administrator -[#004d40]> Products.ProductsSPA : Initiates new book addition
+Products.ProductsSPA -[#004d40]> Products.ProductsMicroservice : Processes new book addition
 Products.ProductsMicroservice -[#004d40]> Products.ProductsDatabase : Stores book data
 Products.ProductsMicroservice <-[#004d40]- Products.ProductsDatabase : Confirms book storage
-Products.ProductsSinglePageApplication <-[#004d40]- Products.ProductsMicroservice : Returns new book ID
-Administrator <-[#004d40]- Products.ProductsSinglePageApplication : Displays new book details
+Products.ProductsSPA <-[#004d40]- Products.ProductsMicroservice : Returns new book ID
+Administrator <-[#004d40]- Products.ProductsSPA : Displays new book details
 @enduml

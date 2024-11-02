@@ -38,13 +38,13 @@ skinparam person<<Reader>> {
   shadowing false
 }
 
-person "==Reader\n<size:10>[Person]</size>\n\nA user of the E-Library System who interacts with available resources" <<Reader>> as Reader
-rectangle "==Products\n<size:10>[Software System]</size>\n\nMaintains and displays items available in the library" <<Products>> as Products
-rectangle "==Cart\n<size:10>[Software System]</size>\n\nHandles the item rental process" <<Cart>> as Cart
-person "==Administrator\n<size:10>[Person]</size>\n\nAn admin responsible for adding items to the library, managing user accounts, and handling financial transactions" <<Administrator>> as Administrator
+person "==Reader\n<size:10>[Person]</size>\n\nA user of the E-Library System who interacts with available resources." <<Reader>> as Reader
+rectangle "==Products\n<size:10>[Software System]</size>\n\nMaintains and displays items available in the library." <<Products>> as Products
+rectangle "==Cart\n<size:10>[Software System]</size>\n\nHandles the item rental process." <<Cart>> as Cart
+person "==Administrator\n<size:10>[Person]</size>\n\nAn admin responsible for adding items to the library, managing user accounts, and handling financial transactions." <<Administrator>> as Administrator
 
-Reader .[#004d40,thickness=2].> Products : "<color:#004d40>Views available items"
-Reader .[#004d40,thickness=2].> Cart : "<color:#004d40>Handles rental process"
-Administrator .[#004d40,thickness=2].> Products : "<color:#004d40>Manages library items"
-Cart .[#004d40,thickness=2].> Products : "<color:#004d40>Checks item availability\n<color:#004d40><size:8>[HTTPS]</size>"
+Reader .[#004d40,thickness=2].> Products : "<color:#004d40>Views available items."
+Reader .[#004d40,thickness=2].> Cart : "<color:#004d40>Handles rental process."
+Administrator .[#004d40,thickness=2].> Products : "<color:#004d40>Manages library items."
+Cart .[#004d40,thickness=2].> Products : "<color:#004d40>Checks item availability.\n<color:#004d40><size:8>[HTTPS]</size>"
 @enduml

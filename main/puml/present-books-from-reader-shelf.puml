@@ -29,7 +29,7 @@ skinparam sequenceParticipant<<Shelf.ShelfMicroservice>> {
   BorderColor #1a746b
   shadowing false
 }
-skinparam sequenceParticipant<<Shelf.ShelfSinglePageApplication>> {
+skinparam sequenceParticipant<<Shelf.ShelfSPA>> {
   BackgroundColor #26a69a
   FontColor #ffffff
   BorderColor #1a746b
@@ -37,13 +37,13 @@ skinparam sequenceParticipant<<Shelf.ShelfSinglePageApplication>> {
 }
 
 actor "Reader\n<size:10>[Person]</size>" as Reader <<Reader>> #00796b
-participant "Shelf Single Page Application\n<size:10>[Container: React Component]</size>" as Shelf.ShelfSinglePageApplication <<Shelf.ShelfSinglePageApplication>> #26a69a
+participant "Shelf SPA\n<size:10>[Container: React Component]</size>" as Shelf.ShelfSPA <<Shelf.ShelfSPA>> #26a69a
 participant "Shelf Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Shelf.ShelfMicroservice <<Shelf.ShelfMicroservice>> #26a69a
 database "Shelf Database\n<size:10>[Container: MongoDB]</size>" as Shelf.ShelfDatabase <<Shelf.ShelfDatabase>> #26a69a
-Reader -[#004d40]> Shelf.ShelfSinglePageApplication : Requests borrowed items view
-Shelf.ShelfSinglePageApplication -[#004d40]> Shelf.ShelfMicroservice : Fetches borrowed items
+Reader -[#004d40]> Shelf.ShelfSPA : Requests borrowed items view
+Shelf.ShelfSPA -[#004d40]> Shelf.ShelfMicroservice : Fetches borrowed items
 Shelf.ShelfMicroservice -[#004d40]> Shelf.ShelfDatabase : Retrieves borrowed items data
 Shelf.ShelfMicroservice <-[#004d40]- Shelf.ShelfDatabase : Returns borrowed items data
-Shelf.ShelfSinglePageApplication <-[#004d40]- Shelf.ShelfMicroservice : Returns borrowed items to UI
-Reader <-[#004d40]- Shelf.ShelfSinglePageApplication : Displays borrowed items view
+Shelf.ShelfSPA <-[#004d40]- Shelf.ShelfMicroservice : Returns borrowed items to UI
+Reader <-[#004d40]- Shelf.ShelfSPA : Displays borrowed items view
 @enduml

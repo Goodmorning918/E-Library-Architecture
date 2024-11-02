@@ -38,14 +38,14 @@ skinparam rectangle<<Recommendations>> {
   shadowing false
 }
 
-person "==Reader\n<size:10>[Person]</size>\n\nA user of the E-Library System who interacts with available resources" <<Reader>> as Reader
-rectangle "==Cart\n<size:10>[Software System]</size>\n\nHandles the item rental process" <<Cart>> as Cart
-rectangle "==Recommendations\n<size:10>[Software System]</size>\n\nProvides recommended items for users" <<Recommendations>> as Recommendations
+person "==Reader\n<size:10>[Person]</size>\n\nA user of the E-Library System who interacts with available resources." <<Reader>> as Reader
+rectangle "==Cart\n<size:10>[Software System]</size>\n\nHandles the item rental process." <<Cart>> as Cart
+rectangle "==Recommendations\n<size:10>[Software System]</size>\n\nProvides recommended items for users." <<Recommendations>> as Recommendations
 rectangle "==Accounts\n<size:10>[Software System]</size>\n\nEnables users to create, view, and update accounts." <<Accounts>> as Accounts
 
-Reader .[#004d40,thickness=2].> Accounts : "<color:#004d40>Manages their account"
-Reader .[#004d40,thickness=2].> Cart : "<color:#004d40>Handles rental process"
-Reader .[#004d40,thickness=2].> Recommendations : "<color:#004d40>Views recommended items"
-Accounts .[#004d40,thickness=2].> Recommendations : "<color:#004d40>Updates recommendations\n<color:#004d40><size:8>[Kafka]</size>"
-Cart .[#004d40,thickness=2].> Recommendations : "<color:#004d40>Updates recommendations\n<color:#004d40><size:8>[Kafka]</size>"
+Reader .[#004d40,thickness=2].> Accounts : "<color:#004d40>Manages their account."
+Reader .[#004d40,thickness=2].> Cart : "<color:#004d40>Handles rental process."
+Reader .[#004d40,thickness=2].> Recommendations : "<color:#004d40>Views recommended items."
+Accounts .[#004d40,thickness=2].> Recommendations : "<color:#004d40>Updates recommendations.\n<color:#004d40><size:8>[Kafka]</size>"
+Cart .[#004d40,thickness=2].> Recommendations : "<color:#004d40>Updates recommendations.\n<color:#004d40><size:8>[Kafka]</size>"
 @enduml
