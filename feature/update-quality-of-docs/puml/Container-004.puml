@@ -1,0 +1,93 @@
+@startuml
+set separator none
+title Cart - Containers
+
+left to right direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam database<<Cart.CartDatabase>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam rectangle<<Cart.CartMicroservice>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam rectangle<<Cart.CartSPA>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam rectangle<<Finance>> {
+  BackgroundColor #009688
+  FontColor #ffffff
+  BorderColor #00695f
+  shadowing false
+}
+skinparam rectangle<<Products>> {
+  BackgroundColor #009688
+  FontColor #ffffff
+  BorderColor #00695f
+  shadowing false
+}
+skinparam person<<Reader>> {
+  BackgroundColor #00796b
+  FontColor #ffffff
+  BorderColor #00544a
+  shadowing false
+}
+skinparam rectangle<<Recommendations>> {
+  BackgroundColor #009688
+  FontColor #ffffff
+  BorderColor #00695f
+  shadowing false
+}
+skinparam rectangle<<Shelf>> {
+  BackgroundColor #009688
+  FontColor #ffffff
+  BorderColor #00695f
+  shadowing false
+}
+skinparam rectangle<<Cart>> {
+  BorderColor #00695f
+  FontColor #00695f
+  shadowing false
+}
+
+person "==Reader\n<size:10>[Person]</size>\n\nA user of the E-Library System who interacts with available resources." <<Reader>> as Reader
+rectangle "==Shelf\n<size:10>[Software System]</size>\n\nStores and displays items borrowed by users." <<Shelf>> as Shelf
+rectangle "==Products\n<size:10>[Software System]</size>\n\nMaintains and displays items available in the library." <<Products>> as Products
+rectangle "==Recommendations\n<size:10>[Software System]</size>\n\nProvides recommended items for users." <<Recommendations>> as Recommendations
+rectangle "==Finance\n<size:10>[Software System]</size>\n\nManages financial transactions and payment processing." <<Finance>> as Finance
+
+rectangle "Cart\n<size:10>[Software System]</size>" <<Cart>> {
+  rectangle "==Cart SPA\n<size:10>[Container: React Component]</size>\n\nInterface for managing cart items." <<Cart.CartSPA>> as Cart.CartSPA
+  rectangle "==Cart Microservice\n<size:10>[Container: Java and Spring Boot]</size>\n\nAPI for cart operations." <<Cart.CartMicroservice>> as Cart.CartMicroservice
+  database "==Cart Database\n<size:10>[Container: MongoDB]</size>\n\nStores items currently in the cart." <<Cart.CartDatabase>> as Cart.CartDatabase
+}
+
+Reader .[#004d40,thickness=2].> Shelf : "<color:#004d40>Manages borrowed items."
+Reader .[#004d40,thickness=2].> Products : "<color:#004d40>Views available items."
+Reader .[#004d40,thickness=2].> Recommendations : "<color:#004d40>Views recommended items."
+Reader .[#004d40,thickness=2].> Finance : "<color:#004d40>Manages payments."
+Reader .[#004d40,thickness=2].> Cart.CartSPA : "<color:#004d40>Manages cart."
+Cart.CartSPA .[#004d40,thickness=2].> Cart.CartMicroservice : "<color:#004d40>Requests cart operations.\n<color:#004d40><size:8>[HTTPS]</size>"
+Cart.CartMicroservice .[#004d40,thickness=2].> Cart.CartDatabase : "<color:#004d40>Stores cart items.\n<color:#004d40><size:8>[JDBC]</size>"
+Cart.CartMicroservice .[#004d40,thickness=2].> Recommendations : "<color:#004d40>Updates recommendations.\n<color:#004d40><size:8>[Kafka]</size>"
+Cart.CartMicroservice .[#004d40,thickness=2].> Shelf : "<color:#004d40>Notifies borrowed items.\n<color:#004d40><size:8>[Kafka]</size>"
+Cart.CartMicroservice .[#004d40,thickness=2].> Products : "<color:#004d40>Checks item availability.\n<color:#004d40><size:8>[HTTPS]</size>"
+Cart.CartMicroservice .[#004d40,thickness=2].> Finance : "<color:#004d40>Generates payment link.\n<color:#004d40><size:8>[HTTPS]</size>"
+@enduml

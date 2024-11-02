@@ -1,0 +1,74 @@
+@startuml
+set separator none
+title Products - Containers
+
+left to right direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam person<<Administrator>> {
+  BackgroundColor #00796b
+  FontColor #ffffff
+  BorderColor #00544a
+  shadowing false
+}
+skinparam rectangle<<Cart>> {
+  BackgroundColor #009688
+  FontColor #ffffff
+  BorderColor #00695f
+  shadowing false
+}
+skinparam database<<Products.ProductsDatabase>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam rectangle<<Products.ProductsMicroservice>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam rectangle<<Products.ProductsSPA>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam person<<Reader>> {
+  BackgroundColor #00796b
+  FontColor #ffffff
+  BorderColor #00544a
+  shadowing false
+}
+skinparam rectangle<<Products>> {
+  BorderColor #00695f
+  FontColor #00695f
+  shadowing false
+}
+
+person "==Reader\n<size:10>[Person]</size>\n\nA user of the E-Library System who interacts with available resources." <<Reader>> as Reader
+person "==Administrator\n<size:10>[Person]</size>\n\nAn admin responsible for adding items to the library, managing user accounts, and handling financial transactions." <<Administrator>> as Administrator
+rectangle "==Cart\n<size:10>[Software System]</size>\n\nHandles the item rental process." <<Cart>> as Cart
+
+rectangle "Products\n<size:10>[Software System]</size>" <<Products>> {
+  rectangle "==Products SPA\n<size:10>[Container: React Component]</size>\n\nInterface for viewing and managing library items." <<Products.ProductsSPA>> as Products.ProductsSPA
+  rectangle "==Products Microservice\n<size:10>[Container: Java and Spring Boot]</size>\n\nAPI for managing library items." <<Products.ProductsMicroservice>> as Products.ProductsMicroservice
+  database "==Products Database\n<size:10>[Container: MongoDB]</size>\n\nStores library items." <<Products.ProductsDatabase>> as Products.ProductsDatabase
+}
+
+Reader .[#004d40,thickness=2].> Cart : "<color:#004d40>Handles rental process."
+Reader .[#004d40,thickness=2].> Products.ProductsSPA : "<color:#004d40>Views available library items."
+Administrator .[#004d40,thickness=2].> Products.ProductsSPA : "<color:#004d40>Manages library items."
+Products.ProductsSPA .[#004d40,thickness=2].> Products.ProductsMicroservice : "<color:#004d40>Requests product operations.\n<color:#004d40><size:8>[HTTPS]</size>"
+Products.ProductsMicroservice .[#004d40,thickness=2].> Products.ProductsDatabase : "<color:#004d40>Stores and retrieves library items.\n<color:#004d40><size:8>[JDBC]</size>"
+Cart .[#004d40,thickness=2].> Products.ProductsMicroservice : "<color:#004d40>Checks item availability.\n<color:#004d40><size:8>[HTTPS]</size>"
+@enduml

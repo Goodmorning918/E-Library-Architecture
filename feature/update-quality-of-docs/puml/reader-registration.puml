@@ -1,0 +1,58 @@
+@startuml
+set separator none
+title Accounts - Dynamic
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam sequenceParticipant<<Accounts.AccountsDatabase>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam sequenceParticipant<<Accounts.AccountsMicroservice>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam sequenceParticipant<<Accounts.AccountsSPA>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam sequenceParticipant<<Reader>> {
+  BackgroundColor #00796b
+  FontColor #ffffff
+  BorderColor #00544a
+  shadowing false
+}
+skinparam sequenceParticipant<<Recommendations.RecommendationsMicroservice>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+
+actor "Reader\n<size:10>[Person]</size>" as Reader <<Reader>> #00796b
+participant "Accounts SPA\n<size:10>[Container: React Component]</size>" as Accounts.AccountsSPA <<Accounts.AccountsSPA>> #26a69a
+participant "Accounts Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Accounts.AccountsMicroservice <<Accounts.AccountsMicroservice>> #26a69a
+database "Accounts Database\n<size:10>[Container: MongoDB]</size>" as Accounts.AccountsDatabase <<Accounts.AccountsDatabase>> #26a69a
+participant "Recommendations Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Recommendations.RecommendationsMicroservice <<Recommendations.RecommendationsMicroservice>> #26a69a
+Reader -[#004d40]> Accounts.AccountsSPA : Initiates account registration
+Accounts.AccountsSPA -[#004d40]> Accounts.AccountsMicroservice : Requests new account creation
+Accounts.AccountsMicroservice -[#004d40]> Accounts.AccountsDatabase : Stores new account data
+Accounts.AccountsMicroservice <-[#004d40]- Accounts.AccountsDatabase : Confirms account creation
+Accounts.AccountsMicroservice -[#004d40]> Recommendations.RecommendationsMicroservice : Updates recommendations for new user
+Accounts.AccountsMicroservice <-[#004d40]- Recommendations.RecommendationsMicroservice : Acknowledges recommendation update
+Accounts.AccountsSPA <-[#004d40]- Accounts.AccountsMicroservice : Sends account details
+Reader <-[#004d40]- Accounts.AccountsSPA : Displays created account details
+@enduml

@@ -1,0 +1,66 @@
+@startuml
+set separator none
+title Shelf - Containers
+
+left to right direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam rectangle<<Cart>> {
+  BackgroundColor #009688
+  FontColor #ffffff
+  BorderColor #00695f
+  shadowing false
+}
+skinparam person<<Reader>> {
+  BackgroundColor #00796b
+  FontColor #ffffff
+  BorderColor #00544a
+  shadowing false
+}
+skinparam database<<Shelf.ShelfDatabase>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam rectangle<<Shelf.ShelfMicroservice>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam rectangle<<Shelf.ShelfSPA>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam rectangle<<Shelf>> {
+  BorderColor #00695f
+  FontColor #00695f
+  shadowing false
+}
+
+person "==Reader\n<size:10>[Person]</size>\n\nA user of the E-Library System who interacts with available resources." <<Reader>> as Reader
+rectangle "==Cart\n<size:10>[Software System]</size>\n\nHandles the item rental process." <<Cart>> as Cart
+
+rectangle "Shelf\n<size:10>[Software System]</size>" <<Shelf>> {
+  database "==Shelf Database\n<size:10>[Container: MongoDB]</size>\n\nStores borrowed items data." <<Shelf.ShelfDatabase>> as Shelf.ShelfDatabase
+  rectangle "==Shelf SPA\n<size:10>[Container: React Component]</size>\n\nInterface for managing borrowed items." <<Shelf.ShelfSPA>> as Shelf.ShelfSPA
+  rectangle "==Shelf Microservice\n<size:10>[Container: Java and Spring Boot]</size>\n\nAPI for shelf operations." <<Shelf.ShelfMicroservice>> as Shelf.ShelfMicroservice
+}
+
+Reader .[#004d40,thickness=2].> Cart : "<color:#004d40>Handles rental process."
+Reader .[#004d40,thickness=2].> Shelf.ShelfSPA : "<color:#004d40>Views and manages borrowed items."
+Shelf.ShelfSPA .[#004d40,thickness=2].> Shelf.ShelfMicroservice : "<color:#004d40>Requests shelf operations.\n<color:#004d40><size:8>[HTTPS]</size>"
+Shelf.ShelfMicroservice .[#004d40,thickness=2].> Shelf.ShelfDatabase : "<color:#004d40>Stores and retrieves borrowed items.\n<color:#004d40><size:8>[JDBC]</size>"
+Cart .[#004d40,thickness=2].> Shelf.ShelfMicroservice : "<color:#004d40>Notifies borrowed items.\n<color:#004d40><size:8>[Kafka]</size>"
+@enduml

@@ -1,0 +1,50 @@
+@startuml
+set separator none
+title Accounts - System Context
+
+left to right direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam rectangle<<Accounts>> {
+  BackgroundColor #009688
+  FontColor #ffffff
+  BorderColor #00695f
+  shadowing false
+}
+skinparam person<<Administrator>> {
+  BackgroundColor #00796b
+  FontColor #ffffff
+  BorderColor #00544a
+  shadowing false
+}
+skinparam person<<Reader>> {
+  BackgroundColor #00796b
+  FontColor #ffffff
+  BorderColor #00544a
+  shadowing false
+}
+skinparam rectangle<<Recommendations>> {
+  BackgroundColor #009688
+  FontColor #ffffff
+  BorderColor #00695f
+  shadowing false
+}
+
+person "==Reader\n<size:10>[Person]</size>\n\nA user of the E-Library System who interacts with available resources." <<Reader>> as Reader
+rectangle "==Recommendations\n<size:10>[Software System]</size>\n\nProvides recommended items for users." <<Recommendations>> as Recommendations
+person "==Administrator\n<size:10>[Person]</size>\n\nAn admin responsible for adding items to the library, managing user accounts, and handling financial transactions." <<Administrator>> as Administrator
+rectangle "==Accounts\n<size:10>[Software System]</size>\n\nEnables users to create, view, and update accounts." <<Accounts>> as Accounts
+
+Reader .[#004d40,thickness=2].> Accounts : "<color:#004d40>Manages their account."
+Reader .[#004d40,thickness=2].> Recommendations : "<color:#004d40>Views recommended items."
+Administrator .[#004d40,thickness=2].> Accounts : "<color:#004d40>Oversees user accounts."
+Accounts .[#004d40,thickness=2].> Recommendations : "<color:#004d40>Updates recommendations.\n<color:#004d40><size:8>[Kafka]</size>"
+@enduml

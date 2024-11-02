@@ -1,0 +1,83 @@
+@startuml
+set separator none
+title Finance - Containers
+
+left to right direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam person<<Administrator>> {
+  BackgroundColor #00796b
+  FontColor #ffffff
+  BorderColor #00544a
+  shadowing false
+}
+skinparam rectangle<<Cart>> {
+  BackgroundColor #009688
+  FontColor #ffffff
+  BorderColor #00695f
+  shadowing false
+}
+skinparam database<<Finance.FinanceDatabase>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam rectangle<<Finance.FinanceMicroservice>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam rectangle<<Finance.FinanceSPA>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam rectangle<<MailProvider>> {
+  BackgroundColor #4db6ac
+  FontColor #ffffff
+  BorderColor #357f78
+  shadowing false
+}
+skinparam person<<Reader>> {
+  BackgroundColor #00796b
+  FontColor #ffffff
+  BorderColor #00544a
+  shadowing false
+}
+skinparam rectangle<<Finance>> {
+  BorderColor #00695f
+  FontColor #00695f
+  shadowing false
+}
+
+person "==Reader\n<size:10>[Person]</size>\n\nA user of the E-Library System who interacts with available resources." <<Reader>> as Reader
+person "==Administrator\n<size:10>[Person]</size>\n\nAn admin responsible for adding items to the library, managing user accounts, and handling financial transactions." <<Administrator>> as Administrator
+rectangle "==Cart\n<size:10>[Software System]</size>\n\nHandles the item rental process." <<Cart>> as Cart
+rectangle "==Mail Provider\n<size:10>[Software System]</size>\n\nExternal system for sending emails." <<MailProvider>> as MailProvider
+
+rectangle "Finance\n<size:10>[Software System]</size>" <<Finance>> {
+  rectangle "==Finance SPA\n<size:10>[Container: React Component]</size>\n\nInterface for financial management." <<Finance.FinanceSPA>> as Finance.FinanceSPA
+  rectangle "==Finance Microservice\n<size:10>[Container: Java and Spring Boot]</size>\n\nAPI for finance operations." <<Finance.FinanceMicroservice>> as Finance.FinanceMicroservice
+  database "==Finance Database\n<size:10>[Container: PostgreSQL]</size>\n\nHolds financial transaction data." <<Finance.FinanceDatabase>> as Finance.FinanceDatabase
+}
+
+Reader .[#004d40,thickness=2].> Cart : "<color:#004d40>Handles rental process."
+MailProvider .[#004d40,thickness=2].> Reader : "<color:#004d40>Sends invoices."
+Reader .[#004d40,thickness=2].> Finance.FinanceSPA : "<color:#004d40>Makes payments."
+Administrator .[#004d40,thickness=2].> Finance.FinanceSPA : "<color:#004d40>Oversees financial transactions."
+Cart .[#004d40,thickness=2].> Finance.FinanceMicroservice : "<color:#004d40>Generates payment link.\n<color:#004d40><size:8>[HTTPS]</size>"
+Finance.FinanceSPA .[#004d40,thickness=2].> Finance.FinanceMicroservice : "<color:#004d40>Requests financial operations.\n<color:#004d40><size:8>[HTTPS]</size>"
+Finance.FinanceMicroservice .[#004d40,thickness=2].> Finance.FinanceDatabase : "<color:#004d40>Stores and retrieves transactions.\n<color:#004d40><size:8>[JDBC]</size>"
+Finance.FinanceMicroservice .[#004d40,thickness=2].> MailProvider : "<color:#004d40>Sends invoices to readers.\n<color:#004d40><size:8>[SMTP]</size>"
+@enduml

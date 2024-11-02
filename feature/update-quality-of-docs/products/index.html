@@ -1,0 +1,864 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Products | E-Library System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css" rel="stylesheet">
+    <link href="../../style.css" rel="stylesheet">
+    <link href="./../style-branding.css" rel="stylesheet">
+    <script type="text/javascript" src="../../modal.js"></script>
+    <script type="text/javascript" src="../../svg-modal.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js"></script>
+    <link href="../../treeview.css" rel="stylesheet">
+    <link href="../../admonition.css" rel="stylesheet">
+
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+        
+            <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+        
+            <script>
+            window.WebFontConfig = {
+                custom: {
+                families: ['KaTeX_AMS', 'KaTeX_Caligraphic:n4,n7', 'KaTeX_Fraktur:n4,n7',
+                    'KaTeX_Main:n4,n7,i4,i7', 'KaTeX_Math:i4,i7', 'KaTeX_Script',
+                    'KaTeX_SansSerif:n4,n7,i4', 'KaTeX_Size1', 'KaTeX_Size2', 'KaTeX_Size3',
+                    'KaTeX_Size4', 'KaTeX_Typewriter'],
+                },
+            };
+            </script>
+            <script defer src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" crossorigin="anonymous"></script>
+            <link href="../site/logo.png" rel="icon" type="image/png">
+    <link href="../site/custom.css" rel="stylesheet">
+  </head>
+  <body>
+    <script type="text/javascript" src="../../header.js"></script>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand has-site-branding"><a href="../" class="navbar-item"><img alt="E-Library System" src="../site/logo.png"></a><a href="../" class="navbar-item"><span class="has-text-weight-semibold has-site-branding">E-Library System</span></a></div>
+      <div class="navbar-menu has-site-branding">
+        <div class="navbar-end">
+          <div class="navbar-item"><input class="input is-small is-rounded" id="search" type="search" size="30" maxlength="50" placeholder="Search..." onkeyup="redirect(event, value, '../search/')"></div>
+          <div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link has-site-branding">feature/update-quality-of-docs</a>
+            <div class="navbar-dropdown is-right"><a href="../../main/" class="navbar-item">main</a><a href="../../feature%2Fupdate-quality-of-docs/" class="navbar-item">feature/update-quality-of-docs</a><a href="../../feature%2Fupdate-styling/" class="navbar-item">feature/update-styling</a><a href="../../feature%2Fupdate_main_branch_name/" class="navbar-item">feature/update_main_branch_name</a>
+              <hr class="navbar-divider">
+              <div class="navbar-item has-text-grey-light"><span>v</span><span>0.0.0</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="site-layout" id="site">
+      <aside class="menu p-3">
+        <p class="menu-label">General</p>
+        <ul class="menu-list has-site-branding">
+          <li><a href="../" class="">Home</a><a href="../software-systems/" class="">Software Systems</a></li>
+        </ul>
+        <p class="menu-label">Software systems</p>
+        <ul class="listree menu-list has-site-branding">
+          <ul class="listree-submenu-items">
+            <ul class="listree-submenu-items">
+              <li><a href="../accounts/" class="">Accounts</a></li>
+              <li><a href="../cart/" class="">Cart</a></li>
+              <li><a href="../finance/" class="">Finance</a></li>
+              <li><a href="../mail-provider/" class="">Mail Provider</a></li>
+              <li><a href="./" class="is-active">Products</a></li>
+              <li><a href="../recommendations/" class="">Recommendations</a></li>
+              <li><a href="../shelf/" class="">Shelf</a></li>
+            </ul>
+          </ul>
+        </ul>
+      </aside>
+      <div class="container is-fluid">
+        <h1 class="title mt-3">Products</h1>
+        <h2 class="subtitle">Maintains and displays items available in the library.</h2>
+        <div class="tabs mt-3">
+          <ul class="is-flex-wrap-wrap is-flex-shrink-1 is-flex-grow-0">
+            <li class="is-active"><a href="./" class="is-active">Info</a></li>
+            <li><a href="context/" class="">Context views</a></li>
+            <li><a href="container/" class="">Container views</a></li>
+            <li><a href="dynamic/" class="">Dynamic views</a></li>
+            <li><a href="dependencies/" class="">Dependencies</a></li>
+          </ul>
+        </div>
+        <div class="content p-3">
+          <div><div class="sect1 content">
+ <h2 id="_general">General</h2>
+ <div class="sectionbody">
+  <div class="imageblock text-right content">
+   <div class="content">
+    <img src="../site/products.png" alt="Products" width="700">
+   </div>
+  </div>
+  <div class="paragraph content">
+   <p>This section provides a comprehensive overview of the Products Service within the E-Library system, which is responsible for managing all operations related to products (e.g., books) available in the library.</p>
+  </div>
+ </div>
+</div>
+<div class="sect1 content">
+ <h2 id="_ownership">Ownership</h2>
+ <div class="sectionbody">
+  <div class="ulist content">
+   <ul>
+    <li>
+     <p><strong>Team</strong>: Products Team</p></li>
+    <li>
+     <p><strong>Product Owner</strong>: William Anderson</p></li>
+   </ul>
+  </div>
+ </div>
+</div>
+<div class="sect1 content">
+ <h2 id="_containers">Containers</h2>
+ <div class="sectionbody">
+  <div class="sect2 content">
+   <h3 id="_backend">Backend</h3>
+   <div class="sect3 content">
+    <h4 id="_products_microservice">Products Microservice</h4>
+    <div class="paragraph content">
+     <p>The Products Microservice is responsible for handling all product-related operations, including adding, removing, and managing items in the library’s catalog.</p>
+    </div>
+    <div class="ulist content">
+     <ul>
+      <li>
+       <p><strong>Repository Link</strong>: <a href="https://github.com/Goodmorning918/E-Library-Architecture">GitHub - Products Microservice</a></p></li>
+      <li>
+       <p><strong>Environments</strong>:</p>
+       <div class="ulist content">
+        <ul>
+         <li>
+          <p>Test: <a href="https://library.test.products.com">test</a></p></li>
+         <li>
+          <p>Production: <a href="https://library.products.com">prod</a></p></li>
+        </ul>
+       </div></li>
+      <li>
+       <p><strong>Parameters</strong>:</p>
+       <div class="ulist content">
+        <ul>
+         <li>
+          <p>Test Parameters: <a href="https://aws.params.com/test/products">test</a></p></li>
+         <li>
+          <p>Production Parameters: <a href="https://aws.params.com/prod/products">prod</a></p></li>
+        </ul>
+       </div></li>
+      <li>
+       <p><strong>CI/CD</strong>: <a href="https://github.com/Goodmorning918/E-Library-Architecture/actions">GitHub - Actions</a></p></li>
+      <li>
+       <p><strong>Logs</strong>:</p>
+       <div class="ulist content">
+        <ul>
+         <li>
+          <p>Test Logs: <a href="https://logserver.com/test/products">test</a></p></li>
+         <li>
+          <p>Production Logs: <a href="https://logserver.com/prod/products">prod</a></p></li>
+        </ul>
+       </div></li>
+      <li>
+       <p><strong>Monitoring Dashboard</strong>:</p>
+       <div class="ulist content">
+        <ul>
+         <li>
+          <p>Test Dashboard: <a href="https://monitoring.com/test/products">test</a></p></li>
+         <li>
+          <p>Production Dashboard: <a href="https://monitoring.com/prod/products">prod</a></p></li>
+        </ul>
+       </div></li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <div class="sect2 content">
+   <h3 id="_frontend">Frontend</h3>
+   <div class="paragraph content">
+    <p>The frontend component, known as the Products SPA, is a Single Page Application responsible for displaying all product operations, such as viewing available books, adding new items, and removing items from the catalog.</p>
+   </div>
+   <div class="sect3 content">
+    <h4 id="_products_spa">Products SPA</h4>
+    <div class="ulist content">
+     <ul>
+      <li>
+       <p><strong>Repository Link</strong>: <a href="https://github.com/Goodmorning918/E-Library-Architecture">GitHub - Products SPA</a></p></li>
+      <li>
+       <p><strong>Environments</strong>:</p>
+       <div class="ulist content">
+        <ul>
+         <li>
+          <p>Test: <a href="https://library.test.productsSpa.com">test</a></p></li>
+         <li>
+          <p>Production: <a href="https://library.productsSpa.com">prod</a></p></li>
+        </ul>
+       </div></li>
+      <li>
+       <p><strong>Parameters</strong>:</p>
+       <div class="ulist content">
+        <ul>
+         <li>
+          <p>Test Parameters: <a href="https://aws.params.com/test/productsSpa">test</a></p></li>
+         <li>
+          <p>Production Parameters: <a href="https://aws.params.com/prod/productsSpa">prod</a></p></li>
+        </ul>
+       </div></li>
+      <li>
+       <p><strong>CI/CD</strong>: <a href="https://github.com/Goodmorning918/E-Library-Architecture/actions">GitHub - Actions</a></p></li>
+      <li>
+       <p><strong>Logs</strong>:</p>
+       <div class="ulist content">
+        <ul>
+         <li>
+          <p>Test Logs: <a href="https://logserver.com/test/productsSpa">test</a></p></li>
+         <li>
+          <p>Production Logs: <a href="https://logserver.com/prod/productsSpa">prod</a></p></li>
+        </ul>
+       </div></li>
+      <li>
+       <p><strong>Monitoring Dashboard</strong>:</p>
+       <div class="ulist content">
+        <ul>
+         <li>
+          <p>Test Dashboard: <a href="https://monitoring.com/test/productsSpa">test</a></p></li>
+         <li>
+          <p>Production Dashboard: <a href="https://monitoring.com/prod/productsSpa">prod</a></p></li>
+        </ul>
+       </div></li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <div class="sect2 content">
+   <h3 id="_database">Database</h3>
+   <div class="paragraph content">
+    <p>The Products Database is responsible for storing all data related to items in the library, including product details, availability, and metadata.</p>
+   </div>
+   <div class="sect3 content">
+    <h4 id="_products_database">Products Database</h4>
+    <div class="ulist content">
+     <ul>
+      <li>
+       <p><strong>Database Link</strong>:</p>
+       <div class="ulist content">
+        <ul>
+         <li>
+          <p>Test Database: <a href="https://library.test.shelfDb.com">test</a></p></li>
+         <li>
+          <p>Production Database: <a href="https://library.prod.productsSpa.com">prod</a></p></li>
+        </ul>
+       </div></li>
+      <li>
+       <p><strong>Database Read-Only Access</strong>:</p>
+       <div class="ulist content">
+        <ul>
+         <li>
+          <p>Test Credentials</p></li>
+         <li>
+          <p>User: <strong>user1</strong></p></li>
+         <li>
+          <p>Password: <strong>password1</strong></p></li>
+        </ul>
+       </div></li>
+     </ul>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<div class="sect1 content">
+ <h2 id="_product_processes">Product Processes</h2>
+ <div class="sectionbody">
+  <div class="paragraph content">
+   <p>This section covers key processes involved in managing library items, including adding new books, removing books, and presenting available items to users.</p>
+  </div>
+  <details>
+   <summary class="title"><span class="collapse-title">Add book to library</span></summary>
+   <div class="content">
+    <div class="paragraph content">
+     <p>The <strong>Add Book to Library</strong> process enables administrators to add a new book to the library’s catalog. The Products SPA sends the details to the Products Microservice, which stores the information in the Products Database.</p>
+    </div>
+    <div class="imageblock content">
+     <div class="content">
+      <div>
+       <figure style="width: min(100%, 625px);">
+        <div>
+         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" preserveAspectRatio="meet" version="1.1" viewBox="0 0 625 454" zoomAndPan="magnify">
+          <title>
+           Products - Dynamic
+          </title><defs /><g>
+           <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="153.501" x="237.2578" y="27.9951">Products - Dynamic</text>
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="55" x2="55" y1="130.2344" y2="362.2813" />
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="199.6826" x2="199.6826" y1="130.2344" y2="362.2813" />
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="383.7832" x2="383.7832" y1="130.2344" y2="362.2813" />
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="554.7617" x2="554.7617" y1="130.2344" y2="362.2813" />
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95.6826" x="5" y="115.292">Administrator</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="31.96" y="127.876">[Person]</text>
+           <ellipse cx="55.8413" cy="50.7969" fill="#00796B" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+           <path d="M55.8413,58.7969 L55.8413,85.7969 M42.8413,66.7969 L68.8413,66.7969 M55.8413,85.7969 L42.8413,100.7969 M55.8413,85.7969 L68.8413,100.7969 " fill="none" style="stroke:#181818;stroke-width:0.5;" />
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95.6826" x="5" y="374.2764">Administrator</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="31.96" y="386.8604">[Person]</text>
+           <ellipse cx="55.8413" cy="397.7188" fill="#00796B" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+           <path d="M55.8413,405.7188 L55.8413,432.7188 M42.8413,413.7188 L68.8413,413.7188 M55.8413,432.7188 L42.8413,447.7188 M55.8413,432.7188 L68.8413,447.7188 " fill="none" style="stroke:#181818;stroke-width:0.5;" />
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="167.1006" x="116.6826" y="87.2969" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92.3604" x="154.0527" y="107.292">Products SPA</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="153.1006" x="123.6826" y="119.876">[Container: React Component]</text>
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="167.1006" x="116.6826" y="361.2813" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92.3604" x="154.0527" y="381.2764">Products SPA</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="153.1006" x="123.6826" y="393.8604">[Container: React Component]</text>
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="293.7832" y="87.2969" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="153.5898" x="307.9775" y="107.292">Products Microservice</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="300.7832" y="119.876">[Container: Java and Spring Boot]</text>
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="293.7832" y="361.2813" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="153.5898" x="307.9775" y="381.2764">Products Microservice</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="300.7832" y="393.8604">[Container: Java and Spring Boot]</text>
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132.2549" x="485.7617" y="115.292">Products Database</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="111.3281" x="496.2251" y="127.876">[Container: MongoDB]</text>
+           <path d="M536.8892,66.2969 C536.8892,56.2969 554.8892,56.2969 554.8892,56.2969 C554.8892,56.2969 572.8892,56.2969 572.8892,66.2969 L572.8892,92.2969 C572.8892,102.2969 554.8892,102.2969 554.8892,102.2969 C554.8892,102.2969 536.8892,102.2969 536.8892,92.2969 L536.8892,66.2969 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+           <path d="M536.8892,66.2969 C536.8892,76.2969 554.8892,76.2969 554.8892,76.2969 C554.8892,76.2969 572.8892,76.2969 572.8892,66.2969 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132.2549" x="485.7617" y="374.2764">Products Database</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="111.3281" x="496.2251" y="386.8604">[Container: MongoDB]</text>
+           <path d="M536.8892,399.2188 C536.8892,389.2188 554.8892,389.2188 554.8892,389.2188 C554.8892,389.2188 572.8892,389.2188 572.8892,399.2188 L572.8892,425.2188 C572.8892,435.2188 554.8892,435.2188 554.8892,435.2188 C554.8892,435.2188 536.8892,435.2188 536.8892,425.2188 L536.8892,399.2188 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+           <path d="M536.8892,399.2188 C536.8892,409.2188 554.8892,409.2188 554.8892,409.2188 C554.8892,409.2188 572.8892,409.2188 572.8892,399.2188 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+           <polygon fill="#004D40" points="188.2329,165.5156,198.2329,169.5156,188.2329,173.5156,192.2329,169.5156" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;" x1="55.8413" x2="194.2329" y1="169.5156" y2="169.5156" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="40.1758" x="82.2485" y="153.5166">Initiates</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="122.4243" y="153.5166">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="20.6689" x="125.603" y="153.5166">new</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="146.272" y="153.5166">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="24.375" x="149.4507" y="153.5166">book</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="40.7568" x="107.6587" y="165.1572">addition</text>
+           <polygon fill="#004D40" points="372.7725,202.7969,382.7725,206.7969,372.7725,210.7969,376.7725,206.7969" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;" x1="200.2329" x2="378.7725" y1="206.7969" y2="206.7969" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="49.6924" x="255.7327" y="190.7979">Processes</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="305.425" y="190.7979">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="20.6689" x="308.6038" y="190.7979">new</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="24.375" x="258.3474" y="202.4385">book</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="282.7224" y="202.4385">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="40.7568" x="285.9011" y="202.4385">addition</text>
+           <polygon fill="#004D40" points="542.8892,228.4375,552.8892,232.4375,542.8892,236.4375,546.8892,232.4375" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;" x1="384.7725" x2="548.8892" y1="232.4375" y2="232.4375" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="31.8604" x="427.2722" y="228.0791">Stores</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="459.1326" y="228.0791">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="24.375" x="462.3113" y="228.0791">book</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="486.6863" y="228.0791">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="22.5244" x="489.865" y="228.0791">data</text>
+           <polygon fill="#004D40" points="395.7725,265.7188,385.7725,269.7188,395.7725,273.7188,391.7725,269.7188" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="389.7725" x2="553.8892" y1="269.7188" y2="269.7188" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.7998" x="433.6541" y="253.7197">Confirms</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="478.4539" y="253.7197">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="24.375" x="481.6326" y="253.7197">book</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="37.9883" x="450.8367" y="265.3604">storage</text>
+           <polygon fill="#004D40" points="211.2329,303,201.2329,307,211.2329,311,207.2329,307" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="205.2329" x2="383.7725" y1="307" y2="307" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="39.0186" x="247.2927" y="291.001">Returns</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="286.3113" y="291.001">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="20.6689" x="289.49" y="291.001">new</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="310.1589" y="291.001">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="24.375" x="313.3376" y="291.001">book</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="10.6494" x="287.178" y="302.6416">ID</text>
+           <polygon fill="#004D40" points="66.8413,340.2813,56.8413,344.2813,66.8413,348.2813,62.8413,344.2813" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="60.8413" x2="199.2329" y1="344.2813" y2="344.2813" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="42.0703" x="81.3013" y="328.2822">Displays</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="123.3716" y="328.2822">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="20.6689" x="126.5503" y="328.2822">new</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="147.2192" y="328.2822">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="24.375" x="150.3979" y="328.2822">book</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="33.3154" x="111.3794" y="339.9229">details</text>
+          </g>
+         </svg>
+        </div>
+        <figcaption>
+         <a onclick="openSvgModal('add-book-to-library-modal', 'add-book-to-library-svg')">Add Book to Library</a>
+        </figcaption>
+       </figure>
+       <div class="modal" id="add-book-to-library-modal">
+        <div class="modal-background" onclick="closeModal('add-book-to-library-modal')"></div>
+        <div class="modal-content">
+         <div class="box">
+          <div id="add-book-to-library-svg" class="modal-box-content">
+           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" preserveAspectRatio="meet" version="1.1" viewBox="0 0 625 454" zoomAndPan="magnify">
+            <title>
+             Products - Dynamic
+            </title><defs /><g>
+             <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="153.501" x="237.2578" y="27.9951">Products - Dynamic</text>
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="55" x2="55" y1="130.2344" y2="362.2813" />
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="199.6826" x2="199.6826" y1="130.2344" y2="362.2813" />
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="383.7832" x2="383.7832" y1="130.2344" y2="362.2813" />
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="554.7617" x2="554.7617" y1="130.2344" y2="362.2813" />
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95.6826" x="5" y="115.292">Administrator</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="31.96" y="127.876">[Person]</text>
+             <ellipse cx="55.8413" cy="50.7969" fill="#00796B" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+             <path d="M55.8413,58.7969 L55.8413,85.7969 M42.8413,66.7969 L68.8413,66.7969 M55.8413,85.7969 L42.8413,100.7969 M55.8413,85.7969 L68.8413,100.7969 " fill="none" style="stroke:#181818;stroke-width:0.5;" />
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95.6826" x="5" y="374.2764">Administrator</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="31.96" y="386.8604">[Person]</text>
+             <ellipse cx="55.8413" cy="397.7188" fill="#00796B" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+             <path d="M55.8413,405.7188 L55.8413,432.7188 M42.8413,413.7188 L68.8413,413.7188 M55.8413,432.7188 L42.8413,447.7188 M55.8413,432.7188 L68.8413,447.7188 " fill="none" style="stroke:#181818;stroke-width:0.5;" />
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="167.1006" x="116.6826" y="87.2969" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92.3604" x="154.0527" y="107.292">Products SPA</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="153.1006" x="123.6826" y="119.876">[Container: React Component]</text>
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="167.1006" x="116.6826" y="361.2813" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92.3604" x="154.0527" y="381.2764">Products SPA</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="153.1006" x="123.6826" y="393.8604">[Container: React Component]</text>
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="293.7832" y="87.2969" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="153.5898" x="307.9775" y="107.292">Products Microservice</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="300.7832" y="119.876">[Container: Java and Spring Boot]</text>
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="293.7832" y="361.2813" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="153.5898" x="307.9775" y="381.2764">Products Microservice</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="300.7832" y="393.8604">[Container: Java and Spring Boot]</text>
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132.2549" x="485.7617" y="115.292">Products Database</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="111.3281" x="496.2251" y="127.876">[Container: MongoDB]</text>
+             <path d="M536.8892,66.2969 C536.8892,56.2969 554.8892,56.2969 554.8892,56.2969 C554.8892,56.2969 572.8892,56.2969 572.8892,66.2969 L572.8892,92.2969 C572.8892,102.2969 554.8892,102.2969 554.8892,102.2969 C554.8892,102.2969 536.8892,102.2969 536.8892,92.2969 L536.8892,66.2969 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+             <path d="M536.8892,66.2969 C536.8892,76.2969 554.8892,76.2969 554.8892,76.2969 C554.8892,76.2969 572.8892,76.2969 572.8892,66.2969 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132.2549" x="485.7617" y="374.2764">Products Database</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="111.3281" x="496.2251" y="386.8604">[Container: MongoDB]</text>
+             <path d="M536.8892,399.2188 C536.8892,389.2188 554.8892,389.2188 554.8892,389.2188 C554.8892,389.2188 572.8892,389.2188 572.8892,399.2188 L572.8892,425.2188 C572.8892,435.2188 554.8892,435.2188 554.8892,435.2188 C554.8892,435.2188 536.8892,435.2188 536.8892,425.2188 L536.8892,399.2188 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+             <path d="M536.8892,399.2188 C536.8892,409.2188 554.8892,409.2188 554.8892,409.2188 C554.8892,409.2188 572.8892,409.2188 572.8892,399.2188 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+             <polygon fill="#004D40" points="188.2329,165.5156,198.2329,169.5156,188.2329,173.5156,192.2329,169.5156" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;" x1="55.8413" x2="194.2329" y1="169.5156" y2="169.5156" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="40.1758" x="82.2485" y="153.5166">Initiates</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="122.4243" y="153.5166">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="20.6689" x="125.603" y="153.5166">new</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="146.272" y="153.5166">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="24.375" x="149.4507" y="153.5166">book</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="40.7568" x="107.6587" y="165.1572">addition</text>
+             <polygon fill="#004D40" points="372.7725,202.7969,382.7725,206.7969,372.7725,210.7969,376.7725,206.7969" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;" x1="200.2329" x2="378.7725" y1="206.7969" y2="206.7969" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="49.6924" x="255.7327" y="190.7979">Processes</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="305.425" y="190.7979">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="20.6689" x="308.6038" y="190.7979">new</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="24.375" x="258.3474" y="202.4385">book</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="282.7224" y="202.4385">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="40.7568" x="285.9011" y="202.4385">addition</text>
+             <polygon fill="#004D40" points="542.8892,228.4375,552.8892,232.4375,542.8892,236.4375,546.8892,232.4375" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;" x1="384.7725" x2="548.8892" y1="232.4375" y2="232.4375" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="31.8604" x="427.2722" y="228.0791">Stores</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="459.1326" y="228.0791">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="24.375" x="462.3113" y="228.0791">book</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="486.6863" y="228.0791">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="22.5244" x="489.865" y="228.0791">data</text>
+             <polygon fill="#004D40" points="395.7725,265.7188,385.7725,269.7188,395.7725,273.7188,391.7725,269.7188" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="389.7725" x2="553.8892" y1="269.7188" y2="269.7188" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.7998" x="433.6541" y="253.7197">Confirms</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="478.4539" y="253.7197">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="24.375" x="481.6326" y="253.7197">book</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="37.9883" x="450.8367" y="265.3604">storage</text>
+             <polygon fill="#004D40" points="211.2329,303,201.2329,307,211.2329,311,207.2329,307" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="205.2329" x2="383.7725" y1="307" y2="307" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="39.0186" x="247.2927" y="291.001">Returns</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="286.3113" y="291.001">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="20.6689" x="289.49" y="291.001">new</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="310.1589" y="291.001">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="24.375" x="313.3376" y="291.001">book</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="10.6494" x="287.178" y="302.6416">ID</text>
+             <polygon fill="#004D40" points="66.8413,340.2813,56.8413,344.2813,66.8413,348.2813,62.8413,344.2813" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="60.8413" x2="199.2329" y1="344.2813" y2="344.2813" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="42.0703" x="81.3013" y="328.2822">Displays</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="123.3716" y="328.2822">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="20.6689" x="126.5503" y="328.2822">new</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="147.2192" y="328.2822">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="24.375" x="150.3979" y="328.2822">book</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="33.3154" x="111.3794" y="339.9229">details</text>
+            </g>
+           </svg>
+          </div>
+          <div class="has-text-centered">
+           Add Book to Library [<a href="../svg/add-book-to-library.svg" target="_blank">svg</a>|<a href="../png/add-book-to-library.png" target="_blank">png</a>|<a href="../puml/add-book-to-library.puml" target="_blank">puml</a>]
+          </div>
+         </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close" onclick="closeModal('add-book-to-library-modal')"></button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </details>
+  <details>
+   <summary class="title"><span class="collapse-title">Remove book from library</span></summary>
+   <div class="content">
+    <div class="paragraph content">
+     <p>The <strong>Remove Book from Library</strong> process allows administrators to remove an item from the catalog. The Products SPA requests the removal, and the Products Microservice updates the Products Database to reflect the change.</p>
+    </div>
+    <div class="imageblock content">
+     <div class="content">
+      <div>
+       <figure style="width: min(100%, 625px);">
+        <div>
+         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" preserveAspectRatio="meet" version="1.1" viewBox="0 0 625 454" zoomAndPan="magnify">
+          <title>
+           Products - Dynamic
+          </title><defs /><g>
+           <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="153.501" x="237.2578" y="27.9951">Products - Dynamic</text>
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="55" x2="55" y1="130.2344" y2="362.2813" />
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="199.6826" x2="199.6826" y1="130.2344" y2="362.2813" />
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="383.7832" x2="383.7832" y1="130.2344" y2="362.2813" />
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="554.7617" x2="554.7617" y1="130.2344" y2="362.2813" />
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95.6826" x="5" y="115.292">Administrator</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="31.96" y="127.876">[Person]</text>
+           <ellipse cx="55.8413" cy="50.7969" fill="#00796B" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+           <path d="M55.8413,58.7969 L55.8413,85.7969 M42.8413,66.7969 L68.8413,66.7969 M55.8413,85.7969 L42.8413,100.7969 M55.8413,85.7969 L68.8413,100.7969 " fill="none" style="stroke:#181818;stroke-width:0.5;" />
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95.6826" x="5" y="374.2764">Administrator</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="31.96" y="386.8604">[Person]</text>
+           <ellipse cx="55.8413" cy="397.7188" fill="#00796B" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+           <path d="M55.8413,405.7188 L55.8413,432.7188 M42.8413,413.7188 L68.8413,413.7188 M55.8413,432.7188 L42.8413,447.7188 M55.8413,432.7188 L68.8413,447.7188 " fill="none" style="stroke:#181818;stroke-width:0.5;" />
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="167.1006" x="116.6826" y="87.2969" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92.3604" x="154.0527" y="107.292">Products SPA</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="153.1006" x="123.6826" y="119.876">[Container: React Component]</text>
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="167.1006" x="116.6826" y="361.2813" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92.3604" x="154.0527" y="381.2764">Products SPA</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="153.1006" x="123.6826" y="393.8604">[Container: React Component]</text>
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="293.7832" y="87.2969" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="153.5898" x="307.9775" y="107.292">Products Microservice</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="300.7832" y="119.876">[Container: Java and Spring Boot]</text>
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="293.7832" y="361.2813" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="153.5898" x="307.9775" y="381.2764">Products Microservice</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="300.7832" y="393.8604">[Container: Java and Spring Boot]</text>
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132.2549" x="485.7617" y="115.292">Products Database</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="111.3281" x="496.2251" y="127.876">[Container: MongoDB]</text>
+           <path d="M536.8892,66.2969 C536.8892,56.2969 554.8892,56.2969 554.8892,56.2969 C554.8892,56.2969 572.8892,56.2969 572.8892,66.2969 L572.8892,92.2969 C572.8892,102.2969 554.8892,102.2969 554.8892,102.2969 C554.8892,102.2969 536.8892,102.2969 536.8892,92.2969 L536.8892,66.2969 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+           <path d="M536.8892,66.2969 C536.8892,76.2969 554.8892,76.2969 554.8892,76.2969 C554.8892,76.2969 572.8892,76.2969 572.8892,66.2969 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132.2549" x="485.7617" y="374.2764">Products Database</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="111.3281" x="496.2251" y="386.8604">[Container: MongoDB]</text>
+           <path d="M536.8892,399.2188 C536.8892,389.2188 554.8892,389.2188 554.8892,389.2188 C554.8892,389.2188 572.8892,389.2188 572.8892,399.2188 L572.8892,425.2188 C572.8892,435.2188 554.8892,435.2188 554.8892,435.2188 C554.8892,435.2188 536.8892,435.2188 536.8892,425.2188 L536.8892,399.2188 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+           <path d="M536.8892,399.2188 C536.8892,409.2188 554.8892,409.2188 554.8892,409.2188 C554.8892,409.2188 572.8892,409.2188 572.8892,399.2188 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+           <polygon fill="#004D40" points="188.2329,165.5156,198.2329,169.5156,188.2329,173.5156,192.2329,169.5156" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;" x1="55.8413" x2="194.2329" y1="169.5156" y2="169.5156" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="40.1758" x="94.1724" y="153.5166">Initiates</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="134.3481" y="153.5166">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="24.375" x="137.5269" y="153.5166">book</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="40.9473" x="107.5635" y="165.1572">removal</text>
+           <polygon fill="#004D40" points="372.7725,202.7969,382.7725,206.7969,372.7725,210.7969,376.7725,206.7969" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;" x1="200.2329" x2="378.7725" y1="206.7969" y2="206.7969" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="49.6924" x="253.8796" y="190.7979">Processes</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="303.572" y="190.7979">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="24.375" x="306.7507" y="190.7979">book</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="40.9473" x="272.0291" y="202.4385">removal</text>
+           <polygon fill="#004D40" points="542.8892,228.4375,552.8892,232.4375,542.8892,236.4375,546.8892,232.4375" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;" x1="384.7725" x2="548.8892" y1="232.4375" y2="232.4375" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="46.2402" x="420.0823" y="228.0791">Removes</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="466.3225" y="228.0791">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="24.375" x="469.5012" y="228.0791">book</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="493.8762" y="228.0791">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="22.5244" x="497.0549" y="228.0791">data</text>
+           <polygon fill="#004D40" points="395.7725,265.7188,385.7725,269.7188,395.7725,273.7188,391.7725,269.7188" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="389.7725" x2="553.8892" y1="269.7188" y2="269.7188" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.7998" x="433.6541" y="253.7197">Confirms</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="478.4539" y="253.7197">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="24.375" x="481.6326" y="253.7197">book</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="40.9473" x="449.3572" y="265.3604">removal</text>
+           <polygon fill="#004D40" points="211.2329,303,201.2329,307,211.2329,311,207.2329,307" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="205.2329" x2="383.7725" y1="307" y2="307" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="39.0186" x="250.9304" y="291.001">Returns</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="289.949" y="291.001">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="40.9473" x="293.1277" y="291.001">removal</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="30.7275" x="277.1389" y="302.6416">status</text>
+           <polygon fill="#004D40" points="66.8413,340.2813,56.8413,344.2813,66.8413,348.2813,62.8413,344.2813" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="60.8413" x2="199.2329" y1="344.2813" y2="344.2813" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="42.0703" x="84.939" y="328.2822">Displays</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="127.0093" y="328.2822">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="40.9473" x="130.188" y="328.2822">removal</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="33.3154" x="111.3794" y="339.9229">details</text>
+          </g>
+         </svg>
+        </div>
+        <figcaption>
+         <a onclick="openSvgModal('remove-book-from-library-modal', 'remove-book-from-library-svg')">Remove Book from Library</a>
+        </figcaption>
+       </figure>
+       <div class="modal" id="remove-book-from-library-modal">
+        <div class="modal-background" onclick="closeModal('remove-book-from-library-modal')"></div>
+        <div class="modal-content">
+         <div class="box">
+          <div id="remove-book-from-library-svg" class="modal-box-content">
+           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" preserveAspectRatio="meet" version="1.1" viewBox="0 0 625 454" zoomAndPan="magnify">
+            <title>
+             Products - Dynamic
+            </title><defs /><g>
+             <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="153.501" x="237.2578" y="27.9951">Products - Dynamic</text>
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="55" x2="55" y1="130.2344" y2="362.2813" />
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="199.6826" x2="199.6826" y1="130.2344" y2="362.2813" />
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="383.7832" x2="383.7832" y1="130.2344" y2="362.2813" />
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="554.7617" x2="554.7617" y1="130.2344" y2="362.2813" />
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95.6826" x="5" y="115.292">Administrator</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="31.96" y="127.876">[Person]</text>
+             <ellipse cx="55.8413" cy="50.7969" fill="#00796B" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+             <path d="M55.8413,58.7969 L55.8413,85.7969 M42.8413,66.7969 L68.8413,66.7969 M55.8413,85.7969 L42.8413,100.7969 M55.8413,85.7969 L68.8413,100.7969 " fill="none" style="stroke:#181818;stroke-width:0.5;" />
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95.6826" x="5" y="374.2764">Administrator</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="31.96" y="386.8604">[Person]</text>
+             <ellipse cx="55.8413" cy="397.7188" fill="#00796B" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+             <path d="M55.8413,405.7188 L55.8413,432.7188 M42.8413,413.7188 L68.8413,413.7188 M55.8413,432.7188 L42.8413,447.7188 M55.8413,432.7188 L68.8413,447.7188 " fill="none" style="stroke:#181818;stroke-width:0.5;" />
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="167.1006" x="116.6826" y="87.2969" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92.3604" x="154.0527" y="107.292">Products SPA</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="153.1006" x="123.6826" y="119.876">[Container: React Component]</text>
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="167.1006" x="116.6826" y="361.2813" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92.3604" x="154.0527" y="381.2764">Products SPA</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="153.1006" x="123.6826" y="393.8604">[Container: React Component]</text>
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="293.7832" y="87.2969" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="153.5898" x="307.9775" y="107.292">Products Microservice</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="300.7832" y="119.876">[Container: Java and Spring Boot]</text>
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="293.7832" y="361.2813" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="153.5898" x="307.9775" y="381.2764">Products Microservice</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="300.7832" y="393.8604">[Container: Java and Spring Boot]</text>
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132.2549" x="485.7617" y="115.292">Products Database</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="111.3281" x="496.2251" y="127.876">[Container: MongoDB]</text>
+             <path d="M536.8892,66.2969 C536.8892,56.2969 554.8892,56.2969 554.8892,56.2969 C554.8892,56.2969 572.8892,56.2969 572.8892,66.2969 L572.8892,92.2969 C572.8892,102.2969 554.8892,102.2969 554.8892,102.2969 C554.8892,102.2969 536.8892,102.2969 536.8892,92.2969 L536.8892,66.2969 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+             <path d="M536.8892,66.2969 C536.8892,76.2969 554.8892,76.2969 554.8892,76.2969 C554.8892,76.2969 572.8892,76.2969 572.8892,66.2969 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132.2549" x="485.7617" y="374.2764">Products Database</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="111.3281" x="496.2251" y="386.8604">[Container: MongoDB]</text>
+             <path d="M536.8892,399.2188 C536.8892,389.2188 554.8892,389.2188 554.8892,389.2188 C554.8892,389.2188 572.8892,389.2188 572.8892,399.2188 L572.8892,425.2188 C572.8892,435.2188 554.8892,435.2188 554.8892,435.2188 C554.8892,435.2188 536.8892,435.2188 536.8892,425.2188 L536.8892,399.2188 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+             <path d="M536.8892,399.2188 C536.8892,409.2188 554.8892,409.2188 554.8892,409.2188 C554.8892,409.2188 572.8892,409.2188 572.8892,399.2188 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+             <polygon fill="#004D40" points="188.2329,165.5156,198.2329,169.5156,188.2329,173.5156,192.2329,169.5156" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;" x1="55.8413" x2="194.2329" y1="169.5156" y2="169.5156" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="40.1758" x="94.1724" y="153.5166">Initiates</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="134.3481" y="153.5166">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="24.375" x="137.5269" y="153.5166">book</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="40.9473" x="107.5635" y="165.1572">removal</text>
+             <polygon fill="#004D40" points="372.7725,202.7969,382.7725,206.7969,372.7725,210.7969,376.7725,206.7969" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;" x1="200.2329" x2="378.7725" y1="206.7969" y2="206.7969" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="49.6924" x="253.8796" y="190.7979">Processes</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="303.572" y="190.7979">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="24.375" x="306.7507" y="190.7979">book</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="40.9473" x="272.0291" y="202.4385">removal</text>
+             <polygon fill="#004D40" points="542.8892,228.4375,552.8892,232.4375,542.8892,236.4375,546.8892,232.4375" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;" x1="384.7725" x2="548.8892" y1="232.4375" y2="232.4375" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="46.2402" x="420.0823" y="228.0791">Removes</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="466.3225" y="228.0791">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="24.375" x="469.5012" y="228.0791">book</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="493.8762" y="228.0791">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="22.5244" x="497.0549" y="228.0791">data</text>
+             <polygon fill="#004D40" points="395.7725,265.7188,385.7725,269.7188,395.7725,273.7188,391.7725,269.7188" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="389.7725" x2="553.8892" y1="269.7188" y2="269.7188" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.7998" x="433.6541" y="253.7197">Confirms</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="478.4539" y="253.7197">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="24.375" x="481.6326" y="253.7197">book</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="40.9473" x="449.3572" y="265.3604">removal</text>
+             <polygon fill="#004D40" points="211.2329,303,201.2329,307,211.2329,311,207.2329,307" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="205.2329" x2="383.7725" y1="307" y2="307" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="39.0186" x="250.9304" y="291.001">Returns</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="289.949" y="291.001">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="40.9473" x="293.1277" y="291.001">removal</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="30.7275" x="277.1389" y="302.6416">status</text>
+             <polygon fill="#004D40" points="66.8413,340.2813,56.8413,344.2813,66.8413,348.2813,62.8413,344.2813" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="60.8413" x2="199.2329" y1="344.2813" y2="344.2813" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="42.0703" x="84.939" y="328.2822">Displays</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="127.0093" y="328.2822">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="40.9473" x="130.188" y="328.2822">removal</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="33.3154" x="111.3794" y="339.9229">details</text>
+            </g>
+           </svg>
+          </div>
+          <div class="has-text-centered">
+           Remove Book from Library [<a href="../svg/remove-book-from-library.svg" target="_blank">svg</a>|<a href="../png/remove-book-from-library.png" target="_blank">png</a>|<a href="../puml/remove-book-from-library.puml" target="_blank">puml</a>]
+          </div>
+         </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close" onclick="closeModal('remove-book-from-library-modal')"></button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </details>
+  <details>
+   <summary class="title"><span class="collapse-title">Present available books</span></summary>
+   <div class="content">
+    <div class="paragraph content">
+     <p>The <strong>Present Available Books</strong> process provides users with a view of all available books in the library. The Products SPA retrieves this data from the Products Microservice, which accesses the Products Database to display an up-to-date list of items.</p>
+    </div>
+    <div class="imageblock content">
+     <div class="content">
+      <div>
+       <figure style="width: min(100%, 579px);">
+        <div>
+         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" preserveAspectRatio="meet" version="1.1" viewBox="0 0 579 454" zoomAndPan="magnify">
+          <title>
+           Products - Dynamic
+          </title><defs /><g>
+           <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="153.501" x="214.5044" y="27.9951">Products - Dynamic</text>
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="33" x2="33" y1="130.2344" y2="362.2813" />
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="154.1758" x2="154.1758" y1="130.2344" y2="362.2813" />
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="338.2764" x2="338.2764" y1="130.2344" y2="362.2813" />
+           <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="509.2549" x2="509.2549" y1="130.2344" y2="362.2813" />
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50.1758" x="5" y="115.292">Reader</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="9.2065" y="127.876">[Person]</text>
+           <ellipse cx="33.0879" cy="50.7969" fill="#00796B" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+           <path d="M33.0879,58.7969 L33.0879,85.7969 M20.0879,66.7969 L46.0879,66.7969 M33.0879,85.7969 L20.0879,100.7969 M33.0879,85.7969 L46.0879,100.7969 " fill="none" style="stroke:#181818;stroke-width:0.5;" />
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50.1758" x="5" y="374.2764">Reader</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="9.2065" y="386.8604">[Person]</text>
+           <ellipse cx="33.0879" cy="397.7188" fill="#00796B" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+           <path d="M33.0879,405.7188 L33.0879,432.7188 M20.0879,413.7188 L46.0879,413.7188 M33.0879,432.7188 L20.0879,447.7188 M33.0879,432.7188 L46.0879,447.7188 " fill="none" style="stroke:#181818;stroke-width:0.5;" />
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="167.1006" x="71.1758" y="87.2969" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92.3604" x="108.5459" y="107.292">Products SPA</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="153.1006" x="78.1758" y="119.876">[Container: React Component]</text>
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="167.1006" x="71.1758" y="361.2813" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92.3604" x="108.5459" y="381.2764">Products SPA</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="153.1006" x="78.1758" y="393.8604">[Container: React Component]</text>
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="248.2764" y="87.2969" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="153.5898" x="262.4707" y="107.292">Products Microservice</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="255.2764" y="119.876">[Container: Java and Spring Boot]</text>
+           <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="248.2764" y="361.2813" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="153.5898" x="262.4707" y="381.2764">Products Microservice</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="255.2764" y="393.8604">[Container: Java and Spring Boot]</text>
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132.2549" x="440.2549" y="115.292">Products Database</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="111.3281" x="450.7183" y="127.876">[Container: MongoDB]</text>
+           <path d="M491.3823,66.2969 C491.3823,56.2969 509.3823,56.2969 509.3823,56.2969 C509.3823,56.2969 527.3823,56.2969 527.3823,66.2969 L527.3823,92.2969 C527.3823,102.2969 509.3823,102.2969 509.3823,102.2969 C509.3823,102.2969 491.3823,102.2969 491.3823,92.2969 L491.3823,66.2969 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+           <path d="M491.3823,66.2969 C491.3823,76.2969 509.3823,76.2969 509.3823,76.2969 C509.3823,76.2969 527.3823,76.2969 527.3823,66.2969 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+           <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132.2549" x="440.2549" y="374.2764">Products Database</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="111.3281" x="450.7183" y="386.8604">[Container: MongoDB]</text>
+           <path d="M491.3823,399.2188 C491.3823,389.2188 509.3823,389.2188 509.3823,389.2188 C509.3823,389.2188 527.3823,389.2188 527.3823,399.2188 L527.3823,425.2188 C527.3823,435.2188 509.3823,435.2188 509.3823,435.2188 C509.3823,435.2188 491.3823,435.2188 491.3823,425.2188 L491.3823,399.2188 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+           <path d="M491.3823,399.2188 C491.3823,409.2188 509.3823,409.2188 509.3823,409.2188 C509.3823,409.2188 527.3823,409.2188 527.3823,399.2188 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+           <polygon fill="#004D40" points="142.7261,165.5156,152.7261,169.5156,142.7261,173.5156,146.7261,169.5156" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;" x1="33.0879" x2="148.7261" y1="169.5156" y2="169.5156" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="46.2793" x="46.6096" y="153.5166">Requests</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="92.8889" y="153.5166">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="45.1367" x="96.0676" y="153.5166">available</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="29.585" x="70.1814" y="165.1572">books</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="99.7664" y="165.1572">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="14.6875" x="102.9451" y="165.1572">list</text>
+           <polygon fill="#004D40" points="327.2656,202.7969,337.2656,206.7969,327.2656,210.7969,331.2656,206.7969" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;" x1="154.7261" x2="333.2656" y1="206.7969" y2="206.7969" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="39.0234" x="203.3264" y="190.7979">Fetches</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="242.3499" y="190.7979">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="45.1367" x="245.5286" y="190.7979">available</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="29.585" x="232.2034" y="202.4385">books</text>
+           <polygon fill="#004D40" points="497.3823,240.0781,507.3823,244.0781,497.3823,248.0781,501.3823,244.0781" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;" x1="339.2656" x2="503.3823" y1="244.0781" y2="244.0781" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="47.3438" x="376.4944" y="228.0791">Retrieves</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="423.8381" y="228.0791">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="45.1367" x="427.0168" y="228.0791">available</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="29.585" x="409.5315" y="239.7197">books</text>
+           <polygon fill="#004D40" points="350.2656,277.3594,340.2656,281.3594,350.2656,285.3594,346.2656,281.3594" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="344.2656" x2="508.3823" y1="281.3594" y2="281.3594" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="39.0186" x="380.657" y="265.3604">Returns</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="419.6755" y="265.3604">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="45.1367" x="422.8542" y="265.3604">available</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="29.585" x="409.5315" y="277.001">books</text>
+           <polygon fill="#004D40" points="165.7261,303,155.7261,307,165.7261,311,161.7261,307" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="159.7261" x2="338.2656" y1="307" y2="307" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="39.0186" x="200.8582" y="302.6416">Returns</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="239.8767" y="302.6416">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="24.375" x="243.0554" y="302.6416">book</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="267.4304" y="302.6416">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="22.5244" x="270.6091" y="302.6416">data</text>
+           <polygon fill="#004D40" points="44.0879,340.2813,34.0879,344.2813,44.0879,348.2813,40.0879,344.2813" style="stroke:#004D40;stroke-width:1.0;" />
+           <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="38.0879" x2="153.7261" y1="344.2813" y2="344.2813" />
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="42.0703" x="48.7141" y="328.2822">Displays</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="90.7844" y="328.2822">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="45.1367" x="93.9631" y="328.2822">available</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="29.585" x="70.1814" y="339.9229">books</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="99.7664" y="339.9229">&nbsp;</text>
+           <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="14.6875" x="102.9451" y="339.9229">list</text>
+          </g>
+         </svg>
+        </div>
+        <figcaption>
+         <a onclick="openSvgModal('present-available-books-modal', 'present-available-books-svg')">Present Available Books</a>
+        </figcaption>
+       </figure>
+       <div class="modal" id="present-available-books-modal">
+        <div class="modal-background" onclick="closeModal('present-available-books-modal')"></div>
+        <div class="modal-content">
+         <div class="box">
+          <div id="present-available-books-svg" class="modal-box-content">
+           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" preserveAspectRatio="meet" version="1.1" viewBox="0 0 579 454" zoomAndPan="magnify">
+            <title>
+             Products - Dynamic
+            </title><defs /><g>
+             <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="153.501" x="214.5044" y="27.9951">Products - Dynamic</text>
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="33" x2="33" y1="130.2344" y2="362.2813" />
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="154.1758" x2="154.1758" y1="130.2344" y2="362.2813" />
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="338.2764" x2="338.2764" y1="130.2344" y2="362.2813" />
+             <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="509.2549" x2="509.2549" y1="130.2344" y2="362.2813" />
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50.1758" x="5" y="115.292">Reader</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="9.2065" y="127.876">[Person]</text>
+             <ellipse cx="33.0879" cy="50.7969" fill="#00796B" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+             <path d="M33.0879,58.7969 L33.0879,85.7969 M20.0879,66.7969 L46.0879,66.7969 M33.0879,85.7969 L20.0879,100.7969 M33.0879,85.7969 L46.0879,100.7969 " fill="none" style="stroke:#181818;stroke-width:0.5;" />
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50.1758" x="5" y="374.2764">Reader</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="9.2065" y="386.8604">[Person]</text>
+             <ellipse cx="33.0879" cy="397.7188" fill="#00796B" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+             <path d="M33.0879,405.7188 L33.0879,432.7188 M20.0879,413.7188 L46.0879,413.7188 M33.0879,432.7188 L20.0879,447.7188 M33.0879,432.7188 L46.0879,447.7188 " fill="none" style="stroke:#181818;stroke-width:0.5;" />
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="167.1006" x="71.1758" y="87.2969" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92.3604" x="108.5459" y="107.292">Products SPA</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="153.1006" x="78.1758" y="119.876">[Container: React Component]</text>
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="167.1006" x="71.1758" y="361.2813" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92.3604" x="108.5459" y="381.2764">Products SPA</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="153.1006" x="78.1758" y="393.8604">[Container: React Component]</text>
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="248.2764" y="87.2969" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="153.5898" x="262.4707" y="107.292">Products Microservice</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="255.2764" y="119.876">[Container: Java and Spring Boot]</text>
+             <rect fill="#26A69A" height="41.9375" rx="2.5" ry="2.5" style="stroke:#1A746B;stroke-width:0.5;" width="181.9785" x="248.2764" y="361.2813" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="153.5898" x="262.4707" y="381.2764">Products Microservice</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167.9785" x="255.2764" y="393.8604">[Container: Java and Spring Boot]</text>
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132.2549" x="440.2549" y="115.292">Products Database</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="111.3281" x="450.7183" y="127.876">[Container: MongoDB]</text>
+             <path d="M491.3823,66.2969 C491.3823,56.2969 509.3823,56.2969 509.3823,56.2969 C509.3823,56.2969 527.3823,56.2969 527.3823,66.2969 L527.3823,92.2969 C527.3823,102.2969 509.3823,102.2969 509.3823,102.2969 C509.3823,102.2969 491.3823,102.2969 491.3823,92.2969 L491.3823,66.2969 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+             <path d="M491.3823,66.2969 C491.3823,76.2969 509.3823,76.2969 509.3823,76.2969 C509.3823,76.2969 527.3823,76.2969 527.3823,66.2969 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+             <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132.2549" x="440.2549" y="374.2764">Products Database</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="111.3281" x="450.7183" y="386.8604">[Container: MongoDB]</text>
+             <path d="M491.3823,399.2188 C491.3823,389.2188 509.3823,389.2188 509.3823,389.2188 C509.3823,389.2188 527.3823,389.2188 527.3823,399.2188 L527.3823,425.2188 C527.3823,435.2188 509.3823,435.2188 509.3823,435.2188 C509.3823,435.2188 491.3823,435.2188 491.3823,425.2188 L491.3823,399.2188 " fill="#26A69A" style="stroke:#181818;stroke-width:1.5;" />
+             <path d="M491.3823,399.2188 C491.3823,409.2188 509.3823,409.2188 509.3823,409.2188 C509.3823,409.2188 527.3823,409.2188 527.3823,399.2188 " fill="none" style="stroke:#181818;stroke-width:1.5;" />
+             <polygon fill="#004D40" points="142.7261,165.5156,152.7261,169.5156,142.7261,173.5156,146.7261,169.5156" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;" x1="33.0879" x2="148.7261" y1="169.5156" y2="169.5156" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="46.2793" x="46.6096" y="153.5166">Requests</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="92.8889" y="153.5166">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="45.1367" x="96.0676" y="153.5166">available</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="29.585" x="70.1814" y="165.1572">books</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="99.7664" y="165.1572">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="14.6875" x="102.9451" y="165.1572">list</text>
+             <polygon fill="#004D40" points="327.2656,202.7969,337.2656,206.7969,327.2656,210.7969,331.2656,206.7969" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;" x1="154.7261" x2="333.2656" y1="206.7969" y2="206.7969" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="39.0234" x="203.3264" y="190.7979">Fetches</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="242.3499" y="190.7979">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="45.1367" x="245.5286" y="190.7979">available</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="29.585" x="232.2034" y="202.4385">books</text>
+             <polygon fill="#004D40" points="497.3823,240.0781,507.3823,244.0781,497.3823,248.0781,501.3823,244.0781" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;" x1="339.2656" x2="503.3823" y1="244.0781" y2="244.0781" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="47.3438" x="376.4944" y="228.0791">Retrieves</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="423.8381" y="228.0791">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="45.1367" x="427.0168" y="228.0791">available</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="29.585" x="409.5315" y="239.7197">books</text>
+             <polygon fill="#004D40" points="350.2656,277.3594,340.2656,281.3594,350.2656,285.3594,346.2656,281.3594" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="344.2656" x2="508.3823" y1="281.3594" y2="281.3594" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="39.0186" x="380.657" y="265.3604">Returns</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="419.6755" y="265.3604">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="45.1367" x="422.8542" y="265.3604">available</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="29.585" x="409.5315" y="277.001">books</text>
+             <polygon fill="#004D40" points="165.7261,303,155.7261,307,165.7261,311,161.7261,307" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="159.7261" x2="338.2656" y1="307" y2="307" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="39.0186" x="200.8582" y="302.6416">Returns</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="239.8767" y="302.6416">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="24.375" x="243.0554" y="302.6416">book</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="267.4304" y="302.6416">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="22.5244" x="270.6091" y="302.6416">data</text>
+             <polygon fill="#004D40" points="44.0879,340.2813,34.0879,344.2813,44.0879,348.2813,40.0879,344.2813" style="stroke:#004D40;stroke-width:1.0;" />
+             <line style="stroke:#004D40;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="38.0879" x2="153.7261" y1="344.2813" y2="344.2813" />
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="42.0703" x="48.7141" y="328.2822">Displays</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="90.7844" y="328.2822">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="45.1367" x="93.9631" y="328.2822">available</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="29.585" x="70.1814" y="339.9229">books</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="99.7664" y="339.9229">&nbsp;</text>
+             <text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="14.6875" x="102.9451" y="339.9229">list</text>
+            </g>
+           </svg>
+          </div>
+          <div class="has-text-centered">
+           Present Available Books [<a href="../svg/present-available-books.svg" target="_blank">svg</a>|<a href="../png/present-available-books.png" target="_blank">png</a>|<a href="../puml/present-available-books.puml" target="_blank">puml</a>]
+          </div>
+         </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close" onclick="closeModal('present-available-books-modal')"></button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </details>
+ </div>
+</div></div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="../../admonition.js"></script>
+    <script type="text/javascript" src="../../reformat-mermaid.js"></script>
+    <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.3.0/dist/mermaid.esm.min.mjs';</script>
+    <script type="text/javascript" src="../../treeview.js"></script>
+    <script type="text/javascript">listree();</script>
+    <script type="text/javascript" src="../../katex-render.js"></script>
+  </body>
+</html>

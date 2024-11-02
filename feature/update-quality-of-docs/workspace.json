@@ -1,0 +1,2719 @@
+{
+  "configuration" : { },
+  "description" : "E-Library System",
+  "documentation" : {
+    "sections" : [ {
+      "content" : "== E-Library Architecture\n\nThis document serves as the comprehensive reference for the **E-Library System Architecture**. It provides a structured outline of the E-Library system, organized into systems, containers, and components, each with detailed descriptions and supporting information. The documentation also breaks down essential business processes, offering clarity on how each part of the system functions within the overall architecture.\n\nEach container, representing a deployable unit, includes specific information on its roles, dependencies, and configurations. This resource is invaluable for developers, architects, and stakeholders, offering insights into the design, deployment, and operation of the E-Library system.\n\nThis resource is invaluable for developers, architects, and stakeholders, offering insights into the design, deployment, and operation of the E-Library system.\n\n#**Disclaimer**: This document is provided as an example of potential documentation structure and is not intended for actual use.#\n\nimage::embed:SystemLandscape[System Landscape Diagram]\n",
+      "filename" : "00-index.adoc",
+      "format" : "AsciiDoc",
+      "order" : 1,
+      "title" : ""
+    } ]
+  },
+  "id" : 0,
+  "model" : {
+    "people" : [ {
+      "description" : "A user of the E-Library System who interacts with available resources.",
+      "id" : "1",
+      "location" : "Unspecified",
+      "name" : "Reader",
+      "properties" : {
+        "structurizr.dsl.identifier" : "reader"
+      },
+      "relationships" : [ {
+        "description" : "Manages their account.",
+        "destinationId" : "3",
+        "id" : "28",
+        "properties" : {
+          "structurizr.dsl.identifier" : "fca9fc4f-9720-45bb-8162-feb3986aa1d1"
+        },
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Manages borrowed items.",
+        "destinationId" : "7",
+        "id" : "29",
+        "properties" : {
+          "structurizr.dsl.identifier" : "b32a5e16-1fe0-45ba-872d-204982632665"
+        },
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Views available items.",
+        "destinationId" : "11",
+        "id" : "30",
+        "properties" : {
+          "structurizr.dsl.identifier" : "e7a7cd03-92a0-4649-8843-0e5cf0bb6b8f"
+        },
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Handles rental process.",
+        "destinationId" : "15",
+        "id" : "31",
+        "properties" : {
+          "structurizr.dsl.identifier" : "afe72868-9c27-418c-a333-92b3567b0553"
+        },
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Views recommended items.",
+        "destinationId" : "19",
+        "id" : "32",
+        "properties" : {
+          "structurizr.dsl.identifier" : "993f2b32-5020-4712-a128-ac7e9b218f72"
+        },
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Manages payments.",
+        "destinationId" : "23",
+        "id" : "33",
+        "properties" : {
+          "structurizr.dsl.identifier" : "ec51eaed-340f-4645-aeea-b9e183e503bd"
+        },
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Accesses account functionality.",
+        "destinationId" : "4",
+        "id" : "39",
+        "properties" : {
+          "structurizr.dsl.identifier" : "480e2d80-a245-4459-a9fc-f63b4e7c65a6"
+        },
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Views and manages borrowed items.",
+        "destinationId" : "8",
+        "id" : "40",
+        "properties" : {
+          "structurizr.dsl.identifier" : "698dc796-a368-4a37-9b5c-3008e7ecc095"
+        },
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Views available library items.",
+        "destinationId" : "12",
+        "id" : "41",
+        "properties" : {
+          "structurizr.dsl.identifier" : "849da93b-f3cc-4f1a-bf4d-89d3ff770823"
+        },
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Manages cart.",
+        "destinationId" : "16",
+        "id" : "42",
+        "properties" : {
+          "structurizr.dsl.identifier" : "0cede5ad-433e-4fef-ad4a-329775296143"
+        },
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Views recommendations.",
+        "destinationId" : "20",
+        "id" : "43",
+        "properties" : {
+          "structurizr.dsl.identifier" : "f81f0197-2636-4f7b-9cc1-6247e23f9822"
+        },
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Makes payments.",
+        "destinationId" : "24",
+        "id" : "44",
+        "properties" : {
+          "structurizr.dsl.identifier" : "b64e257e-3a5e-4070-a3c6-62a70102fe33"
+        },
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      } ],
+      "tags" : "Element,Person"
+    }, {
+      "description" : "An admin responsible for adding items to the library, managing user accounts, and handling financial transactions.",
+      "id" : "2",
+      "location" : "Unspecified",
+      "name" : "Administrator",
+      "properties" : {
+        "structurizr.dsl.identifier" : "administrator"
+      },
+      "relationships" : [ {
+        "description" : "Oversees user accounts.",
+        "destinationId" : "3",
+        "id" : "35",
+        "properties" : {
+          "structurizr.dsl.identifier" : "8c7bde3d-426b-42d6-bcd3-4e351f9a12db"
+        },
+        "sourceId" : "2",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Manages library items.",
+        "destinationId" : "11",
+        "id" : "36",
+        "properties" : {
+          "structurizr.dsl.identifier" : "f73fe2d3-3bbe-4248-9f75-2cc09b290207"
+        },
+        "sourceId" : "2",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Oversees financial transactions.",
+        "destinationId" : "23",
+        "id" : "37",
+        "properties" : {
+          "structurizr.dsl.identifier" : "50b41acc-9113-4730-9b8c-89d60120ea16"
+        },
+        "sourceId" : "2",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Manages library items.",
+        "destinationId" : "12",
+        "id" : "45",
+        "properties" : {
+          "structurizr.dsl.identifier" : "415ee2ac-ef2d-40c1-93bc-981bd12b07b1"
+        },
+        "sourceId" : "2",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Oversees financial transactions.",
+        "destinationId" : "24",
+        "id" : "46",
+        "properties" : {
+          "structurizr.dsl.identifier" : "e3c16c0e-7bb3-4466-8483-d8def34ccdb5"
+        },
+        "sourceId" : "2",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Manages accounts.",
+        "destinationId" : "4",
+        "id" : "47",
+        "properties" : {
+          "structurizr.dsl.identifier" : "7025ec1b-6b0e-4020-adf5-e27905e190bd"
+        },
+        "sourceId" : "2",
+        "tags" : "Relationship"
+      } ],
+      "tags" : "Element,Person"
+    } ],
+    "softwareSystems" : [ {
+      "containers" : [ {
+        "description" : "Provides account management functionality through the user interface.",
+        "documentation" : { },
+        "id" : "4",
+        "name" : "Accounts SPA",
+        "properties" : {
+          "structurizr.dsl.identifier" : "accountsspa"
+        },
+        "relationships" : [ {
+          "description" : "Requests account operations.",
+          "destinationId" : "5",
+          "id" : "48",
+          "properties" : {
+            "structurizr.dsl.identifier" : "4454db28-fb54-484b-af4d-00435e9595c8"
+          },
+          "sourceId" : "4",
+          "tags" : "Relationship",
+          "technology" : "HTTPS"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "React Component"
+      }, {
+        "description" : "API for account management functionality.",
+        "documentation" : { },
+        "id" : "5",
+        "name" : "Accounts Microservice",
+        "properties" : {
+          "structurizr.dsl.identifier" : "accountmicroservice"
+        },
+        "relationships" : [ {
+          "description" : "Stores and retrieves accounts.",
+          "destinationId" : "6",
+          "id" : "49",
+          "properties" : {
+            "structurizr.dsl.identifier" : "653504ec-55ac-4229-8b5a-bae8e3a26a24"
+          },
+          "sourceId" : "5",
+          "tags" : "Relationship",
+          "technology" : "JDBC"
+        }, {
+          "description" : "Updates recommendations.",
+          "destinationId" : "21",
+          "id" : "50",
+          "properties" : {
+            "structurizr.dsl.identifier" : "2dafe00b-6fed-4eb3-8759-27a22634b8ec"
+          },
+          "sourceId" : "5",
+          "tags" : "Relationship",
+          "technology" : "Kafka"
+        }, {
+          "description" : "Updates recommendations.",
+          "destinationId" : "19",
+          "id" : "51",
+          "linkedRelationshipId" : "50",
+          "sourceId" : "5",
+          "technology" : "Kafka"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "Java and Spring Boot"
+      }, {
+        "description" : "Holds user account data.",
+        "documentation" : { },
+        "id" : "6",
+        "name" : "Accounts Database",
+        "properties" : {
+          "structurizr.dsl.identifier" : "accountdatabase"
+        },
+        "tags" : "Element,Container,Database",
+        "technology" : "MongoDB"
+      } ],
+      "description" : "Enables users to create, view, and update accounts.",
+      "documentation" : {
+        "sections" : [ {
+          "content" : "= Accounts Service Documentation\n\n== General\n\nimage::/site/accounts.png[Accounts,700,align=\"right\"]\n\nThis section provides a comprehensive overview of the Accounts Service within the E-Library system, which manages user account operations, including registration, profile management, and account updates.\n\n== Ownership\n\n* **Team**: Accounts Team\n* **Product Owner**: John Doe\n\n== Containers\n\n### Backend\n\n#### Accounts Microservice\n\nThe Accounts Microservice is responsible for handling all account-related operations, such as user registration, updating profile information, and account management.\n\n* **Repository Link**:\nlink:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Accounts Microservice]\n\n* **Environments**:\n- Test: link:https://library.test.accounts.com[test]\n- Production: link:https://library.accounts.com[prod]\n\n* **Parameters**:\n- Test Parameters: link:https://aws.params.com/test/accounts[test]\n- Production Parameters: link:https://aws.params.com/prod/accounts[prod]\n\n* **CI/CD**:\nlink:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - Actions]\n\n* **Logs**:\n- Test Logs: link:https://logserver.com/test/accounts[test]\n- Production Logs: link:https://logserver.com/prod/accounts[prod]\n\n* **Monitoring Dashboard**:\n- Test Dashboard: link:https://monitoring.com/test/accounts[test]\n- Production Dashboard: link:https://monitoring.com/prod/accounts[prod]\n\n### Frontend\n\nThe frontend component, known as the Accounts SPA, is a Single Page Application responsible for displaying all account operations. It provides users with access to their profiles and account management options.\n\n#### Accounts SPA\n\n* **Repository Link**:\nlink:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Accounts SPA]\n\n* **Environments**:\n- Test: link:https://library.test.accountsSpa.com[test]\n- Production: link:https://library.accountsSpa.com[prod]\n\n* **Parameters**:\n- Test Parameters: link:https://aws.params.com/test/accountsSpa[test]\n- Production Parameters: link:https://aws.params.com/prod/accountsSpa[prod]\n\n* **CI/CD**:\nlink:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - Actions]\n\n* **Logs**:\n- Test Logs: link:https://logserver.com/test/accountsSpa[test]\n- Production Logs: link:https://logserver.com/prod/accountsSpa[prod]\n\n* **Monitoring Dashboard**:\n- Test Dashboard: link:https://monitoring.com/test/accountsSpa[test]\n- Production Dashboard: link:https://monitoring.com/prod/accountsSpa[prod]\n\n### Database\n\nThe Accounts Database is responsible for storing all user account data, including profile information, account settings, and user credentials.\n\n#### Accounts Database\n\n* **Database Link**:\n- Test Database: link:https://library.test.accountsDb.com[test]\n- Production Database: link:https://library.prod.accountsDb.com[prod]\n\n* **Database Read-Only Access**:\n- Test Credentials\n- User: **user1**\n- Password: **password1**\n\n== Accounts Processes\n\nThis section details key processes involved in managing user accounts, including reader registration and storing user recommendations.\n\n.[.collapse-title]#Reader Registration#\n[%collapsible]\n====\nThe *Reader Registration* process allows a new user to create an account. The Accounts SPA sends registration information to the Accounts Microservice, which then stores the new user details in the Accounts Database.\n\nimage::embed:reader-registration[Reader Registration]\n====\n\n.[.collapse-title]#Store User Recommendations After Reader Registration#\n[%collapsible]\n====\nThe *Store User Recommendations After Reader Registration* process involves setting up initial recommendations for a new user after account creation. The Accounts Microservice interacts with the Recommendations Service to store relevant data in the Recommendations Database.\n\nimage::embed:store-user-recommendations-after-reader-registration[Store User Recommendations After Reader Registration]\n====\n",
+          "filename" : "0000-introduction.adoc",
+          "format" : "AsciiDoc",
+          "order" : 1,
+          "title" : ""
+        } ]
+      },
+      "id" : "3",
+      "location" : "Unspecified",
+      "name" : "Accounts",
+      "properties" : {
+        "structurizr.dsl.identifier" : "accounts"
+      },
+      "relationships" : [ {
+        "description" : "Updates recommendations.",
+        "destinationId" : "21",
+        "id" : "52",
+        "linkedRelationshipId" : "50",
+        "sourceId" : "3",
+        "technology" : "Kafka"
+      }, {
+        "description" : "Updates recommendations.",
+        "destinationId" : "19",
+        "id" : "53",
+        "linkedRelationshipId" : "50",
+        "sourceId" : "3",
+        "technology" : "Kafka"
+      } ],
+      "tags" : "Element,Software System"
+    }, {
+      "containers" : [ {
+        "description" : "Interface for managing borrowed items.",
+        "documentation" : { },
+        "id" : "8",
+        "name" : "Shelf SPA",
+        "properties" : {
+          "structurizr.dsl.identifier" : "shelfspa"
+        },
+        "relationships" : [ {
+          "description" : "Requests shelf operations.",
+          "destinationId" : "9",
+          "id" : "54",
+          "properties" : {
+            "structurizr.dsl.identifier" : "583437b3-c020-4141-9d7e-1de526bec8b5"
+          },
+          "sourceId" : "8",
+          "tags" : "Relationship",
+          "technology" : "HTTPS"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "React Component"
+      }, {
+        "description" : "API for shelf operations.",
+        "documentation" : { },
+        "id" : "9",
+        "name" : "Shelf Microservice",
+        "properties" : {
+          "structurizr.dsl.identifier" : "shelfmicroservice"
+        },
+        "relationships" : [ {
+          "description" : "Stores and retrieves borrowed items.",
+          "destinationId" : "10",
+          "id" : "55",
+          "properties" : {
+            "structurizr.dsl.identifier" : "86316496-6038-4fe9-8d92-2af84577abde"
+          },
+          "sourceId" : "9",
+          "tags" : "Relationship",
+          "technology" : "JDBC"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "Java and Spring Boot"
+      }, {
+        "description" : "Stores borrowed items data.",
+        "documentation" : { },
+        "id" : "10",
+        "name" : "Shelf Database",
+        "properties" : {
+          "structurizr.dsl.identifier" : "shelfdatabase"
+        },
+        "tags" : "Element,Container,Database",
+        "technology" : "MongoDB"
+      } ],
+      "description" : "Stores and displays items borrowed by users.",
+      "documentation" : {
+        "sections" : [ {
+          "content" : "= Shelf Documentation\n\n== General\n\nimage::/site/accounts.png[Shelf,700,align=\"right\"]\n\nThis section provides a detailed overview of the Shelf module within the E-Library system, which is responsible for managing items borrowed by users.\n\n== Ownership\n\n* **Team**: Shelf Team\n* **Product Owner**: John Doe\n\n== Containers\n\n### Backend\n\n#### Shelf Microservice\n\nThe Shelf Microservice is responsible for processing all shelf-related operations, such as adding books to the shelf and displaying borrowed items for each user.\n\n* **Repository Link**:\nlink:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Shelf Microservice]\n\n* **Environments**:\n- Test: link:https://library.test.shelf.com[test]\n- Production: link:https://library.shelf.com[prod]\n\n* **Parameters**:\n- Test Parameters: link:https://aws.params.com/test/shelf[test]\n- Production Parameters: link:https://aws.params.com/prod/shelf[prod]\n\n* **CI/CD**:\nlink:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - Actions]\n\n* **Logs**:\n- Test Logs: link:https://logserver.com/test/shelf[test]\n- Production Logs: link:https://logserver.com/prod/shelf[prod]\n\n* **Monitoring Dashboard**:\n- Test Dashboard: link:https://monitoring.com/test/shelf[test]\n- Production Dashboard: link:https://monitoring.com/prod/shelf[prod]\n\n### Frontend\n\nThe frontend component, known as the Shelf SPA, is a Single Page Application responsible for displaying all shelf operations. Users can view and manage items they have borrowed from the library.\n\n#### Shelf SPA\n\n* **Repository Link**:\nlink:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Shelf SPA]\n\n* **Environments**:\n- Test: link:https://library.test.shelfSpa.com[test]\n- Production: link:https://library.shelfSpa.com[prod]\n\n* **Parameters**:\n- Test Parameters: link:https://aws.params.com/test/shelfSpa[test]\n- Production Parameters: link:https://aws.params.com/prod/shelfSpa[prod]\n\n* **CI/CD**:\nlink:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - Actions]\n\n* **Logs**:\n- Test Logs: link:https://logserver.com/test/shelfSpa[test]\n- Production Logs: link:https://logserver.com/prod/shelfSpa[prod]\n\n* **Monitoring Dashboard**:\n- Test Dashboard: link:https://monitoring.com/test/shelfSpa[test]\n- Production Dashboard: link:https://monitoring.com/prod/shelfSpa[prod]\n\n### Database\n\nThe Shelf Database is responsible for storing all shelf data, including records of items borrowed by each user.\n\n#### Shelf Database\n\n* **Database Link**:\n- Test Database: link:https://library.test.shelfDb.com[test]\n- Production Database: link:https://library.prod.shelfDb.com[prod]\n\n* **Database Read-Only Access**:\n- Test Credentials\n- User: **user1**\n- Password: **password1**\n\n== Shelf Processes\n\nThis section covers key processes involved in managing shelf operations, including adding books to the shelf and presenting books borrowed by readers.\n\n.[.collapse-title]#Add books to shelf#\n[%collapsible]\n====\nThe *Add Books to Shelf* process enables the system to add newly borrowed items to a user’s shelf. The Shelf Microservice receives notifications of borrowed items and updates the Shelf Database, making these items available for the user to view.\n\nimage::embed:add-books-to-shelf[Add books to shelf]\n====\n\n.[.collapse-title]#Present books from reader shelf#\n[%collapsible]\n====\nThe *Present Books from Reader Shelf* process allows users to view the items they have borrowed. The Shelf SPA fetches data from the Shelf Microservice, which retrieves the relevant information from the Shelf Database, displaying a list of borrowed items to the user.\n\nimage::embed:present-books-from-reader-shelf[Present books from reader shelf]\n====\n",
+          "filename" : "0000-introduction.adoc",
+          "format" : "AsciiDoc",
+          "order" : 1,
+          "title" : ""
+        } ]
+      },
+      "id" : "7",
+      "location" : "Unspecified",
+      "name" : "Shelf",
+      "properties" : {
+        "structurizr.dsl.identifier" : "shelf"
+      },
+      "tags" : "Element,Software System"
+    }, {
+      "containers" : [ {
+        "description" : "Interface for viewing and managing library items.",
+        "documentation" : { },
+        "id" : "12",
+        "name" : "Products SPA",
+        "properties" : {
+          "structurizr.dsl.identifier" : "productsspa"
+        },
+        "relationships" : [ {
+          "description" : "Requests product operations.",
+          "destinationId" : "13",
+          "id" : "56",
+          "properties" : {
+            "structurizr.dsl.identifier" : "be0fdbd0-f69e-4ea0-963a-6156e1aee1fa"
+          },
+          "sourceId" : "12",
+          "tags" : "Relationship",
+          "technology" : "HTTPS"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "React Component"
+      }, {
+        "description" : "API for managing library items.",
+        "documentation" : { },
+        "id" : "13",
+        "name" : "Products Microservice",
+        "properties" : {
+          "structurizr.dsl.identifier" : "productsmicroservice"
+        },
+        "relationships" : [ {
+          "description" : "Stores and retrieves library items.",
+          "destinationId" : "14",
+          "id" : "57",
+          "properties" : {
+            "structurizr.dsl.identifier" : "93b42c9a-3934-4de9-99e4-903cdf876b94"
+          },
+          "sourceId" : "13",
+          "tags" : "Relationship",
+          "technology" : "JDBC"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "Java and Spring Boot"
+      }, {
+        "description" : "Stores library items.",
+        "documentation" : { },
+        "id" : "14",
+        "name" : "Products Database",
+        "properties" : {
+          "structurizr.dsl.identifier" : "productsdatabase"
+        },
+        "tags" : "Element,Container,Database",
+        "technology" : "MongoDB"
+      } ],
+      "description" : "Maintains and displays items available in the library.",
+      "documentation" : {
+        "sections" : [ {
+          "content" : "= Products Service Documentation\n\n== General\n\nimage::/site/products.png[Products,700,align=\"right\"]\n\nThis section provides a comprehensive overview of the Products Service within the E-Library system, which is responsible for managing all operations related to products (e.g., books) available in the library.\n\n== Ownership\n\n* **Team**: Products Team\n* **Product Owner**: William Anderson\n\n== Containers\n\n### Backend\n\n#### Products Microservice\n\nThe Products Microservice is responsible for handling all product-related operations, including adding, removing, and managing items in the library’s catalog.\n\n* **Repository Link**:\nlink:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Products Microservice]\n\n* **Environments**:\n- Test: link:https://library.test.products.com[test]\n- Production: link:https://library.products.com[prod]\n\n* **Parameters**:\n- Test Parameters: link:https://aws.params.com/test/products[test]\n- Production Parameters: link:https://aws.params.com/prod/products[prod]\n\n* **CI/CD**:\nlink:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - Actions]\n\n* **Logs**:\n- Test Logs: link:https://logserver.com/test/products[test]\n- Production Logs: link:https://logserver.com/prod/products[prod]\n\n* **Monitoring Dashboard**:\n- Test Dashboard: link:https://monitoring.com/test/products[test]\n- Production Dashboard: link:https://monitoring.com/prod/products[prod]\n\n### Frontend\n\nThe frontend component, known as the Products SPA, is a Single Page Application responsible for displaying all product operations, such as viewing available books, adding new items, and removing items from the catalog.\n\n#### Products SPA\n\n* **Repository Link**:\nlink:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Products SPA]\n\n* **Environments**:\n- Test: link:https://library.test.productsSpa.com[test]\n- Production: link:https://library.productsSpa.com[prod]\n\n* **Parameters**:\n- Test Parameters: link:https://aws.params.com/test/productsSpa[test]\n- Production Parameters: link:https://aws.params.com/prod/productsSpa[prod]\n\n* **CI/CD**:\nlink:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - Actions]\n\n* **Logs**:\n- Test Logs: link:https://logserver.com/test/productsSpa[test]\n- Production Logs: link:https://logserver.com/prod/productsSpa[prod]\n\n* **Monitoring Dashboard**:\n- Test Dashboard: link:https://monitoring.com/test/productsSpa[test]\n- Production Dashboard: link:https://monitoring.com/prod/productsSpa[prod]\n\n### Database\n\nThe Products Database is responsible for storing all data related to items in the library, including product details, availability, and metadata.\n\n#### Products Database\n\n* **Database Link**:\n- Test Database: link:https://library.test.shelfDb.com[test]\n- Production Database: link:https://library.prod.productsSpa.com[prod]\n\n* **Database Read-Only Access**:\n- Test Credentials\n- User: **user1**\n- Password: **password1**\n\n== Product Processes\n\nThis section covers key processes involved in managing library items, including adding new books, removing books, and presenting available items to users.\n\n.[.collapse-title]#Add book to library#\n[%collapsible]\n====\nThe *Add Book to Library* process enables administrators to add a new book to the library’s catalog. The Products SPA sends the details to the Products Microservice, which stores the information in the Products Database.\n\nimage::embed:add-book-to-library[Add Book to Library]\n====\n\n.[.collapse-title]#Remove book from library#\n[%collapsible]\n====\nThe *Remove Book from Library* process allows administrators to remove an item from the catalog. The Products SPA requests the removal, and the Products Microservice updates the Products Database to reflect the change.\n\nimage::embed:remove-book-from-library[Remove Book from Library]\n====\n\n.[.collapse-title]#Present available books#\n[%collapsible]\n====\nThe *Present Available Books* process provides users with a view of all available books in the library. The Products SPA retrieves this data from the Products Microservice, which accesses the Products Database to display an up-to-date list of items.\n\nimage::embed:present-available-books[Present Available Books]\n====\n",
+          "filename" : "0000-introduction.adoc",
+          "format" : "AsciiDoc",
+          "order" : 1,
+          "title" : ""
+        } ]
+      },
+      "id" : "11",
+      "location" : "Unspecified",
+      "name" : "Products",
+      "properties" : {
+        "structurizr.dsl.identifier" : "products"
+      },
+      "tags" : "Element,Software System"
+    }, {
+      "containers" : [ {
+        "description" : "Interface for managing cart items.",
+        "documentation" : { },
+        "id" : "16",
+        "name" : "Cart SPA",
+        "properties" : {
+          "structurizr.dsl.identifier" : "cartspa"
+        },
+        "relationships" : [ {
+          "description" : "Requests cart operations.",
+          "destinationId" : "17",
+          "id" : "58",
+          "properties" : {
+            "structurizr.dsl.identifier" : "3bdc6eb1-aba2-42c1-ad2e-d8d553c542eb"
+          },
+          "sourceId" : "16",
+          "tags" : "Relationship",
+          "technology" : "HTTPS"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "React Component"
+      }, {
+        "description" : "API for cart operations.",
+        "documentation" : { },
+        "id" : "17",
+        "name" : "Cart Microservice",
+        "properties" : {
+          "structurizr.dsl.identifier" : "cartmicroservice"
+        },
+        "relationships" : [ {
+          "description" : "Stores cart items.",
+          "destinationId" : "18",
+          "id" : "59",
+          "properties" : {
+            "structurizr.dsl.identifier" : "6c0f934b-de3f-416c-b0d8-dcbf4759dcef"
+          },
+          "sourceId" : "17",
+          "tags" : "Relationship",
+          "technology" : "JDBC"
+        }, {
+          "description" : "Updates recommendations.",
+          "destinationId" : "21",
+          "id" : "60",
+          "properties" : {
+            "structurizr.dsl.identifier" : "3bc51696-2eeb-4c0e-a039-c71a1e8f3292"
+          },
+          "sourceId" : "17",
+          "tags" : "Relationship",
+          "technology" : "Kafka"
+        }, {
+          "description" : "Updates recommendations.",
+          "destinationId" : "19",
+          "id" : "61",
+          "linkedRelationshipId" : "60",
+          "sourceId" : "17",
+          "technology" : "Kafka"
+        }, {
+          "description" : "Notifies borrowed items.",
+          "destinationId" : "9",
+          "id" : "64",
+          "properties" : {
+            "structurizr.dsl.identifier" : "2b32e920-9117-4a67-beed-ea825c4c4e18"
+          },
+          "sourceId" : "17",
+          "tags" : "Relationship",
+          "technology" : "Kafka"
+        }, {
+          "description" : "Notifies borrowed items.",
+          "destinationId" : "7",
+          "id" : "65",
+          "linkedRelationshipId" : "64",
+          "sourceId" : "17",
+          "technology" : "Kafka"
+        }, {
+          "description" : "Checks item availability.",
+          "destinationId" : "13",
+          "id" : "68",
+          "properties" : {
+            "structurizr.dsl.identifier" : "b3b172d5-d515-43ae-bc9a-6975d3181231"
+          },
+          "sourceId" : "17",
+          "tags" : "Relationship",
+          "technology" : "HTTPS"
+        }, {
+          "description" : "Checks item availability.",
+          "destinationId" : "11",
+          "id" : "69",
+          "linkedRelationshipId" : "68",
+          "sourceId" : "17",
+          "technology" : "HTTPS"
+        }, {
+          "description" : "Generates payment link.",
+          "destinationId" : "25",
+          "id" : "72",
+          "properties" : {
+            "structurizr.dsl.identifier" : "cd927651-ec2c-48a4-b525-f643a7435115"
+          },
+          "sourceId" : "17",
+          "tags" : "Relationship",
+          "technology" : "HTTPS"
+        }, {
+          "description" : "Generates payment link.",
+          "destinationId" : "23",
+          "id" : "73",
+          "linkedRelationshipId" : "72",
+          "sourceId" : "17",
+          "technology" : "HTTPS"
+        }, {
+          "description" : "Processes payment notifications.",
+          "destinationId" : "25",
+          "id" : "75",
+          "properties" : {
+            "structurizr.dsl.identifier" : "9fe37b94-ebb9-4dd5-a042-238136251528"
+          },
+          "sourceId" : "17",
+          "tags" : "Relationship",
+          "technology" : "Kafka"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "Java and Spring Boot"
+      }, {
+        "description" : "Stores items currently in the cart.",
+        "documentation" : { },
+        "id" : "18",
+        "name" : "Cart Database",
+        "properties" : {
+          "structurizr.dsl.identifier" : "cartdatabase"
+        },
+        "tags" : "Element,Container,Database",
+        "technology" : "MongoDB"
+      } ],
+      "description" : "Handles the item rental process.",
+      "documentation" : {
+        "sections" : [ {
+          "content" : "= Cart Documentation\n\n== General\n\nimage::/site/cart.png[Cart,700,align=\"right\"]\n\nThis section provides a detailed overview of the Cart module within the E-Library system, responsible for managing the item rental process.\n\n== Ownership\n\n* **Team**: Cart Team\n* **Product Owner**: Michael Adams\n\n== Containers\n\n### Backend\n\n#### Cart Microservice\n\nThe Cart Microservice is responsible for all cart-related operations, including adding items, removing items, finalizing, and updating cart status upon payment.\n\n* **Repository Link**:\nlink:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Cart Microservice]\n\n* **Environments**:\n- Test: link:https://library.test.cart.com[test]\n- Production: link:https://library.cart.com[prod]\n\n* **Parameters**:\n- Test Parameters: link:https://aws.params.com/test/cart[test]\n- Production Parameters: link:https://aws.params.com/prod/cart[prod]\n\n* **CI/CD**:\nlink:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - Actions]\n\n* **Logs**:\n- Test Logs: link:https://logserver.com/test/cart[test]\n- Production Logs: link:https://logserver.com/prod/cart[prod]\n\n* **Monitoring Dashboard**:\n- Test Dashboard: link:https://monitoring.com/test/cart[test]\n- Production Dashboard: link:https://monitoring.com/prod/cart[prod]\n\n### Frontend\n\nThe frontend component is a Single Page Application (SPA) responsible for displaying all cart operations, such as viewing cart items, managing the cart, and proceeding to checkout.\n\n#### Cart SPA\n\n* **Repository Link**:\nlink:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Cart SPA]\n\n* **Environments**:\n- Test: link:https://library.test.cartSpa.com[test]\n- Production: link:https://library.cartSpa.com[prod]\n\n* **Parameters**:\n- Test Parameters: link:https://aws.params.com/test/cartSpa[test]\n- Production Parameters: link:https://aws.params.com/prod/cartSpa[prod]\n\n* **CI/CD**:\nlink:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - Actions]\n\n* **Logs**:\n- Test Logs: link:https://logserver.com/test/cartSpa[test]\n- Production Logs: link:https://logserver.com/prod/cartSpa[prod]\n\n* **Monitoring Dashboard**:\n- Test Dashboard: link:https://monitoring.com/test/cartSpa[test]\n- Production Dashboard: link:https://monitoring.com/prod/cartSpa[prod]\n\n### Database\n\nThe Cart Database is responsible for storing all cart data, such as cart items, user cart status, and transaction history.\n\n#### Cart Database\n\n* **Database Link**:\n- Test Database: link:https://library.test.cardDb.com[test]\n- Production Database: link:https://library.prod.cardDb.com[prod]\n\n* **Database Read-Only Access**:\n- Test Credentials\n- User: **user1**\n- Password: **password1**\n\n== Cart Processes\n\nThis section covers key processes involved in managing the cart, including adding items, removing items, finalizing the cart, and updating the cart status upon payment.\n\n.[.collapse-title]#Add item to cart#\n[%collapsible]\n====\nThe *Add Item to Cart* process allows a user to add a selected item to their cart. This process involves communication between the frontend Cart SPA and the backend Cart Microservice, which stores the cart data in the Cart Database.\n\nimage::embed:add-item-to-cart[Add item to cart]\n====\n\n.[.collapse-title]#Remove item from cart#\n[%collapsible]\n====\nThe *Remove Item from Cart* process enables users to remove an item from their cart. The Cart Microservice processes the request and updates the Cart Database accordingly, reflecting the change in the frontend Cart SPA.\n\nimage::embed:remove-item-from-cart[Remove item from cart]\n====\n\n.[.collapse-title]#Finalize cart#\n[%collapsible]\n====\nThe *Finalize Cart* process initiates checkout, where the Cart Microservice verifies item availability, calculates totals, and interacts with the Finance Microservice to generate a payment link. The Cart SPA displays this link to the user for completing the purchase.\n\nimage::embed:finalize-cart[Finalize cart]\n====\n\n.[.collapse-title]#Cart paid#\n[%collapsible]\n====\nThe *Cart Paid* process updates the cart status after payment is confirmed. The Finance Microservice notifies the Cart Microservice, which marks the cart as paid in the Cart Database and updates the status in the Cart SPA.\n\nimage::embed:cart-paid[Cart paid]\n====\n",
+          "filename" : "0000-introduction.adoc",
+          "format" : "AsciiDoc",
+          "order" : 1,
+          "title" : ""
+        } ]
+      },
+      "id" : "15",
+      "location" : "Unspecified",
+      "name" : "Cart",
+      "properties" : {
+        "structurizr.dsl.identifier" : "cart"
+      },
+      "relationships" : [ {
+        "description" : "Processes payments.",
+        "destinationId" : "23",
+        "id" : "34",
+        "properties" : {
+          "structurizr.dsl.identifier" : "9062602b-97a5-4499-b193-6c5a5c2499f2"
+        },
+        "sourceId" : "15",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Updates recommendations.",
+        "destinationId" : "21",
+        "id" : "62",
+        "linkedRelationshipId" : "60",
+        "sourceId" : "15",
+        "technology" : "Kafka"
+      }, {
+        "description" : "Updates recommendations.",
+        "destinationId" : "19",
+        "id" : "63",
+        "linkedRelationshipId" : "60",
+        "sourceId" : "15",
+        "technology" : "Kafka"
+      }, {
+        "description" : "Notifies borrowed items.",
+        "destinationId" : "9",
+        "id" : "66",
+        "linkedRelationshipId" : "64",
+        "sourceId" : "15",
+        "technology" : "Kafka"
+      }, {
+        "description" : "Notifies borrowed items.",
+        "destinationId" : "7",
+        "id" : "67",
+        "linkedRelationshipId" : "64",
+        "sourceId" : "15",
+        "technology" : "Kafka"
+      }, {
+        "description" : "Checks item availability.",
+        "destinationId" : "13",
+        "id" : "70",
+        "linkedRelationshipId" : "68",
+        "sourceId" : "15",
+        "technology" : "HTTPS"
+      }, {
+        "description" : "Checks item availability.",
+        "destinationId" : "11",
+        "id" : "71",
+        "linkedRelationshipId" : "68",
+        "sourceId" : "15",
+        "technology" : "HTTPS"
+      }, {
+        "description" : "Generates payment link.",
+        "destinationId" : "25",
+        "id" : "74",
+        "linkedRelationshipId" : "72",
+        "sourceId" : "15",
+        "technology" : "HTTPS"
+      } ],
+      "tags" : "Element,Software System"
+    }, {
+      "containers" : [ {
+        "description" : "Interface for viewing recommendations.",
+        "documentation" : { },
+        "id" : "20",
+        "name" : "Recommendations SPA",
+        "properties" : {
+          "structurizr.dsl.identifier" : "recommendationsspa"
+        },
+        "relationships" : [ {
+          "description" : "Requests recommendations.",
+          "destinationId" : "21",
+          "id" : "76",
+          "properties" : {
+            "structurizr.dsl.identifier" : "193e6c39-6a41-4dc8-9a8b-e3aa6f3d94a2"
+          },
+          "sourceId" : "20",
+          "tags" : "Relationship",
+          "technology" : "HTTPS"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "React Component"
+      }, {
+        "description" : "API for recommendation functionality.",
+        "documentation" : { },
+        "id" : "21",
+        "name" : "Recommendations Microservice",
+        "properties" : {
+          "structurizr.dsl.identifier" : "recommendationmicroservice"
+        },
+        "relationships" : [ {
+          "description" : "Stores and retrieves recommendations.",
+          "destinationId" : "22",
+          "id" : "77",
+          "properties" : {
+            "structurizr.dsl.identifier" : "74e366c3-0322-4a58-8634-adfc4588e4ec"
+          },
+          "sourceId" : "21",
+          "tags" : "Relationship",
+          "technology" : "JDBC"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "Java and Spring Boot"
+      }, {
+        "description" : "Stores recommended items.",
+        "documentation" : { },
+        "id" : "22",
+        "name" : "Recommendations Database",
+        "properties" : {
+          "structurizr.dsl.identifier" : "recommendationdatabase"
+        },
+        "tags" : "Element,Container,Database",
+        "technology" : "MongoDB"
+      } ],
+      "description" : "Provides recommended items for users.",
+      "documentation" : {
+        "sections" : [ {
+          "content" : "= Recommendations Service Documentation\n\n== General\n\nimage::/site/recommendations.png[Recommendations,700,align=\"right\"]\n\nThis section provides a comprehensive overview of the Recommendations Service within the E-Library system, which is responsible for generating and managing personalized recommendations for readers based on their activities and preferences.\n\n== Ownership\n\n* **Team**: Recommendation Team\n* **Product Owner**: Arthur Dent\n\n== Containers\n\n### Backend\n\n#### Recommendations Microservice\n\nThe Recommendations Microservice is responsible for generating recommendations for users, updating recommendations based on user interactions, and managing recommendation data.\n\n* **Repository Link**:\nlink:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Recommendations Microservice]\n\n* **Environments**:\n- Test: link:https://library.test.recommendations.com[test]\n- Production: link:https://library.recommendations.com[prod]\n\n* **Parameters**:\n- Test Parameters: link:https://aws.params.com/test/recommendations[test]\n- Production Parameters: link:https://aws.params.com/prod/recommendations[prod]\n\n* **CI/CD**:\nlink:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - Actions]\n\n* **Logs**:\n- Test Logs: link:https://logserver.com/test/recommendations[test]\n- Production Logs: link:https://logserver.com/prod/recommendations[prod]\n\n* **Monitoring Dashboard**:\n- Test Dashboard: link:https://monitoring.com/test/recommendations[test]\n- Production Dashboard: link:https://monitoring.com/prod/recommendations[prod]\n\n### Frontend\n\nThe frontend component, known as the Recommendations SPA, is a Single Page Application that provides users with a personalized view of recommended items based on their reading habits and preferences.\n\n#### Recommendations SPA\n\n* **Repository Link**:\nlink:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Recommendations SPA]\n\n* **Environments**:\n- Test: link:https://library.test.recommendationsSpa.com[test]\n- Production: link:https://library.recommendationsSpa.com[prod]\n\n* **Parameters**:\n- Test Parameters: link:https://aws.params.com/test/recommendationsSpa[test]\n- Production Parameters: link:https://aws.params.com/prod/recommendationsSpa[prod]\n\n* **CI/CD**:\nlink:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - Actions]\n\n* **Logs**:\n- Test Logs: link:https://logserver.com/test/recommendationsSpa[test]\n- Production Logs: link:https://logserver.com/prod/recommendationsSpa[prod]\n\n* **Monitoring Dashboard**:\n- Test Dashboard: link:https://monitoring.com/test/recommendationsSpa[test]\n- Production Dashboard: link:https://monitoring.com/prod/recommendationsSpa[prod]\n\n### Database\n\nThe Recommendations Database stores all recommendation data, including user-specific recommendation records and historical data used for improving recommendation accuracy.\n\n#### Recommendations Database\n\n* **Database Link**:\n- Test Database: link:https://library.test.recommendationsDb.com[test]\n- Production Database: link:https://library.prod.recommendationsDb.com[prod]\n\n* **Database Read-Only Access**:\n- Test Credentials\n- User: **user1**\n- Password: **password1**\n\n== Recommendations Processes\n\nThis section covers key processes within the Recommendations Service, including presenting recommendations, updating recommendations based on user activity, and initializing recommendations for new users.\n\n.[.collapse-title]#Present recommended products#\n[%collapsible]\n====\nThe *Present Recommended Products* process retrieves and displays personalized product recommendations to the user. The Recommendations SPA accesses the Recommendations Microservice, which fetches relevant data from the Recommendations Database.\n\nimage::embed:present-recommended-products[Present Recommended Products]\n====\n\n.[.collapse-title]#Update user recommendations#\n[%collapsible]\n====\nThe *Update User Recommendations* process dynamically adjusts recommendations based on user activity, such as recent views or rentals. The Recommendations Microservice updates the Recommendations Database to reflect the latest data.\n\nimage::embed:update-user-recommendations[Update User Recommendations]\n====\n\n.[.collapse-title]#Store user recommendation after reader registration#\n[%collapsible]\n====\nThe *Store User Recommendation After Reader Registration* process initializes recommendations for new users after registration. The Recommendations Microservice generates initial recommendations and stores them in the Recommendations Database for future reference.\n\nimage::embed:store-user-recommendations-after-reader-registration[Store User Recommendation After Reader Registration]\n====\n",
+          "filename" : "0000-introduction.adoc",
+          "format" : "AsciiDoc",
+          "order" : 1,
+          "title" : ""
+        } ]
+      },
+      "id" : "19",
+      "location" : "Unspecified",
+      "name" : "Recommendations",
+      "properties" : {
+        "structurizr.dsl.identifier" : "recommendations"
+      },
+      "tags" : "Element,Software System"
+    }, {
+      "containers" : [ {
+        "description" : "Interface for financial management.",
+        "documentation" : { },
+        "id" : "24",
+        "name" : "Finance SPA",
+        "properties" : {
+          "structurizr.dsl.identifier" : "financespa"
+        },
+        "relationships" : [ {
+          "description" : "Requests financial operations.",
+          "destinationId" : "25",
+          "id" : "78",
+          "properties" : {
+            "structurizr.dsl.identifier" : "84c31367-6a77-4aa2-b553-2653145bccf7"
+          },
+          "sourceId" : "24",
+          "tags" : "Relationship",
+          "technology" : "HTTPS"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "React Component"
+      }, {
+        "description" : "API for finance operations.",
+        "documentation" : { },
+        "id" : "25",
+        "name" : "Finance Microservice",
+        "properties" : {
+          "structurizr.dsl.identifier" : "financemicroservice"
+        },
+        "relationships" : [ {
+          "description" : "Stores and retrieves transactions.",
+          "destinationId" : "26",
+          "id" : "79",
+          "properties" : {
+            "structurizr.dsl.identifier" : "4068d1fa-0055-49d3-a089-3dd3565fdae9"
+          },
+          "sourceId" : "25",
+          "tags" : "Relationship",
+          "technology" : "JDBC"
+        }, {
+          "description" : "Sends invoices to readers.",
+          "destinationId" : "27",
+          "id" : "80",
+          "properties" : {
+            "structurizr.dsl.identifier" : "b1b1bd26-ba87-437a-9c85-8bd471a30fef"
+          },
+          "sourceId" : "25",
+          "tags" : "Relationship",
+          "technology" : "SMTP"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "Java and Spring Boot"
+      }, {
+        "description" : "Holds financial transaction data.",
+        "documentation" : { },
+        "id" : "26",
+        "name" : "Finance Database",
+        "properties" : {
+          "structurizr.dsl.identifier" : "financedatabase"
+        },
+        "tags" : "Element,Container,Database",
+        "technology" : "PostgreSQL"
+      } ],
+      "description" : "Manages financial transactions and payment processing.",
+      "documentation" : {
+        "sections" : [ {
+          "content" : "= Finance Service Documentation\n\n== General\n\nimage::/site/finance.png[Finance,700,align=\"right\"]\n\nThis section provides a detailed overview of the Finance Service within the E-Library system, which handles all finance-related operations, including transactions, payment processing, and invoice generation.\n\n== Ownership\n\n* **Team**: Finance Team\n* **Product Owner**: Michelle Smith\n\n== Containers\n\n### Backend\n\n#### Finance Microservice\n\nThe Finance Microservice is responsible for managing all finance operations, including payment processing, transaction management, and invoice handling.\n\n* **Repository Link**:\nlink:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Finance Microservice]\n\n* **Environments**:\n- Test: link:https://library.test.finance.com[test]\n- Production: link:https://library.finance.com[prod]\n\n* **Parameters**:\n- Test Parameters: link:https://aws.params.com/test/finance[test]\n- Production Parameters: link:https://aws.params.com/prod/finance[prod]\n\n* **CI/CD**:\nlink:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - Actions]\n\n* **Logs**:\n- Test Logs: link:https://logserver.com/test/finance[test]\n- Production Logs: link:https://logserver.com/prod/finance[prod]\n\n* **Monitoring Dashboard**:\n- Test Dashboard: link:https://monitoring.com/test/finance[test]\n- Production Dashboard: link:https://monitoring.com/prod/finance[prod]\n\n### Frontend\n\nThe frontend component, known as the Finance SPA, is a Single Page Application responsible for displaying all finance operations. Users can view transaction details, generate payment links, and manage invoices.\n\n#### Finance SPA\n\n* **Repository Link**:\nlink:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Finance SPA]\n\n* **Environments**:\n- Test: link:https://library.test.finance-Spa.com[test]\n- Production: link:https://library.finance-Spa.com[prod]\n\n* **Parameters**:\n- Test Parameters: link:https://aws.params.com/test/finance-Spa[test]\n- Production Parameters: link:https://aws.params.com/prod/finance-Spa[prod]\n\n* **CI/CD**:\nlink:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - Actions]\n\n* **Logs**:\n- Test Logs: link:https://logserver.com/test/finance-Spa[test]\n- Production Logs: link:https://logserver.com/prod/finance-Spa[prod]\n\n* **Monitoring Dashboard**:\n- Test Dashboard: link:https://monitoring.com/test/finance-Spa[test]\n- Production Dashboard: link:https://monitoring.com/prod/finance-Spa[prod]\n\n### Database\n\nThe Finance Database is responsible for storing all finance-related data, including transaction records, payment statuses, and invoice information.\n\n#### Finance Database\n\n* **Database Link**:\n- Test Database: link:https://library.test.financeDb.com[test]\n- Production Database: link:https://library.prod.financeDb.com[prod]\n\n* **Database Read-Only Access**:\n- Test Credentials\n- User: **user1**\n- Password: **password1**\n\n== Finance Processes\n\nThis section details key processes within the Finance Service, including overseeing transactions, generating payment links, sending invoices, and handling payments.\n\n.[.collapse-title]#Oversee finance transactions#\n[%collapsible]\n====\nThe *Oversee Finance Transactions* process allows administrators to review and manage all financial transactions. The Finance SPA retrieves transaction data from the Finance Microservice, which accesses records from the Finance Database.\n\nimage::embed:oversee-financial-transactions[Oversee Finance Transactions]\n====\n\n.[.collapse-title]#Generate payment link#\n[%collapsible]\n====\nThe *Generate Payment Link* process enables the system to create a payment link for a user’s cart. The Finance Microservice generates the link, stores relevant transaction details in the Finance Database, and returns the link to the Finance SPA for display to the user.\n\nimage::embed:generate-payment-link[Generate Payment Link]\n====\n\n.[.collapse-title]#Send invoice#\n[%collapsible]\n====\nThe *Send Invoice* process involves generating and emailing an invoice to the user upon transaction completion. The Finance Microservice creates the invoice and communicates with the Mail Service to send it to the user.\n\nimage::embed:send-invoice[Send Invoice]\n====\n\n.[.collapse-title]#Make payment#\n[%collapsible]\n====\nThe *Make Payment* process records payment completion for items in a user’s cart. The Finance SPA sends payment confirmation to the Finance Microservice, which updates the transaction status in the Finance Database and notifies relevant services of the completed payment.\n\nimage::embed:make-payment[Make Payment]\n====\n",
+          "filename" : "0000-introduction.adoc",
+          "format" : "AsciiDoc",
+          "order" : 1,
+          "title" : ""
+        } ]
+      },
+      "id" : "23",
+      "location" : "Unspecified",
+      "name" : "Finance",
+      "properties" : {
+        "structurizr.dsl.identifier" : "finance"
+      },
+      "relationships" : [ {
+        "description" : "Sends invoices to readers.",
+        "destinationId" : "27",
+        "id" : "81",
+        "linkedRelationshipId" : "80",
+        "sourceId" : "23",
+        "technology" : "SMTP"
+      } ],
+      "tags" : "Element,Software System"
+    }, {
+      "description" : "External system for sending emails.",
+      "documentation" : {
+        "sections" : [ {
+          "content" : "= Mail-Provider Documentation\n\n== General\n\nimage::/site/mail-provider.png[Mail Provider,700,align=\"right\"]\n\nThis section provides a detailed overview of the Mail-Provider, an external third-party service responsible for sending emails, including cart notifications, invoices, and other communications within the E-Library system.\n\n== Contact\n\n* **Support**: Oliver Smith\nFor support inquiries or issues with the Mail-Provider service, please reach out to Oliver Smith.\n\n== API\n\nThe Mail-Provider offers an API for integration, allowing the E-Library system to send various notifications to users. Full API documentation can be found at:\nlink:https://mail-provider.com/api-docs[Mail-Provider API Documentation]\n\n== URLs\n\nThe Mail-Provider service operates across staging and production environments, accessible at the following URLs:\n\n* **Staging**:\nlink:https://staging.mail-provider.com[Staging Environment]\n\n* **Production**:\nlink:https://mail-provider.com[Production Environment]\n",
+          "filename" : "0000-introduction.adoc",
+          "format" : "AsciiDoc",
+          "order" : 1,
+          "title" : ""
+        } ]
+      },
+      "id" : "27",
+      "location" : "Unspecified",
+      "name" : "Mail Provider",
+      "properties" : {
+        "structurizr.dsl.identifier" : "mail"
+      },
+      "relationships" : [ {
+        "description" : "Sends invoices.",
+        "destinationId" : "1",
+        "id" : "38",
+        "properties" : {
+          "structurizr.dsl.identifier" : "6270a0af-4b5f-4b48-8738-7eb4876ae78b"
+        },
+        "sourceId" : "27",
+        "tags" : "Relationship"
+      } ],
+      "tags" : "Element,Software System,External System"
+    } ]
+  },
+  "name" : "E-Library System",
+  "properties" : {
+    "structurizr.dsl" : "d29ya3NwYWNlICJFLUxpYnJhcnkgU3lzdGVtIiAiRS1MaWJyYXJ5IFN5c3RlbSIgewogICAgIWRvY3Mgd29ya3NwYWNlLWRvY3MKCiAgICBtb2RlbCB7CiAgICAgICAgcmVhZGVyID0gcGVyc29uICJSZWFkZXIiICJBIHVzZXIgb2YgdGhlIEUtTGlicmFyeSBTeXN0ZW0gd2hvIGludGVyYWN0cyB3aXRoIGF2YWlsYWJsZSByZXNvdXJjZXMuIgogICAgICAgIGFkbWluaXN0cmF0b3IgPSBwZXJzb24gIkFkbWluaXN0cmF0b3IiICJBbiBhZG1pbiByZXNwb25zaWJsZSBmb3IgYWRkaW5nIGl0ZW1zIHRvIHRoZSBsaWJyYXJ5LCBtYW5hZ2luZyB1c2VyIGFjY291bnRzLCBhbmQgaGFuZGxpbmcgZmluYW5jaWFsIHRyYW5zYWN0aW9ucy4iCgogICAgICAgIGFjY291bnRzID0gc29mdHdhcmVTeXN0ZW0gIkFjY291bnRzIiAiRW5hYmxlcyB1c2VycyB0byBjcmVhdGUsIHZpZXcsIGFuZCB1cGRhdGUgYWNjb3VudHMuIiB7CiAgICAgICAgICAgIGFjY291bnRzU3BhID0gY29udGFpbmVyICJBY2NvdW50cyBTUEEiICJQcm92aWRlcyBhY2NvdW50IG1hbmFnZW1lbnQgZnVuY3Rpb25hbGl0eSB0aHJvdWdoIHRoZSB1c2VyIGludGVyZmFjZS4iICJSZWFjdCBDb21wb25lbnQiCiAgICAgICAgICAgIGFjY291bnRNaWNyb3NlcnZpY2UgPSBjb250YWluZXIgIkFjY291bnRzIE1pY3Jvc2VydmljZSIgIkFQSSBmb3IgYWNjb3VudCBtYW5hZ2VtZW50IGZ1bmN0aW9uYWxpdHkuIiAiSmF2YSBhbmQgU3ByaW5nIEJvb3QiCiAgICAgICAgICAgIGFjY291bnREYXRhYmFzZSA9IGNvbnRhaW5lciAiQWNjb3VudHMgRGF0YWJhc2UiICJIb2xkcyB1c2VyIGFjY291bnQgZGF0YS4iICJNb25nb0RCIiAiRGF0YWJhc2UiCiAgICAgICAgICAgICFkb2NzIGFjY291bnRzL2RvY3MKICAgICAgICB9CgogICAgICAgIHNoZWxmID0gc29mdHdhcmVTeXN0ZW0gIlNoZWxmIiAiU3RvcmVzIGFuZCBkaXNwbGF5cyBpdGVtcyBib3Jyb3dlZCBieSB1c2Vycy4iIHsKICAgICAgICAgICAgc2hlbGZTcGEgPSBjb250YWluZXIgIlNoZWxmIFNQQSIgIkludGVyZmFjZSBmb3IgbWFuYWdpbmcgYm9ycm93ZWQgaXRlbXMuIiAiUmVhY3QgQ29tcG9uZW50IgogICAgICAgICAgICBzaGVsZk1pY3Jvc2VydmljZSA9IGNvbnRhaW5lciAiU2hlbGYgTWljcm9zZXJ2aWNlIiAiQVBJIGZvciBzaGVsZiBvcGVyYXRpb25zLiIgIkphdmEgYW5kIFNwcmluZyBCb290IgogICAgICAgICAgICBzaGVsZkRhdGFiYXNlID0gY29udGFpbmVyICJTaGVsZiBEYXRhYmFzZSIgIlN0b3JlcyBib3Jyb3dlZCBpdGVtcyBkYXRhLiIgIk1vbmdvREIiICJEYXRhYmFzZSIKICAgICAgICAgICAgIWRvY3Mgc2hlbGYvZG9jcwogICAgICAgIH0KCiAgICAgICAgcHJvZHVjdHMgPSBzb2Z0d2FyZVN5c3RlbSAiUHJvZHVjdHMiICJNYWludGFpbnMgYW5kIGRpc3BsYXlzIGl0ZW1zIGF2YWlsYWJsZSBpbiB0aGUgbGlicmFyeS4iIHsKICAgICAgICAgICAgcHJvZHVjdHNTcGEgPSBjb250YWluZXIgIlByb2R1Y3RzIFNQQSIgIkludGVyZmFjZSBmb3Igdmlld2luZyBhbmQgbWFuYWdpbmcgbGlicmFyeSBpdGVtcy4iICJSZWFjdCBDb21wb25lbnQiCiAgICAgICAgICAgIHByb2R1Y3RzTWljcm9zZXJ2aWNlID0gY29udGFpbmVyICJQcm9kdWN0cyBNaWNyb3NlcnZpY2UiICJBUEkgZm9yIG1hbmFnaW5nIGxpYnJhcnkgaXRlbXMuIiAiSmF2YSBhbmQgU3ByaW5nIEJvb3QiCiAgICAgICAgICAgIHByb2R1Y3RzRGF0YWJhc2UgPSBjb250YWluZXIgIlByb2R1Y3RzIERhdGFiYXNlIiAiU3RvcmVzIGxpYnJhcnkgaXRlbXMuIiAiTW9uZ29EQiIgIkRhdGFiYXNlIgogICAgICAgICAgICAhZG9jcyBwcm9kdWN0cy9kb2NzCiAgICAgICAgfQoKICAgICAgICBjYXJ0ID0gc29mdHdhcmVTeXN0ZW0gIkNhcnQiICJIYW5kbGVzIHRoZSBpdGVtIHJlbnRhbCBwcm9jZXNzLiIgewogICAgICAgICAgICBjYXJ0U3BhID0gY29udGFpbmVyICJDYXJ0IFNQQSIgIkludGVyZmFjZSBmb3IgbWFuYWdpbmcgY2FydCBpdGVtcy4iICJSZWFjdCBDb21wb25lbnQiCiAgICAgICAgICAgIGNhcnRNaWNyb3NlcnZpY2UgPSBjb250YWluZXIgIkNhcnQgTWljcm9zZXJ2aWNlIiAiQVBJIGZvciBjYXJ0IG9wZXJhdGlvbnMuIiAiSmF2YSBhbmQgU3ByaW5nIEJvb3QiCiAgICAgICAgICAgIGNhcnREYXRhYmFzZSA9IGNvbnRhaW5lciAiQ2FydCBEYXRhYmFzZSIgIlN0b3JlcyBpdGVtcyBjdXJyZW50bHkgaW4gdGhlIGNhcnQuIiAiTW9uZ29EQiIgIkRhdGFiYXNlIgogICAgICAgICAgICAhZG9jcyBjYXJ0L2RvY3MKICAgICAgICB9CgogICAgICAgIHJlY29tbWVuZGF0aW9ucyA9IHNvZnR3YXJlU3lzdGVtICJSZWNvbW1lbmRhdGlvbnMiICJQcm92aWRlcyByZWNvbW1lbmRlZCBpdGVtcyBmb3IgdXNlcnMuIiB7CiAgICAgICAgICAgIHJlY29tbWVuZGF0aW9uc1NwYSA9IGNvbnRhaW5lciAiUmVjb21tZW5kYXRpb25zIFNQQSIgIkludGVyZmFjZSBmb3Igdmlld2luZyByZWNvbW1lbmRhdGlvbnMuIiAiUmVhY3QgQ29tcG9uZW50IgogICAgICAgICAgICByZWNvbW1lbmRhdGlvbk1pY3Jvc2VydmljZSA9IGNvbnRhaW5lciAiUmVjb21tZW5kYXRpb25zIE1pY3Jvc2VydmljZSIgIkFQSSBmb3IgcmVjb21tZW5kYXRpb24gZnVuY3Rpb25hbGl0eS4iICJKYXZhIGFuZCBTcHJpbmcgQm9vdCIKICAgICAgICAgICAgcmVjb21tZW5kYXRpb25EYXRhYmFzZSA9IGNvbnRhaW5lciAiUmVjb21tZW5kYXRpb25zIERhdGFiYXNlIiAiU3RvcmVzIHJlY29tbWVuZGVkIGl0ZW1zLiIgIk1vbmdvREIiICJEYXRhYmFzZSIKICAgICAgICAgICAgIWRvY3MgcmVjb21tZW5kYXRpb25zL2RvY3MKICAgICAgICB9CgogICAgICAgIGZpbmFuY2UgPSBzb2Z0d2FyZVN5c3RlbSAiRmluYW5jZSIgIk1hbmFnZXMgZmluYW5jaWFsIHRyYW5zYWN0aW9ucyBhbmQgcGF5bWVudCBwcm9jZXNzaW5nLiIgewogICAgICAgICAgICBmaW5hbmNlU3BhID0gY29udGFpbmVyICJGaW5hbmNlIFNQQSIgIkludGVyZmFjZSBmb3IgZmluYW5jaWFsIG1hbmFnZW1lbnQuIiAiUmVhY3QgQ29tcG9uZW50IgogICAgICAgICAgICBmaW5hbmNlTWljcm9zZXJ2aWNlID0gY29udGFpbmVyICJGaW5hbmNlIE1pY3Jvc2VydmljZSIgIkFQSSBmb3IgZmluYW5jZSBvcGVyYXRpb25zLiIgIkphdmEgYW5kIFNwcmluZyBCb290IgogICAgICAgICAgICBmaW5hbmNlRGF0YWJhc2UgPSBjb250YWluZXIgIkZpbmFuY2UgRGF0YWJhc2UiICJIb2xkcyBmaW5hbmNpYWwgdHJhbnNhY3Rpb24gZGF0YS4iICJQb3N0Z3JlU1FMIiAiRGF0YWJhc2UiCiAgICAgICAgICAgICFkb2NzIGZpbmFuY2UvZG9jcwogICAgICAgIH0KCiAgICAgICAgbWFpbCA9IHNvZnR3YXJlU3lzdGVtICJNYWlsIFByb3ZpZGVyIiAiRXh0ZXJuYWwgc3lzdGVtIGZvciBzZW5kaW5nIGVtYWlscy4iICJFeHRlcm5hbCBTeXN0ZW0iIHsKICAgICAgICAgICAgIWRvY3MgbWFpbC1wcm92aWRlci9kb2NzCiAgICAgICAgfQoKICAgICAgICAvLyBEZWZpbmUgc3lzdGVtIHJlbGF0aW9uc2hpcHMKICAgICAgICByZWFkZXIgLT4gYWNjb3VudHMgIk1hbmFnZXMgdGhlaXIgYWNjb3VudC4iCiAgICAgICAgcmVhZGVyIC0+IHNoZWxmICJNYW5hZ2VzIGJvcnJvd2VkIGl0ZW1zLiIKICAgICAgICByZWFkZXIgLT4gcHJvZHVjdHMgIlZpZXdzIGF2YWlsYWJsZSBpdGVtcy4iCiAgICAgICAgcmVhZGVyIC0+IGNhcnQgIkhhbmRsZXMgcmVudGFsIHByb2Nlc3MuIgogICAgICAgIHJlYWRlciAtPiByZWNvbW1lbmRhdGlvbnMgIlZpZXdzIHJlY29tbWVuZGVkIGl0ZW1zLiIKICAgICAgICByZWFkZXIgLT4gZmluYW5jZSAiTWFuYWdlcyBwYXltZW50cy4iCgogICAgICAgIGNhcnQgLT4gZmluYW5jZSAiUHJvY2Vzc2VzIHBheW1lbnRzLiIKCiAgICAgICAgYWRtaW5pc3RyYXRvciAtPiBhY2NvdW50cyAiT3ZlcnNlZXMgdXNlciBhY2NvdW50cy4iCiAgICAgICAgYWRtaW5pc3RyYXRvciAtPiBwcm9kdWN0cyAiTWFuYWdlcyBsaWJyYXJ5IGl0ZW1zLiIKICAgICAgICBhZG1pbmlzdHJhdG9yIC0+IGZpbmFuY2UgIk92ZXJzZWVzIGZpbmFuY2lhbCB0cmFuc2FjdGlvbnMuIgoKICAgICAgICBtYWlsIC0+IHJlYWRlciAiU2VuZHMgaW52b2ljZXMuIgoKICAgICAgICAvLyBEZWZpbmUgY29udGFpbmVyIHJlbGF0aW9uc2hpcHMKICAgICAgICByZWFkZXIgLT4gYWNjb3VudHNTcGEgIkFjY2Vzc2VzIGFjY291bnQgZnVuY3Rpb25hbGl0eS4iCiAgICAgICAgcmVhZGVyIC0+IHNoZWxmU3BhICJWaWV3cyBhbmQgbWFuYWdlcyBib3Jyb3dlZCBpdGVtcy4iCiAgICAgICAgcmVhZGVyIC0+IHByb2R1Y3RzU3BhICJWaWV3cyBhdmFpbGFibGUgbGlicmFyeSBpdGVtcy4iCiAgICAgICAgcmVhZGVyIC0+IGNhcnRTcGEgIk1hbmFnZXMgY2FydC4iCiAgICAgICAgcmVhZGVyIC0+IHJlY29tbWVuZGF0aW9uc1NwYSAiVmlld3MgcmVjb21tZW5kYXRpb25zLiIKICAgICAgICByZWFkZXIgLT4gZmluYW5jZVNwYSAiTWFrZXMgcGF5bWVudHMuIgoKICAgICAgICBhZG1pbmlzdHJhdG9yIC0+IHByb2R1Y3RzU3BhICJNYW5hZ2VzIGxpYnJhcnkgaXRlbXMuIgogICAgICAgIGFkbWluaXN0cmF0b3IgLT4gZmluYW5jZVNwYSAiT3ZlcnNlZXMgZmluYW5jaWFsIHRyYW5zYWN0aW9ucy4iCiAgICAgICAgYWRtaW5pc3RyYXRvciAtPiBhY2NvdW50c1NwYSAiTWFuYWdlcyBhY2NvdW50cy4iCgogICAgICAgIGFjY291bnRzU3BhIC0+IGFjY291bnRNaWNyb3NlcnZpY2UgIlJlcXVlc3RzIGFjY291bnQgb3BlcmF0aW9ucy4iICJIVFRQUyIKICAgICAgICBhY2NvdW50TWljcm9zZXJ2aWNlIC0+IGFjY291bnREYXRhYmFzZSAiU3RvcmVzIGFuZCByZXRyaWV2ZXMgYWNjb3VudHMuIiAiSkRCQyIKICAgICAgICBhY2NvdW50TWljcm9zZXJ2aWNlIC0+IHJlY29tbWVuZGF0aW9uTWljcm9zZXJ2aWNlICJVcGRhdGVzIHJlY29tbWVuZGF0aW9ucy4iICJLYWZrYSIKCiAgICAgICAgc2hlbGZTcGEgLT4gc2hlbGZNaWNyb3NlcnZpY2UgIlJlcXVlc3RzIHNoZWxmIG9wZXJhdGlvbnMuIiAiSFRUUFMiCiAgICAgICAgc2hlbGZNaWNyb3NlcnZpY2UgLT4gc2hlbGZEYXRhYmFzZSAiU3RvcmVzIGFuZCByZXRyaWV2ZXMgYm9ycm93ZWQgaXRlbXMuIiAiSkRCQyIKCiAgICAgICAgcHJvZHVjdHNTcGEgLT4gcHJvZHVjdHNNaWNyb3NlcnZpY2UgIlJlcXVlc3RzIHByb2R1Y3Qgb3BlcmF0aW9ucy4iICJIVFRQUyIKICAgICAgICBwcm9kdWN0c01pY3Jvc2VydmljZSAtPiBwcm9kdWN0c0RhdGFiYXNlICJTdG9yZXMgYW5kIHJldHJpZXZlcyBsaWJyYXJ5IGl0ZW1zLiIgIkpEQkMiCgogICAgICAgIGNhcnRTcGEgLT4gY2FydE1pY3Jvc2VydmljZSAiUmVxdWVzdHMgY2FydCBvcGVyYXRpb25zLiIgIkhUVFBTIgogICAgICAgIGNhcnRNaWNyb3NlcnZpY2UgLT4gY2FydERhdGFiYXNlICJTdG9yZXMgY2FydCBpdGVtcy4iICJKREJDIgogICAgICAgIGNhcnRNaWNyb3NlcnZpY2UgLT4gcmVjb21tZW5kYXRpb25NaWNyb3NlcnZpY2UgIlVwZGF0ZXMgcmVjb21tZW5kYXRpb25zLiIgIkthZmthIgogICAgICAgIGNhcnRNaWNyb3NlcnZpY2UgLT4gc2hlbGZNaWNyb3NlcnZpY2UgIk5vdGlmaWVzIGJvcnJvd2VkIGl0ZW1zLiIgIkthZmthIgogICAgICAgIGNhcnRNaWNyb3NlcnZpY2UgLT4gcHJvZHVjdHNNaWNyb3NlcnZpY2UgIkNoZWNrcyBpdGVtIGF2YWlsYWJpbGl0eS4iICJIVFRQUyIKICAgICAgICBjYXJ0TWljcm9zZXJ2aWNlIC0+IGZpbmFuY2VNaWNyb3NlcnZpY2UgIkdlbmVyYXRlcyBwYXltZW50IGxpbmsuIiAiSFRUUFMiCiAgICAgICAgY2FydE1pY3Jvc2VydmljZSAtPiBmaW5hbmNlTWljcm9zZXJ2aWNlICJQcm9jZXNzZXMgcGF5bWVudCBub3RpZmljYXRpb25zLiIgIkthZmthIgoKICAgICAgICByZWNvbW1lbmRhdGlvbnNTcGEgLT4gcmVjb21tZW5kYXRpb25NaWNyb3NlcnZpY2UgIlJlcXVlc3RzIHJlY29tbWVuZGF0aW9ucy4iICJIVFRQUyIKICAgICAgICByZWNvbW1lbmRhdGlvbk1pY3Jvc2VydmljZSAtPiByZWNvbW1lbmRhdGlvbkRhdGFiYXNlICJTdG9yZXMgYW5kIHJldHJpZXZlcyByZWNvbW1lbmRhdGlvbnMuIiAiSkRCQyIKCiAgICAgICAgZmluYW5jZVNwYSAtPiBmaW5hbmNlTWljcm9zZXJ2aWNlICJSZXF1ZXN0cyBmaW5hbmNpYWwgb3BlcmF0aW9ucy4iICJIVFRQUyIKICAgICAgICBmaW5hbmNlTWljcm9zZXJ2aWNlIC0+IGZpbmFuY2VEYXRhYmFzZSAiU3RvcmVzIGFuZCByZXRyaWV2ZXMgdHJhbnNhY3Rpb25zLiIgIkpEQkMiCiAgICAgICAgZmluYW5jZU1pY3Jvc2VydmljZSAtPiBtYWlsICJTZW5kcyBpbnZvaWNlcyB0byByZWFkZXJzLiIgIlNNVFAiCiAgICB9CiAgICB2aWV3cyB7CiAgICAgICAgcHJvcGVydGllcyB7CiAgICAgICAgICAgICJnZW5lcmF0ci5zdHlsZS5jb2xvcnMucHJpbWFyeSIgIiMwMDk2ODgiCiAgICAgICAgICAgICJnZW5lcmF0ci5zdHlsZS5jb2xvcnMuc2Vjb25kYXJ5IiAiI2ZmZmZmZiIKICAgICAgICAgICAgImdlbmVyYXRyLnN0eWxlLmZhdmljb25QYXRoIiAic2l0ZS9sb2dvLnBuZyIKICAgICAgICAgICAgImdlbmVyYXRyLnN0eWxlLmxvZ29QYXRoIiAic2l0ZS9sb2dvLnBuZyIKICAgICAgICAgICAgImdlbmVyYXRyLnN0eWxlLmN1c3RvbVN0eWxlc2hlZXQiICJzaXRlL2N1c3RvbS5jc3MiCiAgICAgICAgICAgICJnZW5lcmF0ci5zdmdsaW5rLnRhcmdldCIgIl9zZWxmIgogICAgICAgICAgICAiZ2VuZXJhdHIubWFya2Rvd24uZmxleG1hcmsuZXh0ZW5zaW9ucyIgIkFiYnJldmlhdGlvbixBZG1vbml0aW9uLEFuY2hvckxpbmssQXR0cmlidXRlcyxBdXRvbGluayxEZWZpbml0aW9uLEVtb2ppLEZvb3Rub3RlcyxHZm1UYXNrTGlzdCxHaXRMYWIsTWVkaWFUYWdzLFRhYmxlcyxUYWJsZU9mQ29udGVudHMsVHlwb2dyYXBoaWMiCiAgICAgICAgICAgICJjNHBsYW50dW1sLmVsZW1lbnRQcm9wZXJ0aWVzIiAidHJ1ZSIKICAgICAgICAgICAgImM0cGxhbnR1bWwudGFncyIgInRydWUiCiAgICAgICAgICAgICJwbGFudHVtbC5zZXF1ZW5jZURpYWdyYW0iICJ0cnVlIgogICAgICAgICAgICAicGxhbnR1bWwuYW5pbWF0aW9uIiAidHJ1ZSIKICAgICAgICAgICAgInBsYW50dW1sLnNoYWRvdyIgInRydWUiCiAgICAgICAgICAgICJnZW5lcmF0ci5zaXRlLmV4cG9ydGVyIiAic3RydWN0dXJpenIiCiAgICAgICAgICAgICJnZW5lcmF0ci5zaXRlLm5lc3RHcm91cHMiICJ0cnVlIgogICAgICAgIH0KCiAgICAgICAgc3lzdGVtTGFuZHNjYXBlICJTeXN0ZW1MYW5kc2NhcGUiIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgICAgIGF1dG9sYXlvdXQKICAgICAgICB9CgogICAgICAgIHN5c3RlbUNvbnRleHQgYWNjb3VudHMgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICAgICAgYXV0b2xheW91dCBscgogICAgICAgIH0KCiAgICAgICAgc3lzdGVtQ29udGV4dCBzaGVsZiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgICAgICBhdXRvbGF5b3V0IGxyCiAgICAgICAgfQoKICAgICAgICBzeXN0ZW1Db250ZXh0IHByb2R1Y3RzIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgICAgIGF1dG9sYXlvdXQgbHIKICAgICAgICB9CgogICAgICAgIHN5c3RlbUNvbnRleHQgY2FydCB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgICAgICBhdXRvbGF5b3V0IGxyCiAgICAgICAgfQoKICAgICAgICBzeXN0ZW1Db250ZXh0IHJlY29tbWVuZGF0aW9ucyB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgICAgICBhdXRvbGF5b3V0IGxyCiAgICAgICAgfQoKICAgICAgICBzeXN0ZW1Db250ZXh0IGZpbmFuY2UgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICAgICAgYXV0b2xheW91dCBscgogICAgICAgIH0KCiAgICAgICAgY29udGFpbmVyIGFjY291bnRzIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgICAgIGF1dG9sYXlvdXQgbHIKICAgICAgICB9CgogICAgICAgIGNvbnRhaW5lciBzaGVsZiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgICAgICBhdXRvbGF5b3V0IGxyCiAgICAgICAgfQoKICAgICAgICBjb250YWluZXIgcHJvZHVjdHMgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICAgICAgYXV0b2xheW91dCBscgogICAgICAgIH0KCiAgICAgICAgY29udGFpbmVyIGNhcnQgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICAgICAgYXV0b2xheW91dCBscgogICAgICAgIH0KCiAgICAgICAgY29udGFpbmVyIHJlY29tbWVuZGF0aW9ucyB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgICAgICBhdXRvbGF5b3V0IGxyCiAgICAgICAgfQoKICAgICAgICBjb250YWluZXIgZmluYW5jZSB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgICAgICBhdXRvbGF5b3V0IGxyCgogICAgICAgIH0KICAgICAgICAvLyBEeW5hbWljIFZpZXc6IFJlYWRlciBSZWdpc3RyYXRpb24KICAgICAgICBkeW5hbWljIGFjY291bnRzICJyZWFkZXItcmVnaXN0cmF0aW9uIiAiUmVhZGVyIFJlZ2lzdHJhdGlvbiBQcm9jZXNzIiB7CiAgICAgICAgICAgIHJlYWRlciAtPiBhY2NvdW50c1NwYSAiSW5pdGlhdGVzIGFjY291bnQgcmVnaXN0cmF0aW9uIgogICAgICAgICAgICBhY2NvdW50c1NwYSAtPiBhY2NvdW50TWljcm9zZXJ2aWNlICJSZXF1ZXN0cyBuZXcgYWNjb3VudCBjcmVhdGlvbiIgIkhUVFBTIgogICAgICAgICAgICBhY2NvdW50TWljcm9zZXJ2aWNlIC0+IGFjY291bnREYXRhYmFzZSAiU3RvcmVzIG5ldyBhY2NvdW50IGRhdGEiICJKREJDIgogICAgICAgICAgICBhY2NvdW50RGF0YWJhc2UgLT4gYWNjb3VudE1pY3Jvc2VydmljZSAiQ29uZmlybXMgYWNjb3VudCBjcmVhdGlvbiIgIkpEQkMiCiAgICAgICAgICAgIGFjY291bnRNaWNyb3NlcnZpY2UgLT4gcmVjb21tZW5kYXRpb25NaWNyb3NlcnZpY2UgIlVwZGF0ZXMgcmVjb21tZW5kYXRpb25zIGZvciBuZXcgdXNlciIgIkthZmthIgogICAgICAgICAgICByZWNvbW1lbmRhdGlvbk1pY3Jvc2VydmljZSAtPiBhY2NvdW50TWljcm9zZXJ2aWNlICJBY2tub3dsZWRnZXMgcmVjb21tZW5kYXRpb24gdXBkYXRlIiAiS2Fma2EiCiAgICAgICAgICAgIGFjY291bnRNaWNyb3NlcnZpY2UgLT4gYWNjb3VudHNTcGEgIlNlbmRzIGFjY291bnQgZGV0YWlscyIgIkhUVFBTIgogICAgICAgICAgICBhY2NvdW50c1NwYSAtPiByZWFkZXIgIkRpc3BsYXlzIGNyZWF0ZWQgYWNjb3VudCBkZXRhaWxzIgogICAgICAgICAgICBhdXRvbGF5b3V0IGxyCiAgICAgICAgfQoKICAgICAgICAvLyBEeW5hbWljIFZpZXc6IEFkZCBCb29rcyB0byBTaGVsZgogICAgICAgIGR5bmFtaWMgc2hlbGYgImFkZC1ib29rcy10by1zaGVsZiIgIlByb2Nlc3Mgb2YgQWRkaW5nIEJvb2tzIHRvIFNoZWxmIiB7CiAgICAgICAgICAgIGNhcnRNaWNyb3NlcnZpY2UgLT4gc2hlbGZNaWNyb3NlcnZpY2UgIk5vdGlmaWVzIGJvcnJvd2VkIGl0ZW1zIiAiS2Fma2EiCiAgICAgICAgICAgIHNoZWxmTWljcm9zZXJ2aWNlIC0+IGNhcnRNaWNyb3NlcnZpY2UgIkFja25vd2xlZGdlcyByZWNlaXB0IG9mIGl0ZW1zIiAiS2Fma2EiCiAgICAgICAgICAgIHNoZWxmTWljcm9zZXJ2aWNlIC0+IHNoZWxmRGF0YWJhc2UgIlN0b3JlcyBib3Jyb3dlZCBpdGVtcyIgIkpEQkMiCiAgICAgICAgICAgIHNoZWxmRGF0YWJhc2UgLT4gc2hlbGZNaWNyb3NlcnZpY2UgIkNvbmZpcm1zIHN0b3JhZ2UiICJKREJDIgogICAgICAgICAgICBhdXRvbGF5b3V0IHJsCiAgICAgICAgfQoKICAgICAgICAvLyBEeW5hbWljIFZpZXc6IFByZXNlbnQgQm9va3MgZnJvbSBSZWFkZXIgU2hlbGYKICAgICAgICBkeW5hbWljIHNoZWxmICJwcmVzZW50LWJvb2tzLWZyb20tcmVhZGVyLXNoZWxmIiAiVmlldyBSZWFkZXIncyBCb3Jyb3dlZCBCb29rcyIgewogICAgICAgICAgICByZWFkZXIgLT4gc2hlbGZTcGEgIlJlcXVlc3RzIGJvcnJvd2VkIGl0ZW1zIHZpZXciCiAgICAgICAgICAgIHNoZWxmU3BhIC0+IHNoZWxmTWljcm9zZXJ2aWNlICJGZXRjaGVzIGJvcnJvd2VkIGl0ZW1zIiAiSFRUUFMiCiAgICAgICAgICAgIHNoZWxmTWljcm9zZXJ2aWNlIC0+IHNoZWxmRGF0YWJhc2UgIlJldHJpZXZlcyBib3Jyb3dlZCBpdGVtcyBkYXRhIiAiSkRCQyIKICAgICAgICAgICAgc2hlbGZEYXRhYmFzZSAtPiBzaGVsZk1pY3Jvc2VydmljZSAiUmV0dXJucyBib3Jyb3dlZCBpdGVtcyBkYXRhIiAiSkRCQyIKICAgICAgICAgICAgc2hlbGZNaWNyb3NlcnZpY2UgLT4gc2hlbGZTcGEgIlJldHVybnMgYm9ycm93ZWQgaXRlbXMgdG8gVUkiICJIVFRQUyIKICAgICAgICAgICAgc2hlbGZTcGEgLT4gcmVhZGVyICJEaXNwbGF5cyBib3Jyb3dlZCBpdGVtcyB2aWV3IgogICAgICAgICAgICBhdXRvbGF5b3V0IHJsCiAgICAgICAgfQoKICAgICAgICAvLyBEeW5hbWljIFZpZXc6IEFkZCBCb29rIHRvIExpYnJhcnkKICAgICAgICBkeW5hbWljIHByb2R1Y3RzICJhZGQtYm9vay10by1saWJyYXJ5IiAiQWRkaW5nIGEgTmV3IEJvb2sgdG8gdGhlIExpYnJhcnkiIHsKICAgICAgICAgICAgYWRtaW5pc3RyYXRvciAtPiBwcm9kdWN0c1NwYSAiSW5pdGlhdGVzIG5ldyBib29rIGFkZGl0aW9uIgogICAgICAgICAgICBwcm9kdWN0c1NwYSAtPiBwcm9kdWN0c01pY3Jvc2VydmljZSAiUHJvY2Vzc2VzIG5ldyBib29rIGFkZGl0aW9uIiAiSFRUUFMiCiAgICAgICAgICAgIHByb2R1Y3RzTWljcm9zZXJ2aWNlIC0+IHByb2R1Y3RzRGF0YWJhc2UgIlN0b3JlcyBib29rIGRhdGEiICJKREJDIgogICAgICAgICAgICBwcm9kdWN0c0RhdGFiYXNlIC0+IHByb2R1Y3RzTWljcm9zZXJ2aWNlICJDb25maXJtcyBib29rIHN0b3JhZ2UiICJKREJDIgogICAgICAgICAgICBwcm9kdWN0c01pY3Jvc2VydmljZSAtPiBwcm9kdWN0c1NwYSAiUmV0dXJucyBuZXcgYm9vayBJRCIgIkhUVFBTIgogICAgICAgICAgICBwcm9kdWN0c1NwYSAtPiBhZG1pbmlzdHJhdG9yICJEaXNwbGF5cyBuZXcgYm9vayBkZXRhaWxzIgogICAgICAgICAgICBhdXRvbGF5b3V0IGxyCiAgICAgICAgfQoKICAgICAgICAvLyBEeW5hbWljIFZpZXc6IFJlbW92ZSBCb29rIGZyb20gTGlicmFyeQogICAgICAgIGR5bmFtaWMgcHJvZHVjdHMgInJlbW92ZS1ib29rLWZyb20tbGlicmFyeSIgIlJlbW92aW5nIGEgQm9vayBmcm9tIHRoZSBMaWJyYXJ5IiB7CiAgICAgICAgICAgIGFkbWluaXN0cmF0b3IgLT4gcHJvZHVjdHNTcGEgIkluaXRpYXRlcyBib29rIHJlbW92YWwiCiAgICAgICAgICAgIHByb2R1Y3RzU3BhIC0+IHByb2R1Y3RzTWljcm9zZXJ2aWNlICJQcm9jZXNzZXMgYm9vayByZW1vdmFsIiAiSFRUUFMiCiAgICAgICAgICAgIHByb2R1Y3RzTWljcm9zZXJ2aWNlIC0+IHByb2R1Y3RzRGF0YWJhc2UgIlJlbW92ZXMgYm9vayBkYXRhIiAiSkRCQyIKICAgICAgICAgICAgcHJvZHVjdHNEYXRhYmFzZSAtPiBwcm9kdWN0c01pY3Jvc2VydmljZSAiQ29uZmlybXMgYm9vayByZW1vdmFsIiAiSkRCQyIKICAgICAgICAgICAgcHJvZHVjdHNNaWNyb3NlcnZpY2UgLT4gcHJvZHVjdHNTcGEgIlJldHVybnMgcmVtb3ZhbCBzdGF0dXMiICJIVFRQUyIKICAgICAgICAgICAgcHJvZHVjdHNTcGEgLT4gYWRtaW5pc3RyYXRvciAiRGlzcGxheXMgcmVtb3ZhbCBkZXRhaWxzIgogICAgICAgICAgICBhdXRvbGF5b3V0IGxyCiAgICAgICAgfQoKICAgICAgICAvLyBEeW5hbWljIFZpZXc6IFByZXNlbnQgQXZhaWxhYmxlIEJvb2tzCiAgICAgICAgZHluYW1pYyBwcm9kdWN0cyAicHJlc2VudC1hdmFpbGFibGUtYm9va3MiICJWaWV3aW5nIEF2YWlsYWJsZSBCb29rcyBpbiBMaWJyYXJ5IiB7CiAgICAgICAgICAgIHJlYWRlciAtPiBwcm9kdWN0c1NwYSAiUmVxdWVzdHMgYXZhaWxhYmxlIGJvb2tzIGxpc3QiCiAgICAgICAgICAgIHByb2R1Y3RzU3BhIC0+IHByb2R1Y3RzTWljcm9zZXJ2aWNlICJGZXRjaGVzIGF2YWlsYWJsZSBib29rcyIgIkhUVFBTIgogICAgICAgICAgICBwcm9kdWN0c01pY3Jvc2VydmljZSAtPiBwcm9kdWN0c0RhdGFiYXNlICJSZXRyaWV2ZXMgYXZhaWxhYmxlIGJvb2tzIiAiSkRCQyIKICAgICAgICAgICAgcHJvZHVjdHNEYXRhYmFzZSAtPiBwcm9kdWN0c01pY3Jvc2VydmljZSAiUmV0dXJucyBhdmFpbGFibGUgYm9va3MiICJKREJDIgogICAgICAgICAgICBwcm9kdWN0c01pY3Jvc2VydmljZSAtPiBwcm9kdWN0c1NwYSAiUmV0dXJucyBib29rIGRhdGEiICJIVFRQUyIKICAgICAgICAgICAgcHJvZHVjdHNTcGEgLT4gcmVhZGVyICJEaXNwbGF5cyBhdmFpbGFibGUgYm9va3MgbGlzdCIKICAgICAgICAgICAgYXV0b2xheW91dCBscgogICAgICAgIH0KCiAgICAgICAgLy8gRHluYW1pYyBWaWV3OiBQcmVzZW50IFJlY29tbWVuZGVkIFByb2R1Y3RzCiAgICAgICAgZHluYW1pYyByZWNvbW1lbmRhdGlvbnMgInByZXNlbnQtcmVjb21tZW5kZWQtcHJvZHVjdHMiICJWaWV3aW5nIFJlY29tbWVuZGVkIEJvb2tzIGZvciBVc2VyIiB7CiAgICAgICAgICAgIHJlYWRlciAtPiByZWNvbW1lbmRhdGlvbnNTcGEgIlJlcXVlc3RzIHJlY29tbWVuZGF0aW9ucyIKICAgICAgICAgICAgcmVjb21tZW5kYXRpb25zU3BhIC0+IHJlY29tbWVuZGF0aW9uTWljcm9zZXJ2aWNlICJGZXRjaGVzIHJlY29tbWVuZGF0aW9ucyIgIkhUVFBTIgogICAgICAgICAgICByZWNvbW1lbmRhdGlvbk1pY3Jvc2VydmljZSAtPiByZWNvbW1lbmRhdGlvbkRhdGFiYXNlICJSZXRyaWV2ZXMgcmVjb21tZW5kZWQgaXRlbXMiICJKREJDIgogICAgICAgICAgICByZWNvbW1lbmRhdGlvbkRhdGFiYXNlIC0+IHJlY29tbWVuZGF0aW9uTWljcm9zZXJ2aWNlICJSZXR1cm5zIHJlY29tbWVuZGF0aW9ucyIgIkpEQkMiCiAgICAgICAgICAgIHJlY29tbWVuZGF0aW9uTWljcm9zZXJ2aWNlIC0+IHJlY29tbWVuZGF0aW9uc1NwYSAiUmV0dXJucyByZWNvbW1lbmRlZCBpdGVtcyIgIkhUVFBTIgogICAgICAgICAgICByZWNvbW1lbmRhdGlvbnNTcGEgLT4gcmVhZGVyICJEaXNwbGF5cyByZWNvbW1lbmRlZCBpdGVtcyIKICAgICAgICAgICAgYXV0b2xheW91dCBscgogICAgICAgIH0KCiAgICAgICAgLy8gRHluYW1pYyBWaWV3OiBVcGRhdGUgVXNlciBSZWNvbW1lbmRhdGlvbnMKICAgICAgICBkeW5hbWljIHJlY29tbWVuZGF0aW9ucyAidXBkYXRlLXVzZXItcmVjb21tZW5kYXRpb25zIiAiVXBkYXRpbmcgVXNlciBSZWNvbW1lbmRhdGlvbnMiIHsKICAgICAgICAgICAgY2FydE1pY3Jvc2VydmljZSAtPiByZWNvbW1lbmRhdGlvbk1pY3Jvc2VydmljZSAiTm90aWZpZXMgYWRkZWQgaXRlbXMgdG8gY2FydCIgIkthZmthIgogICAgICAgICAgICByZWNvbW1lbmRhdGlvbk1pY3Jvc2VydmljZSAtPiBjYXJ0TWljcm9zZXJ2aWNlICJBY2tub3dsZWRnZXMgbm90aWZpY2F0aW9uIiAiS2Fma2EiCiAgICAgICAgICAgIHJlY29tbWVuZGF0aW9uTWljcm9zZXJ2aWNlIC0+IHJlY29tbWVuZGF0aW9uRGF0YWJhc2UgIlN0b3JlcyB1cGRhdGVkIHJlY29tbWVuZGF0aW9ucyIgIkpEQkMiCiAgICAgICAgICAgIHJlY29tbWVuZGF0aW9uRGF0YWJhc2UgLT4gcmVjb21tZW5kYXRpb25NaWNyb3NlcnZpY2UgIkNvbmZpcm1zIHN0b3JhZ2UiICJKREJDIgogICAgICAgICAgICBhdXRvbGF5b3V0IHJsCiAgICAgICAgfQoKICAgICAgICAvLyBEeW5hbWljIFZpZXc6IFN0b3JlIFVzZXIgUmVjb21tZW5kYXRpb25zIGFmdGVyIFJlZ2lzdHJhdGlvbgogICAgICAgIGR5bmFtaWMgcmVjb21tZW5kYXRpb25zICJzdG9yZS11c2VyLXJlY29tbWVuZGF0aW9ucy1hZnRlci1yZWFkZXItcmVnaXN0cmF0aW9uIiAiSW5pdGlhbCBVc2VyIFJlY29tbWVuZGF0aW9ucyBTZXR1cCIgewogICAgICAgICAgICBhY2NvdW50TWljcm9zZXJ2aWNlIC0+IHJlY29tbWVuZGF0aW9uTWljcm9zZXJ2aWNlICJTZW5kcyB1c2VyIHJlY29tbWVuZGF0aW9ucyBkYXRhIiAiS2Fma2EiCiAgICAgICAgICAgIHJlY29tbWVuZGF0aW9uTWljcm9zZXJ2aWNlIC0+IGFjY291bnRNaWNyb3NlcnZpY2UgIkFja25vd2xlZGdlcyBkYXRhIHJlY2VpcHQiICJLYWZrYSIKICAgICAgICAgICAgcmVjb21tZW5kYXRpb25NaWNyb3NlcnZpY2UgLT4gcmVjb21tZW5kYXRpb25EYXRhYmFzZSAiU3RvcmVzIHJlY29tbWVuZGF0aW9ucyIgIkpEQkMiCiAgICAgICAgICAgIHJlY29tbWVuZGF0aW9uRGF0YWJhc2UgLT4gcmVjb21tZW5kYXRpb25NaWNyb3NlcnZpY2UgIkNvbmZpcm1zIHN0b3JhZ2UiICJKREJDIgogICAgICAgICAgICBhdXRvbGF5b3V0IHJsCiAgICAgICAgfQoKICAgICAgICAvLyBEeW5hbWljIFZpZXc6IEFkZCBJdGVtIHRvIENhcnQKICAgICAgICBkeW5hbWljIGNhcnQgImFkZC1pdGVtLXRvLWNhcnQiICJBZGRpbmcgSXRlbSB0byBDYXJ0IiB7CiAgICAgICAgICAgIHJlYWRlciAtPiBjYXJ0U3BhICJBZGRzIGl0ZW0gdG8gY2FydCIKICAgICAgICAgICAgY2FydFNwYSAtPiBjYXJ0TWljcm9zZXJ2aWNlICJQcm9jZXNzZXMgY2FydCBhZGRpdGlvbiIgIkhUVFBTIgogICAgICAgICAgICBjYXJ0TWljcm9zZXJ2aWNlIC0+IGNhcnREYXRhYmFzZSAiU3RvcmVzIGNhcnQgaXRlbSIgIkpEQkMiCiAgICAgICAgICAgIGNhcnREYXRhYmFzZSAtPiBjYXJ0TWljcm9zZXJ2aWNlICJDb25maXJtcyBzdG9yYWdlIiAiSkRCQyIKICAgICAgICAgICAgY2FydE1pY3Jvc2VydmljZSAtPiByZWNvbW1lbmRhdGlvbk1pY3Jvc2VydmljZSAiVXBkYXRlcyByZWNvbW1lbmRhdGlvbnMgYmFzZWQgb24gY2FydCBhY3Rpdml0eSIgIkthZmthIgogICAgICAgICAgICByZWNvbW1lbmRhdGlvbk1pY3Jvc2VydmljZSAtPiBjYXJ0TWljcm9zZXJ2aWNlICJBY2tub3dsZWRnZXMgdXBkYXRlIiAiS2Fma2EiCiAgICAgICAgICAgIGNhcnRNaWNyb3NlcnZpY2UgLT4gY2FydFNwYSAiQ29uZmlybXMgY2FydCBhZGRpdGlvbiIgIkhUVFBTIgogICAgICAgICAgICBjYXJ0U3BhIC0+IHJlYWRlciAiRGlzcGxheXMgY2FydCIKICAgICAgICAgICAgYXV0b2xheW91dCBscgogICAgICAgIH0KCiAgICAgICAgLy8gRHluYW1pYyBWaWV3OiBSZW1vdmUgSXRlbSBmcm9tIENhcnQKICAgICAgICBkeW5hbWljIGNhcnQgInJlbW92ZS1pdGVtLWZyb20tY2FydCIgIlJlbW92aW5nIEl0ZW0gZnJvbSBDYXJ0IiB7CiAgICAgICAgICAgIHJlYWRlciAtPiBjYXJ0U3BhICJSZW1vdmVzIGl0ZW0gZnJvbSBjYXJ0IgogICAgICAgICAgICBjYXJ0U3BhIC0+IGNhcnRNaWNyb3NlcnZpY2UgIlByb2Nlc3NlcyBjYXJ0IHJlbW92YWwiICJIVFRQUyIKICAgICAgICAgICAgY2FydE1pY3Jvc2VydmljZSAtPiBjYXJ0RGF0YWJhc2UgIlJlbW92ZXMgY2FydCBpdGVtIiAiSkRCQyIKICAgICAgICAgICAgY2FydERhdGFiYXNlIC0+IGNhcnRNaWNyb3NlcnZpY2UgIkNvbmZpcm1zIHJlbW92YWwiICJKREJDIgogICAgICAgICAgICBjYXJ0TWljcm9zZXJ2aWNlIC0+IGNhcnRTcGEgIkNvbmZpcm1zIGNhcnQgcmVtb3ZhbCIgIkhUVFBTIgogICAgICAgICAgICBjYXJ0U3BhIC0+IHJlYWRlciAiVXBkYXRlcyBjYXJ0IHZpZXciCiAgICAgICAgICAgIGF1dG9sYXlvdXQgbHIKICAgICAgICB9CgogICAgICAgIC8vIER5bmFtaWMgVmlldzogRmluYWxpemUgQ2FydAogICAgICAgIGR5bmFtaWMgY2FydCAiZmluYWxpemUtY2FydCIgIkNvbXBsZXRpbmcgdGhlIENhcnQgUHJvY2VzcyIgewogICAgICAgICAgICByZWFkZXIgLT4gY2FydFNwYSAiRmluYWxpemVzIGNhcnQiCiAgICAgICAgICAgIGNhcnRTcGEgLT4gY2FydE1pY3Jvc2VydmljZSAiUHJvY2Vzc2VzIGNhcnQgZmluYWxpemF0aW9uIiAiSFRUUFMiCiAgICAgICAgICAgIGNhcnRNaWNyb3NlcnZpY2UgLT4gY2FydERhdGFiYXNlICJSZXRyaWV2ZXMgY2FydCBkZXRhaWxzIiAiSkRCQyIKICAgICAgICAgICAgY2FydERhdGFiYXNlIC0+IGNhcnRNaWNyb3NlcnZpY2UgIlJldHVybnMgY2FydCBkZXRhaWxzIiAiSkRCQyIKICAgICAgICAgICAgY2FydE1pY3Jvc2VydmljZSAtPiBwcm9kdWN0c01pY3Jvc2VydmljZSAiQ2hlY2tzIGl0ZW0gYXZhaWxhYmlsaXR5IiAiSFRUUFMiCiAgICAgICAgICAgIHByb2R1Y3RzTWljcm9zZXJ2aWNlIC0+IHByb2R1Y3RzRGF0YWJhc2UgIlZlcmlmaWVzIHByb2R1Y3QgYXZhaWxhYmlsaXR5IiAiSkRCQyIKICAgICAgICAgICAgcHJvZHVjdHNEYXRhYmFzZSAtPiBwcm9kdWN0c01pY3Jvc2VydmljZSAiUmV0dXJucyBhdmFpbGFiaWxpdHkgc3RhdHVzIiAiSkRCQyIKICAgICAgICAgICAgcHJvZHVjdHNNaWNyb3NlcnZpY2UgLT4gY2FydE1pY3Jvc2VydmljZSAiUHJvdmlkZXMgYXZhaWxhYmlsaXR5IGRldGFpbHMiICJIVFRQUyIKICAgICAgICAgICAgY2FydE1pY3Jvc2VydmljZSAtPiBmaW5hbmNlTWljcm9zZXJ2aWNlICJHZW5lcmF0ZXMgcGF5bWVudCBsaW5rIiAiSFRUUFMiCiAgICAgICAgICAgIGZpbmFuY2VNaWNyb3NlcnZpY2UgLT4gY2FydE1pY3Jvc2VydmljZSAiUmV0dXJucyBwYXltZW50IGxpbmsiICJIVFRQUyIKICAgICAgICAgICAgY2FydE1pY3Jvc2VydmljZSAtPiByZWNvbW1lbmRhdGlvbk1pY3Jvc2VydmljZSAiRmluYWxpemVzIHJlY29tbWVuZGF0aW9ucyIgIkthZmthIgogICAgICAgICAgICByZWNvbW1lbmRhdGlvbk1pY3Jvc2VydmljZSAtPiBjYXJ0TWljcm9zZXJ2aWNlICJBY2tub3dsZWRnZXMgZmluYWxpemF0aW9uIiAiS2Fma2EiCiAgICAgICAgICAgIGNhcnRNaWNyb3NlcnZpY2UgLT4gY2FydFNwYSAiUHJlc2VudHMgcGF5bWVudCBsaW5rIiAiSFRUUFMiCiAgICAgICAgICAgIGNhcnRTcGEgLT4gcmVhZGVyICJEaXNwbGF5cyB0cmFuc2FjdGlvbiBkZXRhaWxzIgogICAgICAgICAgICBhdXRvbGF5b3V0IGxyCiAgICAgICAgfQoKICAgICAgICAvLyBEeW5hbWljIFZpZXc6IENhcnQgUGFpZAogICAgICAgIGR5bmFtaWMgY2FydCAiY2FydC1wYWlkIiAiVXBkYXRpbmcgQ2FydCBTdGF0dXMgdG8gUGFpZCIgewogICAgICAgICAgICBmaW5hbmNlTWljcm9zZXJ2aWNlIC0+IGNhcnRNaWNyb3NlcnZpY2UgIk5vdGlmaWVzIG9mIGNvbXBsZXRlZCBwYXltZW50IiAiS2Fma2EiCiAgICAgICAgICAgIGNhcnRNaWNyb3NlcnZpY2UgLT4gZmluYW5jZU1pY3Jvc2VydmljZSAiQWNrbm93bGVkZ2VzIHBheW1lbnQiICJLYWZrYSIKICAgICAgICAgICAgY2FydE1pY3Jvc2VydmljZSAtPiBjYXJ0RGF0YWJhc2UgIk1hcmtzIGNhcnQgYXMgcGFpZCIgIkpEQkMiCiAgICAgICAgICAgIGNhcnREYXRhYmFzZSAtPiBjYXJ0TWljcm9zZXJ2aWNlICJDb25maXJtcyBwYXltZW50IHN0YXR1cyIgIkpEQkMiCiAgICAgICAgICAgIGNhcnRNaWNyb3NlcnZpY2UgLT4gc2hlbGZNaWNyb3NlcnZpY2UgIlVwZGF0ZXMgYm9ycm93ZWQgaXRlbXMiICJLYWZrYSIKICAgICAgICAgICAgc2hlbGZNaWNyb3NlcnZpY2UgLT4gY2FydE1pY3Jvc2VydmljZSAiQWNrbm93bGVkZ2VzIHVwZGF0ZSIgIkthZmthIgogICAgICAgICAgICBhdXRvbGF5b3V0IGxyCiAgICAgICAgfQoKICAgICAgICAvLyBEeW5hbWljIFZpZXc6IE92ZXJzZWUgRmluYW5jaWFsIFRyYW5zYWN0aW9ucwogICAgICAgIGR5bmFtaWMgZmluYW5jZSAib3ZlcnNlZS1maW5hbmNpYWwtdHJhbnNhY3Rpb25zIiAiQWRtaW5pc3RyYXRpdmUgUmV2aWV3IG9mIEZpbmFuY2lhbCBUcmFuc2FjdGlvbnMiIHsKICAgICAgICAgICAgYWRtaW5pc3RyYXRvciAtPiBmaW5hbmNlU3BhICJSZXZpZXdzIGZpbmFuY2lhbCB0cmFuc2FjdGlvbnMiCiAgICAgICAgICAgIGZpbmFuY2VTcGEgLT4gZmluYW5jZU1pY3Jvc2VydmljZSAiUmVxdWVzdHMgdHJhbnNhY3Rpb24gZGF0YSIgIkhUVFBTIgogICAgICAgICAgICBmaW5hbmNlTWljcm9zZXJ2aWNlIC0+IGZpbmFuY2VEYXRhYmFzZSAiUmV0cmlldmVzIHRyYW5zYWN0aW9ucyIgIkpEQkMiCiAgICAgICAgICAgIGZpbmFuY2VEYXRhYmFzZSAtPiBmaW5hbmNlTWljcm9zZXJ2aWNlICJSZXR1cm5zIHRyYW5zYWN0aW9uIGRhdGEiICJKREJDIgogICAgICAgICAgICBmaW5hbmNlTWljcm9zZXJ2aWNlIC0+IGZpbmFuY2VTcGEgIlByb3ZpZGVzIHRyYW5zYWN0aW9uIGRhdGEiICJIVFRQUyIKICAgICAgICAgICAgZmluYW5jZVNwYSAtPiBhZG1pbmlzdHJhdG9yICJEaXNwbGF5cyB0cmFuc2FjdGlvbiBvdmVydmlldyIKICAgICAgICAgICAgYXV0b2xheW91dCBscgogICAgICAgIH0KCiAgICAgICAgLy8gRHluYW1pYyBWaWV3OiBHZW5lcmF0ZSBQYXltZW50IExpbmsKICAgICAgICBkeW5hbWljIGZpbmFuY2UgImdlbmVyYXRlLXBheW1lbnQtbGluayIgIkNyZWF0aW5nIGEgUGF5bWVudCBMaW5rIiB7CiAgICAgICAgICAgIGNhcnRNaWNyb3NlcnZpY2UgLT4gZmluYW5jZU1pY3Jvc2VydmljZSAiUmVxdWVzdHMgcGF5bWVudCBsaW5rIiAiSFRUUFMiCiAgICAgICAgICAgIGZpbmFuY2VNaWNyb3NlcnZpY2UgLT4gZmluYW5jZURhdGFiYXNlICJDcmVhdGVzIHBheW1lbnQgZW50cnkiICJKREJDIgogICAgICAgICAgICBmaW5hbmNlRGF0YWJhc2UgLT4gZmluYW5jZU1pY3Jvc2VydmljZSAiQ29uZmlybXMgcGF5bWVudCBsaW5rIiAiSkRCQyIKICAgICAgICAgICAgZmluYW5jZU1pY3Jvc2VydmljZSAtPiBjYXJ0TWljcm9zZXJ2aWNlICJSZXR1cm5zIHBheW1lbnQgbGluayIgIkhUVFBTIgogICAgICAgICAgICBhdXRvbGF5b3V0IGxyCiAgICAgICAgfQoKICAgICAgICAvLyBEeW5hbWljIFZpZXc6IFNlbmQgSW52b2ljZQogICAgICAgIGR5bmFtaWMgZmluYW5jZSAic2VuZC1pbnZvaWNlIiAiSW52b2ljZSBFbWFpbCBQcm9jZXNzIiB7CiAgICAgICAgICAgIGZpbmFuY2VNaWNyb3NlcnZpY2UgLT4gbWFpbCAiU2VuZHMgaW52b2ljZSB0byByZWFkZXIiICJTTVRQIgogICAgICAgICAgICBtYWlsIC0+IHJlYWRlciAiUmVjZWl2ZXMgaW52b2ljZSIKICAgICAgICAgICAgcmVhZGVyIC0+IG1haWwgIkNvbmZpcm1zIGludm9pY2UgcmVjZWlwdCIKICAgICAgICAgICAgbWFpbCAtPiBmaW5hbmNlTWljcm9zZXJ2aWNlICJDb25maXJtcyBlbWFpbCBzZW50IiAiU01UUCIKICAgICAgICAgICAgYXV0b2xheW91dCBscgogICAgICAgIH0KCiAgICAgICAgLy8gRHluYW1pYyBWaWV3OiBNYWtlIFBheW1lbnQKICAgICAgICBkeW5hbWljIGZpbmFuY2UgIm1ha2UtcGF5bWVudCIgIlByb2Nlc3NpbmcgUGF5bWVudCBmb3IgQ2FydCBJdGVtcyIgewogICAgICAgICAgICByZWFkZXIgLT4gZmluYW5jZVNwYSAiSW5pdGlhdGVzIHBheW1lbnQiCiAgICAgICAgICAgIGZpbmFuY2VTcGEgLT4gZmluYW5jZU1pY3Jvc2VydmljZSAiUHJvY2Vzc2VzIHBheW1lbnQgcmVxdWVzdCIgIkhUVFBTIgogICAgICAgICAgICBmaW5hbmNlTWljcm9zZXJ2aWNlIC0+IGZpbmFuY2VEYXRhYmFzZSAiU3RvcmVzIHBheW1lbnQgZGV0YWlscyIgIkpEQkMiCiAgICAgICAgICAgIGZpbmFuY2VEYXRhYmFzZSAtPiBmaW5hbmNlTWljcm9zZXJ2aWNlICJDb25maXJtcyBwYXltZW50IHN0b3JhZ2UiICJKREJDIgogICAgICAgICAgICBmaW5hbmNlTWljcm9zZXJ2aWNlIC0+IGNhcnRNaWNyb3NlcnZpY2UgIk5vdGlmaWVzIGNhcnQgYXMgcGFpZCIgIkthZmthIgogICAgICAgICAgICBjYXJ0TWljcm9zZXJ2aWNlIC0+IGZpbmFuY2VNaWNyb3NlcnZpY2UgIkFja25vd2xlZGdlcyBwYXltZW50IG5vdGlmaWNhdGlvbiIgIkthZmthIgogICAgICAgICAgICBmaW5hbmNlTWljcm9zZXJ2aWNlIC0+IGZpbmFuY2VTcGEgIlJldHVybnMgcGF5bWVudCBzdGF0dXMiICJIVFRQUyIKICAgICAgICAgICAgY2FydE1pY3Jvc2VydmljZSAtPiBjYXJ0RGF0YWJhc2UgIlVwZGF0ZXMgY2FydCB0byBwYWlkIHN0YXR1cyIgIkpEQkMiCiAgICAgICAgICAgIGNhcnREYXRhYmFzZSAtPiBjYXJ0TWljcm9zZXJ2aWNlICJDb25maXJtcyB1cGRhdGUiICJKREJDIgogICAgICAgICAgICBmaW5hbmNlU3BhIC0+IHJlYWRlciAiRGlzcGxheXMgcGF5bWVudCBjb25maXJtYXRpb24iCiAgICAgICAgICAgIGF1dG9sYXlvdXQgbHIKICAgICAgICB9CgogICAgICAgIHN0eWxlcyB7CiAgICAgICAgICAgIGVsZW1lbnQgIlBlcnNvbiIgewogICAgICAgICAgICAgICAgY29sb3IgI2ZmZmZmZgogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjMDA3OTZCCiAgICAgICAgICAgICAgICBmb250U2l6ZSAyMgogICAgICAgICAgICAgICAgc2hhcGUgUGVyc29uCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiU29mdHdhcmUgU3lzdGVtIiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICMwMDk2ODgKICAgICAgICAgICAgICAgIGNvbG9yICNmZmZmZmYKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJFeHRlcm5hbCBTeXN0ZW0iIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgIzREQjZBQwogICAgICAgICAgICAgICAgY29sb3IgI2ZmZmZmZgogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkV4aXN0aW5nIFN5c3RlbSIgewogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjMDA0RDQwCiAgICAgICAgICAgICAgICBjb2xvciAjZmZmZmZmCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiQ29udGFpbmVyIiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICMyNkE2OUEKICAgICAgICAgICAgICAgIGNvbG9yICNmZmZmZmYKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJXZWIgQnJvd3NlciIgewogICAgICAgICAgICAgICAgc2hhcGUgV2ViQnJvd3NlcgogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkRhdGFiYXNlIiB7CiAgICAgICAgICAgICAgICBzaGFwZSBDeWxpbmRlcgogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkNvbXBvbmVudCIgewogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjODBDQkM0CiAgICAgICAgICAgICAgICBjb2xvciAjMDAwMDAwCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiRmFpbG92ZXIiIHsKICAgICAgICAgICAgICAgIG9wYWNpdHkgMjUKICAgICAgICAgICAgfQogICAgICAgICAgICByZWxhdGlvbnNoaXAgIlJlbGF0aW9uc2hpcCIgewogICAgICAgICAgICAgICAgY29sb3IgIzAwNEQ0MAogICAgICAgICAgICAgICAgc3R5bGUgZGFzaGVkCiAgICAgICAgICAgICAgICByb3V0aW5nIE9ydGhvZ29uYWwKICAgICAgICAgICAgfQogICAgICAgIH0KICAgIH0KfQ=="
+  },
+  "views" : {
+    "configuration" : {
+      "branding" : { },
+      "properties" : {
+        "generatr.style.logoPath" : "site/logo.png",
+        "generatr.style.faviconPath" : "site/logo.png",
+        "plantuml.shadow" : "true",
+        "generatr.svglink.target" : "_self",
+        "c4plantuml.elementProperties" : "true",
+        "generatr.style.colors.secondary" : "#ffffff",
+        "generatr.site.exporter" : "structurizr",
+        "generatr.style.colors.primary" : "#009688",
+        "generatr.site.nestGroups" : "true",
+        "generatr.markdown.flexmark.extensions" : "Abbreviation,Admonition,AnchorLink,Attributes,Autolink,Definition,Emoji,Footnotes,GfmTaskList,GitLab,MediaTags,Tables,TableOfContents,Typographic",
+        "c4plantuml.tags" : "true",
+        "plantuml.sequenceDiagram" : "true",
+        "generatr.style.customStylesheet" : "site/custom.css",
+        "plantuml.animation" : "true"
+      },
+      "styles" : {
+        "elements" : [ {
+          "background" : "#00796b",
+          "color" : "#ffffff",
+          "fontSize" : 22,
+          "shape" : "Person",
+          "tag" : "Person"
+        }, {
+          "background" : "#009688",
+          "color" : "#ffffff",
+          "tag" : "Software System"
+        }, {
+          "background" : "#4db6ac",
+          "color" : "#ffffff",
+          "tag" : "External System"
+        }, {
+          "background" : "#004d40",
+          "color" : "#ffffff",
+          "tag" : "Existing System"
+        }, {
+          "background" : "#26a69a",
+          "color" : "#ffffff",
+          "tag" : "Container"
+        }, {
+          "shape" : "WebBrowser",
+          "tag" : "Web Browser"
+        }, {
+          "shape" : "Cylinder",
+          "tag" : "Database"
+        }, {
+          "background" : "#80cbc4",
+          "color" : "#000000",
+          "tag" : "Component"
+        }, {
+          "opacity" : 25,
+          "tag" : "Failover"
+        } ],
+        "relationships" : [ {
+          "color" : "#004d40",
+          "routing" : "Orthogonal",
+          "style" : "Dashed",
+          "tag" : "Relationship"
+        } ]
+      },
+      "terminology" : { }
+    },
+    "containerViews" : [ {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "2",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "4",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "5",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "6",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "19",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalSoftwareSystemBoundariesVisible" : false,
+      "generatedKey" : true,
+      "key" : "Container-001",
+      "order" : 8,
+      "relationships" : [ {
+        "id" : "32"
+      }, {
+        "id" : "39"
+      }, {
+        "id" : "47"
+      }, {
+        "id" : "48"
+      }, {
+        "id" : "49"
+      }, {
+        "id" : "51"
+      } ],
+      "softwareSystemId" : "3"
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "8",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "9",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "10",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "15",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalSoftwareSystemBoundariesVisible" : false,
+      "generatedKey" : true,
+      "key" : "Container-002",
+      "order" : 9,
+      "relationships" : [ {
+        "id" : "31"
+      }, {
+        "id" : "40"
+      }, {
+        "id" : "54"
+      }, {
+        "id" : "55"
+      }, {
+        "id" : "66"
+      } ],
+      "softwareSystemId" : "7"
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "2",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "12",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "13",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "14",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "15",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalSoftwareSystemBoundariesVisible" : false,
+      "generatedKey" : true,
+      "key" : "Container-003",
+      "order" : 10,
+      "relationships" : [ {
+        "id" : "31"
+      }, {
+        "id" : "41"
+      }, {
+        "id" : "45"
+      }, {
+        "id" : "56"
+      }, {
+        "id" : "57"
+      }, {
+        "id" : "70"
+      } ],
+      "softwareSystemId" : "11"
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "7",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "11",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "16",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "17",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "18",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "19",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "23",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalSoftwareSystemBoundariesVisible" : false,
+      "generatedKey" : true,
+      "key" : "Container-004",
+      "order" : 11,
+      "relationships" : [ {
+        "id" : "29"
+      }, {
+        "id" : "30"
+      }, {
+        "id" : "32"
+      }, {
+        "id" : "33"
+      }, {
+        "id" : "42"
+      }, {
+        "id" : "58"
+      }, {
+        "id" : "59"
+      }, {
+        "id" : "61"
+      }, {
+        "id" : "65"
+      }, {
+        "id" : "69"
+      }, {
+        "id" : "73"
+      } ],
+      "softwareSystemId" : "15"
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "3",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "15",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "20",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "21",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "22",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalSoftwareSystemBoundariesVisible" : false,
+      "generatedKey" : true,
+      "key" : "Container-005",
+      "order" : 12,
+      "relationships" : [ {
+        "id" : "28"
+      }, {
+        "id" : "31"
+      }, {
+        "id" : "43"
+      }, {
+        "id" : "52"
+      }, {
+        "id" : "62"
+      }, {
+        "id" : "76"
+      }, {
+        "id" : "77"
+      } ],
+      "softwareSystemId" : "19"
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "2",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "15",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "24",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "25",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "26",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "27",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalSoftwareSystemBoundariesVisible" : false,
+      "generatedKey" : true,
+      "key" : "Container-006",
+      "order" : 13,
+      "relationships" : [ {
+        "id" : "31"
+      }, {
+        "id" : "38"
+      }, {
+        "id" : "44"
+      }, {
+        "id" : "46"
+      }, {
+        "id" : "74"
+      }, {
+        "id" : "78"
+      }, {
+        "id" : "79"
+      }, {
+        "id" : "80"
+      } ],
+      "softwareSystemId" : "23"
+    } ],
+    "dynamicViews" : [ {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "Reader Registration Process",
+      "elementId" : "3",
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "4",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "5",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "6",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "21",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalBoundariesVisible" : false,
+      "key" : "reader-registration",
+      "order" : 14,
+      "relationships" : [ {
+        "description" : "Initiates account registration",
+        "id" : "39",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "Requests new account creation",
+        "id" : "48",
+        "order" : "2",
+        "response" : false
+      }, {
+        "description" : "Stores new account data",
+        "id" : "49",
+        "order" : "3",
+        "response" : false
+      }, {
+        "description" : "Confirms account creation",
+        "id" : "49",
+        "order" : "4",
+        "response" : true
+      }, {
+        "description" : "Updates recommendations for new user",
+        "id" : "50",
+        "order" : "5",
+        "response" : false
+      }, {
+        "description" : "Acknowledges recommendation update",
+        "id" : "50",
+        "order" : "6",
+        "response" : true
+      }, {
+        "description" : "Sends account details",
+        "id" : "48",
+        "order" : "7",
+        "response" : true
+      }, {
+        "description" : "Displays created account details",
+        "id" : "39",
+        "order" : "8",
+        "response" : true
+      } ]
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "RightLeft",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "Process of Adding Books to Shelf",
+      "elementId" : "7",
+      "elements" : [ {
+        "id" : "9",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "10",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "17",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalBoundariesVisible" : false,
+      "key" : "add-books-to-shelf",
+      "order" : 15,
+      "relationships" : [ {
+        "description" : "Notifies borrowed items",
+        "id" : "64",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "Acknowledges receipt of items",
+        "id" : "64",
+        "order" : "2",
+        "response" : true
+      }, {
+        "description" : "Stores borrowed items",
+        "id" : "55",
+        "order" : "3",
+        "response" : false
+      }, {
+        "description" : "Confirms storage",
+        "id" : "55",
+        "order" : "4",
+        "response" : true
+      } ]
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "RightLeft",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "View Reader's Borrowed Books",
+      "elementId" : "7",
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "8",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "9",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "10",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalBoundariesVisible" : false,
+      "key" : "present-books-from-reader-shelf",
+      "order" : 16,
+      "relationships" : [ {
+        "description" : "Requests borrowed items view",
+        "id" : "40",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "Fetches borrowed items",
+        "id" : "54",
+        "order" : "2",
+        "response" : false
+      }, {
+        "description" : "Retrieves borrowed items data",
+        "id" : "55",
+        "order" : "3",
+        "response" : false
+      }, {
+        "description" : "Returns borrowed items data",
+        "id" : "55",
+        "order" : "4",
+        "response" : true
+      }, {
+        "description" : "Returns borrowed items to UI",
+        "id" : "54",
+        "order" : "5",
+        "response" : true
+      }, {
+        "description" : "Displays borrowed items view",
+        "id" : "40",
+        "order" : "6",
+        "response" : true
+      } ]
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "Adding a New Book to the Library",
+      "elementId" : "11",
+      "elements" : [ {
+        "id" : "2",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "12",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "13",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "14",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalBoundariesVisible" : false,
+      "key" : "add-book-to-library",
+      "order" : 17,
+      "relationships" : [ {
+        "description" : "Initiates new book addition",
+        "id" : "45",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "Processes new book addition",
+        "id" : "56",
+        "order" : "2",
+        "response" : false
+      }, {
+        "description" : "Stores book data",
+        "id" : "57",
+        "order" : "3",
+        "response" : false
+      }, {
+        "description" : "Confirms book storage",
+        "id" : "57",
+        "order" : "4",
+        "response" : true
+      }, {
+        "description" : "Returns new book ID",
+        "id" : "56",
+        "order" : "5",
+        "response" : true
+      }, {
+        "description" : "Displays new book details",
+        "id" : "45",
+        "order" : "6",
+        "response" : true
+      } ]
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "Removing a Book from the Library",
+      "elementId" : "11",
+      "elements" : [ {
+        "id" : "2",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "12",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "13",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "14",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalBoundariesVisible" : false,
+      "key" : "remove-book-from-library",
+      "order" : 18,
+      "relationships" : [ {
+        "description" : "Initiates book removal",
+        "id" : "45",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "Processes book removal",
+        "id" : "56",
+        "order" : "2",
+        "response" : false
+      }, {
+        "description" : "Removes book data",
+        "id" : "57",
+        "order" : "3",
+        "response" : false
+      }, {
+        "description" : "Confirms book removal",
+        "id" : "57",
+        "order" : "4",
+        "response" : true
+      }, {
+        "description" : "Returns removal status",
+        "id" : "56",
+        "order" : "5",
+        "response" : true
+      }, {
+        "description" : "Displays removal details",
+        "id" : "45",
+        "order" : "6",
+        "response" : true
+      } ]
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "Viewing Available Books in Library",
+      "elementId" : "11",
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "12",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "13",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "14",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalBoundariesVisible" : false,
+      "key" : "present-available-books",
+      "order" : 19,
+      "relationships" : [ {
+        "description" : "Requests available books list",
+        "id" : "41",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "Fetches available books",
+        "id" : "56",
+        "order" : "2",
+        "response" : false
+      }, {
+        "description" : "Retrieves available books",
+        "id" : "57",
+        "order" : "3",
+        "response" : false
+      }, {
+        "description" : "Returns available books",
+        "id" : "57",
+        "order" : "4",
+        "response" : true
+      }, {
+        "description" : "Returns book data",
+        "id" : "56",
+        "order" : "5",
+        "response" : true
+      }, {
+        "description" : "Displays available books list",
+        "id" : "41",
+        "order" : "6",
+        "response" : true
+      } ]
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "Viewing Recommended Books for User",
+      "elementId" : "19",
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "20",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "21",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "22",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalBoundariesVisible" : false,
+      "key" : "present-recommended-products",
+      "order" : 20,
+      "relationships" : [ {
+        "description" : "Requests recommendations",
+        "id" : "43",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "Fetches recommendations",
+        "id" : "76",
+        "order" : "2",
+        "response" : false
+      }, {
+        "description" : "Retrieves recommended items",
+        "id" : "77",
+        "order" : "3",
+        "response" : false
+      }, {
+        "description" : "Returns recommendations",
+        "id" : "77",
+        "order" : "4",
+        "response" : true
+      }, {
+        "description" : "Returns recommended items",
+        "id" : "76",
+        "order" : "5",
+        "response" : true
+      }, {
+        "description" : "Displays recommended items",
+        "id" : "43",
+        "order" : "6",
+        "response" : true
+      } ]
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "RightLeft",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "Updating User Recommendations",
+      "elementId" : "19",
+      "elements" : [ {
+        "id" : "17",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "21",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "22",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalBoundariesVisible" : false,
+      "key" : "update-user-recommendations",
+      "order" : 21,
+      "relationships" : [ {
+        "description" : "Notifies added items to cart",
+        "id" : "60",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "Acknowledges notification",
+        "id" : "60",
+        "order" : "2",
+        "response" : true
+      }, {
+        "description" : "Stores updated recommendations",
+        "id" : "77",
+        "order" : "3",
+        "response" : false
+      }, {
+        "description" : "Confirms storage",
+        "id" : "77",
+        "order" : "4",
+        "response" : true
+      } ]
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "RightLeft",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "Initial User Recommendations Setup",
+      "elementId" : "19",
+      "elements" : [ {
+        "id" : "5",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "21",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "22",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalBoundariesVisible" : false,
+      "key" : "store-user-recommendations-after-reader-registration",
+      "order" : 22,
+      "relationships" : [ {
+        "description" : "Sends user recommendations data",
+        "id" : "50",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "Acknowledges data receipt",
+        "id" : "50",
+        "order" : "2",
+        "response" : true
+      }, {
+        "description" : "Stores recommendations",
+        "id" : "77",
+        "order" : "3",
+        "response" : false
+      }, {
+        "description" : "Confirms storage",
+        "id" : "77",
+        "order" : "4",
+        "response" : true
+      } ]
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "Adding Item to Cart",
+      "elementId" : "15",
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "16",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "17",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "18",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "21",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalBoundariesVisible" : false,
+      "key" : "add-item-to-cart",
+      "order" : 23,
+      "relationships" : [ {
+        "description" : "Adds item to cart",
+        "id" : "42",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "Processes cart addition",
+        "id" : "58",
+        "order" : "2",
+        "response" : false
+      }, {
+        "description" : "Stores cart item",
+        "id" : "59",
+        "order" : "3",
+        "response" : false
+      }, {
+        "description" : "Confirms storage",
+        "id" : "59",
+        "order" : "4",
+        "response" : true
+      }, {
+        "description" : "Updates recommendations based on cart activity",
+        "id" : "60",
+        "order" : "5",
+        "response" : false
+      }, {
+        "description" : "Acknowledges update",
+        "id" : "60",
+        "order" : "6",
+        "response" : true
+      }, {
+        "description" : "Confirms cart addition",
+        "id" : "58",
+        "order" : "7",
+        "response" : true
+      }, {
+        "description" : "Displays cart",
+        "id" : "42",
+        "order" : "8",
+        "response" : true
+      } ]
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "Removing Item from Cart",
+      "elementId" : "15",
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "16",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "17",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "18",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalBoundariesVisible" : false,
+      "key" : "remove-item-from-cart",
+      "order" : 24,
+      "relationships" : [ {
+        "description" : "Removes item from cart",
+        "id" : "42",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "Processes cart removal",
+        "id" : "58",
+        "order" : "2",
+        "response" : false
+      }, {
+        "description" : "Removes cart item",
+        "id" : "59",
+        "order" : "3",
+        "response" : false
+      }, {
+        "description" : "Confirms removal",
+        "id" : "59",
+        "order" : "4",
+        "response" : true
+      }, {
+        "description" : "Confirms cart removal",
+        "id" : "58",
+        "order" : "5",
+        "response" : true
+      }, {
+        "description" : "Updates cart view",
+        "id" : "42",
+        "order" : "6",
+        "response" : true
+      } ]
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "Completing the Cart Process",
+      "elementId" : "15",
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "13",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "14",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "16",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "17",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "18",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "21",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "25",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalBoundariesVisible" : false,
+      "key" : "finalize-cart",
+      "order" : 25,
+      "relationships" : [ {
+        "description" : "Finalizes cart",
+        "id" : "42",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "Processes cart finalization",
+        "id" : "58",
+        "order" : "2",
+        "response" : false
+      }, {
+        "description" : "Retrieves cart details",
+        "id" : "59",
+        "order" : "3",
+        "response" : false
+      }, {
+        "description" : "Returns cart details",
+        "id" : "59",
+        "order" : "4",
+        "response" : true
+      }, {
+        "description" : "Checks item availability",
+        "id" : "68",
+        "order" : "5",
+        "response" : false
+      }, {
+        "description" : "Verifies product availability",
+        "id" : "57",
+        "order" : "6",
+        "response" : false
+      }, {
+        "description" : "Returns availability status",
+        "id" : "57",
+        "order" : "7",
+        "response" : true
+      }, {
+        "description" : "Provides availability details",
+        "id" : "68",
+        "order" : "8",
+        "response" : true
+      }, {
+        "description" : "Generates payment link",
+        "id" : "72",
+        "order" : "9",
+        "response" : false
+      }, {
+        "description" : "Returns payment link",
+        "id" : "72",
+        "order" : "10",
+        "response" : true
+      }, {
+        "description" : "Finalizes recommendations",
+        "id" : "60",
+        "order" : "11",
+        "response" : false
+      }, {
+        "description" : "Acknowledges finalization",
+        "id" : "60",
+        "order" : "12",
+        "response" : true
+      }, {
+        "description" : "Presents payment link",
+        "id" : "58",
+        "order" : "13",
+        "response" : true
+      }, {
+        "description" : "Displays transaction details",
+        "id" : "42",
+        "order" : "14",
+        "response" : true
+      } ]
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "Updating Cart Status to Paid",
+      "elementId" : "15",
+      "elements" : [ {
+        "id" : "9",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "17",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "18",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "25",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalBoundariesVisible" : false,
+      "key" : "cart-paid",
+      "order" : 26,
+      "relationships" : [ {
+        "description" : "Notifies of completed payment",
+        "id" : "75",
+        "order" : "1",
+        "response" : true
+      }, {
+        "description" : "Acknowledges payment",
+        "id" : "75",
+        "order" : "2",
+        "response" : false
+      }, {
+        "description" : "Marks cart as paid",
+        "id" : "59",
+        "order" : "3",
+        "response" : false
+      }, {
+        "description" : "Confirms payment status",
+        "id" : "59",
+        "order" : "4",
+        "response" : true
+      }, {
+        "description" : "Updates borrowed items",
+        "id" : "64",
+        "order" : "5",
+        "response" : false
+      }, {
+        "description" : "Acknowledges update",
+        "id" : "64",
+        "order" : "6",
+        "response" : true
+      } ]
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "Administrative Review of Financial Transactions",
+      "elementId" : "23",
+      "elements" : [ {
+        "id" : "2",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "24",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "25",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "26",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalBoundariesVisible" : false,
+      "key" : "oversee-financial-transactions",
+      "order" : 27,
+      "relationships" : [ {
+        "description" : "Reviews financial transactions",
+        "id" : "46",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "Requests transaction data",
+        "id" : "78",
+        "order" : "2",
+        "response" : false
+      }, {
+        "description" : "Retrieves transactions",
+        "id" : "79",
+        "order" : "3",
+        "response" : false
+      }, {
+        "description" : "Returns transaction data",
+        "id" : "79",
+        "order" : "4",
+        "response" : true
+      }, {
+        "description" : "Provides transaction data",
+        "id" : "78",
+        "order" : "5",
+        "response" : true
+      }, {
+        "description" : "Displays transaction overview",
+        "id" : "46",
+        "order" : "6",
+        "response" : true
+      } ]
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "Creating a Payment Link",
+      "elementId" : "23",
+      "elements" : [ {
+        "id" : "17",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "25",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "26",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalBoundariesVisible" : false,
+      "key" : "generate-payment-link",
+      "order" : 28,
+      "relationships" : [ {
+        "description" : "Requests payment link",
+        "id" : "72",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "Creates payment entry",
+        "id" : "79",
+        "order" : "2",
+        "response" : false
+      }, {
+        "description" : "Confirms payment link",
+        "id" : "79",
+        "order" : "3",
+        "response" : true
+      }, {
+        "description" : "Returns payment link",
+        "id" : "72",
+        "order" : "4",
+        "response" : true
+      } ]
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "Invoice Email Process",
+      "elementId" : "23",
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "25",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "27",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalBoundariesVisible" : false,
+      "key" : "send-invoice",
+      "order" : 29,
+      "relationships" : [ {
+        "description" : "Sends invoice to reader",
+        "id" : "80",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "Receives invoice",
+        "id" : "38",
+        "order" : "2",
+        "response" : false
+      }, {
+        "description" : "Confirms invoice receipt",
+        "id" : "38",
+        "order" : "3",
+        "response" : true
+      }, {
+        "description" : "Confirms email sent",
+        "id" : "80",
+        "order" : "4",
+        "response" : true
+      } ]
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "Processing Payment for Cart Items",
+      "elementId" : "23",
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "17",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "18",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "24",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "25",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "26",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalBoundariesVisible" : false,
+      "key" : "make-payment",
+      "order" : 30,
+      "relationships" : [ {
+        "description" : "Initiates payment",
+        "id" : "44",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "Processes payment request",
+        "id" : "78",
+        "order" : "2",
+        "response" : false
+      }, {
+        "description" : "Stores payment details",
+        "id" : "79",
+        "order" : "3",
+        "response" : false
+      }, {
+        "description" : "Confirms payment storage",
+        "id" : "79",
+        "order" : "4",
+        "response" : true
+      }, {
+        "description" : "Notifies cart as paid",
+        "id" : "75",
+        "order" : "5",
+        "response" : true
+      }, {
+        "description" : "Acknowledges payment notification",
+        "id" : "75",
+        "order" : "6",
+        "response" : false
+      }, {
+        "description" : "Returns payment status",
+        "id" : "78",
+        "order" : "7",
+        "response" : true
+      }, {
+        "description" : "Updates cart to paid status",
+        "id" : "59",
+        "order" : "8",
+        "response" : false
+      }, {
+        "description" : "Confirms update",
+        "id" : "59",
+        "order" : "9",
+        "response" : true
+      }, {
+        "description" : "Displays payment confirmation",
+        "id" : "44",
+        "order" : "10",
+        "response" : true
+      } ]
+    } ],
+    "systemContextViews" : [ {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "2",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "3",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "19",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "generatedKey" : true,
+      "key" : "SystemContext-001",
+      "order" : 2,
+      "relationships" : [ {
+        "id" : "28"
+      }, {
+        "id" : "32"
+      }, {
+        "id" : "35"
+      }, {
+        "id" : "53"
+      } ],
+      "softwareSystemId" : "3"
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "7",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "15",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "generatedKey" : true,
+      "key" : "SystemContext-002",
+      "order" : 3,
+      "relationships" : [ {
+        "id" : "29"
+      }, {
+        "id" : "31"
+      }, {
+        "id" : "67"
+      } ],
+      "softwareSystemId" : "7"
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "2",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "11",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "15",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "generatedKey" : true,
+      "key" : "SystemContext-003",
+      "order" : 4,
+      "relationships" : [ {
+        "id" : "30"
+      }, {
+        "id" : "31"
+      }, {
+        "id" : "36"
+      }, {
+        "id" : "71"
+      } ],
+      "softwareSystemId" : "11"
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "7",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "11",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "15",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "19",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "23",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "generatedKey" : true,
+      "key" : "SystemContext-004",
+      "order" : 5,
+      "relationships" : [ {
+        "id" : "29"
+      }, {
+        "id" : "30"
+      }, {
+        "id" : "31"
+      }, {
+        "id" : "32"
+      }, {
+        "id" : "33"
+      }, {
+        "id" : "34"
+      }, {
+        "id" : "63"
+      }, {
+        "id" : "67"
+      }, {
+        "id" : "71"
+      } ],
+      "softwareSystemId" : "15"
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "3",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "15",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "19",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "generatedKey" : true,
+      "key" : "SystemContext-005",
+      "order" : 6,
+      "relationships" : [ {
+        "id" : "28"
+      }, {
+        "id" : "31"
+      }, {
+        "id" : "32"
+      }, {
+        "id" : "53"
+      }, {
+        "id" : "63"
+      } ],
+      "softwareSystemId" : "19"
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "2",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "15",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "23",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "27",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "generatedKey" : true,
+      "key" : "SystemContext-006",
+      "order" : 7,
+      "relationships" : [ {
+        "id" : "31"
+      }, {
+        "id" : "33"
+      }, {
+        "id" : "34"
+      }, {
+        "id" : "37"
+      }, {
+        "id" : "38"
+      }, {
+        "id" : "81"
+      } ],
+      "softwareSystemId" : "23"
+    } ],
+    "systemLandscapeViews" : [ {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "2",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "3",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "7",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "11",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "15",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "19",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "23",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "27",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "key" : "SystemLandscape",
+      "order" : 1,
+      "relationships" : [ {
+        "id" : "28"
+      }, {
+        "id" : "29"
+      }, {
+        "id" : "30"
+      }, {
+        "id" : "31"
+      }, {
+        "id" : "32"
+      }, {
+        "id" : "33"
+      }, {
+        "id" : "34"
+      }, {
+        "id" : "35"
+      }, {
+        "id" : "36"
+      }, {
+        "id" : "37"
+      }, {
+        "id" : "38"
+      }, {
+        "id" : "53"
+      }, {
+        "id" : "63"
+      }, {
+        "id" : "67"
+      }, {
+        "id" : "71"
+      }, {
+        "id" : "81"
+      } ]
+    } ]
+  }
+}

@@ -1,0 +1,85 @@
+@startuml
+set separator none
+title Cart - Dynamic
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam sequenceParticipant<<Cart.CartDatabase>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam sequenceParticipant<<Cart.CartMicroservice>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam sequenceParticipant<<Cart.CartSPA>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam sequenceParticipant<<Finance.FinanceMicroservice>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam sequenceParticipant<<Products.ProductsDatabase>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam sequenceParticipant<<Products.ProductsMicroservice>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+skinparam sequenceParticipant<<Reader>> {
+  BackgroundColor #00796b
+  FontColor #ffffff
+  BorderColor #00544a
+  shadowing false
+}
+skinparam sequenceParticipant<<Recommendations.RecommendationsMicroservice>> {
+  BackgroundColor #26a69a
+  FontColor #ffffff
+  BorderColor #1a746b
+  shadowing false
+}
+
+actor "Reader\n<size:10>[Person]</size>" as Reader <<Reader>> #00796b
+participant "Cart SPA\n<size:10>[Container: React Component]</size>" as Cart.CartSPA <<Cart.CartSPA>> #26a69a
+participant "Cart Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Cart.CartMicroservice <<Cart.CartMicroservice>> #26a69a
+database "Cart Database\n<size:10>[Container: MongoDB]</size>" as Cart.CartDatabase <<Cart.CartDatabase>> #26a69a
+participant "Products Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Products.ProductsMicroservice <<Products.ProductsMicroservice>> #26a69a
+database "Products Database\n<size:10>[Container: MongoDB]</size>" as Products.ProductsDatabase <<Products.ProductsDatabase>> #26a69a
+participant "Finance Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Finance.FinanceMicroservice <<Finance.FinanceMicroservice>> #26a69a
+participant "Recommendations Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Recommendations.RecommendationsMicroservice <<Recommendations.RecommendationsMicroservice>> #26a69a
+Reader -[#004d40]> Cart.CartSPA : Finalizes cart
+Cart.CartSPA -[#004d40]> Cart.CartMicroservice : Processes cart finalization
+Cart.CartMicroservice -[#004d40]> Cart.CartDatabase : Retrieves cart details
+Cart.CartMicroservice <-[#004d40]- Cart.CartDatabase : Returns cart details
+Cart.CartMicroservice -[#004d40]> Products.ProductsMicroservice : Checks item availability
+Products.ProductsMicroservice -[#004d40]> Products.ProductsDatabase : Verifies product availability
+Products.ProductsMicroservice <-[#004d40]- Products.ProductsDatabase : Returns availability status
+Cart.CartMicroservice <-[#004d40]- Products.ProductsMicroservice : Provides availability details
+Cart.CartMicroservice -[#004d40]> Finance.FinanceMicroservice : Generates payment link
+Cart.CartMicroservice <-[#004d40]- Finance.FinanceMicroservice : Returns payment link
+Cart.CartMicroservice -[#004d40]> Recommendations.RecommendationsMicroservice : Finalizes recommendations
+Cart.CartMicroservice <-[#004d40]- Recommendations.RecommendationsMicroservice : Acknowledges finalization
+Cart.CartSPA <-[#004d40]- Cart.CartMicroservice : Presents payment link
+Reader <-[#004d40]- Cart.CartSPA : Displays transaction details
+@enduml
