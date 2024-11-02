@@ -1,9 +1,11 @@
-==  E-Library Architecture
+== E-Library Architecture
 
-This is the E-Library System Documentation. It outlines the E-Library architecture, which is organised into systems, containers and components. It also covers different levels of detail for business processes. Containers, which are deployable units, have detailed descriptions and associated information. In addition, the documentation includes an Architecture Decision Record, which tracks the history of system changes and why they were made. This documentation is a comprehensive resource for understanding the E-Library architecture.
+This document serves as the comprehensive reference for the **E-Library System Architecture**. It provides a structured outline of the E-Library system, organized into systems, containers, and components, each with detailed descriptions and supporting information. The documentation also breaks down essential business processes, offering clarity on how each part of the system functions within the overall architecture.
 
+Each container, representing a deployable unit, includes specific information on its roles, dependencies, and configurations. This resource is invaluable for developers, architects, and stakeholders, offering insights into the design, deployment, and operation of the E-Library system.
 
-#*Disclaimer*: This document is provided as an example to demonstrate potential documentation structure and is not intended for actual use.#
+This resource is invaluable for developers, architects, and stakeholders, offering insights into the design, deployment, and operation of the E-Library system.
+
+#**Disclaimer**: This document is provided as an example of potential documentation structure and is not intended for actual use.#
 
 image::embed:SystemLandscape[System Landscape Diagram]
-

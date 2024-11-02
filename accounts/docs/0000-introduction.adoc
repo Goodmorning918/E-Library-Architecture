@@ -1,97 +1,105 @@
-= Shelf Documentation
+= Accounts Service Documentation
 
 == General
 
-image::/site/accounts.png[Shelf,700,align="right"]
+image::/site/accounts.png[Accounts,700,align="right"]
+
+This section provides a comprehensive overview of the Accounts Service within the E-Library system, which manages user account operations, including registration, profile management, and account updates.
 
 == Ownership
 
-* *Team*: Shelf Team
-* *Product Owner*: John Doe
+* **Team**: Accounts Team
+* **Product Owner**: John Doe
 
 == Containers
 
-=== Backend
+### Backend
 
-==== Shelf Microservice
+#### Accounts Microservice
 
-Microservice responsible for processing all shelf operations.
+The Accounts Microservice is responsible for handling all account-related operations, such as user registration, updating profile information, and account management.
 
-* *Repository Link*:
+* **Repository Link**:
 link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Accounts Microservice]
 
-* *Environments*:
-link:https://library.test.shelf.com[test],
-link:https://library.shelf.com[prod]
+* **Environments**:
+- Test: link:https://library.test.accounts.com[test]
+- Production: link:https://library.accounts.com[prod]
 
-* *Parameters*:
-link:https://aws.params.com/test/shelf[test],
-link:https://aws.params.com/prod/shelf[prod],
+* **Parameters**:
+- Test Parameters: link:https://aws.params.com/test/accounts[test]
+- Production Parameters: link:https://aws.params.com/prod/accounts[prod]
 
-* *CI/CD*:
-link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - actions]
+* **CI/CD**:
+link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - Actions]
 
-* *Logs*:
-link:https://logserver.com/test/shelf[test],
-link:https://logserver.com/prod/shelf[prod],
+* **Logs**:
+- Test Logs: link:https://logserver.com/test/accounts[test]
+- Production Logs: link:https://logserver.com/prod/accounts[prod]
 
-* *Monitoring Dashboard*:
-link:https://monitoring.com/test/shelf[test],
-link:https://monitoring.com/prod/shelf[prod],
+* **Monitoring Dashboard**:
+- Test Dashboard: link:https://monitoring.com/test/accounts[test]
+- Production Dashboard: link:https://monitoring.com/prod/accounts[prod]
 
-=== Frontend
+### Frontend
 
-Single Page Application responsible for displaying all shelf operations.
+The frontend component, known as the Accounts SPA, is a Single Page Application responsible for displaying all account operations. It provides users with access to their profiles and account management options.
 
-==== Shelf Spa
+#### Accounts SPA
 
-* *Repository Link*:
-link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - shelf-Spa]
+* **Repository Link**:
+link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Accounts SPA]
 
-* *Environments*:
-link:https://library.test.shelfSpa.com[test],
-link:https://library.shelfSpa.com[prod]
+* **Environments**:
+- Test: link:https://library.test.accountsSpa.com[test]
+- Production: link:https://library.accountsSpa.com[prod]
 
-* *Parameters*:
-link:https://aws.params.com/test/shelfSpa[test],
-link:https://aws.params.com/prod/shelfSpa[prod],
+* **Parameters**:
+- Test Parameters: link:https://aws.params.com/test/accountsSpa[test]
+- Production Parameters: link:https://aws.params.com/prod/accountsSpa[prod]
 
-* *CI/CD*:
-link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - actions]
+* **CI/CD**:
+link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - Actions]
 
-* *Logs*:
-link:https://logserver.com/test/shelfSpa[test],
-link:https://logserver.com/prod/shelfSpa[prod],
+* **Logs**:
+- Test Logs: link:https://logserver.com/test/accountsSpa[test]
+- Production Logs: link:https://logserver.com/prod/accountsSpa[prod]
 
-* *Monitoring Dashboard*:
-link:https://monitoring.com/test/shelfSpa[test],
-link:https://monitoring.com/prod/shelfSpa[prod],
+* **Monitoring Dashboard**:
+- Test Dashboard: link:https://monitoring.com/test/accountsSpa[test]
+- Production Dashboard: link:https://monitoring.com/prod/accountsSpa[prod]
 
-=== Database
+### Database
 
-Database responsible for storing all shelf data.
+The Accounts Database is responsible for storing all user account data, including profile information, account settings, and user credentials.
 
-==== Accounts Database
+#### Accounts Database
 
-* *Database Link*:
-link:https://library.test.shelfDb.com[test],
-link:https://library.prod.shelfDb.com[prod],
+* **Database Link**:
+- Test Database: link:https://library.test.accountsDb.com[test]
+- Production Database: link:https://library.prod.accountsDb.com[prod]
 
-* *Database Read Only access*:
-*** Test
-**** User: user1
-**** Password: password1
+* **Database Read-Only Access**:
+- Test Credentials
+- User: **user1**
+- Password: **password1**
 
-== Shelf Processes
+== Accounts Processes
 
-.[.collapse-title]#Add books to shelf#
+This section details key processes involved in managing user accounts, including reader registration and storing user recommendations.
+
+.[.collapse-title]#Reader Registration#
 [%collapsible]
 ====
-image::embed:add-books-to-shelf[Add books to shelf]
+The *Reader Registration* process allows a new user to create an account. The Accounts SPA sends registration information to the Accounts Microservice, which then stores the new user details in the Accounts Database.
+
+image::embed:reader-registration[Reader Registration]
 ====
 
-.[.collapse-title]#Present books from reader shelf#
+.[.collapse-title]#Store User Recommendations After Reader Registration#
 [%collapsible]
 ====
-image::embed:present-books-from-reader-shelf[Present books from reader shelf]
+The *Store User Recommendations After Reader Registration* process involves setting up initial recommendations for a new user after account creation. The Accounts Microservice interacts with the Recommendations Service to store relevant data in the Recommendations Database.
+
+image::embed:store-user-recommendations-after-reader-registration[Store User Recommendations After Reader Registration]
 ====

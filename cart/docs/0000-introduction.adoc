@@ -2,108 +2,120 @@
 
 == General
 
-image::/site/cart.png[Accounts,700,align="right"]
+image::/site/cart.png[Cart,700,align="right"]
+
+This section provides a detailed overview of the Cart module within the E-Library system, responsible for managing the item rental process.
 
 == Ownership
 
-* *Team*: Cart Team
-* *Product Owner*: Michael Adams
+* **Team**: Cart Team
+* **Product Owner**: Michael Adams
 
 == Containers
 
-=== Backend
+### Backend
 
-==== Cart Microservice
+#### Cart Microservice
 
-Microservice responsible for all cart operations.
+The Cart Microservice is responsible for all cart-related operations, including adding items, removing items, finalizing, and updating cart status upon payment.
 
-* *Repository Link*:
+* **Repository Link**:
 link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Cart Microservice]
 
-* *Environments*:
-link:https://library.test.cart.com[test],
-link:https://library.cart.com[prod]
+* **Environments**:
+- Test: link:https://library.test.cart.com[test]
+- Production: link:https://library.cart.com[prod]
 
-* *Parameters*:
-link:https://aws.params.com/test/cart[test],
-link:https://aws.params.com/prod/cart[prod],
+* **Parameters**:
+- Test Parameters: link:https://aws.params.com/test/cart[test]
+- Production Parameters: link:https://aws.params.com/prod/cart[prod]
 
-* *CI/CD*:
-link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - actions]
+* **CI/CD**:
+link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - Actions]
 
-* *Logs*:
-link:https://logserver.com/test/cart[test],
-link:https://logserver.com/prod/cart[prod],
+* **Logs**:
+- Test Logs: link:https://logserver.com/test/cart[test]
+- Production Logs: link:https://logserver.com/prod/cart[prod]
 
-* *Monitoring Dashboard*:
-link:https://monitoring.com/test/cart[test],
-link:https://monitoring.com/prod/cart[prod],
+* **Monitoring Dashboard**:
+- Test Dashboard: link:https://monitoring.com/test/cart[test]
+- Production Dashboard: link:https://monitoring.com/prod/cart[prod]
 
-=== Frontend
+### Frontend
 
-Single Page Application responsible for displaying all cart operations.
+The frontend component is a Single Page Application (SPA) responsible for displaying all cart operations, such as viewing cart items, managing the cart, and proceeding to checkout.
 
-==== Cart Spa
+#### Cart SPA
 
-* *Repository Link*:
-link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - cart-Spa]
+* **Repository Link**:
+link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Cart SPA]
 
-* *Environments*:
-link:https://library.test.cartSpa.com[test],
-link:https://library.cartSpa.com[prod]
+* **Environments**:
+- Test: link:https://library.test.cartSpa.com[test]
+- Production: link:https://library.cartSpa.com[prod]
 
-* *Parameters*:
-link:https://aws.params.com/test/cartSpa[test],
-link:https://aws.params.com/prod/cartSpa[prod],
+* **Parameters**:
+- Test Parameters: link:https://aws.params.com/test/cartSpa[test]
+- Production Parameters: link:https://aws.params.com/prod/cartSpa[prod]
 
-* *CI/CD*:
-link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - actions]
+* **CI/CD**:
+link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - Actions]
 
-* *Logs*:
-link:https://logserver.com/test/cartSpa[test],
-link:https://logserver.com/prod/cartSpa[prod],
+* **Logs**:
+- Test Logs: link:https://logserver.com/test/cartSpa[test]
+- Production Logs: link:https://logserver.com/prod/cartSpa[prod]
 
-* *Monitoring Dashboard*:
-link:https://monitoring.com/test/cartSpa[test],
-link:https://monitoring.com/prod/cartSpa[prod],
+* **Monitoring Dashboard**:
+- Test Dashboard: link:https://monitoring.com/test/cartSpa[test]
+- Production Dashboard: link:https://monitoring.com/prod/cartSpa[prod]
 
-=== Database
+### Database
 
-Database responsible for storing all cart data.
+The Cart Database is responsible for storing all cart data, such as cart items, user cart status, and transaction history.
 
-==== Cart Database
+#### Cart Database
 
-* *Database Link*:
-link:https://library.test.cardDb.com[test],
-link:https://library.prod.cardDb.com[prod],
+* **Database Link**:
+- Test Database: link:https://library.test.cardDb.com[test]
+- Production Database: link:https://library.prod.cardDb.com[prod]
 
-* *Database Read Only access*:
-*** Test
-**** User: user1
-**** Password: password1
+* **Database Read-Only Access**:
+- Test Credentials
+- User: **user1**
+- Password: **password1**
 
 == Cart Processes
+
+This section covers key processes involved in managing the cart, including adding items, removing items, finalizing the cart, and updating the cart status upon payment.
 
 .[.collapse-title]#Add item to cart#
 [%collapsible]
 ====
+The *Add Item to Cart* process allows a user to add a selected item to their cart. This process involves communication between the frontend Cart SPA and the backend Cart Microservice, which stores the cart data in the Cart Database.
+
 image::embed:add-item-to-cart[Add item to cart]
 ====
 
 .[.collapse-title]#Remove item from cart#
 [%collapsible]
 ====
+The *Remove Item from Cart* process enables users to remove an item from their cart. The Cart Microservice processes the request and updates the Cart Database accordingly, reflecting the change in the frontend Cart SPA.
+
 image::embed:remove-item-from-cart[Remove item from cart]
 ====
 
 .[.collapse-title]#Finalize cart#
 [%collapsible]
 ====
+The *Finalize Cart* process initiates checkout, where the Cart Microservice verifies item availability, calculates totals, and interacts with the Finance Microservice to generate a payment link. The Cart SPA displays this link to the user for completing the purchase.
+
 image::embed:finalize-cart[Finalize cart]
 ====
 
 .[.collapse-title]#Cart paid#
 [%collapsible]
 ====
+The *Cart Paid* process updates the cart status after payment is confirmed. The Finance Microservice notifies the Cart Microservice, which marks the cart as paid in the Cart Database and updates the status in the Cart SPA.
+
 image::embed:cart-paid[Cart paid]
 ====

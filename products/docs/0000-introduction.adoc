@@ -1,103 +1,113 @@
-= Products Documentation
+= Products Service Documentation
 
 == General
 
 image::/site/products.png[Products,700,align="right"]
 
+This section provides a comprehensive overview of the Products Service within the E-Library system, which is responsible for managing all operations related to products (e.g., books) available in the library.
+
 == Ownership
 
-* *Team*: Products Team
-* *Product Owner*: William Anderson
+* **Team**: Products Team
+* **Product Owner**: William Anderson
 
 == Containers
 
-=== Backend
+### Backend
 
-==== Products Microservice
+#### Products Microservice
 
-Microservice responsible for processing all products operations.
+The Products Microservice is responsible for handling all product-related operations, including adding, removing, and managing items in the library’s catalog.
 
-* *Repository Link*:
-link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Accounts Microservice]
+* **Repository Link**:
+link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Products Microservice]
 
-* *Environments*:
-link:https://library.test.products.com[test],
-link:https://library.products.com[prod]
+* **Environments**:
+- Test: link:https://library.test.products.com[test]
+- Production: link:https://library.products.com[prod]
 
-* *Parameters*:
-link:https://aws.params.com/test/products[test],
-link:https://aws.params.com/prod/products[prod],
+* **Parameters**:
+- Test Parameters: link:https://aws.params.com/test/products[test]
+- Production Parameters: link:https://aws.params.com/prod/products[prod]
 
-* *CI/CD*:
-link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - actions]
+* **CI/CD**:
+link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - Actions]
 
-* *Logs*:
-link:https://logserver.com/test/products[test],
-link:https://logserver.com/prod/products[prod],
+* **Logs**:
+- Test Logs: link:https://logserver.com/test/products[test]
+- Production Logs: link:https://logserver.com/prod/products[prod]
 
-* *Monitoring Dashboard*:
-link:https://monitoring.com/test/products[test],
-link:https://monitoring.com/prod/products[prod],
+* **Monitoring Dashboard**:
+- Test Dashboard: link:https://monitoring.com/test/products[test]
+- Production Dashboard: link:https://monitoring.com/prod/products[prod]
 
-=== Frontend
+### Frontend
 
-Single Page Application responsible for displaying all products operations.
+The frontend component, known as the Products SPA, is a Single Page Application responsible for displaying all product operations, such as viewing available books, adding new items, and removing items from the catalog.
 
-==== Products Spa
+#### Products SPA
 
-* *Repository Link*:
-link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - shelf-Products]
+* **Repository Link**:
+link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Products SPA]
 
-* *Environments*:
-link:https://library.test.productsSpa.com[test],
-link:https://library.productsSpa.com[prod]
+* **Environments**:
+- Test: link:https://library.test.productsSpa.com[test]
+- Production: link:https://library.productsSpa.com[prod]
 
-* *Parameters*:
-link:https://aws.params.com/test/productsSpa[test],
-link:https://aws.params.com/prod/productsSpa[prod],
+* **Parameters**:
+- Test Parameters: link:https://aws.params.com/test/productsSpa[test]
+- Production Parameters: link:https://aws.params.com/prod/productsSpa[prod]
 
-* *CI/CD*:
-link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - actions]
+* **CI/CD**:
+link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - Actions]
 
-* *Logs*:
-link:https://logserver.com/test/productsSpa[test],
-link:https://logserver.com/prod/productsSpa[prod],
+* **Logs**:
+- Test Logs: link:https://logserver.com/test/productsSpa[test]
+- Production Logs: link:https://logserver.com/prod/productsSpa[prod]
 
-* *Monitoring Dashboard*:
-link:https://monitoring.com/test/productsSpa[test],
-link:https://monitoring.com/prod/productsSpa[prod],
+* **Monitoring Dashboard**:
+- Test Dashboard: link:https://monitoring.com/test/productsSpa[test]
+- Production Dashboard: link:https://monitoring.com/prod/productsSpa[prod]
 
-=== Database
+### Database
 
-Database responsible for storing all products data.
+The Products Database is responsible for storing all data related to items in the library, including product details, availability, and metadata.
 
-==== Products Database
+#### Products Database
 
-* *Database Link*:
-link:https://library.test.shelfDb.com[test],
-link:https://library.prod.productsSpa.com[prod],
+* **Database Link**:
+- Test Database: link:https://library.test.shelfDb.com[test]
+- Production Database: link:https://library.prod.productsSpa.com[prod]
 
-* *Database Read Only access*:
-*** Test
-**** User: user1
-**** Password: password1
+* **Database Read-Only Access**:
+- Test Credentials
+- User: **user1**
+- Password: **password1**
 
 == Product Processes
+
+This section covers key processes involved in managing library items, including adding new books, removing books, and presenting available items to users.
 
 .[.collapse-title]#Add book to library#
 [%collapsible]
 ====
-image::embed:add-book-to-library[Add book to library]
+The *Add Book to Library* process enables administrators to add a new book to the library’s catalog. The Products SPA sends the details to the Products Microservice, which stores the information in the Products Database.
+
+image::embed:add-book-to-library[Add Book to Library]
 ====
 
 .[.collapse-title]#Remove book from library#
 [%collapsible]
 ====
-image::embed:remove-book-from-library[Remove book from library]
+The *Remove Book from Library* process allows administrators to remove an item from the catalog. The Products SPA requests the removal, and the Products Microservice updates the Products Database to reflect the change.
+
+image::embed:remove-book-from-library[Remove Book from Library]
 ====
 
 .[.collapse-title]#Present available books#
 [%collapsible]
 ====
-image::embed:present-available-books[Present available books]
+The *Present Available Books* process provides users with a view of all available books in the library. The Products SPA retrieves this data from the Products Microservice, which accesses the Products Database to display an up-to-date list of items.
+
+image::embed:present-available-books[Present Available Books]
 ====

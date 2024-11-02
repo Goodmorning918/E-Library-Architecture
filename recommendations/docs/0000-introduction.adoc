@@ -1,96 +1,113 @@
-= Recommendations Documentation
+= Recommendations Service Documentation
 
 == General
 
-image::/site/recommendations.png[Accounts,700,align="right"]
+image::/site/recommendations.png[Recommendations,700,align="right"]
+
+This section provides a comprehensive overview of the Recommendations Service within the E-Library system, which is responsible for generating and managing personalized recommendations for readers based on their activities and preferences.
 
 == Ownership
 
-* *Team*: Recommendation Team
-* *Product Owner*: Arthur Dent
+* **Team**: Recommendation Team
+* **Product Owner**: Arthur Dent
 
 == Containers
-=== Backend
-==== Recommendations Microservice
-Microservice responsible for generation reader recommendations
 
-* *Repository Link*:
-link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Recommendation Microservice]
+### Backend
 
-* *Environments*:
-link:https://library.test.recommendations.com[test],
-link:https://library.recommendations.com[prod]
+#### Recommendations Microservice
 
-* *Parameters*:
-link:https://aws.params.com/test/recommendations[test],
-link:https://aws.params.com/prod/recommendations[prod],
+The Recommendations Microservice is responsible for generating recommendations for users, updating recommendations based on user interactions, and managing recommendation data.
 
-* *CI/CD*:
-link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - actions]
+* **Repository Link**:
+link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Recommendations Microservice]
 
-* *Logs*:
-link:https://logserver.com/test/recommendations[test],
-link:https://logserver.com/prod/recommendations[prod],
+* **Environments**:
+- Test: link:https://library.test.recommendations.com[test]
+- Production: link:https://library.recommendations.com[prod]
 
-* *Monitoring Dashboard*:
-link:https://monitoring.com/test/recommendations[test],
-link:https://monitoring.com/prod/recommendations[prod],
+* **Parameters**:
+- Test Parameters: link:https://aws.params.com/test/recommendations[test]
+- Production Parameters: link:https://aws.params.com/prod/recommendations[prod]
 
-=== Frontend
-Single Page Application responsible for displaying all recommendations operations.
+* **CI/CD**:
+link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - Actions]
 
-==== Recommendations Spa
-* *Repository Link*:
-link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - recommendations-Spa]
+* **Logs**:
+- Test Logs: link:https://logserver.com/test/recommendations[test]
+- Production Logs: link:https://logserver.com/prod/recommendations[prod]
 
-* *Environments*:
-link:https://library.test.recommendationsSpa.com[test],
-link:https://library.recommendationsSpa.com[prod]
+* **Monitoring Dashboard**:
+- Test Dashboard: link:https://monitoring.com/test/recommendations[test]
+- Production Dashboard: link:https://monitoring.com/prod/recommendations[prod]
 
-* *Parameters*:
-link:https://aws.params.com/test/recommendationsSpa[test],
-link:https://aws.params.com/prod/recommendationsSpa[prod],
+### Frontend
 
-* *CI/CD*:
-link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - actions]
+The frontend component, known as the Recommendations SPA, is a Single Page Application that provides users with a personalized view of recommended items based on their reading habits and preferences.
 
-* *Logs*:
-link:https://logserver.com/test/recommendationsSpa[test],
-link:https://logserver.com/prod/recommendationsSpa[prod],
+#### Recommendations SPA
 
-* *Monitoring Dashboard*:
-link:https://monitoring.com/test/recommendationsSpa[test],
-link:https://monitoring.com/prod/recommendationsSpa[prod],
+* **Repository Link**:
+link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Recommendations SPA]
 
-=== Database
-Database responsible for storing all recommendations data.
+* **Environments**:
+- Test: link:https://library.test.recommendationsSpa.com[test]
+- Production: link:https://library.recommendationsSpa.com[prod]
 
-==== Recommendations Database
-* *Database Link*:
-link:https://library.test.recommendationsDb.com[test],
-link:https://library.prod.recommendationsDb.com[prod],
+* **Parameters**:
+- Test Parameters: link:https://aws.params.com/test/recommendationsSpa[test]
+- Production Parameters: link:https://aws.params.com/prod/recommendationsSpa[prod]
 
-* *Database Read Only access*:
-*** Test
-**** User: user1
-**** Password: password1
+* **CI/CD**:
+link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - Actions]
+
+* **Logs**:
+- Test Logs: link:https://logserver.com/test/recommendationsSpa[test]
+- Production Logs: link:https://logserver.com/prod/recommendationsSpa[prod]
+
+* **Monitoring Dashboard**:
+- Test Dashboard: link:https://monitoring.com/test/recommendationsSpa[test]
+- Production Dashboard: link:https://monitoring.com/prod/recommendationsSpa[prod]
+
+### Database
+
+The Recommendations Database stores all recommendation data, including user-specific recommendation records and historical data used for improving recommendation accuracy.
+
+#### Recommendations Database
+
+* **Database Link**:
+- Test Database: link:https://library.test.recommendationsDb.com[test]
+- Production Database: link:https://library.prod.recommendationsDb.com[prod]
+
+* **Database Read-Only Access**:
+- Test Credentials
+- User: **user1**
+- Password: **password1**
 
 == Recommendations Processes
+
+This section covers key processes within the Recommendations Service, including presenting recommendations, updating recommendations based on user activity, and initializing recommendations for new users.
 
 .[.collapse-title]#Present recommended products#
 [%collapsible]
 ====
-image::embed:present-recommended-products[Present recommended products]
+The *Present Recommended Products* process retrieves and displays personalized product recommendations to the user. The Recommendations SPA accesses the Recommendations Microservice, which fetches relevant data from the Recommendations Database.
+
+image::embed:present-recommended-products[Present Recommended Products]
 ====
 
-.[.collapse-title]#Present Update user recommendations#
+.[.collapse-title]#Update user recommendations#
 [%collapsible]
 ====
-image::embed:update-user-recommendations[Update user recommendations]
+The *Update User Recommendations* process dynamically adjusts recommendations based on user activity, such as recent views or rentals. The Recommendations Microservice updates the Recommendations Database to reflect the latest data.
+
+image::embed:update-user-recommendations[Update User Recommendations]
 ====
 
-.[.collapse-title]#Present Store user recomendation after reader registration#
+.[.collapse-title]#Store user recommendation after reader registration#
 [%collapsible]
 ====
-image::embed:store-user-recommendations-after-reader-registration[Store user recomendation after reader registration]
+The *Store User Recommendation After Reader Registration* process initializes recommendations for new users after registration. The Recommendations Microservice generates initial recommendations and stores them in the Recommendations Database for future reference.
+
+image::embed:store-user-recommendations-after-reader-registration[Store User Recommendation After Reader Registration]
 ====

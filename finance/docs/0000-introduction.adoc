@@ -1,109 +1,121 @@
-= Finance Documentation
+= Finance Service Documentation
 
 == General
 
-image::/site/finance.png[Accounts,700,align="right"]
+image::/site/finance.png[Finance,700,align="right"]
+
+This section provides a detailed overview of the Finance Service within the E-Library system, which handles all finance-related operations, including transactions, payment processing, and invoice generation.
 
 == Ownership
 
-* *Team*: Finance Team
-* *Product Owner*: Michelle Smith
+* **Team**: Finance Team
+* **Product Owner**: Michelle Smith
 
 == Containers
 
-=== Backend
+### Backend
 
-==== Finance Microservice
+#### Finance Microservice
 
-Microservice responsible for all finance operations.
+The Finance Microservice is responsible for managing all finance operations, including payment processing, transaction management, and invoice handling.
 
-* *Repository Link*:
+* **Repository Link**:
 link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Finance Microservice]
 
-* *Environments*:
-link:https://library.test.finance.com[test],
-link:https://library.finance.com[prod]
+* **Environments**:
+- Test: link:https://library.test.finance.com[test]
+- Production: link:https://library.finance.com[prod]
 
-* *Parameters*:
-link:https://aws.params.com/test/finance[test],
-link:https://aws.params.com/prod/finance[prod],
+* **Parameters**:
+- Test Parameters: link:https://aws.params.com/test/finance[test]
+- Production Parameters: link:https://aws.params.com/prod/finance[prod]
 
-* *CI/CD*:
-link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - actions]
+* **CI/CD**:
+link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - Actions]
 
-* *Logs*:
-link:https://logserver.com/test/finance[test],
-link:https://logserver.com/prod/finance[prod],
+* **Logs**:
+- Test Logs: link:https://logserver.com/test/finance[test]
+- Production Logs: link:https://logserver.com/prod/finance[prod]
 
-* *Monitoring Dashboard*:
-link:https://monitoring.com/test/finance[test],
-link:https://monitoring.com/prod/finance[prod],
+* **Monitoring Dashboard**:
+- Test Dashboard: link:https://monitoring.com/test/finance[test]
+- Production Dashboard: link:https://monitoring.com/prod/finance[prod]
 
-=== Frontend
+### Frontend
 
-Single Page Application responsible for displaying all finance operations.
+The frontend component, known as the Finance SPA, is a Single Page Application responsible for displaying all finance operations. Users can view transaction details, generate payment links, and manage invoices.
 
-==== Finance Spa
+#### Finance SPA
 
-* *Repository Link*:
-link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - finance-Spa]
+* **Repository Link**:
+link:https://github.com/Goodmorning918/E-Library-Architecture[GitHub - Finance SPA]
 
-* *Environments*:
-link:https://library.test.finance-Spa.com[test],
-link:https://library.finance-Spa.com[prod]
+* **Environments**:
+- Test: link:https://library.test.finance-Spa.com[test]
+- Production: link:https://library.finance-Spa.com[prod]
 
-* *Parameters*:
-link:https://aws.params.com/test/finance-Spa[test],
-link:https://aws.params.com/prod/finance-Spa[prod],
+* **Parameters**:
+- Test Parameters: link:https://aws.params.com/test/finance-Spa[test]
+- Production Parameters: link:https://aws.params.com/prod/finance-Spa[prod]
 
-* *CI/CD*:
-link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - actions]
+* **CI/CD**:
+link:https://github.com/Goodmorning918/E-Library-Architecture/actions[GitHub - Actions]
 
-* *Logs*:
-link:https://logserver.com/test/finance-Spa[test],
-link:https://logserver.com/prod/finance-Spa[prod],
+* **Logs**:
+- Test Logs: link:https://logserver.com/test/finance-Spa[test]
+- Production Logs: link:https://logserver.com/prod/finance-Spa[prod]
 
-* *Monitoring Dashboard*:
-link:https://monitoring.com/test/finance-Spa[test],
-link:https://monitoring.com/prod/finance-Spa[prod],
+* **Monitoring Dashboard**:
+- Test Dashboard: link:https://monitoring.com/test/finance-Spa[test]
+- Production Dashboard: link:https://monitoring.com/prod/finance-Spa[prod]
 
-=== Database
+### Database
 
-Database responsible for storing all finance data.
+The Finance Database is responsible for storing all finance-related data, including transaction records, payment statuses, and invoice information.
 
-==== Finance Database
+#### Finance Database
 
-* *Database Link*:
-link:https://library.test.financeDb.com[test],
-link:https://library.prod.financeDb.com[prod],
+* **Database Link**:
+- Test Database: link:https://library.test.financeDb.com[test]
+- Production Database: link:https://library.prod.financeDb.com[prod]
 
-* *Database Read Only access*:
-*** Test
-**** User: user1
-**** Password: password1
+* **Database Read-Only Access**:
+- Test Credentials
+- User: **user1**
+- Password: **password1**
 
 == Finance Processes
+
+This section details key processes within the Finance Service, including overseeing transactions, generating payment links, sending invoices, and handling payments.
 
 .[.collapse-title]#Oversee finance transactions#
 [%collapsible]
 ====
-image::embed:oversee-financial-transactions[Oversee finance transactions]
+The *Oversee Finance Transactions* process allows administrators to review and manage all financial transactions. The Finance SPA retrieves transaction data from the Finance Microservice, which accesses records from the Finance Database.
+
+image::embed:oversee-financial-transactions[Oversee Finance Transactions]
 ====
 
 .[.collapse-title]#Generate payment link#
 [%collapsible]
 ====
-image::embed:generate-payment-link[Generate payment link]
+The *Generate Payment Link* process enables the system to create a payment link for a user’s cart. The Finance Microservice generates the link, stores relevant transaction details in the Finance Database, and returns the link to the Finance SPA for display to the user.
+
+image::embed:generate-payment-link[Generate Payment Link]
 ====
 
 .[.collapse-title]#Send invoice#
 [%collapsible]
 ====
-image::embed:send-invoice[Send invoice]
+The *Send Invoice* process involves generating and emailing an invoice to the user upon transaction completion. The Finance Microservice creates the invoice and communicates with the Mail Service to send it to the user.
+
+image::embed:send-invoice[Send Invoice]
 ====
 
 .[.collapse-title]#Make payment#
 [%collapsible]
 ====
-image::embed:make-payment[Make payment]
+The *Make Payment* process records payment completion for items in a user’s cart. The Finance SPA sends payment confirmation to the Finance Microservice, which updates the transaction status in the Finance Database and notifies relevant services of the completed payment.
+
+image::embed:make-payment[Make Payment]
 ====

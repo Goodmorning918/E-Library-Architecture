@@ -2,20 +2,26 @@
 
 == General
 
-image::/site/mail-provider.png[Accounts,700,align="right"]
+image::/site/mail-provider.png[Mail Provider,700,align="right"]
 
-External 3rd party service responsible for all cart operations.
+This section provides a detailed overview of the Mail-Provider, an external third-party service responsible for sending emails, including cart notifications, invoices, and other communications within the E-Library system.
 
 == Contact
 
-* *Support*: Oliver Smith
+* **Support**: Oliver Smith
+For support inquiries or issues with the Mail-Provider service, please reach out to Oliver Smith.
 
 == API
 
-Api documentation: https://mail-provider.com/api-docs
+The Mail-Provider offers an API for integration, allowing the E-Library system to send various notifications to users. Full API documentation can be found at:
+link:https://mail-provider.com/api-docs[Mail-Provider API Documentation]
 
-== Urls
-* *Staging*: https://staging.mail-provider.com```
-* *Production*: https://mail-provider.com
+== URLs
 
+The Mail-Provider service operates across staging and production environments, accessible at the following URLs:
 
+* **Staging**:
+link:https://staging.mail-provider.com[Staging Environment]
+
+* **Production**:
+link:https://mail-provider.com[Production Environment]
