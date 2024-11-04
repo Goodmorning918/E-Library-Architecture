@@ -12,38 +12,38 @@ skinparam {
 hide stereotype
 
 skinparam sequenceParticipant<<Reader>> {
-  BackgroundColor #00796b
+  BackgroundColor #28b463
   FontColor #ffffff
-  BorderColor #00544a
+  BorderColor #1c7d45
   shadowing false
 }
 skinparam sequenceParticipant<<Recommendations.RecommendationsDatabase>> {
-  BackgroundColor #26a69a
+  BackgroundColor #8e44ad
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #632f79
   shadowing false
 }
 skinparam sequenceParticipant<<Recommendations.RecommendationsMicroservice>> {
-  BackgroundColor #26a69a
+  BackgroundColor #27ae60
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #1b7943
   shadowing false
 }
 skinparam sequenceParticipant<<Recommendations.RecommendationsSPA>> {
-  BackgroundColor #26a69a
+  BackgroundColor #27ae60
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #1b7943
   shadowing false
 }
 
-actor "Reader\n<size:10>[Person]</size>" as Reader <<Reader>> #00796b
-participant "Recommendations SPA\n<size:10>[Container: React Component]</size>" as Recommendations.RecommendationsSPA <<Recommendations.RecommendationsSPA>> #26a69a
-participant "Recommendations Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Recommendations.RecommendationsMicroservice <<Recommendations.RecommendationsMicroservice>> #26a69a
-database "Recommendations Database\n<size:10>[Container: MongoDB]</size>" as Recommendations.RecommendationsDatabase <<Recommendations.RecommendationsDatabase>> #26a69a
-Reader -[#004d40]> Recommendations.RecommendationsSPA : Requests recommendations
-Recommendations.RecommendationsSPA -[#004d40]> Recommendations.RecommendationsMicroservice : Fetches recommendations
-Recommendations.RecommendationsMicroservice -[#004d40]> Recommendations.RecommendationsDatabase : Retrieves recommended items
-Recommendations.RecommendationsMicroservice <-[#004d40]- Recommendations.RecommendationsDatabase : Returns recommendations
-Recommendations.RecommendationsSPA <-[#004d40]- Recommendations.RecommendationsMicroservice : Returns recommended items
-Reader <-[#004d40]- Recommendations.RecommendationsSPA : Displays recommended items
+actor "Reader\n<size:10>[Person]</size>" as Reader <<Reader>> #28b463
+participant "Recommendations SPA\n<size:10>[Container: React Component]</size>" as Recommendations.RecommendationsSPA <<Recommendations.RecommendationsSPA>> #27ae60
+participant "Recommendations Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Recommendations.RecommendationsMicroservice <<Recommendations.RecommendationsMicroservice>> #27ae60
+database "Recommendations Database\n<size:10>[Container: MongoDB]</size>" as Recommendations.RecommendationsDatabase <<Recommendations.RecommendationsDatabase>> #8e44ad
+Reader -[#2980b9]> Recommendations.RecommendationsSPA : Requests recommendations
+Recommendations.RecommendationsSPA -[#2980b9]> Recommendations.RecommendationsMicroservice : Fetches recommendations
+Recommendations.RecommendationsMicroservice -[#2980b9]> Recommendations.RecommendationsDatabase : Retrieves recommended items
+Recommendations.RecommendationsMicroservice <-[#2980b9]- Recommendations.RecommendationsDatabase : Returns recommendations
+Recommendations.RecommendationsSPA <-[#2980b9]- Recommendations.RecommendationsMicroservice : Returns recommended items
+Reader <-[#2980b9]- Recommendations.RecommendationsSPA : Displays recommended items
 @enduml

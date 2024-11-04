@@ -14,50 +14,50 @@ skinparam {
 hide stereotype
 
 skinparam person<<Administrator>> {
-  BackgroundColor #00796b
+  BackgroundColor #28b463
   FontColor #ffffff
-  BorderColor #00544a
+  BorderColor #1c7d45
   shadowing false
 }
 skinparam rectangle<<Cart>> {
-  BackgroundColor #009688
+  BackgroundColor #2980b9
   FontColor #ffffff
-  BorderColor #00695f
+  BorderColor #1c5981
   shadowing false
 }
 skinparam database<<Finance.FinanceDatabase>> {
-  BackgroundColor #26a69a
+  BackgroundColor #8e44ad
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #632f79
   shadowing false
 }
 skinparam rectangle<<Finance.FinanceMicroservice>> {
-  BackgroundColor #26a69a
+  BackgroundColor #27ae60
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #1b7943
   shadowing false
 }
 skinparam rectangle<<Finance.FinanceSPA>> {
-  BackgroundColor #26a69a
+  BackgroundColor #27ae60
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #1b7943
   shadowing false
 }
 skinparam rectangle<<MailProvider>> {
-  BackgroundColor #4db6ac
+  BackgroundColor #e67e22
   FontColor #ffffff
-  BorderColor #357f78
+  BorderColor #a15817
   shadowing false
 }
 skinparam person<<Reader>> {
-  BackgroundColor #00796b
+  BackgroundColor #28b463
   FontColor #ffffff
-  BorderColor #00544a
+  BorderColor #1c7d45
   shadowing false
 }
 skinparam rectangle<<Finance>> {
-  BorderColor #00695f
-  FontColor #00695f
+  BorderColor #1c5981
+  FontColor #1c5981
   shadowing false
 }
 
@@ -72,12 +72,12 @@ rectangle "Finance\n<size:10>[Software System]</size>" <<Finance>> {
   database "==Finance Database\n<size:10>[Container: PostgreSQL]</size>\n\nHolds financial transaction data." <<Finance.FinanceDatabase>> as Finance.FinanceDatabase
 }
 
-Reader .[#004d40,thickness=2].> Cart : "<color:#004d40>Handles rental process."
-MailProvider .[#004d40,thickness=2].> Reader : "<color:#004d40>Sends invoices."
-Reader .[#004d40,thickness=2].> Finance.FinanceSPA : "<color:#004d40>Makes payments."
-Administrator .[#004d40,thickness=2].> Finance.FinanceSPA : "<color:#004d40>Oversees financial transactions."
-Cart .[#004d40,thickness=2].> Finance.FinanceMicroservice : "<color:#004d40>Generates payment link.\n<color:#004d40><size:8>[HTTPS]</size>"
-Finance.FinanceSPA .[#004d40,thickness=2].> Finance.FinanceMicroservice : "<color:#004d40>Requests financial operations.\n<color:#004d40><size:8>[HTTPS]</size>"
-Finance.FinanceMicroservice .[#004d40,thickness=2].> Finance.FinanceDatabase : "<color:#004d40>Stores and retrieves transactions.\n<color:#004d40><size:8>[JDBC]</size>"
-Finance.FinanceMicroservice .[#004d40,thickness=2].> MailProvider : "<color:#004d40>Sends invoices to readers.\n<color:#004d40><size:8>[SMTP]</size>"
+Reader .[#2980b9,thickness=2].> Cart : "<color:#2980b9>Handles rental process."
+MailProvider .[#2980b9,thickness=2].> Reader : "<color:#2980b9>Sends invoices."
+Reader .[#2980b9,thickness=2].> Finance.FinanceSPA : "<color:#2980b9>Makes payments."
+Administrator .[#2980b9,thickness=2].> Finance.FinanceSPA : "<color:#2980b9>Oversees financial transactions."
+Cart .[#2980b9,thickness=2].> Finance.FinanceMicroservice : "<color:#2980b9>Generates payment link.\n<color:#2980b9><size:8>[HTTPS]</size>"
+Finance.FinanceSPA .[#2980b9,thickness=2].> Finance.FinanceMicroservice : "<color:#2980b9>Requests financial operations.\n<color:#2980b9><size:8>[HTTPS]</size>"
+Finance.FinanceMicroservice .[#2980b9,thickness=2].> Finance.FinanceDatabase : "<color:#2980b9>Stores and retrieves transactions.\n<color:#2980b9><size:8>[JDBC]</size>"
+Finance.FinanceMicroservice .[#2980b9,thickness=2].> MailProvider : "<color:#2980b9>Sends invoices to readers.\n<color:#2980b9><size:8>[SMTP]</size>"
 @enduml

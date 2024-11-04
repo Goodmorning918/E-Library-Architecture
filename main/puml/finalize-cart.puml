@@ -12,74 +12,74 @@ skinparam {
 hide stereotype
 
 skinparam sequenceParticipant<<Cart.CartDatabase>> {
-  BackgroundColor #26a69a
+  BackgroundColor #8e44ad
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #632f79
   shadowing false
 }
 skinparam sequenceParticipant<<Cart.CartMicroservice>> {
-  BackgroundColor #26a69a
+  BackgroundColor #27ae60
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #1b7943
   shadowing false
 }
 skinparam sequenceParticipant<<Cart.CartSPA>> {
-  BackgroundColor #26a69a
+  BackgroundColor #27ae60
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #1b7943
   shadowing false
 }
 skinparam sequenceParticipant<<Finance.FinanceMicroservice>> {
-  BackgroundColor #26a69a
+  BackgroundColor #27ae60
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #1b7943
   shadowing false
 }
 skinparam sequenceParticipant<<Products.ProductsDatabase>> {
-  BackgroundColor #26a69a
+  BackgroundColor #8e44ad
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #632f79
   shadowing false
 }
 skinparam sequenceParticipant<<Products.ProductsMicroservice>> {
-  BackgroundColor #26a69a
+  BackgroundColor #27ae60
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #1b7943
   shadowing false
 }
 skinparam sequenceParticipant<<Reader>> {
-  BackgroundColor #00796b
+  BackgroundColor #28b463
   FontColor #ffffff
-  BorderColor #00544a
+  BorderColor #1c7d45
   shadowing false
 }
 skinparam sequenceParticipant<<Recommendations.RecommendationsMicroservice>> {
-  BackgroundColor #26a69a
+  BackgroundColor #27ae60
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #1b7943
   shadowing false
 }
 
-actor "Reader\n<size:10>[Person]</size>" as Reader <<Reader>> #00796b
-participant "Cart SPA\n<size:10>[Container: React Component]</size>" as Cart.CartSPA <<Cart.CartSPA>> #26a69a
-participant "Cart Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Cart.CartMicroservice <<Cart.CartMicroservice>> #26a69a
-database "Cart Database\n<size:10>[Container: MongoDB]</size>" as Cart.CartDatabase <<Cart.CartDatabase>> #26a69a
-participant "Products Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Products.ProductsMicroservice <<Products.ProductsMicroservice>> #26a69a
-database "Products Database\n<size:10>[Container: MongoDB]</size>" as Products.ProductsDatabase <<Products.ProductsDatabase>> #26a69a
-participant "Finance Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Finance.FinanceMicroservice <<Finance.FinanceMicroservice>> #26a69a
-participant "Recommendations Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Recommendations.RecommendationsMicroservice <<Recommendations.RecommendationsMicroservice>> #26a69a
-Reader -[#004d40]> Cart.CartSPA : Finalizes cart
-Cart.CartSPA -[#004d40]> Cart.CartMicroservice : Processes cart finalization
-Cart.CartMicroservice -[#004d40]> Cart.CartDatabase : Retrieves cart details
-Cart.CartMicroservice <-[#004d40]- Cart.CartDatabase : Returns cart details
-Cart.CartMicroservice -[#004d40]> Products.ProductsMicroservice : Checks item availability
-Products.ProductsMicroservice -[#004d40]> Products.ProductsDatabase : Verifies product availability
-Products.ProductsMicroservice <-[#004d40]- Products.ProductsDatabase : Returns availability status
-Cart.CartMicroservice <-[#004d40]- Products.ProductsMicroservice : Provides availability details
-Cart.CartMicroservice -[#004d40]> Finance.FinanceMicroservice : Generates payment link
-Cart.CartMicroservice <-[#004d40]- Finance.FinanceMicroservice : Returns payment link
-Cart.CartMicroservice -[#004d40]> Recommendations.RecommendationsMicroservice : Finalizes recommendations
-Cart.CartMicroservice <-[#004d40]- Recommendations.RecommendationsMicroservice : Acknowledges finalization
-Cart.CartSPA <-[#004d40]- Cart.CartMicroservice : Presents payment link
-Reader <-[#004d40]- Cart.CartSPA : Displays transaction details
+actor "Reader\n<size:10>[Person]</size>" as Reader <<Reader>> #28b463
+participant "Cart SPA\n<size:10>[Container: React Component]</size>" as Cart.CartSPA <<Cart.CartSPA>> #27ae60
+participant "Cart Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Cart.CartMicroservice <<Cart.CartMicroservice>> #27ae60
+database "Cart Database\n<size:10>[Container: MongoDB]</size>" as Cart.CartDatabase <<Cart.CartDatabase>> #8e44ad
+participant "Products Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Products.ProductsMicroservice <<Products.ProductsMicroservice>> #27ae60
+database "Products Database\n<size:10>[Container: MongoDB]</size>" as Products.ProductsDatabase <<Products.ProductsDatabase>> #8e44ad
+participant "Finance Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Finance.FinanceMicroservice <<Finance.FinanceMicroservice>> #27ae60
+participant "Recommendations Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Recommendations.RecommendationsMicroservice <<Recommendations.RecommendationsMicroservice>> #27ae60
+Reader -[#2980b9]> Cart.CartSPA : Finalizes cart
+Cart.CartSPA -[#2980b9]> Cart.CartMicroservice : Processes cart finalization
+Cart.CartMicroservice -[#2980b9]> Cart.CartDatabase : Retrieves cart details
+Cart.CartMicroservice <-[#2980b9]- Cart.CartDatabase : Returns cart details
+Cart.CartMicroservice -[#2980b9]> Products.ProductsMicroservice : Checks item availability
+Products.ProductsMicroservice -[#2980b9]> Products.ProductsDatabase : Verifies product availability
+Products.ProductsMicroservice <-[#2980b9]- Products.ProductsDatabase : Returns availability status
+Cart.CartMicroservice <-[#2980b9]- Products.ProductsMicroservice : Provides availability details
+Cart.CartMicroservice -[#2980b9]> Finance.FinanceMicroservice : Generates payment link
+Cart.CartMicroservice <-[#2980b9]- Finance.FinanceMicroservice : Returns payment link
+Cart.CartMicroservice -[#2980b9]> Recommendations.RecommendationsMicroservice : Finalizes recommendations
+Cart.CartMicroservice <-[#2980b9]- Recommendations.RecommendationsMicroservice : Acknowledges finalization
+Cart.CartSPA <-[#2980b9]- Cart.CartMicroservice : Presents payment link
+Reader <-[#2980b9]- Cart.CartSPA : Displays transaction details
 @enduml

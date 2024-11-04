@@ -12,38 +12,38 @@ skinparam {
 hide stereotype
 
 skinparam sequenceParticipant<<Administrator>> {
-  BackgroundColor #00796b
+  BackgroundColor #28b463
   FontColor #ffffff
-  BorderColor #00544a
+  BorderColor #1c7d45
   shadowing false
 }
 skinparam sequenceParticipant<<Products.ProductsDatabase>> {
-  BackgroundColor #26a69a
+  BackgroundColor #8e44ad
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #632f79
   shadowing false
 }
 skinparam sequenceParticipant<<Products.ProductsMicroservice>> {
-  BackgroundColor #26a69a
+  BackgroundColor #27ae60
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #1b7943
   shadowing false
 }
 skinparam sequenceParticipant<<Products.ProductsSPA>> {
-  BackgroundColor #26a69a
+  BackgroundColor #27ae60
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #1b7943
   shadowing false
 }
 
-actor "Administrator\n<size:10>[Person]</size>" as Administrator <<Administrator>> #00796b
-participant "Products SPA\n<size:10>[Container: React Component]</size>" as Products.ProductsSPA <<Products.ProductsSPA>> #26a69a
-participant "Products Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Products.ProductsMicroservice <<Products.ProductsMicroservice>> #26a69a
-database "Products Database\n<size:10>[Container: MongoDB]</size>" as Products.ProductsDatabase <<Products.ProductsDatabase>> #26a69a
-Administrator -[#004d40]> Products.ProductsSPA : Initiates new book addition
-Products.ProductsSPA -[#004d40]> Products.ProductsMicroservice : Processes new book addition
-Products.ProductsMicroservice -[#004d40]> Products.ProductsDatabase : Stores book data
-Products.ProductsMicroservice <-[#004d40]- Products.ProductsDatabase : Confirms book storage
-Products.ProductsSPA <-[#004d40]- Products.ProductsMicroservice : Returns new book ID
-Administrator <-[#004d40]- Products.ProductsSPA : Displays new book details
+actor "Administrator\n<size:10>[Person]</size>" as Administrator <<Administrator>> #28b463
+participant "Products SPA\n<size:10>[Container: React Component]</size>" as Products.ProductsSPA <<Products.ProductsSPA>> #27ae60
+participant "Products Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Products.ProductsMicroservice <<Products.ProductsMicroservice>> #27ae60
+database "Products Database\n<size:10>[Container: MongoDB]</size>" as Products.ProductsDatabase <<Products.ProductsDatabase>> #8e44ad
+Administrator -[#2980b9]> Products.ProductsSPA : Initiates new book addition
+Products.ProductsSPA -[#2980b9]> Products.ProductsMicroservice : Processes new book addition
+Products.ProductsMicroservice -[#2980b9]> Products.ProductsDatabase : Stores book data
+Products.ProductsMicroservice <-[#2980b9]- Products.ProductsDatabase : Confirms book storage
+Products.ProductsSPA <-[#2980b9]- Products.ProductsMicroservice : Returns new book ID
+Administrator <-[#2980b9]- Products.ProductsSPA : Displays new book details
 @enduml

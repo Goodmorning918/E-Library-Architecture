@@ -14,44 +14,44 @@ skinparam {
 hide stereotype
 
 skinparam person<<Administrator>> {
-  BackgroundColor #00796b
+  BackgroundColor #28b463
   FontColor #ffffff
-  BorderColor #00544a
+  BorderColor #1c7d45
   shadowing false
 }
 skinparam rectangle<<Cart>> {
-  BackgroundColor #009688
+  BackgroundColor #2980b9
   FontColor #ffffff
-  BorderColor #00695f
+  BorderColor #1c5981
   shadowing false
 }
 skinparam database<<Products.ProductsDatabase>> {
-  BackgroundColor #26a69a
+  BackgroundColor #8e44ad
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #632f79
   shadowing false
 }
 skinparam rectangle<<Products.ProductsMicroservice>> {
-  BackgroundColor #26a69a
+  BackgroundColor #27ae60
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #1b7943
   shadowing false
 }
 skinparam rectangle<<Products.ProductsSPA>> {
-  BackgroundColor #26a69a
+  BackgroundColor #27ae60
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #1b7943
   shadowing false
 }
 skinparam person<<Reader>> {
-  BackgroundColor #00796b
+  BackgroundColor #28b463
   FontColor #ffffff
-  BorderColor #00544a
+  BorderColor #1c7d45
   shadowing false
 }
 skinparam rectangle<<Products>> {
-  BorderColor #00695f
-  FontColor #00695f
+  BorderColor #1c5981
+  FontColor #1c5981
   shadowing false
 }
 
@@ -65,10 +65,10 @@ rectangle "Products\n<size:10>[Software System]</size>" <<Products>> {
   database "==Products Database\n<size:10>[Container: MongoDB]</size>\n\nStores library items." <<Products.ProductsDatabase>> as Products.ProductsDatabase
 }
 
-Reader .[#004d40,thickness=2].> Cart : "<color:#004d40>Handles rental process."
-Reader .[#004d40,thickness=2].> Products.ProductsSPA : "<color:#004d40>Views available library items."
-Administrator .[#004d40,thickness=2].> Products.ProductsSPA : "<color:#004d40>Manages library items."
-Products.ProductsSPA .[#004d40,thickness=2].> Products.ProductsMicroservice : "<color:#004d40>Requests product operations.\n<color:#004d40><size:8>[HTTPS]</size>"
-Products.ProductsMicroservice .[#004d40,thickness=2].> Products.ProductsDatabase : "<color:#004d40>Stores and retrieves library items.\n<color:#004d40><size:8>[JDBC]</size>"
-Cart .[#004d40,thickness=2].> Products.ProductsMicroservice : "<color:#004d40>Checks item availability.\n<color:#004d40><size:8>[HTTPS]</size>"
+Reader .[#2980b9,thickness=2].> Cart : "<color:#2980b9>Handles rental process."
+Reader .[#2980b9,thickness=2].> Products.ProductsSPA : "<color:#2980b9>Views available library items."
+Administrator .[#2980b9,thickness=2].> Products.ProductsSPA : "<color:#2980b9>Manages library items."
+Products.ProductsSPA .[#2980b9,thickness=2].> Products.ProductsMicroservice : "<color:#2980b9>Requests product operations.\n<color:#2980b9><size:8>[HTTPS]</size>"
+Products.ProductsMicroservice .[#2980b9,thickness=2].> Products.ProductsDatabase : "<color:#2980b9>Stores and retrieves library items.\n<color:#2980b9><size:8>[JDBC]</size>"
+Cart .[#2980b9,thickness=2].> Products.ProductsMicroservice : "<color:#2980b9>Checks item availability.\n<color:#2980b9><size:8>[HTTPS]</size>"
 @enduml

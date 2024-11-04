@@ -12,47 +12,47 @@ skinparam {
 hide stereotype
 
 skinparam sequenceParticipant<<Accounts.AccountsDatabase>> {
-  BackgroundColor #26a69a
+  BackgroundColor #8e44ad
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #632f79
   shadowing false
 }
 skinparam sequenceParticipant<<Accounts.AccountsMicroservice>> {
-  BackgroundColor #26a69a
+  BackgroundColor #27ae60
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #1b7943
   shadowing false
 }
 skinparam sequenceParticipant<<Accounts.AccountsSPA>> {
-  BackgroundColor #26a69a
+  BackgroundColor #27ae60
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #1b7943
   shadowing false
 }
 skinparam sequenceParticipant<<Reader>> {
-  BackgroundColor #00796b
+  BackgroundColor #28b463
   FontColor #ffffff
-  BorderColor #00544a
+  BorderColor #1c7d45
   shadowing false
 }
 skinparam sequenceParticipant<<Recommendations.RecommendationsMicroservice>> {
-  BackgroundColor #26a69a
+  BackgroundColor #27ae60
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #1b7943
   shadowing false
 }
 
-actor "Reader\n<size:10>[Person]</size>" as Reader <<Reader>> #00796b
-participant "Accounts SPA\n<size:10>[Container: React Component]</size>" as Accounts.AccountsSPA <<Accounts.AccountsSPA>> #26a69a
-participant "Accounts Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Accounts.AccountsMicroservice <<Accounts.AccountsMicroservice>> #26a69a
-database "Accounts Database\n<size:10>[Container: MongoDB]</size>" as Accounts.AccountsDatabase <<Accounts.AccountsDatabase>> #26a69a
-participant "Recommendations Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Recommendations.RecommendationsMicroservice <<Recommendations.RecommendationsMicroservice>> #26a69a
-Reader -[#004d40]> Accounts.AccountsSPA : Initiates account registration
-Accounts.AccountsSPA -[#004d40]> Accounts.AccountsMicroservice : Requests new account creation
-Accounts.AccountsMicroservice -[#004d40]> Accounts.AccountsDatabase : Stores new account data
-Accounts.AccountsMicroservice <-[#004d40]- Accounts.AccountsDatabase : Confirms account creation
-Accounts.AccountsMicroservice -[#004d40]> Recommendations.RecommendationsMicroservice : Updates recommendations for new user
-Accounts.AccountsMicroservice <-[#004d40]- Recommendations.RecommendationsMicroservice : Acknowledges recommendation update
-Accounts.AccountsSPA <-[#004d40]- Accounts.AccountsMicroservice : Sends account details
-Reader <-[#004d40]- Accounts.AccountsSPA : Displays created account details
+actor "Reader\n<size:10>[Person]</size>" as Reader <<Reader>> #28b463
+participant "Accounts SPA\n<size:10>[Container: React Component]</size>" as Accounts.AccountsSPA <<Accounts.AccountsSPA>> #27ae60
+participant "Accounts Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Accounts.AccountsMicroservice <<Accounts.AccountsMicroservice>> #27ae60
+database "Accounts Database\n<size:10>[Container: MongoDB]</size>" as Accounts.AccountsDatabase <<Accounts.AccountsDatabase>> #8e44ad
+participant "Recommendations Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Recommendations.RecommendationsMicroservice <<Recommendations.RecommendationsMicroservice>> #27ae60
+Reader -[#2980b9]> Accounts.AccountsSPA : Initiates account registration
+Accounts.AccountsSPA -[#2980b9]> Accounts.AccountsMicroservice : Requests new account creation
+Accounts.AccountsMicroservice -[#2980b9]> Accounts.AccountsDatabase : Stores new account data
+Accounts.AccountsMicroservice <-[#2980b9]- Accounts.AccountsDatabase : Confirms account creation
+Accounts.AccountsMicroservice -[#2980b9]> Recommendations.RecommendationsMicroservice : Updates recommendations for new user
+Accounts.AccountsMicroservice <-[#2980b9]- Recommendations.RecommendationsMicroservice : Acknowledges recommendation update
+Accounts.AccountsSPA <-[#2980b9]- Accounts.AccountsMicroservice : Sends account details
+Reader <-[#2980b9]- Accounts.AccountsSPA : Displays created account details
 @enduml

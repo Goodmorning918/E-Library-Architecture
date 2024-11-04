@@ -1,32 +1,36 @@
+/* Link Hover Styling (SVG) */
 svg g g[id^="link"]:hover path {
     stroke: #FF0000 !important;
-    stroke-width: 2.0;
+    stroke-width: 2px;
+    transition: stroke 0.2s ease, stroke-width 0.2s ease;
 }
 
 svg g g[id^="link"]:hover polygon {
     stroke: #FF0000 !important;
+    transition: stroke 0.2s ease;
 }
 
 svg g g[id^="link"]:hover text {
     fill: #FF0000 !important;
+    transition: fill 0.2s ease;
 }
 
-body {
+/* Font Styling */
+body, text {
     font-family: "Georgia", serif;
 }
 
-text {
-    font-family: "Georgia", serif;
-}
-
+/* Collapse Title Styling */
 .collapse-title {
     font-size: 1rem;
     font-weight: normal !important;
     cursor: pointer;
 }
 
+/* Marker Styling */
 ::marker {
-    font-size: 1rem; /* or you can use a specific size like 0.75em */
+    font-family: "Georgia", serif; /* Optional but ensures consistency */
+    font-size: 1rem;
     unicode-bidi: isolate;
     font-variant-numeric: tabular-nums;
     text-transform: none;

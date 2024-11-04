@@ -12,38 +12,38 @@ skinparam {
 hide stereotype
 
 skinparam sequenceParticipant<<Cart.CartDatabase>> {
-  BackgroundColor #26a69a
+  BackgroundColor #8e44ad
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #632f79
   shadowing false
 }
 skinparam sequenceParticipant<<Cart.CartMicroservice>> {
-  BackgroundColor #26a69a
+  BackgroundColor #27ae60
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #1b7943
   shadowing false
 }
 skinparam sequenceParticipant<<Finance.FinanceMicroservice>> {
-  BackgroundColor #26a69a
+  BackgroundColor #27ae60
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #1b7943
   shadowing false
 }
 skinparam sequenceParticipant<<Shelf.ShelfMicroservice>> {
-  BackgroundColor #26a69a
+  BackgroundColor #27ae60
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #1b7943
   shadowing false
 }
 
-participant "Cart Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Cart.CartMicroservice <<Cart.CartMicroservice>> #26a69a
-participant "Finance Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Finance.FinanceMicroservice <<Finance.FinanceMicroservice>> #26a69a
-database "Cart Database\n<size:10>[Container: MongoDB]</size>" as Cart.CartDatabase <<Cart.CartDatabase>> #26a69a
-participant "Shelf Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Shelf.ShelfMicroservice <<Shelf.ShelfMicroservice>> #26a69a
-Cart.CartMicroservice <-[#004d40]- Finance.FinanceMicroservice : Notifies of completed payment
-Cart.CartMicroservice -[#004d40]> Finance.FinanceMicroservice : Acknowledges payment
-Cart.CartMicroservice -[#004d40]> Cart.CartDatabase : Marks cart as paid
-Cart.CartMicroservice <-[#004d40]- Cart.CartDatabase : Confirms payment status
-Cart.CartMicroservice -[#004d40]> Shelf.ShelfMicroservice : Updates borrowed items
-Cart.CartMicroservice <-[#004d40]- Shelf.ShelfMicroservice : Acknowledges update
+participant "Cart Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Cart.CartMicroservice <<Cart.CartMicroservice>> #27ae60
+participant "Finance Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Finance.FinanceMicroservice <<Finance.FinanceMicroservice>> #27ae60
+database "Cart Database\n<size:10>[Container: MongoDB]</size>" as Cart.CartDatabase <<Cart.CartDatabase>> #8e44ad
+participant "Shelf Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Shelf.ShelfMicroservice <<Shelf.ShelfMicroservice>> #27ae60
+Cart.CartMicroservice <-[#2980b9]- Finance.FinanceMicroservice : Notifies of completed payment
+Cart.CartMicroservice -[#2980b9]> Finance.FinanceMicroservice : Acknowledges payment
+Cart.CartMicroservice -[#2980b9]> Cart.CartDatabase : Marks cart as paid
+Cart.CartMicroservice <-[#2980b9]- Cart.CartDatabase : Confirms payment status
+Cart.CartMicroservice -[#2980b9]> Shelf.ShelfMicroservice : Updates borrowed items
+Cart.CartMicroservice <-[#2980b9]- Shelf.ShelfMicroservice : Acknowledges update
 @enduml

@@ -12,29 +12,29 @@ skinparam {
 hide stereotype
 
 skinparam sequenceParticipant<<Cart.CartMicroservice>> {
-  BackgroundColor #26a69a
+  BackgroundColor #27ae60
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #1b7943
   shadowing false
 }
 skinparam sequenceParticipant<<Recommendations.RecommendationsDatabase>> {
-  BackgroundColor #26a69a
+  BackgroundColor #8e44ad
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #632f79
   shadowing false
 }
 skinparam sequenceParticipant<<Recommendations.RecommendationsMicroservice>> {
-  BackgroundColor #26a69a
+  BackgroundColor #27ae60
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #1b7943
   shadowing false
 }
 
-participant "Cart Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Cart.CartMicroservice <<Cart.CartMicroservice>> #26a69a
-participant "Recommendations Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Recommendations.RecommendationsMicroservice <<Recommendations.RecommendationsMicroservice>> #26a69a
-database "Recommendations Database\n<size:10>[Container: MongoDB]</size>" as Recommendations.RecommendationsDatabase <<Recommendations.RecommendationsDatabase>> #26a69a
-Cart.CartMicroservice -[#004d40]> Recommendations.RecommendationsMicroservice : Notifies added items to cart
-Cart.CartMicroservice <-[#004d40]- Recommendations.RecommendationsMicroservice : Acknowledges notification
-Recommendations.RecommendationsMicroservice -[#004d40]> Recommendations.RecommendationsDatabase : Stores updated recommendations
-Recommendations.RecommendationsMicroservice <-[#004d40]- Recommendations.RecommendationsDatabase : Confirms storage
+participant "Cart Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Cart.CartMicroservice <<Cart.CartMicroservice>> #27ae60
+participant "Recommendations Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Recommendations.RecommendationsMicroservice <<Recommendations.RecommendationsMicroservice>> #27ae60
+database "Recommendations Database\n<size:10>[Container: MongoDB]</size>" as Recommendations.RecommendationsDatabase <<Recommendations.RecommendationsDatabase>> #8e44ad
+Cart.CartMicroservice -[#2980b9]> Recommendations.RecommendationsMicroservice : Notifies added items to cart
+Cart.CartMicroservice <-[#2980b9]- Recommendations.RecommendationsMicroservice : Acknowledges notification
+Recommendations.RecommendationsMicroservice -[#2980b9]> Recommendations.RecommendationsDatabase : Stores updated recommendations
+Recommendations.RecommendationsMicroservice <-[#2980b9]- Recommendations.RecommendationsDatabase : Confirms storage
 @enduml

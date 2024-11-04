@@ -1,5 +1,5 @@
 .navbar .has-site-branding {
-    background-color: #009688!important;
+    background-color: #2980B9!important;
     color: #ffffff!important;
 }
 .navbar .has-site-branding::after {
@@ -7,7 +7,7 @@
 }
 .menu .has-site-branding a.is-active {
     color: #ffffff!important;
-    background-color: #009688!important;
+    background-color: #2980B9!important;
 }
 .input.has-site-branding:focus {
     border-color: #ffffff!important;

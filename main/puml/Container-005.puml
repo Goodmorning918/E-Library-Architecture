@@ -14,44 +14,44 @@ skinparam {
 hide stereotype
 
 skinparam rectangle<<Accounts>> {
-  BackgroundColor #009688
+  BackgroundColor #2980b9
   FontColor #ffffff
-  BorderColor #00695f
+  BorderColor #1c5981
   shadowing false
 }
 skinparam rectangle<<Cart>> {
-  BackgroundColor #009688
+  BackgroundColor #2980b9
   FontColor #ffffff
-  BorderColor #00695f
+  BorderColor #1c5981
   shadowing false
 }
 skinparam person<<Reader>> {
-  BackgroundColor #00796b
+  BackgroundColor #28b463
   FontColor #ffffff
-  BorderColor #00544a
+  BorderColor #1c7d45
   shadowing false
 }
 skinparam database<<Recommendations.RecommendationsDatabase>> {
-  BackgroundColor #26a69a
+  BackgroundColor #8e44ad
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #632f79
   shadowing false
 }
 skinparam rectangle<<Recommendations.RecommendationsMicroservice>> {
-  BackgroundColor #26a69a
+  BackgroundColor #27ae60
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #1b7943
   shadowing false
 }
 skinparam rectangle<<Recommendations.RecommendationsSPA>> {
-  BackgroundColor #26a69a
+  BackgroundColor #27ae60
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #1b7943
   shadowing false
 }
 skinparam rectangle<<Recommendations>> {
-  BorderColor #00695f
-  FontColor #00695f
+  BorderColor #1c5981
+  FontColor #1c5981
   shadowing false
 }
 
@@ -65,11 +65,11 @@ rectangle "Recommendations\n<size:10>[Software System]</size>" <<Recommendations
   database "==Recommendations Database\n<size:10>[Container: MongoDB]</size>\n\nStores recommended items." <<Recommendations.RecommendationsDatabase>> as Recommendations.RecommendationsDatabase
 }
 
-Reader .[#004d40,thickness=2].> Accounts : "<color:#004d40>Manages their account."
-Reader .[#004d40,thickness=2].> Cart : "<color:#004d40>Handles rental process."
-Reader .[#004d40,thickness=2].> Recommendations.RecommendationsSPA : "<color:#004d40>Views recommendations."
-Accounts .[#004d40,thickness=2].> Recommendations.RecommendationsMicroservice : "<color:#004d40>Updates recommendations.\n<color:#004d40><size:8>[Kafka]</size>"
-Cart .[#004d40,thickness=2].> Recommendations.RecommendationsMicroservice : "<color:#004d40>Updates recommendations.\n<color:#004d40><size:8>[Kafka]</size>"
-Recommendations.RecommendationsSPA .[#004d40,thickness=2].> Recommendations.RecommendationsMicroservice : "<color:#004d40>Requests recommendations.\n<color:#004d40><size:8>[HTTPS]</size>"
-Recommendations.RecommendationsMicroservice .[#004d40,thickness=2].> Recommendations.RecommendationsDatabase : "<color:#004d40>Stores and retrieves recommendations.\n<color:#004d40><size:8>[JDBC]</size>"
+Reader .[#2980b9,thickness=2].> Accounts : "<color:#2980b9>Manages their account."
+Reader .[#2980b9,thickness=2].> Cart : "<color:#2980b9>Handles rental process."
+Reader .[#2980b9,thickness=2].> Recommendations.RecommendationsSPA : "<color:#2980b9>Views recommendations."
+Accounts .[#2980b9,thickness=2].> Recommendations.RecommendationsMicroservice : "<color:#2980b9>Updates recommendations.\n<color:#2980b9><size:8>[Kafka]</size>"
+Cart .[#2980b9,thickness=2].> Recommendations.RecommendationsMicroservice : "<color:#2980b9>Updates recommendations.\n<color:#2980b9><size:8>[Kafka]</size>"
+Recommendations.RecommendationsSPA .[#2980b9,thickness=2].> Recommendations.RecommendationsMicroservice : "<color:#2980b9>Requests recommendations.\n<color:#2980b9><size:8>[HTTPS]</size>"
+Recommendations.RecommendationsMicroservice .[#2980b9,thickness=2].> Recommendations.RecommendationsDatabase : "<color:#2980b9>Stores and retrieves recommendations.\n<color:#2980b9><size:8>[JDBC]</size>"
 @enduml

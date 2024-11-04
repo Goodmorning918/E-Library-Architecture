@@ -12,29 +12,29 @@ skinparam {
 hide stereotype
 
 skinparam sequenceParticipant<<Finance.FinanceMicroservice>> {
-  BackgroundColor #26a69a
+  BackgroundColor #27ae60
   FontColor #ffffff
-  BorderColor #1a746b
+  BorderColor #1b7943
   shadowing false
 }
 skinparam sequenceParticipant<<MailProvider>> {
-  BackgroundColor #4db6ac
+  BackgroundColor #e67e22
   FontColor #ffffff
-  BorderColor #357f78
+  BorderColor #a15817
   shadowing false
 }
 skinparam sequenceParticipant<<Reader>> {
-  BackgroundColor #00796b
+  BackgroundColor #28b463
   FontColor #ffffff
-  BorderColor #00544a
+  BorderColor #1c7d45
   shadowing false
 }
 
-participant "Finance Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Finance.FinanceMicroservice <<Finance.FinanceMicroservice>> #26a69a
-participant "Mail Provider\n<size:10>[Software System]</size>" as MailProvider <<MailProvider>> #4db6ac
-actor "Reader\n<size:10>[Person]</size>" as Reader <<Reader>> #00796b
-Finance.FinanceMicroservice -[#004d40]> MailProvider : Sends invoice to reader
-MailProvider -[#004d40]> Reader : Receives invoice
-MailProvider <-[#004d40]- Reader : Confirms invoice receipt
-Finance.FinanceMicroservice <-[#004d40]- MailProvider : Confirms email sent
+participant "Finance Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Finance.FinanceMicroservice <<Finance.FinanceMicroservice>> #27ae60
+participant "Mail Provider\n<size:10>[Software System]</size>" as MailProvider <<MailProvider>> #e67e22
+actor "Reader\n<size:10>[Person]</size>" as Reader <<Reader>> #28b463
+Finance.FinanceMicroservice -[#2980b9]> MailProvider : Sends invoice to reader
+MailProvider -[#2980b9]> Reader : Receives invoice
+MailProvider <-[#2980b9]- Reader : Confirms invoice receipt
+Finance.FinanceMicroservice <-[#2980b9]- MailProvider : Confirms email sent
 @enduml
