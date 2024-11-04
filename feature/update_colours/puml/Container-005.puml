@@ -1,0 +1,75 @@
+@startuml
+set separator none
+title Recommendations - Containers
+
+left to right direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam rectangle<<Accounts>> {
+  BackgroundColor #2980b9
+  FontColor #ffffff
+  BorderColor #1c5981
+  shadowing false
+}
+skinparam rectangle<<Cart>> {
+  BackgroundColor #2980b9
+  FontColor #ffffff
+  BorderColor #1c5981
+  shadowing false
+}
+skinparam person<<Reader>> {
+  BackgroundColor #28b463
+  FontColor #ffffff
+  BorderColor #1c7d45
+  shadowing false
+}
+skinparam database<<Recommendations.RecommendationsDatabase>> {
+  BackgroundColor #8e44ad
+  FontColor #ffffff
+  BorderColor #632f79
+  shadowing false
+}
+skinparam rectangle<<Recommendations.RecommendationsMicroservice>> {
+  BackgroundColor #27ae60
+  FontColor #ffffff
+  BorderColor #1b7943
+  shadowing false
+}
+skinparam rectangle<<Recommendations.RecommendationsSPA>> {
+  BackgroundColor #27ae60
+  FontColor #ffffff
+  BorderColor #1b7943
+  shadowing false
+}
+skinparam rectangle<<Recommendations>> {
+  BorderColor #1c5981
+  FontColor #1c5981
+  shadowing false
+}
+
+person "==Reader\n<size:10>[Person]</size>\n\nA user of the E-Library System who interacts with available resources." <<Reader>> as Reader
+rectangle "==Accounts\n<size:10>[Software System]</size>\n\nEnables users to create, view, and update accounts." <<Accounts>> as Accounts
+rectangle "==Cart\n<size:10>[Software System]</size>\n\nHandles the item rental process." <<Cart>> as Cart
+
+rectangle "Recommendations\n<size:10>[Software System]</size>" <<Recommendations>> {
+  rectangle "==Recommendations SPA\n<size:10>[Container: React Component]</size>\n\nInterface for viewing recommendations." <<Recommendations.RecommendationsSPA>> as Recommendations.RecommendationsSPA
+  rectangle "==Recommendations Microservice\n<size:10>[Container: Java and Spring Boot]</size>\n\nAPI for recommendation functionality." <<Recommendations.RecommendationsMicroservice>> as Recommendations.RecommendationsMicroservice
+  database "==Recommendations Database\n<size:10>[Container: MongoDB]</size>\n\nStores recommended items." <<Recommendations.RecommendationsDatabase>> as Recommendations.RecommendationsDatabase
+}
+
+Reader .[#2980b9,thickness=2].> Accounts : "<color:#2980b9>Manages their account."
+Reader .[#2980b9,thickness=2].> Cart : "<color:#2980b9>Handles rental process."
+Reader .[#2980b9,thickness=2].> Recommendations.RecommendationsSPA : "<color:#2980b9>Views recommendations."
+Accounts .[#2980b9,thickness=2].> Recommendations.RecommendationsMicroservice : "<color:#2980b9>Updates recommendations.\n<color:#2980b9><size:8>[Kafka]</size>"
+Cart .[#2980b9,thickness=2].> Recommendations.RecommendationsMicroservice : "<color:#2980b9>Updates recommendations.\n<color:#2980b9><size:8>[Kafka]</size>"
+Recommendations.RecommendationsSPA .[#2980b9,thickness=2].> Recommendations.RecommendationsMicroservice : "<color:#2980b9>Requests recommendations.\n<color:#2980b9><size:8>[HTTPS]</size>"
+Recommendations.RecommendationsMicroservice .[#2980b9,thickness=2].> Recommendations.RecommendationsDatabase : "<color:#2980b9>Stores and retrieves recommendations.\n<color:#2980b9><size:8>[JDBC]</size>"
+@enduml

@@ -1,0 +1,49 @@
+@startuml
+set separator none
+title Shelf - System Context
+
+left to right direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam rectangle<<Cart>> {
+  BackgroundColor #2980b9
+  FontColor #ffffff
+  BorderColor #1c5981
+  shadowing false
+}
+skinparam person<<Reader>> {
+  BackgroundColor #28b463
+  FontColor #ffffff
+  BorderColor #1c7d45
+  shadowing false
+}
+skinparam rectangle<<Shelf>> {
+  BackgroundColor #2980b9
+  FontColor #ffffff
+  BorderColor #1c5981
+  shadowing false
+}
+
+rectangle "E-Library System" <<group1>> as group1 {
+  skinparam RectangleBorderColor<<group1>> #cccccc
+  skinparam RectangleFontColor<<group1>> #cccccc
+  skinparam RectangleBorderStyle<<group1>> dashed
+
+  person "==Reader\n<size:10>[Person]</size>\n\nA user of the E-Library System who interacts with available resources." <<Reader>> as Reader
+  rectangle "==Cart\n<size:10>[Software System]</size>\n\nHandles the item rental process." <<Cart>> as Cart
+  rectangle "==Shelf\n<size:10>[Software System]</size>\n\nStores and displays items borrowed by users." <<Shelf>> as Shelf
+}
+
+
+Reader .[#2980b9,thickness=2].> Shelf : "<color:#2980b9>Manages borrowed items."
+Reader .[#2980b9,thickness=2].> Cart : "<color:#2980b9>Handles rental process."
+Cart .[#2980b9,thickness=2].> Shelf : "<color:#2980b9>Notifies borrowed items.\n<color:#2980b9><size:8>[Kafka]</size>"
+@enduml

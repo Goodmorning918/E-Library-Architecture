@@ -1,0 +1,49 @@
+@startuml
+set separator none
+title Products - Dynamic
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam sequenceParticipant<<Products.ProductsDatabase>> {
+  BackgroundColor #8e44ad
+  FontColor #ffffff
+  BorderColor #632f79
+  shadowing false
+}
+skinparam sequenceParticipant<<Products.ProductsMicroservice>> {
+  BackgroundColor #27ae60
+  FontColor #ffffff
+  BorderColor #1b7943
+  shadowing false
+}
+skinparam sequenceParticipant<<Products.ProductsSPA>> {
+  BackgroundColor #27ae60
+  FontColor #ffffff
+  BorderColor #1b7943
+  shadowing false
+}
+skinparam sequenceParticipant<<Reader>> {
+  BackgroundColor #28b463
+  FontColor #ffffff
+  BorderColor #1c7d45
+  shadowing false
+}
+
+actor "Reader\n<size:10>[Person]</size>" as Reader <<Reader>> #28b463
+participant "Products SPA\n<size:10>[Container: React Component]</size>" as Products.ProductsSPA <<Products.ProductsSPA>> #27ae60
+participant "Products Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Products.ProductsMicroservice <<Products.ProductsMicroservice>> #27ae60
+database "Products Database\n<size:10>[Container: MongoDB]</size>" as Products.ProductsDatabase <<Products.ProductsDatabase>> #8e44ad
+Reader -[#2980b9]> Products.ProductsSPA : Requests available books list
+Products.ProductsSPA -[#2980b9]> Products.ProductsMicroservice : Fetches available books
+Products.ProductsMicroservice -[#2980b9]> Products.ProductsDatabase : Retrieves available books
+Products.ProductsMicroservice <-[#2980b9]- Products.ProductsDatabase : Returns available books
+Products.ProductsSPA <-[#2980b9]- Products.ProductsMicroservice : Returns book data
+Reader <-[#2980b9]- Products.ProductsSPA : Displays available books list
+@enduml

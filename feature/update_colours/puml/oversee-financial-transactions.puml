@@ -1,0 +1,49 @@
+@startuml
+set separator none
+title Finance - Dynamic
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam sequenceParticipant<<Administrator>> {
+  BackgroundColor #28b463
+  FontColor #ffffff
+  BorderColor #1c7d45
+  shadowing false
+}
+skinparam sequenceParticipant<<Finance.FinanceDatabase>> {
+  BackgroundColor #8e44ad
+  FontColor #ffffff
+  BorderColor #632f79
+  shadowing false
+}
+skinparam sequenceParticipant<<Finance.FinanceMicroservice>> {
+  BackgroundColor #27ae60
+  FontColor #ffffff
+  BorderColor #1b7943
+  shadowing false
+}
+skinparam sequenceParticipant<<Finance.FinanceSPA>> {
+  BackgroundColor #27ae60
+  FontColor #ffffff
+  BorderColor #1b7943
+  shadowing false
+}
+
+actor "Administrator\n<size:10>[Person]</size>" as Administrator <<Administrator>> #28b463
+participant "Finance SPA\n<size:10>[Container: React Component]</size>" as Finance.FinanceSPA <<Finance.FinanceSPA>> #27ae60
+participant "Finance Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Finance.FinanceMicroservice <<Finance.FinanceMicroservice>> #27ae60
+database "Finance Database\n<size:10>[Container: PostgreSQL]</size>" as Finance.FinanceDatabase <<Finance.FinanceDatabase>> #8e44ad
+Administrator -[#2980b9]> Finance.FinanceSPA : Reviews financial transactions
+Finance.FinanceSPA -[#2980b9]> Finance.FinanceMicroservice : Requests transaction data
+Finance.FinanceMicroservice -[#2980b9]> Finance.FinanceDatabase : Retrieves transactions
+Finance.FinanceMicroservice <-[#2980b9]- Finance.FinanceDatabase : Returns transaction data
+Finance.FinanceSPA <-[#2980b9]- Finance.FinanceMicroservice : Provides transaction data
+Administrator <-[#2980b9]- Finance.FinanceSPA : Displays transaction overview
+@enduml

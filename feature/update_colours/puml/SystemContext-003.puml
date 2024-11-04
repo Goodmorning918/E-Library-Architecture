@@ -1,0 +1,57 @@
+@startuml
+set separator none
+title Products - System Context
+
+left to right direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam person<<Administrator>> {
+  BackgroundColor #28b463
+  FontColor #ffffff
+  BorderColor #1c7d45
+  shadowing false
+}
+skinparam rectangle<<Cart>> {
+  BackgroundColor #2980b9
+  FontColor #ffffff
+  BorderColor #1c5981
+  shadowing false
+}
+skinparam rectangle<<Products>> {
+  BackgroundColor #2980b9
+  FontColor #ffffff
+  BorderColor #1c5981
+  shadowing false
+}
+skinparam person<<Reader>> {
+  BackgroundColor #28b463
+  FontColor #ffffff
+  BorderColor #1c7d45
+  shadowing false
+}
+
+rectangle "E-Library System" <<group1>> as group1 {
+  skinparam RectangleBorderColor<<group1>> #cccccc
+  skinparam RectangleFontColor<<group1>> #cccccc
+  skinparam RectangleBorderStyle<<group1>> dashed
+
+  person "==Reader\n<size:10>[Person]</size>\n\nA user of the E-Library System who interacts with available resources." <<Reader>> as Reader
+  rectangle "==Products\n<size:10>[Software System]</size>\n\nMaintains and displays items available in the library." <<Products>> as Products
+  rectangle "==Cart\n<size:10>[Software System]</size>\n\nHandles the item rental process." <<Cart>> as Cart
+  person "==Administrator\n<size:10>[Person]</size>\n\nAn admin responsible for adding items to the library, managing user accounts, and handling financial transactions." <<Administrator>> as Administrator
+}
+
+
+Reader .[#2980b9,thickness=2].> Products : "<color:#2980b9>Views available items."
+Reader .[#2980b9,thickness=2].> Cart : "<color:#2980b9>Handles rental process."
+Administrator .[#2980b9,thickness=2].> Products : "<color:#2980b9>Manages library items."
+Cart .[#2980b9,thickness=2].> Products : "<color:#2980b9>Checks item availability.\n<color:#2980b9><size:8>[HTTPS]</size>"
+@enduml

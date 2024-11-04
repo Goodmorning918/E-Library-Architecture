@@ -1,0 +1,40 @@
+@startuml
+set separator none
+title Shelf - Dynamic
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam sequenceParticipant<<Cart.CartMicroservice>> {
+  BackgroundColor #27ae60
+  FontColor #ffffff
+  BorderColor #1b7943
+  shadowing false
+}
+skinparam sequenceParticipant<<Shelf.ShelfDatabase>> {
+  BackgroundColor #8e44ad
+  FontColor #ffffff
+  BorderColor #632f79
+  shadowing false
+}
+skinparam sequenceParticipant<<Shelf.ShelfMicroservice>> {
+  BackgroundColor #27ae60
+  FontColor #ffffff
+  BorderColor #1b7943
+  shadowing false
+}
+
+participant "Cart Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Cart.CartMicroservice <<Cart.CartMicroservice>> #27ae60
+participant "Shelf Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Shelf.ShelfMicroservice <<Shelf.ShelfMicroservice>> #27ae60
+database "Shelf Database\n<size:10>[Container: MongoDB]</size>" as Shelf.ShelfDatabase <<Shelf.ShelfDatabase>> #8e44ad
+Cart.CartMicroservice -[#2980b9]> Shelf.ShelfMicroservice : Notifies borrowed items
+Cart.CartMicroservice <-[#2980b9]- Shelf.ShelfMicroservice : Acknowledges receipt of items
+Shelf.ShelfMicroservice -[#2980b9]> Shelf.ShelfDatabase : Stores borrowed items
+Shelf.ShelfMicroservice <-[#2980b9]- Shelf.ShelfDatabase : Confirms storage
+@enduml

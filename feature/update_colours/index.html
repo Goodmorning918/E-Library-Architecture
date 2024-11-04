@@ -1,0 +1,822 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>E-Library System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
+    <link href="./style-branding.css" rel="stylesheet">
+    <script type="text/javascript" src="../modal.js"></script>
+    <script type="text/javascript" src="../svg-modal.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js"></script>
+    <link href="../treeview.css" rel="stylesheet">
+    <link href="../admonition.css" rel="stylesheet">
+
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+        
+            <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+        
+            <script>
+            window.WebFontConfig = {
+                custom: {
+                families: ['KaTeX_AMS', 'KaTeX_Caligraphic:n4,n7', 'KaTeX_Fraktur:n4,n7',
+                    'KaTeX_Main:n4,n7,i4,i7', 'KaTeX_Math:i4,i7', 'KaTeX_Script',
+                    'KaTeX_SansSerif:n4,n7,i4', 'KaTeX_Size1', 'KaTeX_Size2', 'KaTeX_Size3',
+                    'KaTeX_Size4', 'KaTeX_Typewriter'],
+                },
+            };
+            </script>
+            <script defer src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" crossorigin="anonymous"></script>
+            <link href="site/logo.png" rel="icon" type="image/png">
+    <link href="site/custom.css" rel="stylesheet">
+  </head>
+  <body>
+    <script type="text/javascript" src="../header.js"></script>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand has-site-branding"><a href="./" class="navbar-item"><img alt="E-Library System" src="site/logo.png"></a><a href="./" class="navbar-item"><span class="has-text-weight-semibold has-site-branding">E-Library System</span></a></div>
+      <div class="navbar-menu has-site-branding">
+        <div class="navbar-end">
+          <div class="navbar-item"><input class="input is-small is-rounded" id="search" type="search" size="30" maxlength="50" placeholder="Search..." onkeyup="redirect(event, value, 'search/')"></div>
+          <div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link has-site-branding">feature/update_colours</a>
+            <div class="navbar-dropdown is-right"><a href="./../main/" class="navbar-item">main</a><a href="./../feature%2Fupdate-quality-of-docs/" class="navbar-item">feature/update-quality-of-docs</a><a href="./../feature%2Fupdate-styling/" class="navbar-item">feature/update-styling</a><a href="./../feature%2Fupdate_colours/" class="navbar-item">feature/update_colours</a><a href="./../feature%2Fupdate_main_branch_name/" class="navbar-item">feature/update_main_branch_name</a>
+              <hr class="navbar-divider">
+              <div class="navbar-item has-text-grey-light"><span>v</span><span>0.0.0</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="site-layout" id="site">
+      <aside class="menu p-3">
+        <p class="menu-label">General</p>
+        <ul class="menu-list has-site-branding">
+          <li><a href="./" class="is-active">Home</a><a href="software-systems/" class="">Software Systems</a></li>
+        </ul>
+        <p class="menu-label">Software systems</p>
+        <ul class="listree menu-list has-site-branding">
+          <ul class="listree-submenu-items">
+            <li>
+              <div class="listree-submenu-heading">E-Library System</div>
+              <ul class="listree-submenu-items">
+                <li><a href="accounts/" class="">Accounts</a></li>
+                <li><a href="cart/" class="">Cart</a></li>
+                <li><a href="finance/" class="">Finance</a></li>
+                <li><a href="products/" class="">Products</a></li>
+                <li><a href="recommendations/" class="">Recommendations</a></li>
+                <li><a href="shelf/" class="">Shelf</a></li>
+              </ul>
+            </li>
+            <li>
+              <div class="listree-submenu-heading">External</div>
+              <ul class="listree-submenu-items">
+                <li><a href="mail-provider/" class="">Mail Provider</a></li>
+              </ul>
+            </li>
+          </ul>
+        </ul>
+      </aside>
+      <div class="container is-fluid">
+        <div class="content p-3">
+          <div><div class="sect1 content">
+ <h2 id="_e_library_architecture">E-Library Architecture</h2>
+ <div class="sectionbody">
+  <div class="paragraph content">
+   <p>This document serves as the comprehensive reference for the <strong>E-Library System Architecture</strong>. It provides a structured outline of the E-Library system, organized into systems, containers, and components, each with detailed descriptions and supporting information. The documentation also breaks down essential business processes, offering clarity on how each part of the system functions within the overall architecture.</p>
+  </div>
+  <div class="paragraph content">
+   <p>Each container, representing a deployable unit, includes specific information on its roles, dependencies, and configurations. This resource is invaluable for developers, architects, and stakeholders, offering insights into the design, deployment, and operation of the E-Library system.</p>
+  </div>
+  <div class="paragraph content">
+   <p>This resource is invaluable for developers, architects, and stakeholders, offering insights into the design, deployment, and operation of the E-Library system.</p>
+  </div>
+  <div class="paragraph content">
+   <p><mark><strong>Disclaimer</strong>: This document is provided as an example of potential documentation structure and is not intended for actual use.</mark></p>
+  </div>
+  <div class="imageblock content">
+   <div class="content">
+    <div>
+     <figure style="width: min(100%, 1473px);">
+      <div>
+       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" preserveAspectRatio="meet" version="1.1" viewBox="0 0 1473 934" zoomAndPan="magnify">
+        <title>
+         System Landscape
+        </title><defs /><g>
+         <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="147.1436" x="655.9282" y="22.9951">System Landscape</text><!--cluster group1-->
+         <g id="cluster_group1">
+          <rect fill="none" height="667" rx="2.5" ry="2.5" style="stroke:#CCCCCC;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="1367" x="7" y="44.2969" />
+          <text fill="#CCCCCC" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="134.6885" x="623.1558" y="59.292">E-Library System</text>
+         </g><!--cluster group2-->
+         <g id="cluster_group2">
+          <rect fill="none" height="150" rx="2.5" ry="2.5" style="stroke:#CCCCCC;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="250" x="1217" y="778.2969" />
+          <text fill="#CCCCCC" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="65.8984" x="1309.0508" y="793.292">External</text>
+         </g><!--entity Reader-->
+         <g id="elem_Reader">
+          <ellipse cx="953.9141" cy="132.6692" fill="#28B463" rx="32.3724" ry="32.3724" style="stroke:#1C7D45;stroke-width:0.5;" />
+          <rect fill="#28B463" height="115.4531" rx="32.3724" ry="32.3724" style="stroke:#1C7D45;stroke-width:0.5;" width="205.8281" x="851" y="165.0416" />
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="64.1641" x="921.832" y="189.8932">Reader</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="933.0327" y="202.9488">[Person]</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="951.689" y="218.3024">&nbsp;</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="9.5771" x="875.2974" y="234.5992">A</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="884.8745" y="234.5992">&nbsp;</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="30.5361" x="889.3247" y="234.5992">user</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="919.8608" y="234.5992">&nbsp;</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="13.4941" x="924.311" y="234.5992">of</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="937.8052" y="234.5992">&nbsp;</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="22.9756" x="942.2554" y="234.5992">the</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="965.231" y="234.5992">&nbsp;</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62.8496" x="969.6812" y="234.5992">E-Library</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="52.2061" x="861" y="250.8961">System</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="913.2061" y="250.8961">&nbsp;</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="28.8887" x="917.6563" y="250.8961">who</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="946.5449" y="250.8961">&nbsp;</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61.6807" x="950.9951" y="250.8961">interacts</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="1012.6758" y="250.8961">&nbsp;</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="29.7021" x="1017.126" y="250.8961">with</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="63.1914" x="883.6372" y="267.193">available</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="946.8286" y="267.193">&nbsp;</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="72.9121" x="951.2788" y="267.193">resources.</text>
+         </g><!--entity Products-->
+         <g id="elem_Products">
+          <a href="products/context/" target="_self" title="products/context/" xlink:actuate="onRequest" xlink:href="products/context/" xlink:show="new" xlink:title="products/context/" xlink:type="simple">
+           <rect fill="#2980B9" height="115.4531" rx="2.5" ry="2.5" style="stroke:#1C5981;stroke-width:0.5;" width="179.79" x="120" y="580.2969" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="80.1094" x="169.8403" y="605.1484">Products</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="48.3789" x="163.5205" y="618.2041">[Software</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="211.8994" y="618.2041">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.1914" x="215.0781" y="618.2041">System]</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="207.6699" y="633.5576">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="67.5459" x="130" y="649.8545">Maintains</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="197.5459" y="649.8545">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="26.3389" x="201.9961" y="649.8545">and</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="228.335" y="649.8545">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57.0049" x="232.7852" y="649.8545">displays</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38.9238" x="134.293" y="666.1514">items</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="173.2168" y="666.1514">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="63.1914" x="177.667" y="666.1514">available</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="240.8584" y="666.1514">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="12.7627" x="245.3086" y="666.1514">in</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="258.0713" y="666.1514">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="22.9756" x="262.5215" y="666.1514">the</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49.4922" x="185.1489" y="682.4482">library.</text>
+          </a>
+         </g><!--entity Cart-->
+         <g id="elem_Cart">
+          <a href="cart/context/" target="_self" title="cart/context/" xlink:actuate="onRequest" xlink:href="cart/context/" xlink:show="new" xlink:title="cart/context/" xlink:type="simple">
+           <rect fill="#2980B9" height="99.1563" rx="2.5" ry="2.5" style="stroke:#1C5981;stroke-width:0.5;" width="185.8193" x="861" y="386.2969" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="38.0781" x="934.8706" y="411.1484">Cart</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="48.3789" x="907.5352" y="424.2041">[Software</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="955.9141" y="424.2041">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.1914" x="959.0928" y="424.2041">System]</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="951.6846" y="439.5576">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56.6631" x="871" y="455.8545">Handles</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="927.6631" y="455.8545">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="22.9756" x="932.1133" y="455.8545">the</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="955.0889" y="455.8545">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="31.6299" x="959.5391" y="455.8545">item</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="991.1689" y="455.8545">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="41.2002" x="995.6191" y="455.8545">rental</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="58.5566" x="924.6313" y="472.1514">process.</text>
+          </a>
+         </g><!--entity Recommendations-->
+         <g id="elem_Recommendations">
+          <a href="recommendations/context/" target="_self" title="recommendations/context/" xlink:actuate="onRequest" xlink:href="recommendations/context/" xlink:show="new" xlink:title="recommendations/context/" xlink:type="simple">
+           <rect fill="#2980B9" height="99.1563" rx="2.5" ry="2.5" style="stroke:#1C5981;stroke-width:0.5;" width="186.5234" x="792.5" y="588.2969" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="166.5234" x="802.5" y="613.1484">Recommendations</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="48.3789" x="839.3872" y="626.2041">[Software</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="887.7661" y="626.2041">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.1914" x="890.9448" y="626.2041">System]</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="883.5366" y="641.5576">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59.7324" x="802.7803" y="657.8545">Provides</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="862.5127" y="657.8545">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101.7803" x="866.9629" y="657.8545">recommended</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38.9238" x="831.0845" y="674.1514">items</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="870.0083" y="674.1514">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="19.25" x="874.4585" y="674.1514">for</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="893.7085" y="674.1514">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="42.2803" x="898.1587" y="674.1514">users.</text>
+          </a>
+         </g><!--entity Administrator-->
+         <g id="elem_Administrator">
+          <ellipse cx="359.1245" cy="116.4347" fill="#28B463" rx="37.1378" ry="37.1378" style="stroke:#1C7D45;stroke-width:0.5;" />
+          <rect fill="#28B463" height="148.0469" rx="37.1378" ry="37.1378" style="stroke:#1C7D45;stroke-width:0.5;" width="211.249" x="253.5" y="153.5725" />
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="125.2578" x="296.4956" y="178.4241">Administrator</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="338.2432" y="191.4797">[Person]</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="356.8994" y="206.8332">&nbsp;</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="18.4502" x="271.3853" y="223.1301">An</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="289.8354" y="223.1301">&nbsp;</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="43.8662" x="294.2856" y="223.1301">admin</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="338.1519" y="223.1301">&nbsp;</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="80.5615" x="342.6021" y="223.1301">responsible</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="423.1636" y="223.1301">&nbsp;</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="19.25" x="427.6138" y="223.1301">for</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48.002" x="263.5" y="239.427">adding</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="311.502" y="239.427">&nbsp;</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38.9238" x="315.9521" y="239.427">items</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="354.876" y="239.427">&nbsp;</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="14.0547" x="359.3262" y="239.427">to</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="373.3809" y="239.427">&nbsp;</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="22.9756" x="377.8311" y="239.427">the</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="400.8066" y="239.427">&nbsp;</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49.4922" x="405.2568" y="239.427">library,</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70.2051" x="270.5444" y="255.7239">managing</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="340.7495" y="255.7239">&nbsp;</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="30.5361" x="345.1997" y="255.7239">user</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="375.7358" y="255.7239">&nbsp;</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="67.5186" x="380.186" y="255.7239">accounts,</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="26.3389" x="281.5298" y="272.0207">and</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="307.8687" y="272.0207">&nbsp;</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60.751" x="312.3188" y="272.0207">handling</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="373.0698" y="272.0207">&nbsp;</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59.1992" x="377.52" y="272.0207">financial</text>
+          <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90.8291" x="313.71" y="288.3176">transactions.</text>
+         </g><!--entity Finance-->
+         <g id="elem_Finance">
+          <a href="finance/context/" target="_self" title="finance/context/" xlink:actuate="onRequest" xlink:href="finance/context/" xlink:show="new" xlink:title="finance/context/" xlink:type="simple">
+           <rect fill="#2980B9" height="115.4531" rx="2.5" ry="2.5" style="stroke:#1C5981;stroke-width:0.5;" width="203.9824" x="487" y="580.2969" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="70.3281" x="553.8271" y="605.1484">Finance</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="48.3789" x="542.6167" y="618.2041">[Software</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="590.9956" y="618.2041">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.1914" x="594.1743" y="618.2041">System]</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="586.7661" y="633.5576">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62.9043" x="525.7144" y="649.8545">Manages</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="588.6187" y="649.8545">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59.1992" x="593.0688" y="649.8545">financial</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86.3789" x="497" y="666.1514">transactions</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="583.3789" y="666.1514">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="26.3389" x="587.8291" y="666.1514">and</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="614.168" y="666.1514">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62.3643" x="618.6182" y="666.1514">payment</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="80.2061" x="548.8882" y="682.4482">processing.</text>
+          </a>
+         </g><!--entity Accounts-->
+         <g id="elem_Accounts">
+          <a href="accounts/context/" target="_self" title="accounts/context/" xlink:actuate="onRequest" xlink:href="accounts/context/" xlink:show="new" xlink:title="accounts/context/" xlink:type="simple">
+           <rect fill="#2980B9" height="99.1563" rx="2.5" ry="2.5" style="stroke:#1C5981;stroke-width:0.5;" width="213.2246" x="612.5" y="386.2969" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="82.2969" x="677.9639" y="411.1484">Accounts</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="48.3789" x="672.7378" y="424.2041">[Software</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="721.1167" y="424.2041">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.1914" x="724.2954" y="424.2041">System]</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="716.8872" y="439.5576">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54.9814" x="634.4048" y="455.8545">Enables</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="689.3862" y="455.8545">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="37.8301" x="693.8364" y="455.8545">users</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="731.6665" y="455.8545">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="14.0547" x="736.1167" y="455.8545">to</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="750.1714" y="455.8545">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49.1982" x="754.6216" y="455.8545">create,</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="36.6885" x="622.5" y="472.1514">view,</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="659.1885" y="472.1514">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="26.3389" x="663.6387" y="472.1514">and</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="689.9775" y="472.1514">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49.3281" x="694.4277" y="472.1514">update</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="743.7559" y="472.1514">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="67.5186" x="748.2061" y="472.1514">accounts.</text>
+          </a>
+         </g><!--entity Shelf-->
+         <g id="elem_Shelf">
+          <a href="shelf/context/" target="_self" title="shelf/context/" xlink:actuate="onRequest" xlink:href="shelf/context/" xlink:show="new" xlink:title="shelf/context/" xlink:type="simple">
+           <rect fill="#2980B9" height="99.1563" rx="2.5" ry="2.5" style="stroke:#1C5981;stroke-width:0.5;" width="200.2227" x="1087" y="588.2969" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="46.2109" x="1164.0059" y="613.1484">Shelf</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="48.3789" x="1140.7368" y="626.2041">[Software</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="1189.1157" y="626.2041">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.1914" x="1192.2944" y="626.2041">System]</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="1184.8862" y="641.5576">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="44.6045" x="1097" y="657.8545">Stores</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="1141.6045" y="657.8545">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="26.3389" x="1146.0547" y="657.8545">and</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="1172.3936" y="657.8545">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57.0049" x="1176.8438" y="657.8545">displays</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="1233.8486" y="657.8545">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38.9238" x="1238.2988" y="657.8545">items</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66.4795" x="1119.6953" y="674.1514">borrowed</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="1186.1748" y="674.1514">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="17.1719" x="1190.625" y="674.1514">by</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="1207.7969" y="674.1514">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="42.2803" x="1212.2471" y="674.1514">users.</text>
+          </a>
+         </g><!--entity MailProvider-->
+         <g id="elem_MailProvider">
+          <a href="mail-provider/context/" target="_self" title="mail-provider/context/" xlink:actuate="onRequest" xlink:href="mail-provider/context/" xlink:show="new" xlink:title="mail-provider/context/" xlink:type="simple">
+           <rect fill="#E67E22" height="99.1563" rx="2.5" ry="2.5" style="stroke:#A15817;stroke-width:0.5;" width="216.8613" x="1233.5" y="813.2969" />
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="37.6875" x="1281.9424" y="838.1484">Mail</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="5.5703" x="1319.6299" y="838.1484">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="76.7188" x="1325.2002" y="838.1484">Provider</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="48.3789" x="1295.5562" y="851.2041">[Software</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="1343.9351" y="851.2041">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.1914" x="1347.1138" y="851.2041">System]</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="1339.7056" y="866.5576">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="58.3311" x="1243.5" y="882.8545">External</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="1301.8311" y="882.8545">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50.6133" x="1306.2813" y="882.8545">system</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="1356.8945" y="882.8545">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="19.25" x="1361.3447" y="882.8545">for</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="1380.5947" y="882.8545">&nbsp;</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="55.3164" x="1385.0449" y="882.8545">sending</text>
+           <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50.3535" x="1316.7539" y="899.1514">emails.</text>
+          </a>
+         </g><!--link Reader to Accounts-->
+         <g id="link_Reader_Accounts">
+          <path d="M867.83,280.5869 C833.38,316.2869 799.2169,351.6798 770.0869,381.8598 " fill="none" id="Reader-to-Accounts" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+          <polygon fill="#2980B9" points="765.92,386.1769,775.0484,382.4792,769.3924,382.5793,769.2923,376.9233,765.92,386.1769" style="stroke:#2980B9;stroke-width:2.0;" />
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.9316" x="816" y="341.5791">Manages</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="860.9316" y="341.5791">&nbsp;</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="23.3008" x="864.1104" y="341.5791">their</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="43.0176" x="830.1968" y="353.2197">account.</text>
+         </g><!--link Reader to Shelf-->
+         <g id="link_Reader_Shelf">
+          <path d="M1057.22,238.2669 C1115.35,270.7969 1182.79,320.1769 1216,386.2969 C1248.23,450.4569 1229.3188,529.5812 1210.0888,582.2212 " fill="none" id="Reader-to-Shelf" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+          <polygon fill="#2980B9" points="1208.03,587.8569,1214.8753,580.7758,1209.7457,583.1604,1207.361,578.0308,1208.03,587.8569" style="stroke:#2980B9;stroke-width:2.0;" />
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.9316" x="1233" y="433.5791">Manages</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="1277.9316" y="433.5791">&nbsp;</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="47.4854" x="1281.1104" y="433.5791">borrowed</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="30.9814" x="1265.3071" y="445.2197">items.</text>
+         </g><!--link Reader to Products-->
+         <g id="link_Reader_Products">
+          <path d="M850.9,214.7669 C670.49,256.7169 312.72,344.0869 272,386.2969 C222,438.1269 210.5248,517.6397 208.7848,574.0997 " fill="none" id="Reader-to-Products" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+          <polygon fill="#2980B9" points="208.6,580.0969,212.8753,571.2244,208.754,575.0992,204.8791,570.9779,208.6,580.0969" style="stroke:#2980B9;stroke-width:2.0;" />
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="29.1602" x="273" y="433.5791">Views</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="302.1602" y="433.5791">&nbsp;</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="45.1367" x="305.3389" y="433.5791">available</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="30.9814" x="296.2471" y="445.2197">items.</text>
+         </g><!--link Reader to Cart-->
+         <g id="link_Reader_Cart">
+          <path d="M954,280.5869 C954,316.2869 954,349.9969 954,380.1769 " fill="none" id="Reader-to-Cart" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+          <polygon fill="#2980B9" points="954,386.1769,958,377.1769,954,381.1769,950,377.1769,954,386.1769" style="stroke:#2980B9;stroke-width:2.0;" />
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="40.4736" x="955" y="341.5791">Handles</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="995.4736" y="341.5791">&nbsp;</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="29.4287" x="998.6523" y="341.5791">rental</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.8262" x="970.6274" y="353.2197">process.</text>
+         </g><!--link Reader to Recommendations-->
+         <g id="link_Reader_Recommendations">
+          <path d="M1041.67,280.5569 C1105.05,356.2669 1170.19,465.7269 1112,550.2969 C1095.99,573.5769 1040.1713,594.5574 985.3313,610.8574 " fill="none" id="Reader-to-Recommendations" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+          <polygon fill="#2980B9" points="979.58,612.5669,989.3466,613.8369,984.3728,611.1423,987.0674,606.1685,979.58,612.5669" style="stroke:#2980B9;stroke-width:2.0;" />
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="29.1602" x="1156.77" y="428.0791">Views</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="72.7002" x="1135" y="439.7197">recommended</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="30.9814" x="1155.8594" y="451.3604">items.</text>
+         </g><!--link Reader to Finance-->
+         <g id="link_Reader_Finance">
+          <path d="M850.58,208.0969 C751.91,230.2169 608.59,279.6369 541,386.2969 C503.67,445.2069 527.8187,521.0498 553.9487,574.8498 " fill="none" id="Reader-to-Finance" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+          <polygon fill="#2980B9" points="556.57,580.2469,556.2361,570.4037,554.3856,575.7493,549.04,573.8988,556.57,580.2469" style="stroke:#2980B9;stroke-width:2.0;" />
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.9316" x="546.0015" y="433.5791">Manages</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="52.9346" x="542" y="445.2197">payments.</text>
+         </g><!--link Cart to Finance-->
+         <g id="link_Cart_Finance">
+          <path d="M866.22,485.3069 C848.56,495.1669 830.16,505.5169 813,515.2969 C786.18,530.5869 779.99,535.3169 753,550.2969 C733.16,561.3069 717.1094,570.0033 696.5794,580.9033 " fill="none" id="Cart-to-Finance" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+          <polygon fill="#2980B9" points="691.28,583.7169,701.1048,583.0294,695.6962,581.3722,697.3534,575.9635,691.28,583.7169" style="stroke:#2980B9;stroke-width:2.0;" />
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="49.6924" x="815.6211" y="530.5791">Processes</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="52.9346" x="814" y="542.2197">payments.</text>
+         </g><!--link Administrator to Accounts-->
+         <g id="link_Administrator_Accounts">
+          <path d="M464.58,262.7069 C523.29,302.4269 589.8601,347.4454 642.1101,382.7854 " fill="none" id="Administrator-to-Accounts" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+          <polygon fill="#2980B9" points="647.08,386.1469,641.8661,377.7913,642.9384,383.3456,637.3841,384.4179,647.08,386.1469" style="stroke:#2980B9;stroke-width:2.0;" />
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="46.7773" x="603" y="341.5791">Oversees</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="649.7773" y="341.5791">&nbsp;</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="21.8115" x="652.9561" y="341.5791">user</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="48.2275" x="614.77" y="353.2197">accounts.</text>
+         </g><!--link Administrator to Products-->
+         <g id="link_Administrator_Products">
+          <path d="M253.28,236.0169 C192.07,268.0969 120.32,317.7969 85,386.2969 C64.83,425.4069 70.12,443.8869 85,485.2969 C97.74,520.7569 118.6821,549.435 143.0221,575.585 " fill="none" id="Administrator-to-Products" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+          <polygon fill="#2980B9" points="147.11,579.9769,143.9061,570.6637,143.7034,576.3169,138.0502,576.1143,147.11,579.9769" style="stroke:#2980B9;stroke-width:2.0;" />
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.9316" x="86" y="433.5791">Manages</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="130.9316" y="433.5791">&nbsp;</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="32.1729" x="134.1104" y="433.5791">library</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="30.9814" x="110.6509" y="445.2197">items.</text>
+         </g><!--link Administrator to Finance-->
+         <g id="link_Administrator_Finance">
+          <path d="M352.56,301.3069 C353.23,358.4269 360.54,428.0469 386,485.2969 C405.88,529.9969 441.7159,561.3029 481.6559,585.9829 " fill="none" id="Administrator-to-Finance" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+          <polygon fill="#2980B9" points="486.76,589.1369,481.2064,581.0031,482.5065,586.5085,477.0011,587.8087,486.76,589.1369" style="stroke:#2980B9;stroke-width:2.0;" />
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="46.7773" x="387" y="433.5791">Oversees</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="433.7773" y="433.5791">&nbsp;</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="42.2852" x="436.9561" y="433.5791">financial</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="64.8779" x="400.6816" y="445.2197">transactions.</text>
+         </g><!--link MailProvider to Reader-->
+         <g id="link_MailProvider_Reader">
+          <path d="M1356.79,813.1169 C1381.49,721.6369 1420.66,521.1769 1337,386.2969 C1276.04,288.0169 1154.2803,238.8291 1063.1303,214.0791 " fill="none" id="MailProvider-to-Reader" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+          <polygon fill="#2980B9" points="1057.34,212.5069,1064.9773,218.7255,1062.1653,213.8171,1067.0737,211.005,1057.34,212.5069" style="stroke:#2980B9;stroke-width:2.0;" />
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="30.3955" x="1386" y="536.5791">Sends</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="1416.3955" y="536.5791">&nbsp;</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="43.9697" x="1419.5742" y="536.5791">invoices.</text>
+         </g><!--link Accounts to Recommendations-->
+         <g id="link_Accounts_Recommendations">
+          <path d="M665.79,485.4169 C649.75,505.9369 639.75,529.7769 654,550.2969 C662.61,562.6969 725.9497,585.6744 786.4997,605.5644 " fill="none" id="Accounts-to-Recommendations" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+          <polygon fill="#2980B9" points="792.2,607.4369,784.8978,600.8279,787.4497,605.8765,782.4012,608.4284,792.2,607.4369" style="stroke:#2980B9;stroke-width:2.0;" />
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.4258" x="681.2231" y="525.5791">Updates</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="93.8721" x="655" y="537.2197">recommendations.</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="8" lengthAdjust="spacing" textLength="28.7422" x="687.5649" y="547.0039">[Kafka]</text>
+         </g><!--link Cart to Recommendations-->
+         <g id="link_Cart_Recommendations">
+          <path d="M900.53,485.3969 C893.37,494.5769 887.09,504.6669 883,515.2969 C874.2,538.1369 873.3593,559.2601 875.7693,582.0601 " fill="none" id="Cart-to-Recommendations" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+          <polygon fill="#2980B9" points="876.4,588.0269,879.4318,578.6563,875.8744,583.0546,871.4761,579.4972,876.4,588.0269" style="stroke:#2980B9;stroke-width:2.0;" />
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.4258" x="910.2231" y="525.5791">Updates</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="93.8721" x="884" y="537.2197">recommendations.</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="8" lengthAdjust="spacing" textLength="28.7422" x="916.5649" y="547.0039">[Kafka]</text>
+         </g><!--link Cart to Shelf-->
+         <g id="link_Cart_Shelf">
+          <path d="M1010.7,485.4669 C1047.07,516.6869 1089.557,553.1591 1125.897,584.3491 " fill="none" id="Cart-to-Shelf" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+          <polygon fill="#2980B9" points="1130.45,588.2569,1126.2257,579.3599,1126.6559,585.0004,1121.0154,585.4306,1130.45,588.2569" style="stroke:#2980B9;stroke-width:2.0;" />
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="37.959" x="1085" y="525.5791">Notifies</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="1122.959" y="525.5791">&nbsp;</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="47.4854" x="1126.1377" y="525.5791">borrowed</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="30.9814" x="1113.8208" y="537.2197">items.</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="8" lengthAdjust="spacing" textLength="28.7422" x="1114.9404" y="547.0039">[Kafka]</text>
+         </g><!--link Cart to Products-->
+         <g id="link_Cart_Products">
+          <path d="M860.85,479.8469 C854.87,481.8769 848.89,483.7169 843,485.2969 C727.66,516.2169 692.63,489.6769 576,515.2969 C479.87,536.4069 379.0736,571.2185 305.8836,598.8385 " fill="none" id="Cart-to-Products" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+          <polygon fill="#2980B9" points="300.27,600.9569,310.1027,601.5216,304.948,599.1915,307.2781,594.0369,300.27,600.9569" style="stroke:#2980B9;stroke-width:2.0;" />
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="35.9717" x="577" y="525.5791">Checks</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="612.9717" y="525.5791">&nbsp;</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="22.5928" x="616.1504" y="525.5791">item</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="57.5586" x="579.0923" y="537.2197">availability.</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="8" lengthAdjust="spacing" textLength="31.9336" x="591.9048" y="547.0039">[HTTPS]</text>
+         </g><!--link Finance to MailProvider-->
+         <g id="link_Finance_MailProvider">
+          <path d="M691.14,686.5369 C718.07,698.1469 747.35,709.9069 775,719.2969 C931.42,772.4069 1112.2501,814.3441 1227.5001,838.7441 " fill="none" id="Finance-to-MailProvider" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+          <polygon fill="#2980B9" points="1233.37,839.9869,1225.3937,834.2095,1228.4784,838.9513,1223.7367,842.036,1233.37,839.9869" style="stroke:#2980B9;stroke-width:2.0;" />
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="30.3955" x="913" y="737.5791">Sends</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="943.3955" y="737.5791">&nbsp;</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="40.791" x="946.5742" y="737.5791">invoices</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="987.3652" y="737.5791">&nbsp;</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="10.0391" x="990.5439" y="737.5791">to</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.3916" x="936.0957" y="749.2197">readers.</text>
+          <text fill="#2980B9" font-family="sans-serif" font-size="8" lengthAdjust="spacing" textLength="27.9336" x="942.8247" y="759.0039">[SMTP]</text>
+         </g>
+        </g>
+       </svg>
+      </div>
+      <figcaption>
+       <a onclick="openSvgModal('SystemLandscape-modal', 'SystemLandscape-svg')">System Landscape Diagram</a>
+      </figcaption>
+     </figure>
+     <div class="modal" id="SystemLandscape-modal">
+      <div class="modal-background" onclick="closeModal('SystemLandscape-modal')"></div>
+      <div class="modal-content">
+       <div class="box">
+        <div id="SystemLandscape-svg" class="modal-box-content">
+         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" preserveAspectRatio="meet" version="1.1" viewBox="0 0 1473 934" zoomAndPan="magnify">
+          <title>
+           System Landscape
+          </title><defs /><g>
+           <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="147.1436" x="655.9282" y="22.9951">System Landscape</text><!--cluster group1-->
+           <g id="cluster_group1">
+            <rect fill="none" height="667" rx="2.5" ry="2.5" style="stroke:#CCCCCC;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="1367" x="7" y="44.2969" />
+            <text fill="#CCCCCC" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="134.6885" x="623.1558" y="59.292">E-Library System</text>
+           </g><!--cluster group2-->
+           <g id="cluster_group2">
+            <rect fill="none" height="150" rx="2.5" ry="2.5" style="stroke:#CCCCCC;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="250" x="1217" y="778.2969" />
+            <text fill="#CCCCCC" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="65.8984" x="1309.0508" y="793.292">External</text>
+           </g><!--entity Reader-->
+           <g id="elem_Reader">
+            <ellipse cx="953.9141" cy="132.6692" fill="#28B463" rx="32.3724" ry="32.3724" style="stroke:#1C7D45;stroke-width:0.5;" />
+            <rect fill="#28B463" height="115.4531" rx="32.3724" ry="32.3724" style="stroke:#1C7D45;stroke-width:0.5;" width="205.8281" x="851" y="165.0416" />
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="64.1641" x="921.832" y="189.8932">Reader</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="933.0327" y="202.9488">[Person]</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="951.689" y="218.3024">&nbsp;</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="9.5771" x="875.2974" y="234.5992">A</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="884.8745" y="234.5992">&nbsp;</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="30.5361" x="889.3247" y="234.5992">user</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="919.8608" y="234.5992">&nbsp;</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="13.4941" x="924.311" y="234.5992">of</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="937.8052" y="234.5992">&nbsp;</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="22.9756" x="942.2554" y="234.5992">the</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="965.231" y="234.5992">&nbsp;</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62.8496" x="969.6812" y="234.5992">E-Library</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="52.2061" x="861" y="250.8961">System</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="913.2061" y="250.8961">&nbsp;</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="28.8887" x="917.6563" y="250.8961">who</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="946.5449" y="250.8961">&nbsp;</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61.6807" x="950.9951" y="250.8961">interacts</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="1012.6758" y="250.8961">&nbsp;</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="29.7021" x="1017.126" y="250.8961">with</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="63.1914" x="883.6372" y="267.193">available</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="946.8286" y="267.193">&nbsp;</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="72.9121" x="951.2788" y="267.193">resources.</text>
+           </g><!--entity Products-->
+           <g id="elem_Products">
+            <a href="products/context/" target="_self" title="products/context/" xlink:actuate="onRequest" xlink:href="products/context/" xlink:show="new" xlink:title="products/context/" xlink:type="simple">
+             <rect fill="#2980B9" height="115.4531" rx="2.5" ry="2.5" style="stroke:#1C5981;stroke-width:0.5;" width="179.79" x="120" y="580.2969" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="80.1094" x="169.8403" y="605.1484">Products</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="48.3789" x="163.5205" y="618.2041">[Software</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="211.8994" y="618.2041">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.1914" x="215.0781" y="618.2041">System]</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="207.6699" y="633.5576">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="67.5459" x="130" y="649.8545">Maintains</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="197.5459" y="649.8545">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="26.3389" x="201.9961" y="649.8545">and</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="228.335" y="649.8545">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57.0049" x="232.7852" y="649.8545">displays</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38.9238" x="134.293" y="666.1514">items</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="173.2168" y="666.1514">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="63.1914" x="177.667" y="666.1514">available</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="240.8584" y="666.1514">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="12.7627" x="245.3086" y="666.1514">in</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="258.0713" y="666.1514">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="22.9756" x="262.5215" y="666.1514">the</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49.4922" x="185.1489" y="682.4482">library.</text>
+            </a>
+           </g><!--entity Cart-->
+           <g id="elem_Cart">
+            <a href="cart/context/" target="_self" title="cart/context/" xlink:actuate="onRequest" xlink:href="cart/context/" xlink:show="new" xlink:title="cart/context/" xlink:type="simple">
+             <rect fill="#2980B9" height="99.1563" rx="2.5" ry="2.5" style="stroke:#1C5981;stroke-width:0.5;" width="185.8193" x="861" y="386.2969" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="38.0781" x="934.8706" y="411.1484">Cart</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="48.3789" x="907.5352" y="424.2041">[Software</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="955.9141" y="424.2041">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.1914" x="959.0928" y="424.2041">System]</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="951.6846" y="439.5576">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56.6631" x="871" y="455.8545">Handles</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="927.6631" y="455.8545">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="22.9756" x="932.1133" y="455.8545">the</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="955.0889" y="455.8545">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="31.6299" x="959.5391" y="455.8545">item</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="991.1689" y="455.8545">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="41.2002" x="995.6191" y="455.8545">rental</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="58.5566" x="924.6313" y="472.1514">process.</text>
+            </a>
+           </g><!--entity Recommendations-->
+           <g id="elem_Recommendations">
+            <a href="recommendations/context/" target="_self" title="recommendations/context/" xlink:actuate="onRequest" xlink:href="recommendations/context/" xlink:show="new" xlink:title="recommendations/context/" xlink:type="simple">
+             <rect fill="#2980B9" height="99.1563" rx="2.5" ry="2.5" style="stroke:#1C5981;stroke-width:0.5;" width="186.5234" x="792.5" y="588.2969" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="166.5234" x="802.5" y="613.1484">Recommendations</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="48.3789" x="839.3872" y="626.2041">[Software</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="887.7661" y="626.2041">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.1914" x="890.9448" y="626.2041">System]</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="883.5366" y="641.5576">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59.7324" x="802.7803" y="657.8545">Provides</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="862.5127" y="657.8545">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101.7803" x="866.9629" y="657.8545">recommended</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38.9238" x="831.0845" y="674.1514">items</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="870.0083" y="674.1514">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="19.25" x="874.4585" y="674.1514">for</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="893.7085" y="674.1514">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="42.2803" x="898.1587" y="674.1514">users.</text>
+            </a>
+           </g><!--entity Administrator-->
+           <g id="elem_Administrator">
+            <ellipse cx="359.1245" cy="116.4347" fill="#28B463" rx="37.1378" ry="37.1378" style="stroke:#1C7D45;stroke-width:0.5;" />
+            <rect fill="#28B463" height="148.0469" rx="37.1378" ry="37.1378" style="stroke:#1C7D45;stroke-width:0.5;" width="211.249" x="253.5" y="153.5725" />
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="125.2578" x="296.4956" y="178.4241">Administrator</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.7627" x="338.2432" y="191.4797">[Person]</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="356.8994" y="206.8332">&nbsp;</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="18.4502" x="271.3853" y="223.1301">An</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="289.8354" y="223.1301">&nbsp;</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="43.8662" x="294.2856" y="223.1301">admin</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="338.1519" y="223.1301">&nbsp;</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="80.5615" x="342.6021" y="223.1301">responsible</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="423.1636" y="223.1301">&nbsp;</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="19.25" x="427.6138" y="223.1301">for</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48.002" x="263.5" y="239.427">adding</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="311.502" y="239.427">&nbsp;</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38.9238" x="315.9521" y="239.427">items</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="354.876" y="239.427">&nbsp;</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="14.0547" x="359.3262" y="239.427">to</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="373.3809" y="239.427">&nbsp;</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="22.9756" x="377.8311" y="239.427">the</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="400.8066" y="239.427">&nbsp;</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49.4922" x="405.2568" y="239.427">library,</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70.2051" x="270.5444" y="255.7239">managing</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="340.7495" y="255.7239">&nbsp;</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="30.5361" x="345.1997" y="255.7239">user</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="375.7358" y="255.7239">&nbsp;</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="67.5186" x="380.186" y="255.7239">accounts,</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="26.3389" x="281.5298" y="272.0207">and</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="307.8687" y="272.0207">&nbsp;</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60.751" x="312.3188" y="272.0207">handling</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="373.0698" y="272.0207">&nbsp;</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59.1992" x="377.52" y="272.0207">financial</text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90.8291" x="313.71" y="288.3176">transactions.</text>
+           </g><!--entity Finance-->
+           <g id="elem_Finance">
+            <a href="finance/context/" target="_self" title="finance/context/" xlink:actuate="onRequest" xlink:href="finance/context/" xlink:show="new" xlink:title="finance/context/" xlink:type="simple">
+             <rect fill="#2980B9" height="115.4531" rx="2.5" ry="2.5" style="stroke:#1C5981;stroke-width:0.5;" width="203.9824" x="487" y="580.2969" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="70.3281" x="553.8271" y="605.1484">Finance</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="48.3789" x="542.6167" y="618.2041">[Software</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="590.9956" y="618.2041">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.1914" x="594.1743" y="618.2041">System]</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="586.7661" y="633.5576">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62.9043" x="525.7144" y="649.8545">Manages</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="588.6187" y="649.8545">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59.1992" x="593.0688" y="649.8545">financial</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86.3789" x="497" y="666.1514">transactions</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="583.3789" y="666.1514">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="26.3389" x="587.8291" y="666.1514">and</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="614.168" y="666.1514">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62.3643" x="618.6182" y="666.1514">payment</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="80.2061" x="548.8882" y="682.4482">processing.</text>
+            </a>
+           </g><!--entity Accounts-->
+           <g id="elem_Accounts">
+            <a href="accounts/context/" target="_self" title="accounts/context/" xlink:actuate="onRequest" xlink:href="accounts/context/" xlink:show="new" xlink:title="accounts/context/" xlink:type="simple">
+             <rect fill="#2980B9" height="99.1563" rx="2.5" ry="2.5" style="stroke:#1C5981;stroke-width:0.5;" width="213.2246" x="612.5" y="386.2969" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="82.2969" x="677.9639" y="411.1484">Accounts</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="48.3789" x="672.7378" y="424.2041">[Software</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="721.1167" y="424.2041">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.1914" x="724.2954" y="424.2041">System]</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="716.8872" y="439.5576">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54.9814" x="634.4048" y="455.8545">Enables</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="689.3862" y="455.8545">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="37.8301" x="693.8364" y="455.8545">users</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="731.6665" y="455.8545">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="14.0547" x="736.1167" y="455.8545">to</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="750.1714" y="455.8545">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49.1982" x="754.6216" y="455.8545">create,</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="36.6885" x="622.5" y="472.1514">view,</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="659.1885" y="472.1514">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="26.3389" x="663.6387" y="472.1514">and</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="689.9775" y="472.1514">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49.3281" x="694.4277" y="472.1514">update</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="743.7559" y="472.1514">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="67.5186" x="748.2061" y="472.1514">accounts.</text>
+            </a>
+           </g><!--entity Shelf-->
+           <g id="elem_Shelf">
+            <a href="shelf/context/" target="_self" title="shelf/context/" xlink:actuate="onRequest" xlink:href="shelf/context/" xlink:show="new" xlink:title="shelf/context/" xlink:type="simple">
+             <rect fill="#2980B9" height="99.1563" rx="2.5" ry="2.5" style="stroke:#1C5981;stroke-width:0.5;" width="200.2227" x="1087" y="588.2969" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="46.2109" x="1164.0059" y="613.1484">Shelf</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="48.3789" x="1140.7368" y="626.2041">[Software</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="1189.1157" y="626.2041">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.1914" x="1192.2944" y="626.2041">System]</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="1184.8862" y="641.5576">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="44.6045" x="1097" y="657.8545">Stores</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="1141.6045" y="657.8545">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="26.3389" x="1146.0547" y="657.8545">and</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="1172.3936" y="657.8545">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57.0049" x="1176.8438" y="657.8545">displays</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="1233.8486" y="657.8545">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38.9238" x="1238.2988" y="657.8545">items</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66.4795" x="1119.6953" y="674.1514">borrowed</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="1186.1748" y="674.1514">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="17.1719" x="1190.625" y="674.1514">by</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="1207.7969" y="674.1514">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="42.2803" x="1212.2471" y="674.1514">users.</text>
+            </a>
+           </g><!--entity MailProvider-->
+           <g id="elem_MailProvider">
+            <a href="mail-provider/context/" target="_self" title="mail-provider/context/" xlink:actuate="onRequest" xlink:href="mail-provider/context/" xlink:show="new" xlink:title="mail-provider/context/" xlink:type="simple">
+             <rect fill="#E67E22" height="99.1563" rx="2.5" ry="2.5" style="stroke:#A15817;stroke-width:0.5;" width="216.8613" x="1233.5" y="813.2969" />
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="37.6875" x="1281.9424" y="838.1484">Mail</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="5.5703" x="1319.6299" y="838.1484">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="76.7188" x="1325.2002" y="838.1484">Provider</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="48.3789" x="1295.5562" y="851.2041">[Software</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="1343.9351" y="851.2041">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.1914" x="1347.1138" y="851.2041">System]</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="1339.7056" y="866.5576">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="58.3311" x="1243.5" y="882.8545">External</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="1301.8311" y="882.8545">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50.6133" x="1306.2813" y="882.8545">system</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="1356.8945" y="882.8545">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="19.25" x="1361.3447" y="882.8545">for</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="1380.5947" y="882.8545">&nbsp;</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="55.3164" x="1385.0449" y="882.8545">sending</text>
+             <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50.3535" x="1316.7539" y="899.1514">emails.</text>
+            </a>
+           </g><!--link Reader to Accounts-->
+           <g id="link_Reader_Accounts">
+            <path d="M867.83,280.5869 C833.38,316.2869 799.2169,351.6798 770.0869,381.8598 " fill="none" id="Reader-to-Accounts" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+            <polygon fill="#2980B9" points="765.92,386.1769,775.0484,382.4792,769.3924,382.5793,769.2923,376.9233,765.92,386.1769" style="stroke:#2980B9;stroke-width:2.0;" />
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.9316" x="816" y="341.5791">Manages</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="860.9316" y="341.5791">&nbsp;</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="23.3008" x="864.1104" y="341.5791">their</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="43.0176" x="830.1968" y="353.2197">account.</text>
+           </g><!--link Reader to Shelf-->
+           <g id="link_Reader_Shelf">
+            <path d="M1057.22,238.2669 C1115.35,270.7969 1182.79,320.1769 1216,386.2969 C1248.23,450.4569 1229.3188,529.5812 1210.0888,582.2212 " fill="none" id="Reader-to-Shelf" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+            <polygon fill="#2980B9" points="1208.03,587.8569,1214.8753,580.7758,1209.7457,583.1604,1207.361,578.0308,1208.03,587.8569" style="stroke:#2980B9;stroke-width:2.0;" />
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.9316" x="1233" y="433.5791">Manages</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="1277.9316" y="433.5791">&nbsp;</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="47.4854" x="1281.1104" y="433.5791">borrowed</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="30.9814" x="1265.3071" y="445.2197">items.</text>
+           </g><!--link Reader to Products-->
+           <g id="link_Reader_Products">
+            <path d="M850.9,214.7669 C670.49,256.7169 312.72,344.0869 272,386.2969 C222,438.1269 210.5248,517.6397 208.7848,574.0997 " fill="none" id="Reader-to-Products" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+            <polygon fill="#2980B9" points="208.6,580.0969,212.8753,571.2244,208.754,575.0992,204.8791,570.9779,208.6,580.0969" style="stroke:#2980B9;stroke-width:2.0;" />
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="29.1602" x="273" y="433.5791">Views</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="302.1602" y="433.5791">&nbsp;</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="45.1367" x="305.3389" y="433.5791">available</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="30.9814" x="296.2471" y="445.2197">items.</text>
+           </g><!--link Reader to Cart-->
+           <g id="link_Reader_Cart">
+            <path d="M954,280.5869 C954,316.2869 954,349.9969 954,380.1769 " fill="none" id="Reader-to-Cart" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+            <polygon fill="#2980B9" points="954,386.1769,958,377.1769,954,381.1769,950,377.1769,954,386.1769" style="stroke:#2980B9;stroke-width:2.0;" />
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="40.4736" x="955" y="341.5791">Handles</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="995.4736" y="341.5791">&nbsp;</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="29.4287" x="998.6523" y="341.5791">rental</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.8262" x="970.6274" y="353.2197">process.</text>
+           </g><!--link Reader to Recommendations-->
+           <g id="link_Reader_Recommendations">
+            <path d="M1041.67,280.5569 C1105.05,356.2669 1170.19,465.7269 1112,550.2969 C1095.99,573.5769 1040.1713,594.5574 985.3313,610.8574 " fill="none" id="Reader-to-Recommendations" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+            <polygon fill="#2980B9" points="979.58,612.5669,989.3466,613.8369,984.3728,611.1423,987.0674,606.1685,979.58,612.5669" style="stroke:#2980B9;stroke-width:2.0;" />
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="29.1602" x="1156.77" y="428.0791">Views</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="72.7002" x="1135" y="439.7197">recommended</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="30.9814" x="1155.8594" y="451.3604">items.</text>
+           </g><!--link Reader to Finance-->
+           <g id="link_Reader_Finance">
+            <path d="M850.58,208.0969 C751.91,230.2169 608.59,279.6369 541,386.2969 C503.67,445.2069 527.8187,521.0498 553.9487,574.8498 " fill="none" id="Reader-to-Finance" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+            <polygon fill="#2980B9" points="556.57,580.2469,556.2361,570.4037,554.3856,575.7493,549.04,573.8988,556.57,580.2469" style="stroke:#2980B9;stroke-width:2.0;" />
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.9316" x="546.0015" y="433.5791">Manages</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="52.9346" x="542" y="445.2197">payments.</text>
+           </g><!--link Cart to Finance-->
+           <g id="link_Cart_Finance">
+            <path d="M866.22,485.3069 C848.56,495.1669 830.16,505.5169 813,515.2969 C786.18,530.5869 779.99,535.3169 753,550.2969 C733.16,561.3069 717.1094,570.0033 696.5794,580.9033 " fill="none" id="Cart-to-Finance" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+            <polygon fill="#2980B9" points="691.28,583.7169,701.1048,583.0294,695.6962,581.3722,697.3534,575.9635,691.28,583.7169" style="stroke:#2980B9;stroke-width:2.0;" />
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="49.6924" x="815.6211" y="530.5791">Processes</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="52.9346" x="814" y="542.2197">payments.</text>
+           </g><!--link Administrator to Accounts-->
+           <g id="link_Administrator_Accounts">
+            <path d="M464.58,262.7069 C523.29,302.4269 589.8601,347.4454 642.1101,382.7854 " fill="none" id="Administrator-to-Accounts" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+            <polygon fill="#2980B9" points="647.08,386.1469,641.8661,377.7913,642.9384,383.3456,637.3841,384.4179,647.08,386.1469" style="stroke:#2980B9;stroke-width:2.0;" />
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="46.7773" x="603" y="341.5791">Oversees</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="649.7773" y="341.5791">&nbsp;</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="21.8115" x="652.9561" y="341.5791">user</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="48.2275" x="614.77" y="353.2197">accounts.</text>
+           </g><!--link Administrator to Products-->
+           <g id="link_Administrator_Products">
+            <path d="M253.28,236.0169 C192.07,268.0969 120.32,317.7969 85,386.2969 C64.83,425.4069 70.12,443.8869 85,485.2969 C97.74,520.7569 118.6821,549.435 143.0221,575.585 " fill="none" id="Administrator-to-Products" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+            <polygon fill="#2980B9" points="147.11,579.9769,143.9061,570.6637,143.7034,576.3169,138.0502,576.1143,147.11,579.9769" style="stroke:#2980B9;stroke-width:2.0;" />
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.9316" x="86" y="433.5791">Manages</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="130.9316" y="433.5791">&nbsp;</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="32.1729" x="134.1104" y="433.5791">library</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="30.9814" x="110.6509" y="445.2197">items.</text>
+           </g><!--link Administrator to Finance-->
+           <g id="link_Administrator_Finance">
+            <path d="M352.56,301.3069 C353.23,358.4269 360.54,428.0469 386,485.2969 C405.88,529.9969 441.7159,561.3029 481.6559,585.9829 " fill="none" id="Administrator-to-Finance" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+            <polygon fill="#2980B9" points="486.76,589.1369,481.2064,581.0031,482.5065,586.5085,477.0011,587.8087,486.76,589.1369" style="stroke:#2980B9;stroke-width:2.0;" />
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="46.7773" x="387" y="433.5791">Oversees</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="433.7773" y="433.5791">&nbsp;</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="42.2852" x="436.9561" y="433.5791">financial</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="64.8779" x="400.6816" y="445.2197">transactions.</text>
+           </g><!--link MailProvider to Reader-->
+           <g id="link_MailProvider_Reader">
+            <path d="M1356.79,813.1169 C1381.49,721.6369 1420.66,521.1769 1337,386.2969 C1276.04,288.0169 1154.2803,238.8291 1063.1303,214.0791 " fill="none" id="MailProvider-to-Reader" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+            <polygon fill="#2980B9" points="1057.34,212.5069,1064.9773,218.7255,1062.1653,213.8171,1067.0737,211.005,1057.34,212.5069" style="stroke:#2980B9;stroke-width:2.0;" />
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="30.3955" x="1386" y="536.5791">Sends</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="1416.3955" y="536.5791">&nbsp;</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="43.9697" x="1419.5742" y="536.5791">invoices.</text>
+           </g><!--link Accounts to Recommendations-->
+           <g id="link_Accounts_Recommendations">
+            <path d="M665.79,485.4169 C649.75,505.9369 639.75,529.7769 654,550.2969 C662.61,562.6969 725.9497,585.6744 786.4997,605.5644 " fill="none" id="Accounts-to-Recommendations" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+            <polygon fill="#2980B9" points="792.2,607.4369,784.8978,600.8279,787.4497,605.8765,782.4012,608.4284,792.2,607.4369" style="stroke:#2980B9;stroke-width:2.0;" />
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.4258" x="681.2231" y="525.5791">Updates</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="93.8721" x="655" y="537.2197">recommendations.</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="8" lengthAdjust="spacing" textLength="28.7422" x="687.5649" y="547.0039">[Kafka]</text>
+           </g><!--link Cart to Recommendations-->
+           <g id="link_Cart_Recommendations">
+            <path d="M900.53,485.3969 C893.37,494.5769 887.09,504.6669 883,515.2969 C874.2,538.1369 873.3593,559.2601 875.7693,582.0601 " fill="none" id="Cart-to-Recommendations" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+            <polygon fill="#2980B9" points="876.4,588.0269,879.4318,578.6563,875.8744,583.0546,871.4761,579.4972,876.4,588.0269" style="stroke:#2980B9;stroke-width:2.0;" />
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.4258" x="910.2231" y="525.5791">Updates</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="93.8721" x="884" y="537.2197">recommendations.</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="8" lengthAdjust="spacing" textLength="28.7422" x="916.5649" y="547.0039">[Kafka]</text>
+           </g><!--link Cart to Shelf-->
+           <g id="link_Cart_Shelf">
+            <path d="M1010.7,485.4669 C1047.07,516.6869 1089.557,553.1591 1125.897,584.3491 " fill="none" id="Cart-to-Shelf" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+            <polygon fill="#2980B9" points="1130.45,588.2569,1126.2257,579.3599,1126.6559,585.0004,1121.0154,585.4306,1130.45,588.2569" style="stroke:#2980B9;stroke-width:2.0;" />
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="37.959" x="1085" y="525.5791">Notifies</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="1122.959" y="525.5791">&nbsp;</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="47.4854" x="1126.1377" y="525.5791">borrowed</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="30.9814" x="1113.8208" y="537.2197">items.</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="8" lengthAdjust="spacing" textLength="28.7422" x="1114.9404" y="547.0039">[Kafka]</text>
+           </g><!--link Cart to Products-->
+           <g id="link_Cart_Products">
+            <path d="M860.85,479.8469 C854.87,481.8769 848.89,483.7169 843,485.2969 C727.66,516.2169 692.63,489.6769 576,515.2969 C479.87,536.4069 379.0736,571.2185 305.8836,598.8385 " fill="none" id="Cart-to-Products" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+            <polygon fill="#2980B9" points="300.27,600.9569,310.1027,601.5216,304.948,599.1915,307.2781,594.0369,300.27,600.9569" style="stroke:#2980B9;stroke-width:2.0;" />
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="35.9717" x="577" y="525.5791">Checks</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="612.9717" y="525.5791">&nbsp;</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="22.5928" x="616.1504" y="525.5791">item</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="57.5586" x="579.0923" y="537.2197">availability.</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="8" lengthAdjust="spacing" textLength="31.9336" x="591.9048" y="547.0039">[HTTPS]</text>
+           </g><!--link Finance to MailProvider-->
+           <g id="link_Finance_MailProvider">
+            <path d="M691.14,686.5369 C718.07,698.1469 747.35,709.9069 775,719.2969 C931.42,772.4069 1112.2501,814.3441 1227.5001,838.7441 " fill="none" id="Finance-to-MailProvider" style="stroke:#2980B9;stroke-width:2.0;stroke-dasharray:7.0,7.0;" />
+            <polygon fill="#2980B9" points="1233.37,839.9869,1225.3937,834.2095,1228.4784,838.9513,1223.7367,842.036,1233.37,839.9869" style="stroke:#2980B9;stroke-width:2.0;" />
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="30.3955" x="913" y="737.5791">Sends</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="943.3955" y="737.5791">&nbsp;</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="40.791" x="946.5742" y="737.5791">invoices</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="3.1787" x="987.3652" y="737.5791">&nbsp;</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="10.0391" x="990.5439" y="737.5791">to</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="41.3916" x="936.0957" y="749.2197">readers.</text>
+            <text fill="#2980B9" font-family="sans-serif" font-size="8" lengthAdjust="spacing" textLength="27.9336" x="942.8247" y="759.0039">[SMTP]</text>
+           </g>
+          </g>
+         </svg>
+        </div>
+        <div class="has-text-centered">
+         System Landscape Diagram [<a href="svg/SystemLandscape.svg" target="_blank">svg</a>|<a href="png/SystemLandscape.png" target="_blank">png</a>|<a href="puml/SystemLandscape.puml" target="_blank">puml</a>]
+        </div>
+       </div>
+      </div>
+      <button class="modal-close is-large" aria-label="close" onclick="closeModal('SystemLandscape-modal')"></button>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div></div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="../admonition.js"></script>
+    <script type="text/javascript" src="../reformat-mermaid.js"></script>
+    <script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.3.0/dist/mermaid.esm.min.mjs';</script>
+    <script type="text/javascript" src="../treeview.js"></script>
+    <script type="text/javascript">listree();</script>
+    <script type="text/javascript" src="../katex-render.js"></script>
+  </body>
+</html>

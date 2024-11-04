@@ -1,0 +1,49 @@
+@startuml
+set separator none
+title Shelf - Dynamic
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam sequenceParticipant<<Reader>> {
+  BackgroundColor #28b463
+  FontColor #ffffff
+  BorderColor #1c7d45
+  shadowing false
+}
+skinparam sequenceParticipant<<Shelf.ShelfDatabase>> {
+  BackgroundColor #8e44ad
+  FontColor #ffffff
+  BorderColor #632f79
+  shadowing false
+}
+skinparam sequenceParticipant<<Shelf.ShelfMicroservice>> {
+  BackgroundColor #27ae60
+  FontColor #ffffff
+  BorderColor #1b7943
+  shadowing false
+}
+skinparam sequenceParticipant<<Shelf.ShelfSPA>> {
+  BackgroundColor #27ae60
+  FontColor #ffffff
+  BorderColor #1b7943
+  shadowing false
+}
+
+actor "Reader\n<size:10>[Person]</size>" as Reader <<Reader>> #28b463
+participant "Shelf SPA\n<size:10>[Container: React Component]</size>" as Shelf.ShelfSPA <<Shelf.ShelfSPA>> #27ae60
+participant "Shelf Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Shelf.ShelfMicroservice <<Shelf.ShelfMicroservice>> #27ae60
+database "Shelf Database\n<size:10>[Container: MongoDB]</size>" as Shelf.ShelfDatabase <<Shelf.ShelfDatabase>> #8e44ad
+Reader -[#2980b9]> Shelf.ShelfSPA : Requests borrowed items view
+Shelf.ShelfSPA -[#2980b9]> Shelf.ShelfMicroservice : Fetches borrowed items
+Shelf.ShelfMicroservice -[#2980b9]> Shelf.ShelfDatabase : Retrieves borrowed items data
+Shelf.ShelfMicroservice <-[#2980b9]- Shelf.ShelfDatabase : Returns borrowed items data
+Shelf.ShelfSPA <-[#2980b9]- Shelf.ShelfMicroservice : Returns borrowed items to UI
+Reader <-[#2980b9]- Shelf.ShelfSPA : Displays borrowed items view
+@enduml

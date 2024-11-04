@@ -1,0 +1,67 @@
+@startuml
+set separator none
+title Finance - Dynamic
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam sequenceParticipant<<Cart.CartDatabase>> {
+  BackgroundColor #8e44ad
+  FontColor #ffffff
+  BorderColor #632f79
+  shadowing false
+}
+skinparam sequenceParticipant<<Cart.CartMicroservice>> {
+  BackgroundColor #27ae60
+  FontColor #ffffff
+  BorderColor #1b7943
+  shadowing false
+}
+skinparam sequenceParticipant<<Finance.FinanceDatabase>> {
+  BackgroundColor #8e44ad
+  FontColor #ffffff
+  BorderColor #632f79
+  shadowing false
+}
+skinparam sequenceParticipant<<Finance.FinanceMicroservice>> {
+  BackgroundColor #27ae60
+  FontColor #ffffff
+  BorderColor #1b7943
+  shadowing false
+}
+skinparam sequenceParticipant<<Finance.FinanceSPA>> {
+  BackgroundColor #27ae60
+  FontColor #ffffff
+  BorderColor #1b7943
+  shadowing false
+}
+skinparam sequenceParticipant<<Reader>> {
+  BackgroundColor #28b463
+  FontColor #ffffff
+  BorderColor #1c7d45
+  shadowing false
+}
+
+actor "Reader\n<size:10>[Person]</size>" as Reader <<Reader>> #28b463
+participant "Finance SPA\n<size:10>[Container: React Component]</size>" as Finance.FinanceSPA <<Finance.FinanceSPA>> #27ae60
+participant "Finance Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Finance.FinanceMicroservice <<Finance.FinanceMicroservice>> #27ae60
+database "Finance Database\n<size:10>[Container: PostgreSQL]</size>" as Finance.FinanceDatabase <<Finance.FinanceDatabase>> #8e44ad
+participant "Cart Microservice\n<size:10>[Container: Java and Spring Boot]</size>" as Cart.CartMicroservice <<Cart.CartMicroservice>> #27ae60
+database "Cart Database\n<size:10>[Container: MongoDB]</size>" as Cart.CartDatabase <<Cart.CartDatabase>> #8e44ad
+Reader -[#2980b9]> Finance.FinanceSPA : Initiates payment
+Finance.FinanceSPA -[#2980b9]> Finance.FinanceMicroservice : Processes payment request
+Finance.FinanceMicroservice -[#2980b9]> Finance.FinanceDatabase : Stores payment details
+Finance.FinanceMicroservice <-[#2980b9]- Finance.FinanceDatabase : Confirms payment storage
+Cart.CartMicroservice <-[#2980b9]- Finance.FinanceMicroservice : Notifies cart as paid
+Cart.CartMicroservice -[#2980b9]> Finance.FinanceMicroservice : Acknowledges payment notification
+Finance.FinanceSPA <-[#2980b9]- Finance.FinanceMicroservice : Returns payment status
+Cart.CartMicroservice -[#2980b9]> Cart.CartDatabase : Updates cart to paid status
+Cart.CartMicroservice <-[#2980b9]- Cart.CartDatabase : Confirms update
+Reader <-[#2980b9]- Finance.FinanceSPA : Displays payment confirmation
+@enduml
