@@ -2,53 +2,57 @@ workspace "E-Library System" "E-Library System" {
     !docs workspace-docs
 
     model {
-        reader = person "Reader" "A user of the E-Library System who interacts with available resources."
-        administrator = person "Administrator" "An admin responsible for adding items to the library, managing user accounts, and handling financial transactions."
+        group "E-Library System" {
+            reader = person "Reader" "A user of the E-Library System who interacts with available resources."
+            administrator = person "Administrator" "An admin responsible for adding items to the library, managing user accounts, and handling financial transactions."
 
-        accounts = softwareSystem "Accounts" "Enables users to create, view, and update accounts." {
-            accountsSpa = container "Accounts SPA" "Provides account management functionality through the user interface." "React Component"
-            accountMicroservice = container "Accounts Microservice" "API for account management functionality." "Java and Spring Boot"
-            accountDatabase = container "Accounts Database" "Holds user account data." "MongoDB" "Database"
-            !docs accounts/docs
+            accounts = softwareSystem "Accounts" "Enables users to create, view, and update accounts." {
+                accountsSpa = container "Accounts SPA" "Provides account management functionality through the user interface." "React Component"
+                accountMicroservice = container "Accounts Microservice" "API for account management functionality." "Java and Spring Boot"
+                accountDatabase = container "Accounts Database" "Holds user account data." "MongoDB" "Database"
+                !docs accounts/docs
+            }
+
+            shelf = softwareSystem "Shelf" "Stores and displays items borrowed by users." {
+                shelfSpa = container "Shelf SPA" "Interface for managing borrowed items." "React Component"
+                shelfMicroservice = container "Shelf Microservice" "API for shelf operations." "Java and Spring Boot"
+                shelfDatabase = container "Shelf Database" "Stores borrowed items data." "MongoDB" "Database"
+                !docs shelf/docs
+            }
+
+            products = softwareSystem "Products" "Maintains and displays items available in the library." {
+                productsSpa = container "Products SPA" "Interface for viewing and managing library items." "React Component"
+                productsMicroservice = container "Products Microservice" "API for managing library items." "Java and Spring Boot"
+                productsDatabase = container "Products Database" "Stores library items." "MongoDB" "Database"
+                !docs products/docs
+            }
+
+            cart = softwareSystem "Cart" "Handles the item rental process." {
+                cartSpa = container "Cart SPA" "Interface for managing cart items." "React Component"
+                cartMicroservice = container "Cart Microservice" "API for cart operations." "Java and Spring Boot"
+                cartDatabase = container "Cart Database" "Stores items currently in the cart." "MongoDB" "Database"
+                !docs cart/docs
+            }
+
+            recommendations = softwareSystem "Recommendations" "Provides recommended items for users." {
+                recommendationsSpa = container "Recommendations SPA" "Interface for viewing recommendations." "React Component"
+                recommendationMicroservice = container "Recommendations Microservice" "API for recommendation functionality." "Java and Spring Boot"
+                recommendationDatabase = container "Recommendations Database" "Stores recommended items." "MongoDB" "Database"
+                !docs recommendations/docs
+            }
+
+            finance = softwareSystem "Finance" "Manages financial transactions and payment processing." {
+                financeSpa = container "Finance SPA" "Interface for financial management." "React Component"
+                financeMicroservice = container "Finance Microservice" "API for finance operations." "Java and Spring Boot"
+                financeDatabase = container "Finance Database" "Holds financial transaction data." "PostgreSQL" "Database"
+                !docs finance/docs
+            }
         }
 
-        shelf = softwareSystem "Shelf" "Stores and displays items borrowed by users." {
-            shelfSpa = container "Shelf SPA" "Interface for managing borrowed items." "React Component"
-            shelfMicroservice = container "Shelf Microservice" "API for shelf operations." "Java and Spring Boot"
-            shelfDatabase = container "Shelf Database" "Stores borrowed items data." "MongoDB" "Database"
-            !docs shelf/docs
-        }
-
-        products = softwareSystem "Products" "Maintains and displays items available in the library." {
-            productsSpa = container "Products SPA" "Interface for viewing and managing library items." "React Component"
-            productsMicroservice = container "Products Microservice" "API for managing library items." "Java and Spring Boot"
-            productsDatabase = container "Products Database" "Stores library items." "MongoDB" "Database"
-            !docs products/docs
-        }
-
-        cart = softwareSystem "Cart" "Handles the item rental process." {
-            cartSpa = container "Cart SPA" "Interface for managing cart items." "React Component"
-            cartMicroservice = container "Cart Microservice" "API for cart operations." "Java and Spring Boot"
-            cartDatabase = container "Cart Database" "Stores items currently in the cart." "MongoDB" "Database"
-            !docs cart/docs
-        }
-
-        recommendations = softwareSystem "Recommendations" "Provides recommended items for users." {
-            recommendationsSpa = container "Recommendations SPA" "Interface for viewing recommendations." "React Component"
-            recommendationMicroservice = container "Recommendations Microservice" "API for recommendation functionality." "Java and Spring Boot"
-            recommendationDatabase = container "Recommendations Database" "Stores recommended items." "MongoDB" "Database"
-            !docs recommendations/docs
-        }
-
-        finance = softwareSystem "Finance" "Manages financial transactions and payment processing." {
-            financeSpa = container "Finance SPA" "Interface for financial management." "React Component"
-            financeMicroservice = container "Finance Microservice" "API for finance operations." "Java and Spring Boot"
-            financeDatabase = container "Finance Database" "Holds financial transaction data." "PostgreSQL" "Database"
-            !docs finance/docs
-        }
-
-        mail = softwareSystem "Mail Provider" "External system for sending emails." "External System" {
-            !docs mail-provider/docs
+        group "External" {
+            mail = softwareSystem "Mail Provider" "External system for sending emails." "External System" {
+                !docs mail-provider/docs
+            }
         }
 
         // Define system relationships
@@ -106,7 +110,7 @@ workspace "E-Library System" "E-Library System" {
     }
     views {
         properties {
-            "generatr.style.colors.primary" "#009688"
+            "generatr.style.colors.primary" "#2980B9"
             "generatr.style.colors.secondary" "#ffffff"
             "generatr.style.faviconPath" "site/logo.png"
             "generatr.style.logoPath" "site/logo.png"
@@ -382,42 +386,42 @@ workspace "E-Library System" "E-Library System" {
 
         styles {
             element "Person" {
-                color #ffffff
-                background #00796B
+                color #FFFFFF
+                background #28B463
                 fontSize 22
                 shape Person
             }
             element "Software System" {
-                background #009688
-                color #ffffff
+                background #2980B9
+                color #FFFFFF
             }
             element "External System" {
-                background #4DB6AC
-                color #ffffff
-            }
-            element "Existing System" {
-                background #004D40
-                color #ffffff
+                background #E67E22
+                color #FFFFFF
             }
             element "Container" {
-                background #26A69A
-                color #ffffff
+                background #27AE60
+                color #FFFFFF
             }
             element "Web Browser" {
-                shape WebBrowser
+                background #3498DB
+                color #FFFFFF
             }
             element "Database" {
+                background #8E44AD
+                color #FFFFFF
                 shape Cylinder
             }
             element "Component" {
-                background #80CBC4
-                color #000000
+                background #F39C12
+                color #2C3E50
             }
             element "Failover" {
-                opacity 25
+                background #95A5A6
+                opacity 30
             }
             relationship "Relationship" {
-                color #004D40
+                color #2980B9
                 style dashed
                 routing Orthogonal
             }
